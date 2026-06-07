@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polymarket BTC Agent Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --line:#d9e0ea;
+      --soft-line:#edf1f6;
+      --text:#172033;
+      --muted:#667085;
+      --bg:#f4f6f8;
+      --panel:#ffffff;
+      --panel-soft:#f9fafb;
+      --accent:#2563eb;
+      --bad:#b42318;
+      --good:#047857;
+      --warn:#b7791f;
+      --shadow:0 10px 30px rgba(16,24,40,.07);
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
+    header { padding:18px 24px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); display:flex; justify-content:space-between; gap:16px; align-items:flex-end; position:sticky; top:0; z-index:5; backdrop-filter:saturate(160%) blur(10px); }
+    h1 { margin:0; font-size:21px; line-height:1.2; font-weight:760; }
+    .refresh { text-align:right; line-height:1.5; }
+    main { padding:18px 24px 36px; max-width:1480px; margin:0 auto; }
+    .muted { color:var(--muted); font-size:12px; }
+    .grid { display:grid; gap:12px; grid-template-columns: repeat(6, minmax(132px, 1fr)); }
+    .metric, section, .runner { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
+    .metric { padding:13px 14px; min-height:82px; border-left:3px solid transparent; }
+    .metric b { display:block; font-size:23px; margin-top:7px; line-height:1.05; font-variant-numeric:tabular-nums; }
+    .metric:nth-child(5) { border-left-color:var(--good); }
+    .metric:nth-child(6), .metric:nth-child(7) { border-left-color:var(--accent); }
+    .metric:nth-child(10), .metric:nth-child(11) { border-left-color:var(--warn); }
+    .runner { margin-bottom:14px; padding:16px; display:grid; gap:16px; grid-template-columns: 176px 1fr; align-items:start; }
+    .runner-state { display:inline-flex; align-items:center; gap:8px; font-weight:780; font-size:19px; }
+    .dot { width:12px; height:12px; border-radius:50%; background:var(--bad); display:inline-block; }
+    .dot.good { background:var(--good); box-shadow:0 0 0 4px rgba(4,120,87,.12); }
+    .dot.warn { background:var(--warn); box-shadow:0 0 0 4px rgba(183,121,31,.14); }
+    .runner-details { display:grid; gap:10px; grid-template-columns: repeat(5, minmax(120px, 1fr)); }
+    .runner-details b { display:block; margin-top:3px; font-size:15px; line-height:1.15; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    .runner-log { margin-top:12px; padding:12px; border:1px solid var(--soft-line); border-radius:8px; background:#0f172a; color:#dbeafe; font:12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space:pre; max-height:168px; overflow:auto; box-shadow:inset 0 0 0 1px rgba(255,255,255,.03); }
+    section { margin-top:14px; padding:15px; overflow:auto; }
+    h2 { font-size:15px; margin:0 0 12px; display:flex; align-items:center; gap:8px; }
+    h2::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--accent); display:inline-block; }
+    .sample { margin-top:14px; padding:15px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); display:grid; gap:14px; grid-template-columns: 260px 1fr; align-items:center; }
+    .sample-stage { font-size:18px; font-weight:780; }
+    .sample-track { height:10px; border-radius:999px; background:#e5e7eb; overflow:hidden; }
+    .sample-fill { height:100%; width:0; background:linear-gradient(90deg,#2563eb,#047857); border-radius:inherit; }
+    .sample-scale { margin-top:7px; display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:11px; }
+    table { width:100%; border-collapse:separate; border-spacing:0; font-size:12px; }
+    th, td { padding:8px 9px; border-bottom:1px solid var(--soft-line); text-align:left; vertical-align:top; white-space:nowrap; }
+    th { color:var(--muted); font-weight:680; background:var(--panel-soft); position:sticky; top:0; }
+    tbody tr:hover { background:#f8fafc; }
+    .cols { display:grid; gap:14px; grid-template-columns: 1.2fr .8fr; }
+    .trade-cols { display:grid; gap:14px; grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); align-items:start; }
+    #recent table, #open table { table-layout:fixed; }
+    #recent th:nth-child(1), #recent td:nth-child(1) { width:128px; }
+    #recent th:nth-child(2), #recent td:nth-child(2) { width:72px; }
+    #recent th:nth-child(3), #recent td:nth-child(3) { width:62px; }
+    #recent th:nth-child(4), #recent td:nth-child(4) { width:70px; }
+    #recent th:nth-child(5), #recent td:nth-child(5) { width:84px; }
+    #recent th:nth-child(6), #recent td:nth-child(6) { width:64px; }
+    #recent th:nth-child(7), #recent td:nth-child(7) { width:74px; }
+    #recent th:nth-child(8), #recent td:nth-child(8) { width:84px; }
+    #open th:nth-child(1), #open td:nth-child(1) { width:142px; }
+    #open th:nth-child(2), #open td:nth-child(2) { width:74px; }
+    #open th:nth-child(3), #open td:nth-child(3) { width:82px; }
+    #open th:nth-child(4), #open td:nth-child(4) { width:92px; }
+    #open th:nth-child(5), #open td:nth-child(5) { width:64px; }
+    #open th:nth-child(6), #open td:nth-child(6) { width:60px; }
+    #open th:nth-child(7), #open td:nth-child(7) { width:84px; }
+    #recent td, #open td { overflow:hidden; text-overflow:ellipsis; }
+    .good { color:var(--good); } .bad { color:var(--bad); }
+    .status { display:inline-flex; align-items:center; min-width:54px; justify-content:center; padding:3px 7px; border-radius:999px; font-weight:700; font-size:11px; }
+    .status.win { color:#065f46; background:#dff7ea; }
+    .status.loss { color:#991b1b; background:#fee4e2; }
+    .status.open { color:#92400e; background:#fef0c7; }
+    .market-link { color:#1d4ed8; font-weight:680; text-decoration:none; }
+    .market-link:hover { text-decoration:underline; }
+    .chart-wrap { position:relative; }
+    .legend { position:absolute; top:10px; right:14px; display:flex; gap:14px; color:var(--muted); font-size:12px; background:rgba(255,255,255,.86); padding:5px 7px; border:1px solid var(--soft-line); border-radius:999px; }
+    .legend span { display:inline-flex; align-items:center; gap:6px; }
+    .swatch { width:18px; height:3px; border-radius:2px; display:inline-block; }
+    .swatch.pnl { background:var(--accent); }
+    .swatch.btc { background:#f59e0b; }
+    details.diagnostics { margin-top:14px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); overflow:hidden; }
+    details.diagnostics summary { cursor:pointer; padding:15px; font-weight:760; list-style:none; display:flex; align-items:center; gap:8px; }
+    details.diagnostics summary::-webkit-details-marker { display:none; }
+    details.diagnostics summary::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--warn); display:inline-block; }
+    details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
+    canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
+    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .sample { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>Polymarket BTC Agent Dashboard</h1><div class="muted">public static view over sanitized summary.json</div></div>
+    <div class="muted refresh"><div>auto-refresh: 10s</div><div id="updated"></div></div>
+  </header>
+  <main>
+    <div class="runner" id="runner"></div>
+    <div class="grid" id="metrics"></div>
+    <div class="sample" id="sample-status"></div>
+    <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
+    <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
+    <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
+    <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
+    <div class="trade-cols">
+      <section><h2>Recent 20 Trades</h2><div id="recent"></div></section>
+      <section><h2>OPEN Positions</h2><div id="open"></div></section>
+    </div>
+    <div class="cols">
+      <section><h2>Event Segments</h2><div id="segments"></div></section>
+      <section><h2>signals=1 placed=0 Reasons</h2><div id="reasons"></div></section>
+    </div>
+    <details class="diagnostics"><summary>Diagnostics: API / Execution Errors</summary><div class="content" id="errors"></div></details>
+  </main>
+  <script>
+    const fmt = (v, digits=2) => typeof v === 'number' ? v.toFixed(digits) : (v ?? '');
+    const pct = v => `${fmt((v || 0) * 100, 2)}%`;
+    const money = v => `$${fmt(v || 0, 2)}`;
+    const pnl = v => `<span class="${(v || 0) >= 0 ? 'good' : 'bad'}">${money(v)}</span>`;
+    const status = v => `<span class="status ${v === 'WON' ? 'win' : (v === 'LOST' ? 'loss' : 'open')}">${v || ''}</span>`;
+    const time = v => v ? new Date(v).toLocaleString() : 'n/a';
+    const shortTime = v => v ? new Date(v).toLocaleString([], { month: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : 'n/a';
+    const market = (v, row) => row.market_url ? `<a class="market-link" href="${row.market_url}" target="_blank" rel="noopener noreferrer">${v}</a>` : (v || '');
+    const reason = v => {
+      const descriptions = {
+        duplicate_open_market: 'Same market already has an OPEN position',
+        no_token_id: 'No CLOB token id for this side',
+        orderbook_fetch_failed: 'Could not fetch CLOB order book',
+        no_asks: 'No sell-side liquidity available',
+        below_min_order_size: 'Budget cannot meet Polymarket minimum order size',
+        budget_too_small: 'Budget too small to buy any shares',
+        fee_makes_edge_negative: 'Fee-adjusted price removes the model edge',
+        spread_or_price_unacceptable: 'Ask/spread was not acceptable',
+        unknown_execution_skip: 'Skipped for an uncategorized execution reason'
+      };
+      const key = (v || '').split(':').pop();
+      return key ? `<b>${key}</b><div class="muted">${descriptions[key] || ''}</div>` : '';
+    };
+    function table(rows, cols) {
+      if (!rows.length) return '<div class="muted">No rows</div>';
+      return `<table><thead><tr>${cols.map(c => `<th>${c[0]}</th>`).join('')}</tr></thead><tbody>` +
+        rows.map(r => `<tr>${cols.map(c => `<td>${c[2] ? c[2](r[c[1]], r) : (r[c[1]] ?? '')}</td>`).join('')}</tr>`).join('') +
+        '</tbody></table>';
+    }
+    function drawCurve(points, btcPoints) {
+      const canvas = document.getElementById('curve'), ctx = canvas.getContext('2d');
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.strokeStyle = '#edf1f6'; ctx.lineWidth = 1;
+      for (let i = 0; i < 5; i++) {
+        const y = 25 + i * 48;
+        ctx.beginPath(); ctx.moveTo(64,y); ctx.lineTo(1148,y); ctx.stroke();
+      }
+      ctx.strokeStyle = '#d9e0ea'; ctx.beginPath(); ctx.moveTo(64,20); ctx.lineTo(64,225); ctx.lineTo(1148,225); ctx.lineTo(1148,20); ctx.stroke();
+      if (!points.length && !btcPoints.length) return;
+      const allTimes = [...points.map(p => Date.parse(p.ts)), ...btcPoints.map(p => Date.parse(p.ts))].filter(Number.isFinite);
+      const minTime = Math.min(...allTimes), maxTime = Math.max(...allTimes);
+      const xFor = ts => {
+        const t = Date.parse(ts);
+        if (!Number.isFinite(t) || maxTime === minTime) return 64;
+        return 64 + ((t - minTime) / (maxTime - minTime)) * 1084;
+      };
+      const vals = points.map(p => p.cumulative_pnl), min = Math.min(0, ...vals), max = Math.max(0, ...vals);
+      const span = Math.max(1, max - min);
+      const coords = points.map((p, i) => ({
+        x: xFor(p.ts),
+        y: 225 - ((p.cumulative_pnl - min) / span) * 200
+      }));
+      ctx.fillStyle = '#667085'; ctx.font = '11px system-ui';
+      for (let i = 0; i < 5; i++) {
+        const y = 225 - i * 50;
+        const value = min + (span * i / 4);
+        ctx.fillText(money(value), 8, y + 4);
+      }
+      for (let i = 0; i < 5; i++) {
+        const x = 64 + i * (1084 / 4);
+        const t = new Date(minTime + (maxTime - minTime) * i / 4);
+        ctx.fillText(t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), x - 18, 246);
+        ctx.strokeStyle = '#edf1f6'; ctx.beginPath(); ctx.moveTo(x,225); ctx.lineTo(x,20); ctx.stroke();
+      }
+      if (coords.length) {
+        ctx.beginPath();
+        coords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.lineTo(coords[coords.length - 1].x, 225); ctx.lineTo(coords[0].x, 225); ctx.closePath();
+        const fill = ctx.createLinearGradient(0, 20, 0, 225);
+        fill.addColorStop(0, 'rgba(37,99,235,.18)');
+        fill.addColorStop(1, 'rgba(37,99,235,0)');
+        ctx.fillStyle = fill; ctx.fill();
+        ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5; ctx.beginPath();
+        coords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
+        ctx.stroke();
+        const last = coords[coords.length - 1];
+        ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(last.x,last.y,4,0,Math.PI*2); ctx.fill();
+      }
+      const btcVals = btcPoints.map(p => p.price).filter(v => typeof v === 'number');
+      const btcMin = Math.min(...btcVals), btcMax = Math.max(...btcVals);
+      const btcSpan = Math.max(1, btcMax - btcMin);
+      const btcCoords = btcPoints.map(p => ({ x: xFor(p.ts), y: 225 - ((p.price - btcMin) / btcSpan) * 200 }));
+      ctx.fillStyle = '#92400e'; ctx.font = '11px system-ui';
+      for (let i = 0; i < 5; i++) {
+        const y = 225 - i * 50;
+        const value = btcMin + (btcSpan * i / 4);
+        ctx.fillText(fmt(value, 0), 1158, y + 4);
+      }
+      if (btcCoords.length) {
+        ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2; ctx.beginPath();
+        btcCoords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
+        ctx.stroke();
+      }
+      ctx.fillStyle = '#172033'; ctx.font = '12px system-ui';
+      ctx.fillText('PnL', 8, 16);
+      ctx.fillStyle = '#92400e'; ctx.fillText('BTC', 1158, 16);
+    }
+    function renderRunner(runner) {
+      const stale = runner.stale;
+      const ok = runner.running && !stale;
+      const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
+      const dot = ok ? 'good' : (runner.running ? 'warn' : '');
+      const details = [
+        ['PID', runner.pid || 'n/a'],
+        ['Latest Scan', time(runner.latest_scan), runner.latest_scan || ''],
+        ['Age', runner.latest_scan_age_sec == null ? 'n/a' : `${runner.latest_scan_age_sec}s`],
+        ['Interval', `${runner.expected_interval_sec}s`],
+        ['Log', runner.log_file || 'n/a']
+      ];
+      document.getElementById('runner').innerHTML =
+        `<div><div class="runner-state"><span class="dot ${dot}"></span>${label}</div><div class="muted">background strict dry-run</div></div>` +
+        `<div><div class="runner-details">${details.map(d => `<div><div class="muted">${d[0]}</div><b title="${d[2] || ''}">${d[1]}</b></div>`).join('')}</div>` +
+        `<div class="runner-log" id="runner-log">${(runner.log_tail || []).join('\n')}</div></div>`;
+      const log = document.getElementById('runner-log');
+      if (log) log.scrollTop = log.scrollHeight;
+    }
+    function renderSampleStatus(sample) {
+      const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
+      const next = sample.next_threshold ? `next: ${sample.next_threshold} trades` : 'top tier reached';
+      document.getElementById('sample-status').innerHTML =
+        `<div><div class="muted">Sample-size status</div><div class="sample-stage">${sample.stage}</div><div class="muted">${sample.description}</div></div>` +
+        `<div><div class="sample-track"><div class="sample-fill" style="width:${pctWidth}%"></div></div>` +
+        `<div class="sample-scale"><span>${sample.trades} settled trades</span><span>${next}</span><span>${fmt(pctWidth, 1)}%</span></div></div>`;
+    }
+    function refresh() {
+      fetch('summary.json', { cache: 'no-store' }).then(r => r.json()).then(data => {
+      document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
+      renderRunner(data.runner);
+      renderSampleStatus(data.sample_status);
+      const metrics = [
+        ['Scans', data.total_scans], ['Trades', data.total_trades], ['Settled', data.settled], ['OPEN', data.open_count],
+        ['PnL', money(data.pnl)], ['ROI', pct(data.roi)], ['Win Rate', pct(data.win_rate)], ['Fees', money(data.fees)],
+        ['Slippage', money(data.slippage)], ['Skipped Exec', data.skipped_executions], ['API Errors', data.error_count], ['Last BTC', fmt(data.last_btc, 2)]
+      ];
+      document.getElementById('metrics').innerHTML = metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
+      drawCurve(data.pnl_curve, data.btc_curve);
+      document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
+      document.getElementById('quality-prob').innerHTML = `<div class="muted">By Model Prob</div>` + table(data.trade_quality.probability, [['Bucket','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('quality-other').innerHTML = `<div class="muted">By Outcome / Cost</div>` + table([...data.trade_quality.outcome, ...data.trade_quality.cost], [['Group','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('environment-trend').innerHTML = `<div class="muted">BTC Trend: start to close, chop &lt; 0.05%</div>` + table(data.market_environment.trend, [['Regime','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('environment-volatility').innerHTML = `<div class="muted">BTC Volatility: split by median absolute move</div>` + table(data.market_environment.volatility, [['Regime','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('recent').innerHTML = table(data.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]);
+      document.getElementById('open').innerHTML = table(data.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]);
+      document.getElementById('segments').innerHTML = table(data.event_segments, [['Event','event_type'],['Start','ts', time],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', money],['ROI','roi', pct]]);
+      document.getElementById('reasons').innerHTML = table(data.skip_reasons, [['Reason','reason'],['Count','count']]);
+      document.getElementById('errors').innerHTML = table(data.errors, [['Time','ts', time],['API Error','errors'],['Execution','execution_errors'],['Meaning','execution_reason', reason]]);
+      }).catch(error => {
+        document.getElementById('updated').textContent = `refresh failed: ${error}`;
+      });
+    }
+    refresh();
+    setInterval(refresh, 10000);
+  </script>
+</body>
+</html>
