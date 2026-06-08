@@ -40,13 +40,11 @@
     .metric:nth-child(6), .metric:nth-child(7) { border-left-color:var(--accent); }
     .metric:nth-child(10), .metric:nth-child(11) { border-left-color:var(--warn); }
     .runner { margin-bottom:14px; padding:16px; display:grid; gap:16px; grid-template-columns: 176px 1fr; align-items:start; }
-    .overview-runners { display:grid; gap:12px; grid-template-columns:1fr; }
-    .runner.compact { grid-template-columns: 180px 1fr; margin-bottom:0; }
     .runner-state { display:inline-flex; align-items:center; gap:8px; font-weight:780; font-size:19px; }
     .dot { width:12px; height:12px; border-radius:50%; background:var(--bad); display:inline-block; }
     .dot.good { background:var(--good); box-shadow:0 0 0 4px rgba(4,120,87,.12); }
     .dot.warn { background:var(--warn); box-shadow:0 0 0 4px rgba(183,121,31,.14); }
-    .runner-details { display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); }
+    .runner-details { display:grid; gap:10px; grid-template-columns: repeat(5, minmax(120px, 1fr)); }
     .runner-details b { display:block; margin-top:3px; font-size:15px; line-height:1.15; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
     .runner-log { margin-top:12px; padding:12px; border:1px solid var(--soft-line); border-radius:8px; background:#0f172a; color:#dbeafe; font:12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space:pre; max-height:168px; overflow:auto; box-shadow:inset 0 0 0 1px rgba(255,255,255,.03); }
     section { margin-top:14px; padding:15px; overflow:auto; }
@@ -99,7 +97,7 @@
     details.diagnostics summary::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--warn); display:inline-block; }
     details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
     canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
-    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
+    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .sample { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
   </style>
 </head>
 <body>
@@ -115,7 +113,7 @@
       <button class="tab" data-tab="logs">Logs</button>
     </div>
     <div class="tab-panel active" id="tab-overview">
-      <div class="overview-runners"><div class="runner compact" id="overview-direction-runner"></div><div class="runner compact" id="overview-arb-runner"></div></div>
+      <div class="cols"><div class="runner" id="overview-direction-runner"></div><div class="runner" id="overview-arb-runner"></div></div>
       <div class="grid" id="metrics"></div>
       <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
       <section><h2>Arbitrage Snapshot</h2><div class="grid" id="arb-metrics"></div></section>
@@ -255,7 +253,7 @@
         });
       });
     }
-    function renderRunner(elementId, runner, subtitle, options = {}) {
+    function renderRunner(elementId, runner, subtitle) {
       const stale = runner.stale;
       const ok = runner.running && !stale;
       const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
@@ -269,11 +267,10 @@
       ];
       const el = document.getElementById(elementId);
       if (!el) return;
-      const logHtml = options.showLog === false ? '' : `<div class="runner-log" id="${elementId}-log">${(runner.log_tail || []).join('\n')}</div>`;
       el.innerHTML =
         `<div><div class="runner-state"><span class="dot ${dot}"></span>${label}</div><div class="muted">${subtitle}</div></div>` +
         `<div><div class="runner-details">${details.map(d => `<div><div class="muted">${d[0]}</div><b title="${d[2] || ''}">${d[1]}</b></div>`).join('')}</div>` +
-        `${logHtml}</div>`;
+        `<div class="runner-log" id="${elementId}-log">${(runner.log_tail || []).join('\n')}</div></div>`;
       const log = document.getElementById(`${elementId}-log`);
       if (log) log.scrollTop = log.scrollHeight;
     }
@@ -294,8 +291,8 @@
     function refresh() {
       fetch('summary.json', { cache: 'no-store' }).then(r => r.json()).then(data => {
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
-      renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run', { showLog: false });
-      renderRunner('overview-arb-runner', data.arb_runner, 'arbitrage scanner', { showLog: false });
+      renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run');
+      renderRunner('overview-arb-runner', data.arb_runner, 'arbitrage scanner');
       renderRunner('runner', data.runner, 'direction strict dry-run');
       renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
       renderSampleStatus(data.sample_status);
