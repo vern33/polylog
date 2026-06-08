@@ -106,6 +106,7 @@
     <div class="sample" id="sample-status"></div>
     <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
     <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
+    <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
     <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
     <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
     <div class="trade-cols">
@@ -256,6 +257,7 @@
       document.getElementById('metrics').innerHTML = metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
       drawCurve(data.pnl_curve, data.btc_curve);
       document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
+      document.getElementById('replay-stats').innerHTML = `<div class="muted">Offline replay from opportunities.csv. Candidates and pending include unresolved markets; PnL/ROI use resolved fillable candidates only.</div>` + table(data.replay_stats, [['Strategy','strategy'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable','fillable'],['Up','up_candidates'],['Down','down_candidates'],['Avg Prob','avg_prob'],['Avg Edge','avg_edge'],['Avg Eff Price','avg_effective_price'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('quality-prob').innerHTML = `<div class="muted">By Model Prob</div>` + table(data.trade_quality.probability, [['Bucket','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('quality-other').innerHTML = `<div class="muted">By Outcome / Cost</div>` + table([...data.trade_quality.outcome, ...data.trade_quality.cost], [['Group','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('environment-trend').innerHTML = `<div class="muted">BTC Trend: start to close, chop &lt; 0.05%</div>` + table(data.market_environment.trend, [['Regime','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
