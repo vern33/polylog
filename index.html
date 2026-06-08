@@ -27,6 +27,11 @@
     .refresh { text-align:right; line-height:1.5; }
     main { padding:18px 24px 36px; max-width:1480px; margin:0 auto; }
     .muted { color:var(--muted); font-size:12px; }
+    .tabs { margin-bottom:14px; display:flex; gap:8px; flex-wrap:wrap; }
+    .tab { border:1px solid var(--line); background:var(--panel); color:var(--muted); padding:9px 13px; border-radius:8px; font-weight:720; cursor:pointer; box-shadow:0 4px 14px rgba(16,24,40,.04); }
+    .tab.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
     .grid { display:grid; gap:12px; grid-template-columns: repeat(6, minmax(132px, 1fr)); }
     .metric, section, .runner { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
     .metric { padding:13px 14px; min-height:82px; border-left:3px solid transparent; }
@@ -101,25 +106,45 @@
     <div class="muted refresh"><div>auto-refresh: 10s</div><div id="updated"></div></div>
   </header>
   <main>
-    <div class="runner" id="runner"></div>
-    <div class="grid" id="metrics"></div>
-    <div class="sample" id="sample-status"></div>
-    <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
-    <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
-    <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
-    <section><h2>Arbitrage Replay</h2><div id="arb-replay"></div></section>
-    <section><h2>Recent Arbitrage Opportunities</h2><div id="arb-recent"></div></section>
-    <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
-    <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
-    <div class="trade-cols">
-      <section><h2>Recent 20 Trades</h2><div id="recent"></div></section>
-      <section><h2>OPEN Positions</h2><div id="open"></div></section>
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="direction">Direction Runner</button>
+      <button class="tab" data-tab="arbitrage">Arbitrage Runner</button>
+      <button class="tab" data-tab="logs">Logs</button>
     </div>
-    <div class="cols">
-      <section><h2>Event Segments</h2><div id="segments"></div></section>
-      <section><h2>signals=1 placed=0 Reasons</h2><div id="reasons"></div></section>
+    <div class="tab-panel active" id="tab-overview">
+      <div class="cols"><div class="runner" id="overview-direction-runner"></div><div class="runner" id="overview-arb-runner"></div></div>
+      <div class="grid" id="metrics"></div>
+      <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
+      <section><h2>Arbitrage Snapshot</h2><div class="grid" id="arb-metrics"></div></section>
     </div>
-    <details class="diagnostics"><summary>Diagnostics: API / Execution Errors</summary><div class="content" id="errors"></div></details>
+    <div class="tab-panel" id="tab-direction">
+      <div class="runner" id="runner"></div>
+      <div class="sample" id="sample-status"></div>
+      <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
+      <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
+      <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
+      <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="recent"></div></section>
+        <section><h2>OPEN Positions</h2><div id="open"></div></section>
+      </div>
+      <div class="cols">
+        <section><h2>Event Segments</h2><div id="segments"></div></section>
+        <section><h2>signals=1 placed=0 Reasons</h2><div id="reasons"></div></section>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-arbitrage">
+      <div class="runner" id="arb-runner"></div>
+      <section><h2>Arbitrage Replay</h2><div id="arb-replay"></div></section>
+      <section><h2>Recent Arbitrage Opportunities</h2><div id="arb-recent"></div></section>
+    </div>
+    <div class="tab-panel" id="tab-logs">
+      <section><h2>Direction Runner Log</h2><div class="runner-log" id="direction-log"></div></section>
+      <section><h2>Arbitrage Runner Log</h2><div class="runner-log" id="arb-log"></div></section>
+      <section><h2>Pages Publisher Log</h2><div class="runner-log" id="publisher-log"></div></section>
+      <details class="diagnostics" open><summary>Diagnostics: API / Execution Errors</summary><div class="content" id="errors"></div></details>
+    </div>
   </main>
   <script>
     const fmt = (v, digits=2) => typeof v === 'number' ? v.toFixed(digits) : (v ?? '');
@@ -219,7 +244,16 @@
       ctx.fillText('PnL', 8, 16);
       ctx.fillStyle = '#92400e'; ctx.fillText('BTC', 1158, 16);
     }
-    function renderRunner(runner) {
+    function bindTabs() {
+      document.querySelectorAll('.tab').forEach(button => {
+        button.addEventListener('click', () => {
+          const tab = button.dataset.tab;
+          document.querySelectorAll('.tab').forEach(item => item.classList.toggle('active', item === button));
+          document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel.id === `tab-${tab}`));
+        });
+      });
+    }
+    function renderRunner(elementId, runner, subtitle) {
       const stale = runner.stale;
       const ok = runner.running && !stale;
       const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
@@ -231,12 +265,20 @@
         ['Interval', `${runner.expected_interval_sec}s`],
         ['Log', runner.log_file || 'n/a']
       ];
-      document.getElementById('runner').innerHTML =
-        `<div><div class="runner-state"><span class="dot ${dot}"></span>${label}</div><div class="muted">background strict dry-run</div></div>` +
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.innerHTML =
+        `<div><div class="runner-state"><span class="dot ${dot}"></span>${label}</div><div class="muted">${subtitle}</div></div>` +
         `<div><div class="runner-details">${details.map(d => `<div><div class="muted">${d[0]}</div><b title="${d[2] || ''}">${d[1]}</b></div>`).join('')}</div>` +
-        `<div class="runner-log" id="runner-log">${(runner.log_tail || []).join('\n')}</div></div>`;
-      const log = document.getElementById('runner-log');
+        `<div class="runner-log" id="${elementId}-log">${(runner.log_tail || []).join('\n')}</div></div>`;
+      const log = document.getElementById(`${elementId}-log`);
       if (log) log.scrollTop = log.scrollHeight;
+    }
+    function renderLog(elementId, lines) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.textContent = (lines || []).join('\n');
+      el.scrollTop = el.scrollHeight;
     }
     function renderSampleStatus(sample) {
       const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
@@ -249,7 +291,10 @@
     function refresh() {
       fetch('summary.json', { cache: 'no-store' }).then(r => r.json()).then(data => {
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
-      renderRunner(data.runner);
+      renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run');
+      renderRunner('overview-arb-runner', data.arb_runner, 'arbitrage scanner');
+      renderRunner('runner', data.runner, 'direction strict dry-run');
+      renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
       renderSampleStatus(data.sample_status);
       const metrics = [
         ['Scans', data.total_scans], ['Trades', data.total_trades], ['Settled', data.settled], ['OPEN', data.open_count],
@@ -257,6 +302,11 @@
         ['Slippage', money(data.slippage)], ['Skipped Exec', data.skipped_executions], ['API Errors', data.error_count], ['Last BTC', fmt(data.last_btc, 2)]
       ];
       document.getElementById('metrics').innerHTML = metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
+      const arbMetrics = [
+        ['Arb Opps', data.arb_runner.total_opportunities], ['Fillable', data.arb_runner.fillable], ['Profitable', data.arb_runner.profitable],
+        ['Best YES+NO', fmt(data.arb_runner.best_yes_no_cost, 6)], ['Latest YES+NO', fmt(data.arb_runner.latest_yes_no_cost, 6)], ['Arb Errors', data.arb_runner.error_count]
+      ];
+      document.getElementById('arb-metrics').innerHTML = arbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
       drawCurve(data.pnl_curve, data.btc_curve);
       document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
       document.getElementById('replay-stats').innerHTML = `<div class="muted">Offline replay from opportunities.csv. Candidates and pending include unresolved markets; PnL/ROI use resolved fillable candidates only.</div>` + table(data.replay_stats, [['Strategy','strategy'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable','fillable'],['Up','up_candidates'],['Down','down_candidates'],['Avg Prob','avg_prob'],['Avg Edge','avg_edge'],['Avg Eff Price','avg_effective_price'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
@@ -271,10 +321,14 @@
       document.getElementById('segments').innerHTML = table(data.event_segments, [['Event','event_type'],['Start','ts', time],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', money],['ROI','roi', pct]]);
       document.getElementById('reasons').innerHTML = table(data.skip_reasons, [['Reason','reason'],['Count','count']]);
       document.getElementById('errors').innerHTML = table(data.errors, [['Time','ts', time],['API Error','errors'],['Execution','execution_errors'],['Meaning','execution_reason', reason]]);
+      renderLog('direction-log', data.runner.log_tail);
+      renderLog('arb-log', data.arb_runner.log_tail);
+      renderLog('publisher-log', data.publisher.log_tail);
       }).catch(error => {
         document.getElementById('updated').textContent = `refresh failed: ${error}`;
       });
     }
+    bindTabs();
     refresh();
     setInterval(refresh, 10000);
   </script>
