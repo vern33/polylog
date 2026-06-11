@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-arb-micro-v1">
+<html lang="en" data-dashboard-version="2026-06-12-arb-overview-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,6 +46,16 @@
     .overview-section { display:grid; gap:14px; }
     .overview-separator { margin:18px 0 4px; border-top:1px solid var(--line); }
     .section-label { color:var(--muted); font-size:12px; font-weight:760; text-transform:uppercase; letter-spacing:.02em; }
+    .combined-status { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:14px; display:grid; gap:12px; }
+    .status-strip { display:grid; gap:10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .status-line { display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--soft-line); background:var(--panel-soft); border-radius:8px; padding:10px 12px; min-width:0; }
+    .status-line-main { min-width:0; }
+    .status-line-title { display:flex; align-items:center; gap:8px; font-weight:780; }
+    .status-line-meta { margin-top:2px; color:var(--muted); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .status-line-age { color:var(--muted); font-size:12px; text-align:right; white-space:nowrap; }
+    .status-metrics { display:grid; gap:10px; grid-template-columns: repeat(6, minmax(112px, 1fr)); }
+    .mini-metric { border:1px solid var(--soft-line); border-radius:8px; padding:10px 11px; background:#fff; min-height:68px; }
+    .mini-metric b { display:block; margin-top:5px; font-size:18px; line-height:1.1; font-variant-numeric:tabular-nums; }
     .runner.compact { grid-template-columns: 180px 1fr; margin-bottom:0; }
     .runner-state { display:inline-flex; align-items:center; gap:8px; font-weight:780; font-size:19px; }
     .dot { width:12px; height:12px; border-radius:50%; background:var(--bad); display:inline-block; }
@@ -104,7 +114,7 @@
     details.diagnostics summary::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--warn); display:inline-block; }
     details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
     canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
-    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
+    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
   </style>
 </head>
 <body>
@@ -129,9 +139,7 @@
       <div class="overview-separator"></div>
       <div class="overview-section">
         <div class="section-label">Arbitrage</div>
-        <div class="runner compact" id="overview-arb-runner"></div>
-        <div class="runner compact" id="overview-arb-micro-runner"></div>
-        <section><h2>Arbitrage Snapshot</h2><div class="grid" id="arb-metrics"></div></section>
+        <div id="overview-arb-status"></div>
       </div>
     </div>
     <div class="tab-panel" id="tab-direction">
@@ -306,6 +314,28 @@
       el.textContent = (lines || []).join('\n');
       el.scrollTop = el.scrollHeight;
     }
+    function runnerLine(runner, title, subtitle) {
+      const stale = runner.stale;
+      const ok = runner.running && !stale;
+      const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
+      const dot = ok ? 'good' : (runner.running ? 'warn' : '');
+      return `<div class="status-line"><div class="status-line-main"><div class="status-line-title"><span class="dot ${dot}"></span>${title} <span class="muted">${label}</span></div><div class="status-line-meta">${subtitle}</div></div><div class="status-line-age">latest<br><b>${runner.latest_scan_age_sec == null ? 'n/a' : `${runner.latest_scan_age_sec}s`}</b></div></div>`;
+    }
+    function renderArbOverview(data) {
+      const items = [
+        ['Arb Opps', data.arb_runner.total_opportunities],
+        ['Profitable', data.arb_runner.profitable],
+        ['Best YES+NO', fmt(data.arb_runner.best_yes_no_cost, 6)],
+        ['Micro Attempts', data.arb_micro_runner.total_attempts],
+        ['Would Execute', data.arb_micro_runner.would_execute],
+        ['Best Confirm', fmt(data.arb_micro_runner.best_confirm_yes_no_cost, 6)]
+      ];
+      document.getElementById('overview-arb-status').innerHTML =
+        `<section><h2>Arbitrage Status</h2><div class="combined-status">` +
+        `<div class="status-strip">${runnerLine(data.arb_runner, 'Scanner', 'records all two-sided orderbook opportunities')}${runnerLine(data.arb_micro_runner, 'Micro Dry-Run', 'confirms whether an opportunity would survive pre-order re-quote')}</div>` +
+        `<div class="status-metrics">${items.map(m => `<div class="mini-metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('')}</div>` +
+        `</div></section>`;
+    }
     function renderSampleStatus(sample) {
       const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
       const next = sample.next_threshold ? `next: ${sample.next_threshold} trades` : 'top tier reached';
@@ -323,8 +353,7 @@
       }
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
       renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run', { showLog: false });
-      renderRunner('overview-arb-runner', data.arb_runner, 'arbitrage scanner', { showLog: false });
-      renderRunner('overview-arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run', { showLog: false });
+      renderArbOverview(data);
       renderRunner('runner', data.runner, 'direction strict dry-run');
       renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
       renderRunner('arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run');
