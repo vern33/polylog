@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-runner-layout-v2">
+<html lang="en" data-dashboard-version="2026-06-12-overview-sections-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +43,9 @@
     .metric:nth-child(6), .metric:nth-child(7) { border-left-color:var(--accent); }
     .metric:nth-child(10), .metric:nth-child(11) { border-left-color:var(--warn); }
     .runner { margin-bottom:14px; padding:16px; display:grid; gap:16px; grid-template-columns: 176px 1fr; align-items:start; }
-    .overview-runners { display:grid; gap:12px; grid-template-columns:1fr; }
+    .overview-section { display:grid; gap:14px; }
+    .overview-separator { margin:18px 0 4px; border-top:1px solid var(--line); }
+    .section-label { color:var(--muted); font-size:12px; font-weight:760; text-transform:uppercase; letter-spacing:.02em; }
     .runner.compact { grid-template-columns: 180px 1fr; margin-bottom:0; }
     .runner-state { display:inline-flex; align-items:center; gap:8px; font-weight:780; font-size:19px; }
     .dot { width:12px; height:12px; border-radius:50%; background:var(--bad); display:inline-block; }
@@ -118,10 +120,18 @@
       <button class="tab" data-tab="logs">Logs</button>
     </div>
     <div class="tab-panel active" id="tab-overview">
-      <div class="overview-runners"><div class="runner compact" id="overview-direction-runner"></div><div class="runner compact" id="overview-arb-runner"></div></div>
-      <div class="grid" id="metrics"></div>
-      <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
-      <section><h2>Arbitrage Snapshot</h2><div class="grid" id="arb-metrics"></div></section>
+      <div class="overview-section">
+        <div class="section-label">Direction</div>
+        <div class="runner compact" id="overview-direction-runner"></div>
+        <div class="grid" id="metrics"></div>
+        <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
+      </div>
+      <div class="overview-separator"></div>
+      <div class="overview-section">
+        <div class="section-label">Arbitrage</div>
+        <div class="runner compact" id="overview-arb-runner"></div>
+        <section><h2>Arbitrage Snapshot</h2><div class="grid" id="arb-metrics"></div></section>
+      </div>
     </div>
     <div class="tab-panel" id="tab-direction">
       <div class="runner" id="runner"></div>
@@ -270,12 +280,12 @@
       const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
       const dot = ok ? 'good' : (runner.running ? 'warn' : '');
       const details = [
-        ['PID', runner.pid || 'n/a'],
+        runner.pid ? ['PID', runner.pid, ''] : null,
         ['Latest Scan', time(runner.latest_scan), runner.latest_scan || ''],
         ['Age', runner.latest_scan_age_sec == null ? 'n/a' : `${runner.latest_scan_age_sec}s`],
-        ['Interval', `${runner.expected_interval_sec}s`],
-        ['Log', runner.log_file || 'n/a']
-      ];
+        runner.expected_interval_sec ? ['Interval', `${runner.expected_interval_sec}s`, ''] : null,
+        runner.log_file ? ['Log', runner.log_file, ''] : null
+      ].filter(Boolean);
       const el = document.getElementById(elementId);
       if (!el) return;
       const logHtml = options.showLog === false ? '' : `<div class="runner-log" id="${elementId}-log">${(runner.log_tail || []).join('\n')}</div>`;
