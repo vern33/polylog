@@ -305,15 +305,14 @@
   ],
   "arb_runner": {
     "best_yes_no_cost": 0.822624,
-    "error_count": 898,
+    "error_count": 899,
     "expected_interval_sec": 30,
     "fillable": 1863,
     "latest_scan": "2026-06-11T10:41:38.281853+00:00",
-    "latest_scan_age_sec": 141,
+    "latest_scan_age_sec": 206,
     "latest_yes_no_cost": 1.011466,
     "log_file": "data_strict/arb_runner.log",
     "log_tail": [
-      "{\"ts\": \"2026-06-11T10:35:17.668340+00:00\", \"markets\": 29, \"evaluated\": 1, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-11T10:36:25.211289+00:00\", \"markets\": 31, \"evaluated\": 1, \"fillable\": 1, \"profitable\": 0, \"best_yes_no_cost\": 1.14429, \"settled\": 0}",
       "{\"ts\": \"2026-06-11T10:37:13.461568+00:00\", \"markets\": 31, \"evaluated\": 1, \"fillable\": 1, \"profitable\": 0, \"best_yes_no_cost\": 1.024794, \"settled\": 0}",
       "{\"ts\": \"2026-06-11T10:37:58.861309+00:00\", \"markets\": 31, \"evaluated\": 1, \"fillable\": 1, \"profitable\": 0, \"best_yes_no_cost\": 1.011466, \"settled\": 7}",
@@ -322,7 +321,8 @@
       "{\"ts\": \"2026-06-11T10:40:42.188929+00:00\", \"markets\": 30, \"evaluated\": 0, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-11T10:41:38.281853+00:00\", \"markets\": 31, \"evaluated\": 1, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-11T10:42:38.660446+00:00\", \"markets\": 0, \"evaluated\": 0, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0, \"error\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=100&order=endDate&ascending=true failed: <urlopen error Tunnel connection failed: 503 Service Unavailable>\"}",
-      "{\"ts\": \"2026-06-11T10:43:23.944637+00:00\", \"markets\": 0, \"evaluated\": 0, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0, \"error\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=100&order=endDate&ascending=true failed: <urlopen error Tunnel connection failed: 503 Service Unavailable>\"}"
+      "{\"ts\": \"2026-06-11T10:43:23.944637+00:00\", \"markets\": 0, \"evaluated\": 0, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0, \"error\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=100&order=endDate&ascending=true failed: <urlopen error Tunnel connection failed: 503 Service Unavailable>\"}",
+      "{\"ts\": \"2026-06-11T10:44:09.196196+00:00\", \"markets\": 0, \"evaluated\": 0, \"fillable\": 0, \"profitable\": 0, \"best_yes_no_cost\": 0.0, \"settled\": 0, \"error\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=100&order=endDate&ascending=true failed: <urlopen error Tunnel connection failed: 503 Service Unavailable>\"}"
     ],
     "pid": 51730,
     "pid_file": "data_strict/arb_runner.pid",
@@ -5133,8 +5133,20 @@
       "ts": "2026-06-11T10:40:52.998155+00:00"
     }
   ],
-  "error_count": 4653,
+  "error_count": 4655,
   "errors": [
+    {
+      "errors": "api_error_redacted",
+      "execution_errors": "",
+      "execution_reason": "",
+      "ts": "2026-06-11T10:44:46.876831+00:00"
+    },
+    {
+      "errors": "api_error_redacted",
+      "execution_errors": "",
+      "execution_reason": "",
+      "ts": "2026-06-11T10:44:06.691470+00:00"
+    },
     {
       "errors": "api_error_redacted",
       "execution_errors": "",
@@ -5302,18 +5314,6 @@
       "execution_errors": "",
       "execution_reason": "",
       "ts": "2026-06-11T09:56:31.640148+00:00"
-    },
-    {
-      "errors": "api_error_redacted",
-      "execution_errors": "",
-      "execution_reason": "",
-      "ts": "2026-06-11T09:55:51.567124+00:00"
-    },
-    {
-      "errors": "api_error_redacted",
-      "execution_errors": "",
-      "execution_reason": "",
-      "ts": "2026-06-11T09:55:11.508787+00:00"
     }
   ],
   "event_segments": [
@@ -5368,7 +5368,7 @@
   ],
   "fees": 32.310497,
   "last_btc": 0.0,
-  "latest_scan": "2026-06-11T10:43:26.447295+00:00",
+  "latest_scan": "2026-06-11T10:44:46.876831+00:00",
   "market_environment": {
     "trend": [
       {
@@ -5413,7 +5413,7 @@
   "open_count": 1,
   "open_positions": [
     {
-      "age_min": 9.1,
+      "age_min": 10.2,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-11T10:40:00+00:00",
@@ -5422,7 +5422,7 @@
       "model_prob": 0.7606,
       "opened_at": "2026-06-11T10:34:55.257309+00:00",
       "outcome": "Up",
-      "past_end_min": 4.0,
+      "past_end_min": 5.1,
       "pnl_usd": 0.0,
       "status": "OPEN"
     }
@@ -6649,7 +6649,6 @@
   "publisher": {
     "log_file": "data_strict/pages_publisher.log",
     "log_tail": [
-      "{\"ts\": \"2026-06-11T10:33:09.507104+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 304, \"settled\": 303, \"open\": 1, \"pnl\": 14.6653, \"roi\": 0.01817, \"latest_scan\": \"2026-06-11T10:32:27.621652+00:00\", \"commit_output\": \"[main 8bae6df] Update dashboard data\\n 1 file changed, 1269 insertions(+), 1269 deletions(-)\"}",
       "{\"ts\": \"2026-06-11T10:34:13.251624+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 304, \"settled\": 303, \"open\": 1, \"pnl\": 14.6653, \"roi\": 0.01817, \"latest_scan\": \"2026-06-11T10:33:12.775826+00:00\", \"commit_output\": \"[main 44cb5f4] Update dashboard data\\n 1 file changed, 1318 insertions(+), 1318 deletions(-)\"}",
       "{\"ts\": \"2026-06-11T10:35:20.401546+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 304, \"settled\": 303, \"open\": 1, \"pnl\": 14.6653, \"roi\": 0.01817, \"latest_scan\": \"2026-06-11T10:33:58.418709+00:00\", \"commit_output\": \"[main 5d0dc70] Update dashboard data\\n 1 file changed, 1276 insertions(+), 1276 deletions(-)\"}",
       "{\"ts\": \"2026-06-11T10:36:23.500686+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 305, \"settled\": 303, \"open\": 2, \"pnl\": 14.6653, \"roi\": 0.01817, \"latest_scan\": \"2026-06-11T10:34:55.257309+00:00\", \"commit_output\": \"[main cdfa2df] Update dashboard data\\n 1 file changed, 1293 insertions(+), 1279 deletions(-)\"}",
@@ -6658,14 +6657,15 @@
       "{\"ts\": \"2026-06-11T10:39:41.952140+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 305, \"settled\": 304, \"open\": 1, \"pnl\": 12.1653, \"roi\": 0.015026, \"latest_scan\": \"2026-06-11T10:39:13.440284+00:00\", \"commit_output\": \"[main c689410] Update dashboard data\\n 1 file changed, 84 insertions(+), 84 deletions(-)\"}",
       "{\"ts\": \"2026-06-11T10:40:48.455270+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 305, \"settled\": 304, \"open\": 1, \"pnl\": 12.1653, \"roi\": 0.015026, \"latest_scan\": \"2026-06-11T10:39:44.392240+00:00\", \"commit_output\": \"[main 4e32fca] Update dashboard data\\n 1 file changed, 1257 insertions(+), 1257 deletions(-)\"}",
       "{\"ts\": \"2026-06-11T10:41:53.864394+00:00\", \"status\": \"error\", \"error\": \"Command '['git', 'push']' returned non-zero exit status 128.\"}",
-      "{\"ts\": \"2026-06-11T10:42:59.195381+00:00\", \"status\": \"error\", \"error\": \"Command '['git', 'push']' returned non-zero exit status 128.\"}"
+      "{\"ts\": \"2026-06-11T10:42:59.195381+00:00\", \"status\": \"error\", \"error\": \"Command '['git', 'push']' returned non-zero exit status 128.\"}",
+      "{\"ts\": \"2026-06-11T10:44:04.548377+00:00\", \"status\": \"error\", \"error\": \"Command '['git', 'push']' returned non-zero exit status 128.\"}"
     ],
     "pid": 57086,
     "running": true
   },
   "recent_trades": [
     {
-      "age_min": 9.1,
+      "age_min": 10.2,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-11T10:40:00+00:00",
@@ -6674,12 +6674,12 @@
       "model_prob": 0.7606,
       "opened_at": "2026-06-11T10:34:55.257309+00:00",
       "outcome": "Up",
-      "past_end_min": 4.0,
+      "past_end_min": 5.1,
       "pnl_usd": 0.0,
       "status": "OPEN"
     },
     {
-      "age_min": 20.0,
+      "age_min": 21.1,
       "cost": 2.5,
       "fee": 0.099155,
       "market_end": "2026-06-11T10:30:00+00:00",
@@ -6688,12 +6688,12 @@
       "model_prob": 0.657,
       "opened_at": "2026-06-11T10:23:56.739313+00:00",
       "outcome": "Down",
-      "past_end_min": 14.0,
+      "past_end_min": 15.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 644.1,
+      "age_min": 645.1,
       "cost": 2.5,
       "fee": 0.092682,
       "market_end": "2026-06-11T00:05:00+00:00",
@@ -6702,12 +6702,12 @@
       "model_prob": 0.6647,
       "opened_at": "2026-06-10T23:59:55.730600+00:00",
       "outcome": "Down",
-      "past_end_min": 639.0,
+      "past_end_min": 640.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 647.9,
+      "age_min": 649.0,
       "cost": 2.5,
       "fee": 0.092682,
       "market_end": "2026-06-11T00:00:00+00:00",
@@ -6716,12 +6716,12 @@
       "model_prob": 0.7231,
       "opened_at": "2026-06-10T23:56:02.676189+00:00",
       "outcome": "Up",
-      "past_end_min": 644.0,
+      "past_end_min": 645.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 752.2,
+      "age_min": 753.3,
       "cost": 2.5,
       "fee": 0.103987,
       "market_end": "2026-06-10T22:15:00+00:00",
@@ -6730,12 +6730,12 @@
       "model_prob": 0.7869,
       "opened_at": "2026-06-10T22:11:45.047439+00:00",
       "outcome": "Up",
-      "past_end_min": 749.0,
+      "past_end_min": 750.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 758.9,
+      "age_min": 760.0,
       "cost": 2.5,
       "fee": 0.111997,
       "market_end": "2026-06-10T22:10:00+00:00",
@@ -6744,12 +6744,12 @@
       "model_prob": 0.8226,
       "opened_at": "2026-06-10T22:05:05.809646+00:00",
       "outcome": "Down",
-      "past_end_min": 754.0,
+      "past_end_min": 755.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 763.5,
+      "age_min": 764.5,
       "cost": 2.5,
       "fee": 0.115186,
       "market_end": "2026-06-10T22:05:00+00:00",
@@ -6758,12 +6758,12 @@
       "model_prob": 0.7883,
       "opened_at": "2026-06-10T22:00:31.863962+00:00",
       "outcome": "Up",
-      "past_end_min": 759.0,
+      "past_end_min": 760.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 768.5,
+      "age_min": 769.6,
       "cost": 2.5,
       "fee": 0.099424,
       "market_end": "2026-06-10T22:00:00+00:00",
@@ -6772,12 +6772,12 @@
       "model_prob": 0.9623,
       "opened_at": "2026-06-10T21:55:27.921566+00:00",
       "outcome": "Down",
-      "past_end_min": 764.0,
+      "past_end_min": 765.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 803.7,
+      "age_min": 804.8,
       "cost": 2.5,
       "fee": 0.113593,
       "market_end": "2026-06-10T21:25:00+00:00",
@@ -6786,12 +6786,12 @@
       "model_prob": 0.7915,
       "opened_at": "2026-06-10T21:20:17.737128+00:00",
       "outcome": "Up",
-      "past_end_min": 799.0,
+      "past_end_min": 800.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 822.2,
+      "age_min": 823.3,
       "cost": 2.5,
       "fee": 0.095923,
       "market_end": "2026-06-10T21:05:00+00:00",
@@ -6800,12 +6800,12 @@
       "model_prob": 0.7387,
       "opened_at": "2026-06-10T21:01:47.684682+00:00",
       "outcome": "Up",
-      "past_end_min": 819.0,
+      "past_end_min": 820.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 867.4,
+      "age_min": 868.5,
       "cost": 2.5,
       "fee": 0.111997,
       "market_end": "2026-06-10T20:20:00+00:00",
@@ -6814,12 +6814,12 @@
       "model_prob": 0.6547,
       "opened_at": "2026-06-10T20:16:33.787443+00:00",
       "outcome": "Up",
-      "past_end_min": 864.0,
+      "past_end_min": 865.1,
       "pnl_usd": 4.7364,
       "status": "WON"
     },
     {
-      "age_min": 891.2,
+      "age_min": 892.3,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-10T19:55:00+00:00",
@@ -6828,12 +6828,12 @@
       "model_prob": 0.6959,
       "opened_at": "2026-06-10T19:52:47.990488+00:00",
       "outcome": "Up",
-      "past_end_min": 889.0,
+      "past_end_min": 890.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 923.8,
+      "age_min": 924.9,
       "cost": 2.5,
       "fee": 0.102378,
       "market_end": "2026-06-10T19:25:00+00:00",
@@ -6842,12 +6842,12 @@
       "model_prob": 0.7232,
       "opened_at": "2026-06-10T19:20:09.847135+00:00",
       "outcome": "Down",
-      "past_end_min": 919.0,
+      "past_end_min": 920.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 928.5,
+      "age_min": 929.6,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-10T19:20:00+00:00",
@@ -6856,12 +6856,12 @@
       "model_prob": 0.9539,
       "opened_at": "2026-06-10T19:15:28.346628+00:00",
       "outcome": "Down",
-      "past_end_min": 924.0,
+      "past_end_min": 925.1,
       "pnl_usd": 2.5254,
       "status": "WON"
     },
     {
-      "age_min": 933.7,
+      "age_min": 934.8,
       "cost": 2.5,
       "fee": 0.094303,
       "market_end": "2026-06-10T19:15:00+00:00",
@@ -6870,12 +6870,12 @@
       "model_prob": 0.7616,
       "opened_at": "2026-06-10T19:10:16.991536+00:00",
       "outcome": "Up",
-      "past_end_min": 929.0,
+      "past_end_min": 930.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 947.6,
+      "age_min": 948.7,
       "cost": 2.5,
       "fee": 0.137274,
       "market_end": "2026-06-10T19:00:00+00:00",
@@ -6884,12 +6884,12 @@
       "model_prob": 0.8817,
       "opened_at": "2026-06-10T18:56:21.049981+00:00",
       "outcome": "Up",
-      "past_end_min": 944.0,
+      "past_end_min": 945.1,
       "pnl_usd": 11.3984,
       "status": "WON"
     },
     {
-      "age_min": 958.5,
+      "age_min": 959.6,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-10T18:50:00+00:00",
@@ -6898,12 +6898,12 @@
       "model_prob": 0.7188,
       "opened_at": "2026-06-10T18:45:26.820917+00:00",
       "outcome": "Down",
-      "past_end_min": 954.0,
+      "past_end_min": 955.1,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 964.9,
+      "age_min": 966.0,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-10T18:45:00+00:00",
@@ -6912,12 +6912,12 @@
       "model_prob": 0.8913,
       "opened_at": "2026-06-10T18:39:03.062994+00:00",
       "outcome": "Down",
-      "past_end_min": 959.0,
+      "past_end_min": 960.1,
       "pnl_usd": 2.5254,
       "status": "WON"
     },
     {
-      "age_min": 989.0,
+      "age_min": 990.1,
       "cost": 2.5,
       "fee": 0.105593,
       "market_end": "2026-06-10T18:20:00+00:00",
@@ -6926,12 +6926,12 @@
       "model_prob": 0.7341,
       "opened_at": "2026-06-10T18:15:01.555765+00:00",
       "outcome": "Down",
-      "past_end_min": 984.0,
+      "past_end_min": 985.1,
       "pnl_usd": 3.9714,
       "status": "WON"
     },
     {
-      "age_min": 1002.4,
+      "age_min": 1003.5,
       "cost": 2.5,
       "fee": 0.105593,
       "market_end": "2026-06-10T18:05:00+00:00",
@@ -6940,7 +6940,7 @@
       "model_prob": 0.7342,
       "opened_at": "2026-06-10T18:01:36.247042+00:00",
       "outcome": "Up",
-      "past_end_min": 999.0,
+      "past_end_min": 1000.1,
       "pnl_usd": 3.9714,
       "status": "WON"
     }
@@ -7022,8 +7022,8 @@
   "roi": 0.015026,
   "runner": {
     "expected_interval_sec": 30,
-    "latest_scan": "2026-06-11T10:43:26.447295+00:00",
-    "latest_scan_age_sec": 32,
+    "latest_scan": "2026-06-11T10:44:46.876831+00:00",
+    "latest_scan_age_sec": 17,
     "running": true,
     "stale": false
   },
@@ -7093,7 +7093,7 @@
       "worst_trade": -2.5
     }
   ],
-  "total_scans": 9686,
+  "total_scans": 9688,
   "total_trades": 305,
   "trade_quality": {
     "cost": [
