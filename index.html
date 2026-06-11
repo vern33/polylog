@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-overview-sections-v1">
+<html lang="en" data-dashboard-version="2026-06-12-arb-micro-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -130,6 +130,7 @@
       <div class="overview-section">
         <div class="section-label">Arbitrage</div>
         <div class="runner compact" id="overview-arb-runner"></div>
+        <div class="runner compact" id="overview-arb-micro-runner"></div>
         <section><h2>Arbitrage Snapshot</h2><div class="grid" id="arb-metrics"></div></section>
       </div>
     </div>
@@ -151,8 +152,11 @@
     </div>
     <div class="tab-panel" id="tab-arbitrage">
       <div class="runner" id="arb-runner"></div>
+      <div class="runner" id="arb-micro-runner"></div>
+      <section><h2>Micro-Live Dry-Run</h2><div class="grid" id="arb-micro-metrics"></div><div id="arb-micro-reasons"></div></section>
       <section><h2>Arbitrage Replay</h2><div id="arb-replay"></div></section>
       <section><h2>Recent Arbitrage Opportunities</h2><div id="arb-recent"></div></section>
+      <section><h2>Recent Micro Attempts</h2><div id="arb-micro-recent"></div></section>
     </div>
     <div class="tab-panel" id="tab-logs">
       <section><h2>Direction Runner Log</h2><div class="runner-log" id="direction-log"></div></section>
@@ -320,8 +324,10 @@
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
       renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run', { showLog: false });
       renderRunner('overview-arb-runner', data.arb_runner, 'arbitrage scanner', { showLog: false });
+      renderRunner('overview-arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run', { showLog: false });
       renderRunner('runner', data.runner, 'direction strict dry-run');
       renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
+      renderRunner('arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run');
       renderSampleStatus(data.sample_status);
       const metrics = [
         ['Scans', data.total_scans], ['Trades', data.total_trades], ['Settled', data.settled], ['OPEN', data.open_count],
@@ -336,11 +342,18 @@
         ['Arb Errors', data.arb_runner.error_count]
       ];
       document.getElementById('arb-metrics').innerHTML = arbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
+      const microMetrics = [
+        ['Attempts', data.arb_micro_runner.total_attempts], ['Would Execute', data.arb_micro_runner.would_execute], ['Execute Rate', pct(data.arb_micro_runner.execute_rate)],
+        ['Best Confirm YES+NO', fmt(data.arb_micro_runner.best_confirm_yes_no_cost, 6)], ['Latest Confirm YES+NO', fmt(data.arb_micro_runner.latest_confirm_yes_no_cost, 6)]
+      ];
+      document.getElementById('arb-micro-metrics').innerHTML = microMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
+      document.getElementById('arb-micro-reasons').innerHTML = `<div class="muted" style="margin:12px 0 6px">Why a real two-leg execution would be skipped</div>` + table(data.arb_micro_runner.skip_reasons, [['Reason','reason'],['Count','count']]);
       drawCurve(data.pnl_curve, data.btc_curve);
       document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
       document.getElementById('replay-stats').innerHTML = `<div class="muted">Offline replay from opportunities.csv. Candidates and pending include unresolved markets; PnL/ROI use resolved fillable candidates only.</div>` + table(data.replay_stats, [['Strategy','strategy'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable','fillable'],['Up','up_candidates'],['Down','down_candidates'],['Avg Prob','avg_prob'],['Avg Edge','avg_edge'],['Avg Eff Price','avg_effective_price'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('arb-replay').innerHTML = `<div class="muted">Two-sided Up+Down replay from arb_opportunities.csv. Threshold is max fee/depth-adjusted YES+NO cost per payout share.</div>` + table(data.arb_replay, [['Threshold','threshold'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable Seen','fillable'],['Profitable','profitable_candidates'],['Avg Cost','avg_yes_no_cost'],['Best','best_yes_no_cost'],['Worst','worst_yes_no_cost'],['Trades','trades'],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('arb-recent').innerHTML = table(data.arb_recent, [['Time','ts', shortTime],['Market','market_id', market],['YES+NO','yes_no_cost'],['PnL','theoretical_pnl_usd', pnl],['ROI','theoretical_roi', pct],['Up Ask','up_best_ask'],['Down Ask','down_best_ask'],['Fillable','fillable'],['Skip','skip_reason']]);
+      document.getElementById('arb-micro-recent').innerHTML = table(data.arb_micro_runner.recent, [['Time','ts', shortTime],['Market','market_id', market],['Initial','initial_yes_no_cost'],['Confirm','confirm_yes_no_cost'],['Would Execute','would_execute'],['PnL','confirm_theoretical_pnl_usd', pnl],['ROI','confirm_theoretical_roi', pct],['Latency ms','quote_latency_ms'],['Skip','skip_reason']]);
       document.getElementById('quality-prob').innerHTML = `<div class="muted">By Model Prob</div>` + table(data.trade_quality.probability, [['Bucket','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('quality-other').innerHTML = `<div class="muted">By Outcome / Cost</div>` + table([...data.trade_quality.outcome, ...data.trade_quality.cost], [['Group','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('environment-trend').innerHTML = `<div class="muted">BTC Trend: start to close, chop &lt; 0.05%</div>` + table(data.market_environment.trend, [['Regime','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
