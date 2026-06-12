@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-arb-overview-v1">
+<html lang="en" data-dashboard-version="2026-06-12-arb-exec-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
     .overview-separator { margin:18px 0 4px; border-top:1px solid var(--line); }
     .section-label { color:var(--muted); font-size:12px; font-weight:760; text-transform:uppercase; letter-spacing:.02em; }
     .combined-status { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:14px; display:grid; gap:12px; }
-    .status-strip { display:grid; gap:10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .status-strip { display:grid; gap:10px; grid-template-columns: 1fr; }
     .status-line { display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--soft-line); background:var(--panel-soft); border-radius:8px; padding:10px 12px; min-width:0; }
     .status-line-main { min-width:0; }
     .status-line-title { display:flex; align-items:center; gap:8px; font-weight:780; }
@@ -159,6 +159,9 @@
       </div>
     </div>
     <div class="tab-panel" id="tab-arbitrage">
+      <div class="runner" id="arb-exec-runner"></div>
+      <section><h2>Execution Simulator</h2><div class="grid" id="arb-exec-metrics"></div><div id="arb-exec-reasons"></div></section>
+      <section><h2>Recent Execution Attempts</h2><div id="arb-exec-recent"></div></section>
       <div class="runner" id="arb-runner"></div>
       <div class="runner" id="arb-micro-runner"></div>
       <section><h2>Micro-Live Dry-Run</h2><div class="grid" id="arb-micro-metrics"></div><div id="arb-micro-reasons"></div></section>
@@ -168,7 +171,8 @@
     </div>
     <div class="tab-panel" id="tab-logs">
       <section><h2>Direction Runner Log</h2><div class="runner-log" id="direction-log"></div></section>
-      <section><h2>Arbitrage Runner Log</h2><div class="runner-log" id="arb-log"></div></section>
+      <section><h2>Arbitrage Execution Runner Log</h2><div class="runner-log" id="arb-exec-log"></div></section>
+      <section><h2>Legacy Arbitrage Scanner Log</h2><div class="runner-log" id="arb-log"></div></section>
       <section><h2>Pages Publisher Log</h2><div class="runner-log" id="publisher-log"></div></section>
       <details class="diagnostics" open><summary>Diagnostics: API / Execution Errors</summary><div class="content" id="errors"></div></details>
     </div>
@@ -326,17 +330,18 @@
       return `<div class="status-line"><div class="status-line-main"><div class="status-line-title"><span class="dot ${dot}"></span>${title} <span class="muted">${label}</span></div><div class="status-line-meta">${subtitle}</div></div><div class="status-line-age">latest<br><b>${runner.latest_scan_age_sec == null ? 'n/a' : `${runner.latest_scan_age_sec}s`}</b></div></div>`;
     }
     function renderArbOverview(data) {
+      const exec = data.arb_exec_runner || {};
       const items = [
-        ['Arb Opps', data.arb_runner.total_opportunities],
-        ['Profitable', data.arb_runner.profitable],
-        ['Best YES+NO', fmt(data.arb_runner.best_yes_no_cost, 6)],
-        ['Micro Attempts', data.arb_micro_runner.total_attempts],
-        ['Would Execute', data.arb_micro_runner.would_execute],
-        ['Best Confirm', fmt(data.arb_micro_runner.best_confirm_yes_no_cost, 6)]
+        ['Attempts', exec.total_attempts || 0],
+        ['Full Hedge', exec.full_hedge_possible || 0],
+        ['Leg Risk', exec.leg_risk || 0],
+        ['Best YES+NO', fmt(exec.best_quote_yes_no_cost || 0, 6)],
+        ['Best Full PnL', money(exec.best_full_net_pnl_usd || 0)],
+        ['Unwind Loss', money(exec.total_unwind_loss_usd || 0)]
       ];
       setHtml('overview-arb-status',
-        `<section><h2>Arbitrage Status</h2><div class="combined-status">` +
-        `<div class="status-strip">${runnerLine(data.arb_runner, 'Scanner', 'records all two-sided orderbook opportunities')}${runnerLine(data.arb_micro_runner, 'Micro Dry-Run', 'confirms whether an opportunity would survive pre-order re-quote')}</div>` +
+        `<section><h2>Arbitrage Execution Simulator</h2><div class="combined-status">` +
+        `<div class="status-strip">${runnerLine(exec, 'Execution Simulator', 'simulates first leg, second-leg re-quote, full hedge, and unwind loss')}</div>` +
         `<div class="status-metrics">${items.map(m => `<div class="mini-metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('')}</div>` +
         `</div></section>`);
     }
@@ -359,6 +364,7 @@
       renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run', { showLog: false });
       renderArbOverview(data);
       renderRunner('runner', data.runner, 'direction strict dry-run');
+      renderRunner('arb-exec-runner', data.arb_exec_runner, 'arbitrage execution simulator');
       renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
       renderRunner('arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run');
       renderSampleStatus(data.sample_status);
@@ -375,6 +381,13 @@
         ['Arb Errors', data.arb_runner.error_count]
       ];
       setHtml('arb-metrics', arbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      const execMetrics = [
+        ['Attempts', data.arb_exec_runner.total_attempts], ['Full Hedge', data.arb_exec_runner.full_hedge_possible], ['Full Hedge Rate', pct(data.arb_exec_runner.full_hedge_rate)],
+        ['Leg Risk', data.arb_exec_runner.leg_risk], ['Best YES+NO', fmt(data.arb_exec_runner.best_quote_yes_no_cost, 6)], ['Best Full PnL', money(data.arb_exec_runner.best_full_net_pnl_usd)],
+        ['Total Full PnL', money(data.arb_exec_runner.total_full_net_pnl_usd)], ['Total Unwind Loss', money(data.arb_exec_runner.total_unwind_loss_usd)]
+      ];
+      setHtml('arb-exec-metrics', execMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('arb-exec-reasons', `<div class="muted" style="margin:12px 0 6px">Why the two-leg execution simulator skipped or saw leg risk</div>` + table(data.arb_exec_runner.skip_reasons, [['Reason','reason'],['Count','count']]));
       const microMetrics = [
         ['Attempts', data.arb_micro_runner.total_attempts], ['Would Execute', data.arb_micro_runner.would_execute], ['Execute Rate', pct(data.arb_micro_runner.execute_rate)],
         ['Best Confirm YES+NO', fmt(data.arb_micro_runner.best_confirm_yes_no_cost, 6)], ['Latest Confirm YES+NO', fmt(data.arb_micro_runner.latest_confirm_yes_no_cost, 6)]
@@ -385,6 +398,7 @@
       document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
       document.getElementById('replay-stats').innerHTML = `<div class="muted">Offline replay from opportunities.csv. Candidates and pending include unresolved markets; PnL/ROI use resolved fillable candidates only.</div>` + table(data.replay_stats, [['Strategy','strategy'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable','fillable'],['Up','up_candidates'],['Down','down_candidates'],['Avg Prob','avg_prob'],['Avg Edge','avg_edge'],['Avg Eff Price','avg_effective_price'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('arb-replay').innerHTML = `<div class="muted">Two-sided Up+Down replay from arb_opportunities.csv. Threshold is max fee/depth-adjusted YES+NO cost per payout share.</div>` + table(data.arb_replay, [['Threshold','threshold'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable Seen','fillable'],['Profitable','profitable_candidates'],['Avg Cost','avg_yes_no_cost'],['Best','best_yes_no_cost'],['Worst','worst_yes_no_cost'],['Trades','trades'],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('arb-exec-recent').innerHTML = table(data.arb_exec_runner.recent, [['Time','ts', shortTime],['Market','market_id', market],['Quote YES+NO','quote_yes_no_cost'],['Order','execution_order'],['Full Hedge','full_hedge_possible'],['Leg Risk','partial_fill'],['Full PnL','net_pnl_if_full_usd', pnl],['Unwind Loss','unwind_loss_usd', money],['Skip','skip_reason']]);
       document.getElementById('arb-recent').innerHTML = table(data.arb_recent, [['Time','ts', shortTime],['Market','market_id', market],['YES+NO','yes_no_cost'],['PnL','theoretical_pnl_usd', pnl],['ROI','theoretical_roi', pct],['Up Ask','up_best_ask'],['Down Ask','down_best_ask'],['Fillable','fillable'],['Skip','skip_reason']]);
       document.getElementById('arb-micro-recent').innerHTML = table(data.arb_micro_runner.recent, [['Time','ts', shortTime],['Market','market_id', market],['Initial','initial_yes_no_cost'],['Confirm','confirm_yes_no_cost'],['Would Execute','would_execute'],['PnL','confirm_theoretical_pnl_usd', pnl],['ROI','confirm_theoretical_roi', pct],['Latency ms','quote_latency_ms'],['Skip','skip_reason']]);
       document.getElementById('quality-prob').innerHTML = `<div class="muted">By Model Prob</div>` + table(data.trade_quality.probability, [['Bucket','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
@@ -397,6 +411,7 @@
       document.getElementById('reasons').innerHTML = table(data.skip_reasons, [['Reason','reason'],['Count','count']]);
       document.getElementById('errors').innerHTML = table(data.errors, [['Time','ts', time],['API Error','errors'],['Execution','execution_errors'],['Meaning','execution_reason', reason]]);
       renderLog('direction-log', data.runner.log_tail);
+      renderLog('arb-exec-log', data.arb_exec_runner.log_tail);
       renderLog('arb-log', data.arb_runner.log_tail);
       renderLog('publisher-log', data.publisher.log_tail);
       scrollLogsToBottom();
