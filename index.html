@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-runner-summaries-v1">
+<html lang="en" data-dashboard-version="2026-06-12-direction-detail-curve-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,11 +137,7 @@
     <div class="tab-panel" id="tab-direction">
       <div class="grid" id="direction-summary"></div>
       <div class="runner" id="runner"></div>
-      <div class="sample" id="sample-status"></div>
-      <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
-      <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
-      <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
-      <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
+      <section><h2>Direction PnL Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span></div><canvas id="direction-detail-curve" width="1200" height="260"></canvas></div></section>
       <div class="trade-cols">
         <section><h2>Recent 20 Trades</h2><div id="recent"></div></section>
         <section><h2>OPEN Positions</h2><div id="open"></div></section>
@@ -150,6 +146,13 @@
         <section><h2>Event Segments</h2><div id="segments"></div></section>
         <section><h2>signals=1 placed=0 Reasons</h2><div id="reasons"></div></section>
       </div>
+      <div class="overview-separator"></div>
+      <div class="section-label">Analysis</div>
+      <div class="sample" id="sample-status"></div>
+      <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
+      <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
+      <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
+      <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
     </div>
     <div class="tab-panel" id="tab-arbitrage">
       <div class="grid" id="arb-summary"></div>
@@ -373,6 +376,7 @@
       setHtml('arb-micro-metrics', microMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
       setHtml('arb-micro-reasons', `<div class="muted" style="margin:12px 0 6px">Why a real two-leg execution would be skipped</div>` + table(data.arb_micro_runner.skip_reasons, [['Reason','reason'],['Count','count']]));
       drawSeries('curve', data.pnl_curve, 'cumulative_pnl', { label: 'PnL', format: money, color: '#2563eb', fill: 'rgba(37,99,235,.18)' });
+      drawSeries('direction-detail-curve', data.pnl_curve, 'cumulative_pnl', { label: 'PnL', format: money, color: '#2563eb', fill: 'rgba(37,99,235,.18)' });
       drawSeries('arb-curve', data.arb_exec_curve, 'quote_yes_no_cost', { label: 'YES+NO', format: v => fmt(v, 4), color: '#b7791f', fill: 'rgba(183,121,31,.14)', zeroBase: false, minSpan: 0.0001 });
       drawSeries('arb-detail-curve', data.arb_exec_curve, 'quote_yes_no_cost', { label: 'YES+NO', format: v => fmt(v, 4), color: '#b7791f', fill: 'rgba(183,121,31,.14)', zeroBase: false, minSpan: 0.0001 });
       document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
