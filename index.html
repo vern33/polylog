@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-arb-exec-v1">
+<html lang="en" data-dashboard-version="2026-06-12-arb-overview-align-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,16 +46,6 @@
     .overview-section { display:grid; gap:14px; }
     .overview-separator { margin:18px 0 4px; border-top:1px solid var(--line); }
     .section-label { color:var(--muted); font-size:12px; font-weight:760; text-transform:uppercase; letter-spacing:.02em; }
-    .combined-status { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:14px; display:grid; gap:12px; }
-    .status-strip { display:grid; gap:10px; grid-template-columns: 1fr; }
-    .status-line { display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid var(--soft-line); background:var(--panel-soft); border-radius:8px; padding:10px 12px; min-width:0; }
-    .status-line-main { min-width:0; }
-    .status-line-title { display:flex; align-items:center; gap:8px; font-weight:780; }
-    .status-line-meta { margin-top:2px; color:var(--muted); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .status-line-age { color:var(--muted); font-size:12px; text-align:right; white-space:nowrap; }
-    .status-metrics { display:grid; gap:10px; grid-template-columns: repeat(6, minmax(112px, 1fr)); }
-    .mini-metric { border:1px solid var(--soft-line); border-radius:8px; padding:10px 11px; background:#fff; min-height:68px; }
-    .mini-metric b { display:block; margin-top:5px; font-size:18px; line-height:1.1; font-variant-numeric:tabular-nums; }
     .runner.compact { grid-template-columns: 180px 1fr; margin-bottom:0; }
     .runner-state { display:inline-flex; align-items:center; gap:8px; font-weight:780; font-size:19px; }
     .dot { width:12px; height:12px; border-radius:50%; background:var(--bad); display:inline-block; }
@@ -139,7 +129,8 @@
       <div class="overview-separator"></div>
       <div class="overview-section">
         <div class="section-label">Arbitrage</div>
-        <div id="overview-arb-status"></div>
+        <div class="runner compact" id="overview-arb-runner"></div>
+        <div class="grid" id="overview-arb-metrics"></div>
       </div>
     </div>
     <div class="tab-panel" id="tab-direction">
@@ -322,13 +313,6 @@
       el.textContent = (lines || []).join('\n');
       el.scrollTop = el.scrollHeight;
     }
-    function runnerLine(runner, title, subtitle) {
-      const stale = runner.stale;
-      const ok = runner.running && !stale;
-      const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
-      const dot = ok ? 'good' : (runner.running ? 'warn' : '');
-      return `<div class="status-line"><div class="status-line-main"><div class="status-line-title"><span class="dot ${dot}"></span>${title} <span class="muted">${label}</span></div><div class="status-line-meta">${subtitle}</div></div><div class="status-line-age">latest<br><b>${runner.latest_scan_age_sec == null ? 'n/a' : `${runner.latest_scan_age_sec}s`}</b></div></div>`;
-    }
     function renderArbOverview(data) {
       const exec = data.arb_exec_runner || {};
       const items = [
@@ -339,11 +323,8 @@
         ['Best Full PnL', money(exec.best_full_net_pnl_usd || 0)],
         ['Unwind Loss', money(exec.total_unwind_loss_usd || 0)]
       ];
-      setHtml('overview-arb-status',
-        `<section><h2>Arbitrage Execution Simulator</h2><div class="combined-status">` +
-        `<div class="status-strip">${runnerLine(exec, 'Execution Simulator', 'simulates first leg, second-leg re-quote, full hedge, and unwind loss')}</div>` +
-        `<div class="status-metrics">${items.map(m => `<div class="mini-metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('')}</div>` +
-        `</div></section>`);
+      renderRunner('overview-arb-runner', exec, 'arbitrage execution simulator', { showLog: false });
+      setHtml('overview-arb-metrics', items.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
     }
     function renderSampleStatus(sample) {
       const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
