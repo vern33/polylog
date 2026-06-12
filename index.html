@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-direction-compare-v1">
+<html lang="en" data-dashboard-version="2026-06-12-highprob-tab-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -125,6 +125,7 @@
     <div class="tabs">
       <button class="tab active" data-tab="overview">Overview</button>
       <button class="tab" data-tab="direction">Direction Runner</button>
+      <button class="tab" data-tab="highprob">High-Prob Runner</button>
       <button class="tab" data-tab="arbitrage">Arbitrage Runner</button>
       <button class="tab" data-tab="logs">Logs</button>
     </div>
@@ -145,7 +146,6 @@
     <div class="tab-panel" id="tab-direction">
       <div class="grid" id="direction-summary"></div>
       <div class="runner" id="runner"></div>
-      <section><h2>High-Prob Direction Runner</h2><div class="runner compact" id="highprob-runner"></div><div class="grid" id="highprob-summary"></div></section>
       <section><h2>Direction PnL Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span></div><canvas id="direction-detail-curve" width="1200" height="260"></canvas></div></section>
       <div class="trade-cols">
         <section><h2>Recent 20 Trades</h2><div id="recent"></div></section>
@@ -162,6 +162,11 @@
       <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
       <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
       <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
+    </div>
+    <div class="tab-panel" id="tab-highprob">
+      <div class="grid" id="highprob-summary"></div>
+      <div class="runner" id="highprob-runner"></div>
+      <section><h2>High-Prob Notes</h2><div class="muted">Independent direction dry-run using MIN_PROB=0.90 and data_highprob. It only trades when the momentum-derived model probability reaches 90% or higher.</div></section>
     </div>
     <div class="tab-panel" id="tab-arbitrage">
       <div class="grid" id="arb-summary"></div>
@@ -379,7 +384,7 @@
       renderDirectionCompare(data);
       renderArbOverview(data);
       renderRunner('runner', data.runner, 'direction strict dry-run');
-      renderRunner('highprob-runner', data.high_prob.runner, 'high-prob direction dry-run', { showLog: false });
+      renderRunner('highprob-runner', data.high_prob.runner, 'high-prob direction dry-run');
       renderRunner('arb-exec-runner', data.arb_exec_runner, 'arbitrage execution simulator');
       renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
       renderRunner('arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run');
