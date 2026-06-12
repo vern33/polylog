@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-arb-overview-align-v1">
+<html lang="en" data-dashboard-version="2026-06-12-runner-summaries-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,7 +97,7 @@
     .legend span { display:inline-flex; align-items:center; gap:6px; }
     .swatch { width:18px; height:3px; border-radius:2px; display:inline-block; }
     .swatch.pnl { background:var(--accent); }
-    .swatch.btc { background:#f59e0b; }
+    .swatch.yesno { background:#b7791f; }
     details.diagnostics { margin-top:14px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); overflow:hidden; }
     details.diagnostics summary { cursor:pointer; padding:15px; font-weight:760; list-style:none; display:flex; align-items:center; gap:8px; }
     details.diagnostics summary::-webkit-details-marker { display:none; }
@@ -124,16 +124,18 @@
         <div class="section-label">Direction</div>
         <div class="runner compact" id="overview-direction-runner"></div>
         <div class="grid" id="metrics"></div>
-        <section><h2>PnL Curve + BTC</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span><span><i class="swatch btc"></i>BTC</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
+        <section><h2>Direction PnL Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
       </div>
       <div class="overview-separator"></div>
       <div class="overview-section">
         <div class="section-label">Arbitrage</div>
         <div class="runner compact" id="overview-arb-runner"></div>
         <div class="grid" id="overview-arb-metrics"></div>
+        <section><h2>Arbitrage YES+NO Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch yesno"></i>YES+NO</span></div><canvas id="arb-curve" width="1200" height="260"></canvas></div></section>
       </div>
     </div>
     <div class="tab-panel" id="tab-direction">
+      <div class="grid" id="direction-summary"></div>
       <div class="runner" id="runner"></div>
       <div class="sample" id="sample-status"></div>
       <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
@@ -150,7 +152,9 @@
       </div>
     </div>
     <div class="tab-panel" id="tab-arbitrage">
+      <div class="grid" id="arb-summary"></div>
       <div class="runner" id="arb-exec-runner"></div>
+      <section><h2>Arbitrage YES+NO Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch yesno"></i>YES+NO</span></div><canvas id="arb-detail-curve" width="1200" height="260"></canvas></div></section>
       <section><h2>Execution Simulator</h2><div class="grid" id="arb-exec-metrics"></div><div id="arb-exec-reasons"></div></section>
       <section><h2>Recent Execution Attempts</h2><div id="arb-exec-recent"></div></section>
       <div class="runner" id="arb-runner"></div>
@@ -202,8 +206,10 @@
       const el = document.getElementById(elementId);
       if (el) el.innerHTML = html;
     }
-    function drawCurve(points, btcPoints) {
-      const canvas = document.getElementById('curve'), ctx = canvas.getContext('2d');
+    function drawSeries(canvasId, points, valueKey, options = {}) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
       ctx.clearRect(0,0,canvas.width,canvas.height);
       ctx.strokeStyle = '#edf1f6'; ctx.lineWidth = 1;
       for (let i = 0; i < 5; i++) {
@@ -211,25 +217,30 @@
         ctx.beginPath(); ctx.moveTo(64,y); ctx.lineTo(1148,y); ctx.stroke();
       }
       ctx.strokeStyle = '#d9e0ea'; ctx.beginPath(); ctx.moveTo(64,20); ctx.lineTo(64,225); ctx.lineTo(1148,225); ctx.lineTo(1148,20); ctx.stroke();
-      if (!points.length && !btcPoints.length) return;
-      const allTimes = [...points.map(p => Date.parse(p.ts)), ...btcPoints.map(p => Date.parse(p.ts))].filter(Number.isFinite);
+      if (!points.length) return;
+      const allTimes = points.map(p => Date.parse(p.ts)).filter(Number.isFinite);
       const minTime = Math.min(...allTimes), maxTime = Math.max(...allTimes);
       const xFor = ts => {
         const t = Date.parse(ts);
         if (!Number.isFinite(t) || maxTime === minTime) return 64;
         return 64 + ((t - minTime) / (maxTime - minTime)) * 1084;
       };
-      const vals = points.map(p => p.cumulative_pnl), min = Math.min(0, ...vals), max = Math.max(0, ...vals);
-      const span = Math.max(1, max - min);
+      const vals = points.map(p => p[valueKey]).filter(v => typeof v === 'number');
+      if (!vals.length) return;
+      const minBase = options.zeroBase === false ? Math.min(...vals) : Math.min(0, ...vals);
+      const maxBase = options.zeroBase === false ? Math.max(...vals) : Math.max(0, ...vals);
+      const padding = options.zeroBase === false ? Math.max(0.000001, (maxBase - minBase) * 0.08) : 0;
+      const min = minBase - padding, max = maxBase + padding;
+      const span = Math.max(options.minSpan || 1, max - min);
       const coords = points.map((p, i) => ({
         x: xFor(p.ts),
-        y: 225 - ((p.cumulative_pnl - min) / span) * 200
+        y: 225 - ((p[valueKey] - min) / span) * 200
       }));
       ctx.fillStyle = '#667085'; ctx.font = '11px system-ui';
       for (let i = 0; i < 5; i++) {
         const y = 225 - i * 50;
         const value = min + (span * i / 4);
-        ctx.fillText(money(value), 8, y + 4);
+        ctx.fillText(options.format ? options.format(value) : fmt(value, 2), 8, y + 4);
       }
       for (let i = 0; i < 5; i++) {
         const x = 64 + i * (1084 / 4);
@@ -242,33 +253,17 @@
         coords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
         ctx.lineTo(coords[coords.length - 1].x, 225); ctx.lineTo(coords[0].x, 225); ctx.closePath();
         const fill = ctx.createLinearGradient(0, 20, 0, 225);
-        fill.addColorStop(0, 'rgba(37,99,235,.18)');
+        fill.addColorStop(0, options.fill || 'rgba(37,99,235,.18)');
         fill.addColorStop(1, 'rgba(37,99,235,0)');
         ctx.fillStyle = fill; ctx.fill();
-        ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5; ctx.beginPath();
+        ctx.strokeStyle = options.color || '#2563eb'; ctx.lineWidth = 2.5; ctx.beginPath();
         coords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
         ctx.stroke();
         const last = coords[coords.length - 1];
-        ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(last.x,last.y,4,0,Math.PI*2); ctx.fill();
-      }
-      const btcVals = btcPoints.map(p => p.price).filter(v => typeof v === 'number');
-      const btcMin = Math.min(...btcVals), btcMax = Math.max(...btcVals);
-      const btcSpan = Math.max(1, btcMax - btcMin);
-      const btcCoords = btcPoints.map(p => ({ x: xFor(p.ts), y: 225 - ((p.price - btcMin) / btcSpan) * 200 }));
-      ctx.fillStyle = '#92400e'; ctx.font = '11px system-ui';
-      for (let i = 0; i < 5; i++) {
-        const y = 225 - i * 50;
-        const value = btcMin + (btcSpan * i / 4);
-        ctx.fillText(fmt(value, 0), 1158, y + 4);
-      }
-      if (btcCoords.length) {
-        ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 2; ctx.beginPath();
-        btcCoords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
-        ctx.stroke();
+        ctx.fillStyle = options.color || '#2563eb'; ctx.beginPath(); ctx.arc(last.x,last.y,4,0,Math.PI*2); ctx.fill();
       }
       ctx.fillStyle = '#172033'; ctx.font = '12px system-ui';
-      ctx.fillText('PnL', 8, 16);
-      ctx.fillStyle = '#92400e'; ctx.fillText('BTC', 1158, 16);
+      ctx.fillText(options.label || '', 8, 16);
     }
     function bindTabs() {
       document.querySelectorAll('.tab').forEach(button => {
@@ -355,6 +350,7 @@
         ['Slippage', money(data.slippage)], ['Skipped Exec', data.skipped_executions], ['API Errors', data.error_count], ['Last BTC', fmt(data.last_btc, 2)]
       ];
       setHtml('metrics', metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('direction-summary', metrics.filter((_, i) => [1,2,3,4,5,6].includes(i)).map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
       const arbMetrics = [
         ['Arb Opps', data.arb_runner.total_opportunities], ['Fillable', data.arb_runner.fillable], ['Profitable', data.arb_runner.profitable],
         ['Best YES+NO', fmt(data.arb_runner.best_yes_no_cost, 6)], ['Best Theo PnL', money(data.arb_runner.best_theoretical_pnl_usd)], ['Best Theo ROI', pct(data.arb_runner.best_theoretical_roi)],
@@ -368,6 +364,7 @@
         ['Total Full PnL', money(data.arb_exec_runner.total_full_net_pnl_usd)], ['Total Unwind Loss', money(data.arb_exec_runner.total_unwind_loss_usd)]
       ];
       setHtml('arb-exec-metrics', execMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('arb-summary', execMetrics.slice(0, 6).map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
       setHtml('arb-exec-reasons', `<div class="muted" style="margin:12px 0 6px">Why the two-leg execution simulator skipped or saw leg risk</div>` + table(data.arb_exec_runner.skip_reasons, [['Reason','reason'],['Count','count']]));
       const microMetrics = [
         ['Attempts', data.arb_micro_runner.total_attempts], ['Would Execute', data.arb_micro_runner.would_execute], ['Execute Rate', pct(data.arb_micro_runner.execute_rate)],
@@ -375,7 +372,9 @@
       ];
       setHtml('arb-micro-metrics', microMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
       setHtml('arb-micro-reasons', `<div class="muted" style="margin:12px 0 6px">Why a real two-leg execution would be skipped</div>` + table(data.arb_micro_runner.skip_reasons, [['Reason','reason'],['Count','count']]));
-      drawCurve(data.pnl_curve, data.btc_curve);
+      drawSeries('curve', data.pnl_curve, 'cumulative_pnl', { label: 'PnL', format: money, color: '#2563eb', fill: 'rgba(37,99,235,.18)' });
+      drawSeries('arb-curve', data.arb_exec_curve, 'quote_yes_no_cost', { label: 'YES+NO', format: v => fmt(v, 4), color: '#b7791f', fill: 'rgba(183,121,31,.14)', zeroBase: false, minSpan: 0.0001 });
+      drawSeries('arb-detail-curve', data.arb_exec_curve, 'quote_yes_no_cost', { label: 'YES+NO', format: v => fmt(v, 4), color: '#b7791f', fill: 'rgba(183,121,31,.14)', zeroBase: false, minSpan: 0.0001 });
       document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
       document.getElementById('replay-stats').innerHTML = `<div class="muted">Offline replay from opportunities.csv. Candidates and pending include unresolved markets; PnL/ROI use resolved fillable candidates only.</div>` + table(data.replay_stats, [['Strategy','strategy'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable','fillable'],['Up','up_candidates'],['Down','down_candidates'],['Avg Prob','avg_prob'],['Avg Edge','avg_edge'],['Avg Eff Price','avg_effective_price'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
       document.getElementById('arb-replay').innerHTML = `<div class="muted">Two-sided Up+Down replay from arb_opportunities.csv. Threshold is max fee/depth-adjusted YES+NO cost per payout share.</div>` + table(data.arb_replay, [['Threshold','threshold'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable Seen','fillable'],['Profitable','profitable_candidates'],['Avg Cost','avg_yes_no_cost'],['Best','best_yes_no_cost'],['Worst','worst_yes_no_cost'],['Trades','trades'],['PnL','pnl', pnl],['ROI','roi', pct]]);
