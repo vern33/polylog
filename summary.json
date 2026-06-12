@@ -955,6 +955,10 @@
     {
       "quote_yes_no_cost": 1.054972,
       "ts": "2026-06-12T05:02:13.035943+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.044993,
+      "ts": "2026-06-12T05:02:35.821154+00:00"
     }
   ],
   "arb_exec_runner": {
@@ -963,11 +967,10 @@
     "expected_interval_sec": 30,
     "full_hedge_possible": 0,
     "full_hedge_rate": 0.0,
-    "latest_scan": "2026-06-12T05:00:19.583785+00:00",
-    "latest_scan_age_sec": 127,
+    "latest_scan": "2026-06-12T05:01:35.066923+00:00",
+    "latest_scan_age_sec": 115,
     "leg_risk": 2,
     "log_tail": [
-      "{\"ts\": \"2026-06-12T04:47:49.373062+00:00\", \"markets\": 35, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.039673, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T04:49:00.460869+00:00\", \"markets\": 38, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 0.984738, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T04:50:19.167711+00:00\", \"markets\": 37, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044573, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T04:51:38.334283+00:00\", \"markets\": 37, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.024909, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
@@ -976,9 +979,78 @@
       "{\"ts\": \"2026-06-12T04:55:39.588326+00:00\", \"markets\": 34, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.042053, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T04:57:36.209458+00:00\", \"markets\": 34, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.022809, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T04:59:01.461354+00:00\", \"markets\": 35, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.041633, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
-      "{\"ts\": \"2026-06-12T05:00:19.583785+00:00\", \"markets\": 34, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.031416, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}"
+      "{\"ts\": \"2026-06-12T05:00:19.583785+00:00\", \"markets\": 34, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.031416, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
+      "{\"ts\": \"2026-06-12T05:01:35.066923+00:00\", \"markets\": 34, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044965, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}"
     ],
     "recent": [
+      {
+        "down_best_ask": "0.51",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T05:30:00+00:00",
+        "market_id": "2503542",
+        "market_start": "2026-06-12T05:25:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781241900",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 1:25AM-1:30AM ET",
+        "quote_latency_ms": "7562",
+        "quote_theoretical_pnl_usd": "-0.224965",
+        "quote_yes_no_cost": "1.044993",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "1637",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T05:02:35.821154+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.5"
+      },
+      {
+        "down_best_ask": "",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T05:25:00+00:00",
+        "market_id": "2503536",
+        "market_start": "2026-06-12T05:20:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781241600",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 1:20AM-1:25AM ET",
+        "quote_latency_ms": "18677",
+        "quote_theoretical_pnl_usd": "",
+        "quote_yes_no_cost": "",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "1344",
+        "skip_reason": "orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=78088249458211742153485719072648572979819687037674689683167543964497020178281 failed: The read operation timed out",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T05:02:17.143007+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": ""
+      },
       {
         "down_best_ask": "0.52",
         "execution_order": "",
@@ -1590,80 +1662,12 @@
         "unwind_possible": "False",
         "unwind_proceeds_usd": "",
         "up_best_ask": "0.5"
-      },
-      {
-        "down_best_ask": "0.51",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T05:15:00+00:00",
-        "market_id": "2503513",
-        "market_start": "2026-06-12T05:10:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781241000",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 1:10AM-1:15AM ET",
-        "quote_latency_ms": "4681",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "1003",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T04:58:12.778774+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.5"
-      },
-      {
-        "down_best_ask": "0.51",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T05:10:00+00:00",
-        "market_id": "2503503",
-        "market_start": "2026-06-12T05:05:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781240700",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 1:05AM-1:10AM ET",
-        "quote_latency_ms": "4356",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "707",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T04:58:08.421204+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.5"
       }
     ],
     "running": true,
     "skip_reasons": [
       {
-        "count": 237,
+        "count": 238,
         "reason": "initial_cost_above_threshold"
       },
       {
@@ -1673,11 +1677,15 @@
       {
         "count": 2,
         "reason": "second_leg_cost_above_threshold"
+      },
+      {
+        "count": 1,
+        "reason": "orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=78088249458211742153485719072648572979819687037674689683167543964497020178281 failed: The read operation timed out"
       }
     ],
     "stale": false,
     "stale_after_sec": 180,
-    "total_attempts": 246,
+    "total_attempts": 248,
     "total_full_net_pnl_usd": 0,
     "total_unwind_loss_usd": 0.481975
   },
@@ -1687,7 +1695,7 @@
     "expected_interval_sec": 30,
     "latest_confirm_yes_no_cost": 1.017273,
     "latest_scan": "2026-06-12T00:17:36.524701+00:00",
-    "latest_scan_age_sec": 17090,
+    "latest_scan_age_sec": 17154,
     "log_tail": [
       "{\"ts\": \"2026-06-12T00:13:43.945014+00:00\", \"markets\": 34, \"evaluated\": 0, \"would_execute\": 0, \"best_confirm_yes_no_cost\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T00:14:17.109028+00:00\", \"markets\": 34, \"evaluated\": 0, \"would_execute\": 0, \"best_confirm_yes_no_cost\": 0.0, \"settled\": 0}",
@@ -2511,7 +2519,7 @@
     "expected_interval_sec": 30,
     "fillable": 2667,
     "latest_scan": "2026-06-12T00:17:51.376220+00:00",
-    "latest_scan_age_sec": 17075,
+    "latest_scan_age_sec": 17139,
     "latest_theoretical_pnl_usd": -0.098545,
     "latest_theoretical_roi": -0.019328,
     "latest_yes_no_cost": 1.019709,
@@ -9103,7 +9111,6 @@
   ],
   "publisher": {
     "log_tail": [
-      "{\"ts\": \"2026-06-12T04:52:04.432563+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:51:24.484977+00:00\", \"commit_output\": \"[main 85779e8] Update dashboard data\\n 1 file changed, 1365 insertions(+), 1353 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T04:53:07.150307+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:51:24.484977+00:00\", \"commit_output\": \"[main 11fc2c0] Update dashboard data\\n 1 file changed, 219 insertions(+), 199 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T04:54:10.167262+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:52:34.104746+00:00\", \"commit_output\": \"[main a60ac3f] Update dashboard data\\n 1 file changed, 1385 insertions(+), 1361 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T04:55:18.542503+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:54:43.391484+00:00\", \"commit_output\": \"[main 96dffcb] Update dashboard data\\n 1 file changed, 2002 insertions(+), 1978 deletions(-)\"}",
@@ -9112,13 +9119,14 @@
       "{\"ts\": \"2026-06-12T04:58:17.266798+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:56:53.635498+00:00\", \"commit_output\": \"[main bbfc468] Update dashboard data\\n 2 files changed, 169 insertions(+), 155 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T04:59:20.051942+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:57:46.229360+00:00\", \"commit_output\": \"[main 098831e] Update dashboard data\\n 1 file changed, 1369 insertions(+), 1357 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T05:00:23.034880+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T04:58:52.238147+00:00\", \"commit_output\": \"[main 2b880fd] Update dashboard data\\n 1 file changed, 1372 insertions(+), 1348 deletions(-)\"}",
-      "{\"ts\": \"2026-06-12T05:01:27.005902+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T05:00:54.088529+00:00\", \"commit_output\": \"[main 6d8557b] Update dashboard data\\n 1 file changed, 1991 insertions(+), 1967 deletions(-)\"}"
+      "{\"ts\": \"2026-06-12T05:01:27.005902+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T05:00:54.088529+00:00\", \"commit_output\": \"[main 6d8557b] Update dashboard data\\n 1 file changed, 1991 insertions(+), 1967 deletions(-)\"}",
+      "{\"ts\": \"2026-06-12T05:02:30.708980+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 371, \"settled\": 371, \"open\": 0, \"pnl\": -17.7235, \"roi\": -0.018139, \"latest_scan\": \"2026-06-12T05:01:45.336727+00:00\", \"commit_output\": \"[main 8816ec9] Update dashboard data\\n 1 file changed, 1410 insertions(+), 1394 deletions(-)\"}"
     ],
     "running": true
   },
   "recent_trades": [
     {
-      "age_min": 28.3,
+      "age_min": 29.3,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T04:40:00+00:00",
@@ -9127,12 +9135,12 @@
       "model_prob": 0.8071,
       "opened_at": "2026-06-12T04:34:10.601871+00:00",
       "outcome": "Up",
-      "past_end_min": 22.5,
+      "past_end_min": 23.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 32.9,
+      "age_min": 34.0,
       "cost": 2.5,
       "fee": 0.094303,
       "market_end": "2026-06-12T04:35:00+00:00",
@@ -9141,12 +9149,12 @@
       "model_prob": 0.8704,
       "opened_at": "2026-06-12T04:29:30.975253+00:00",
       "outcome": "Up",
-      "past_end_min": 27.5,
+      "past_end_min": 28.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 38.5,
+      "age_min": 39.6,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T04:30:00+00:00",
@@ -9155,12 +9163,12 @@
       "model_prob": 0.9787,
       "opened_at": "2026-06-12T04:23:57.526718+00:00",
       "outcome": "Up",
-      "past_end_min": 32.5,
+      "past_end_min": 33.5,
       "pnl_usd": 2.7368,
       "status": "WON"
     },
     {
-      "age_min": 43.7,
+      "age_min": 44.8,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-12T04:25:00+00:00",
@@ -9169,12 +9177,12 @@
       "model_prob": 0.9254,
       "opened_at": "2026-06-12T04:18:44.586990+00:00",
       "outcome": "Up",
-      "past_end_min": 37.5,
+      "past_end_min": 38.5,
       "pnl_usd": 2.6289,
       "status": "WON"
     },
     {
-      "age_min": 68.0,
+      "age_min": 69.0,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-12T04:00:00+00:00",
@@ -9183,12 +9191,12 @@
       "model_prob": 0.7346,
       "opened_at": "2026-06-12T03:54:28.430585+00:00",
       "outcome": "Up",
-      "past_end_min": 62.5,
+      "past_end_min": 63.5,
       "pnl_usd": 2.5254,
       "status": "WON"
     },
     {
-      "age_min": 81.0,
+      "age_min": 82.1,
       "cost": 2.5,
       "fee": 0.103987,
       "market_end": "2026-06-12T03:45:00+00:00",
@@ -9197,12 +9205,12 @@
       "model_prob": 0.6547,
       "opened_at": "2026-06-12T03:41:25.539365+00:00",
       "outcome": "Down",
-      "past_end_min": 77.5,
+      "past_end_min": 78.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 120.9,
+      "age_min": 122.0,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-12T03:05:00+00:00",
@@ -9211,12 +9219,12 @@
       "model_prob": 0.6843,
       "opened_at": "2026-06-12T03:01:31.250094+00:00",
       "outcome": "Up",
-      "past_end_min": 117.5,
+      "past_end_min": 118.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 152.4,
+      "age_min": 153.5,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T02:35:00+00:00",
@@ -9225,12 +9233,12 @@
       "model_prob": 0.7539,
       "opened_at": "2026-06-12T02:30:00.795705+00:00",
       "outcome": "Down",
-      "past_end_min": 147.5,
+      "past_end_min": 148.5,
       "pnl_usd": 2.7368,
       "status": "WON"
     },
     {
-      "age_min": 181.8,
+      "age_min": 182.8,
       "cost": 2.5,
       "fee": 0.100768,
       "market_end": "2026-06-12T02:05:00+00:00",
@@ -9239,12 +9247,12 @@
       "model_prob": 0.7155,
       "opened_at": "2026-06-12T02:00:41.801533+00:00",
       "outcome": "Down",
-      "past_end_min": 177.5,
+      "past_end_min": 178.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 238.6,
+      "age_min": 239.6,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-12T01:10:00+00:00",
@@ -9253,12 +9261,12 @@
       "model_prob": 0.9498,
       "opened_at": "2026-06-12T01:03:52.532934+00:00",
       "outcome": "Down",
-      "past_end_min": 232.5,
+      "past_end_min": 233.5,
       "pnl_usd": 2.6289,
       "status": "WON"
     },
     {
-      "age_min": 263.0,
+      "age_min": 264.0,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T00:45:00+00:00",
@@ -9267,12 +9275,12 @@
       "model_prob": 0.7261,
       "opened_at": "2026-06-12T00:39:29.863210+00:00",
       "outcome": "Up",
-      "past_end_min": 257.5,
+      "past_end_min": 258.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 303.5,
+      "age_min": 304.5,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-12T00:05:00+00:00",
@@ -9281,12 +9289,12 @@
       "model_prob": 0.7199,
       "opened_at": "2026-06-11T23:58:59.276766+00:00",
       "outcome": "Up",
-      "past_end_min": 297.5,
+      "past_end_min": 298.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 303.5,
+      "age_min": 304.5,
       "cost": 2.5,
       "fee": 0.129433,
       "market_end": "2026-06-12T00:00:00+00:00",
@@ -9295,12 +9303,12 @@
       "model_prob": 0.7199,
       "opened_at": "2026-06-11T23:58:59.276766+00:00",
       "outcome": "Up",
-      "past_end_min": 302.5,
+      "past_end_min": 303.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 318.3,
+      "age_min": 319.4,
       "cost": 2.5,
       "fee": 0.103987,
       "market_end": "2026-06-11T23:50:00+00:00",
@@ -9309,12 +9317,12 @@
       "model_prob": 0.859,
       "opened_at": "2026-06-11T23:44:09.164155+00:00",
       "outcome": "Up",
-      "past_end_min": 312.5,
+      "past_end_min": 313.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 328.1,
+      "age_min": 329.1,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-11T23:40:00+00:00",
@@ -9323,12 +9331,12 @@
       "model_prob": 0.8761,
       "opened_at": "2026-06-11T23:34:22.771226+00:00",
       "outcome": "Up",
-      "past_end_min": 322.5,
+      "past_end_min": 323.5,
       "pnl_usd": 2.6289,
       "status": "WON"
     },
     {
-      "age_min": 332.3,
+      "age_min": 333.4,
       "cost": 2.5,
       "fee": 0.103987,
       "market_end": "2026-06-11T23:35:00+00:00",
@@ -9337,12 +9345,12 @@
       "model_prob": 0.6798,
       "opened_at": "2026-06-11T23:30:08.215745+00:00",
       "outcome": "Down",
-      "past_end_min": 327.5,
+      "past_end_min": 328.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 352.3,
+      "age_min": 353.4,
       "cost": 2.5,
       "fee": 0.09754,
       "market_end": "2026-06-11T23:15:00+00:00",
@@ -9351,12 +9359,12 @@
       "model_prob": 0.6792,
       "opened_at": "2026-06-11T23:10:06.329180+00:00",
       "outcome": "Down",
-      "past_end_min": 347.5,
+      "past_end_min": 348.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 369.6,
+      "age_min": 370.7,
       "cost": 2.5,
       "fee": 0.131005,
       "market_end": "2026-06-11T22:55:00+00:00",
@@ -9365,12 +9373,12 @@
       "model_prob": 0.7321,
       "opened_at": "2026-06-11T22:52:50.101444+00:00",
       "outcome": "Down",
-      "past_end_min": 367.5,
+      "past_end_min": 368.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 417.9,
+      "age_min": 419.0,
       "cost": 2.5,
       "fee": 0.094303,
       "market_end": "2026-06-11T22:10:00+00:00",
@@ -9379,12 +9387,12 @@
       "model_prob": 0.9104,
       "opened_at": "2026-06-11T22:04:32.251572+00:00",
       "outcome": "Up",
-      "past_end_min": 412.5,
+      "past_end_min": 413.5,
       "pnl_usd": 2.9675,
       "status": "WON"
     },
     {
-      "age_min": 452.3,
+      "age_min": 453.4,
       "cost": 2.5,
       "fee": 0.095923,
       "market_end": "2026-06-11T21:35:00+00:00",
@@ -9393,7 +9401,7 @@
       "model_prob": 0.7931,
       "opened_at": "2026-06-11T21:30:09.014703+00:00",
       "outcome": "Down",
-      "past_end_min": 447.5,
+      "past_end_min": 448.5,
       "pnl_usd": -2.5,
       "status": "LOST"
     }
@@ -9476,7 +9484,7 @@
   "runner": {
     "expected_interval_sec": 30,
     "latest_scan": "2026-06-12T05:01:45.336727+00:00",
-    "latest_scan_age_sec": 41,
+    "latest_scan_age_sec": 105,
     "log_tail": [
       "2026-06-12T04:57:46+00:00 cycle=7709 tick=63624.47 markets=34 eligible=1 signals=0 placed=0 settled=0 skipped_exec=0",
       "sleeping 30s before next scan",
@@ -9490,7 +9498,7 @@
       "sleeping 30s before next scan"
     ],
     "running": true,
-    "stale": false
+    "stale": true
   },
   "sample_status": {
     "description": "300+ trades: start evaluating stability across regimes and failure modes.",
