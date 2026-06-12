@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-highprob-v1">
+<html lang="en" data-dashboard-version="2026-06-12-direction-compare-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,6 +55,14 @@
     .runner-details { display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); }
     .runner-details b { display:block; margin-top:3px; font-size:15px; line-height:1.15; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
     .runner-log { margin-top:12px; padding:12px; border:1px solid var(--soft-line); border-radius:8px; background:#0f172a; color:#dbeafe; font:12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space:pre-wrap; overflow-wrap:anywhere; max-width:100%; max-height:168px; overflow:auto; box-shadow:inset 0 0 0 1px rgba(255,255,255,.03); }
+    .compare { display:grid; gap:12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .compare-card { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:15px; }
+    .compare-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px; }
+    .compare-title { font-weight:780; font-size:16px; }
+    .compare-sub { color:var(--muted); font-size:12px; margin-top:2px; }
+    .compare-stats { display:grid; gap:10px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .compare-stat span { color:var(--muted); font-size:12px; display:block; }
+    .compare-stat b { display:block; margin-top:3px; font-size:18px; line-height:1.1; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
     section { margin-top:14px; padding:15px; overflow:auto; }
     h2 { font-size:15px; margin:0 0 12px; display:flex; align-items:center; gap:8px; }
     h2::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--accent); display:inline-block; }
@@ -105,7 +113,7 @@
     details.diagnostics summary::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--warn); display:inline-block; }
     details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
     canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
-    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
+    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip, .compare { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } }
   </style>
 </head>
 <body>
@@ -123,10 +131,7 @@
     <div class="tab-panel active" id="tab-overview">
       <div class="overview-section">
         <div class="section-label">Direction</div>
-        <div class="runner compact" id="overview-direction-runner"></div>
-        <div class="runner compact" id="overview-highprob-runner"></div>
-        <div class="grid" id="overview-highprob-metrics"></div>
-        <div class="grid" id="metrics"></div>
+        <div class="compare" id="overview-direction-compare"></div>
         <section><h2>Direction PnL Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span></div><canvas id="curve" width="1200" height="260"></canvas></div></section>
       </div>
       <div class="overview-separator"></div>
@@ -328,6 +333,33 @@
       renderRunner('overview-arb-runner', exec, 'arbitrage execution simulator', { showLog: false });
       setHtml('overview-arb-metrics', items.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
     }
+    function compactRunnerStatus(runner) {
+      const stale = runner && runner.stale;
+      const running = runner && runner.running;
+      const cls = running && !stale ? 'good' : stale ? 'warn' : '';
+      const label = running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
+      return `<span class="${cls}">${label}</span>`;
+    }
+    function renderDirectionCompare(data) {
+      const rows = [
+        ['Base', 'MIN_PROB 0.65', data, data.runner],
+        ['High-Prob', 'MIN_PROB 0.90', data.high_prob, data.high_prob.runner]
+      ];
+      const html = rows.map(([title, sub, stats, runner]) => {
+        const items = [
+          ['Status', compactRunnerStatus(runner)],
+          ['Trades', stats.total_trades || 0],
+          ['OPEN', stats.open_count || 0],
+          ['PnL', money(stats.pnl || 0)],
+          ['ROI', pct(stats.roi || 0)],
+          ['Win Rate', pct(stats.win_rate || 0)],
+          ['Scans', stats.total_scans || 0],
+          ['Age', runner && runner.latest_scan_age_sec != null ? `${runner.latest_scan_age_sec}s` : 'n/a']
+        ];
+        return `<div class="compare-card"><div class="compare-head"><div><div class="compare-title">${title}</div><div class="compare-sub">${sub}</div></div><div class="muted">${runner && runner.pid ? `PID ${runner.pid}` : 'PID n/a'}</div></div><div class="compare-stats">${items.map(([k,v]) => `<div class="compare-stat"><span>${k}</span><b>${v}</b></div>`).join('')}</div></div>`;
+      }).join('');
+      setHtml('overview-direction-compare', html);
+    }
     function renderSampleStatus(sample) {
       const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
       const next = sample.next_threshold ? `next: ${sample.next_threshold} trades` : 'top tier reached';
@@ -344,8 +376,7 @@
         return;
       }
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
-      renderRunner('overview-direction-runner', data.runner, 'direction strict dry-run', { showLog: false });
-      renderRunner('overview-highprob-runner', data.high_prob.runner, 'high-prob direction dry-run', { showLog: false });
+      renderDirectionCompare(data);
       renderArbOverview(data);
       renderRunner('runner', data.runner, 'direction strict dry-run');
       renderRunner('highprob-runner', data.high_prob.runner, 'high-prob direction dry-run', { showLog: false });
@@ -365,7 +396,6 @@
         ['PnL', money(data.high_prob.pnl)], ['ROI', pct(data.high_prob.roi)], ['Win Rate', pct(data.high_prob.win_rate)], ['Last BTC', fmt(data.high_prob.last_btc, 2)]
       ];
       const highProbHtml = highProbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
-      setHtml('overview-highprob-metrics', highProbHtml);
       setHtml('highprob-summary', highProbHtml);
       const arbMetrics = [
         ['Arb Opps', data.arb_runner.total_opportunities], ['Fillable', data.arb_runner.fillable], ['Profitable', data.arb_runner.profitable],
