@@ -4271,6 +4271,30 @@
     {
       "quote_yes_no_cost": 1.074944,
       "ts": "2026-06-12T08:40:10.368563+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.035165,
+      "ts": "2026-06-12T08:40:49.247176+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.044993,
+      "ts": "2026-06-12T08:40:52.982633+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.044993,
+      "ts": "2026-06-12T08:40:56.660038+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.044993,
+      "ts": "2026-06-12T08:41:01.442279+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.044993,
+      "ts": "2026-06-12T08:41:05.401405+00:00"
+    },
+    {
+      "quote_yes_no_cost": 1.074944,
+      "ts": "2026-06-12T08:41:12.200116+00:00"
     }
   ],
   "arb_exec_runner": {
@@ -4278,12 +4302,11 @@
     "best_quote_yes_no_cost": 0.811612,
     "expected_interval_sec": 30,
     "full_hedge_possible": 7,
-    "full_hedge_rate": 0.006428,
-    "latest_scan": "2026-06-12T08:39:43.906454+00:00",
-    "latest_scan_age_sec": 58,
+    "full_hedge_rate": 0.006393,
+    "latest_scan": "2026-06-12T08:40:44.772869+00:00",
+    "latest_scan_age_sec": 62,
     "leg_risk": 7,
     "log_tail": [
-      "{\"ts\": \"2026-06-12T08:28:34.563506+00:00\", \"markets\": 39, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 1, \"best_quote_yes_no_cost\": 0.97876, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T08:30:04.258064+00:00\", \"markets\": 38, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044909, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T08:31:12.696448+00:00\", \"markets\": 38, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044825, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T08:32:26.875333+00:00\", \"markets\": 38, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.010209, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
@@ -4292,9 +4315,214 @@
       "{\"ts\": \"2026-06-12T08:35:56.905202+00:00\", \"markets\": 39, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.038525, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T08:37:14.991327+00:00\", \"markets\": 39, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044993, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T08:38:28.868067+00:00\", \"markets\": 39, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.031973, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
-      "{\"ts\": \"2026-06-12T08:39:43.906454+00:00\", \"markets\": 40, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044573, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}"
+      "{\"ts\": \"2026-06-12T08:39:43.906454+00:00\", \"markets\": 40, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.044573, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}",
+      "{\"ts\": \"2026-06-12T08:40:44.772869+00:00\", \"markets\": 39, \"evaluated\": 6, \"full_hedge_possible\": 0, \"leg_risk\": 0, \"best_quote_yes_no_cost\": 1.035165, \"best_full_net_pnl_usd\": 0.0, \"settled\": 0}"
     ],
     "recent": [
+      {
+        "down_best_ask": "0.52",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T09:10:00+00:00",
+        "market_id": "2504245",
+        "market_start": "2026-06-12T09:05:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781255100",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 5:05AM-5:10AM ET",
+        "quote_latency_ms": "3502",
+        "quote_theoretical_pnl_usd": "-0.37472",
+        "quote_yes_no_cost": "1.074944",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "1724",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T08:41:12.200116+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.52"
+      },
+      {
+        "down_best_ask": "0.5",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T09:05:00+00:00",
+        "market_id": "2504241",
+        "market_start": "2026-06-12T09:00:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781254800",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 5:00AM-5:05AM ET",
+        "quote_latency_ms": "6795",
+        "quote_theoretical_pnl_usd": "-0.224965",
+        "quote_yes_no_cost": "1.044993",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "1428",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T08:41:05.401405+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.51"
+      },
+      {
+        "down_best_ask": "0.51",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T09:00:00+00:00",
+        "market_id": "2504223",
+        "market_start": "2026-06-12T08:55:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781254500",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 4:55AM-5:00AM ET",
+        "quote_latency_ms": "3956",
+        "quote_theoretical_pnl_usd": "-0.224965",
+        "quote_yes_no_cost": "1.044993",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "1135",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T08:41:01.442279+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.5"
+      },
+      {
+        "down_best_ask": "0.5",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T08:55:00+00:00",
+        "market_id": "2504201",
+        "market_start": "2026-06-12T08:50:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781254200",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 4:50AM-4:55AM ET",
+        "quote_latency_ms": "4779",
+        "quote_theoretical_pnl_usd": "-0.224965",
+        "quote_yes_no_cost": "1.044993",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "839",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T08:40:56.660038+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.51"
+      },
+      {
+        "down_best_ask": "0.51",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T08:50:00+00:00",
+        "market_id": "2504187",
+        "market_start": "2026-06-12T08:45:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781253900",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 4:45AM-4:50AM ET",
+        "quote_latency_ms": "3673",
+        "quote_theoretical_pnl_usd": "-0.224965",
+        "quote_yes_no_cost": "1.044993",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "543",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T08:40:52.982633+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.5"
+      },
+      {
+        "down_best_ask": "0.77",
+        "execution_order": "",
+        "first_leg": "",
+        "first_leg_cost_usd": "",
+        "first_leg_fee_usd": "",
+        "full_hedge_possible": "False",
+        "market_end": "2026-06-12T08:45:00+00:00",
+        "market_id": "2504181",
+        "market_start": "2026-06-12T08:40:00+00:00",
+        "market_url": "https://polymarket.com/event/btc-updown-5m-1781253600",
+        "max_yes_no_cost": "0.98",
+        "net_pnl_if_full_usd": "",
+        "net_pnl_if_unwind_usd": "",
+        "partial_fill": "False",
+        "question": "Bitcoin Up or Down - June 12, 4:40AM-4:45AM ET",
+        "quote_latency_ms": "3732",
+        "quote_theoretical_pnl_usd": "-0.175825",
+        "quote_yes_no_cost": "1.035165",
+        "second_leg": "",
+        "second_leg_best_ask": "",
+        "second_leg_fee_usd": "",
+        "second_leg_initial_cost_usd": "",
+        "second_leg_requote_cost_usd": "",
+        "seconds_to_expiry": "247",
+        "skip_reason": "initial_cost_above_threshold",
+        "target_shares": "5.0",
+        "ts": "2026-06-12T08:40:49.247176+00:00",
+        "unhedged_shares": "",
+        "unwind_loss_usd": "",
+        "unwind_possible": "False",
+        "unwind_proceeds_usd": "",
+        "up_best_ask": "0.24"
+      },
       {
         "down_best_ask": "0.52",
         "execution_order": "",
@@ -4770,216 +4998,12 @@
         "unwind_possible": "False",
         "unwind_proceeds_usd": "",
         "up_best_ask": "0.5"
-      },
-      {
-        "down_best_ask": "0.5",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T08:55:00+00:00",
-        "market_id": "2504201",
-        "market_start": "2026-06-12T08:50:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781254200",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 4:50AM-4:55AM ET",
-        "quote_latency_ms": "5286",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "1037",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T08:37:37.815551+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.51"
-      },
-      {
-        "down_best_ask": "0.5",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T08:50:00+00:00",
-        "market_id": "2504187",
-        "market_start": "2026-06-12T08:45:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781253900",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 4:45AM-4:50AM ET",
-        "quote_latency_ms": "4370",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "742",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T08:37:33.442259+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.51"
-      },
-      {
-        "down_best_ask": "0.5",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T08:45:00+00:00",
-        "market_id": "2504181",
-        "market_start": "2026-06-12T08:40:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781253600",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 4:40AM-4:45AM ET",
-        "quote_latency_ms": "2840",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "447",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T08:37:30.598701+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.51"
-      },
-      {
-        "down_best_ask": "0.85",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T08:40:00+00:00",
-        "market_id": "2504177",
-        "market_start": "2026-06-12T08:35:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781253300",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 4:35AM-4:40AM ET",
-        "quote_latency_ms": "3297",
-        "quote_theoretical_pnl_usd": "-0.29849",
-        "quote_yes_no_cost": "1.059698",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "149",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T08:37:27.297693+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.19"
-      },
-      {
-        "down_best_ask": "0.5",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T09:05:00+00:00",
-        "market_id": "2504241",
-        "market_start": "2026-06-12T09:00:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781254800",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 5:00AM-5:05AM ET",
-        "quote_latency_ms": "5243",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "1695",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T08:36:39.734808+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.51"
-      },
-      {
-        "down_best_ask": "0.51",
-        "execution_order": "",
-        "first_leg": "",
-        "first_leg_cost_usd": "",
-        "first_leg_fee_usd": "",
-        "full_hedge_possible": "False",
-        "market_end": "2026-06-12T09:00:00+00:00",
-        "market_id": "2504223",
-        "market_start": "2026-06-12T08:55:00+00:00",
-        "market_url": "https://polymarket.com/event/btc-updown-5m-1781254500",
-        "max_yes_no_cost": "0.98",
-        "net_pnl_if_full_usd": "",
-        "net_pnl_if_unwind_usd": "",
-        "partial_fill": "False",
-        "question": "Bitcoin Up or Down - June 12, 4:55AM-5:00AM ET",
-        "quote_latency_ms": "4981",
-        "quote_theoretical_pnl_usd": "-0.224965",
-        "quote_yes_no_cost": "1.044993",
-        "second_leg": "",
-        "second_leg_best_ask": "",
-        "second_leg_fee_usd": "",
-        "second_leg_initial_cost_usd": "",
-        "second_leg_requote_cost_usd": "",
-        "seconds_to_expiry": "1400",
-        "skip_reason": "initial_cost_above_threshold",
-        "target_shares": "5.0",
-        "ts": "2026-06-12T08:36:34.750550+00:00",
-        "unhedged_shares": "",
-        "unwind_loss_usd": "",
-        "unwind_possible": "False",
-        "unwind_proceeds_usd": "",
-        "up_best_ask": "0.5"
       }
     ],
     "running": true,
     "skip_reasons": [
       {
-        "count": 1054,
+        "count": 1060,
         "reason": "initial_cost_above_threshold"
       },
       {
@@ -5025,7 +5049,7 @@
     ],
     "stale": false,
     "stale_after_sec": 180,
-    "total_attempts": 1089,
+    "total_attempts": 1095,
     "total_full_net_pnl_usd": 2.119775,
     "total_unwind_loss_usd": 1.72173
   },
@@ -5035,7 +5059,7 @@
     "expected_interval_sec": 30,
     "latest_confirm_yes_no_cost": 1.017273,
     "latest_scan": "2026-06-12T00:17:36.524701+00:00",
-    "latest_scan_age_sec": 30185,
+    "latest_scan_age_sec": 30250,
     "log_tail": [
       "{\"ts\": \"2026-06-12T00:13:43.945014+00:00\", \"markets\": 34, \"evaluated\": 0, \"would_execute\": 0, \"best_confirm_yes_no_cost\": 0.0, \"settled\": 0}",
       "{\"ts\": \"2026-06-12T00:14:17.109028+00:00\", \"markets\": 34, \"evaluated\": 0, \"would_execute\": 0, \"best_confirm_yes_no_cost\": 0.0, \"settled\": 0}",
@@ -5859,7 +5883,7 @@
     "expected_interval_sec": 30,
     "fillable": 2667,
     "latest_scan": "2026-06-12T00:17:51.376220+00:00",
-    "latest_scan_age_sec": 30170,
+    "latest_scan_age_sec": 30235,
     "latest_theoretical_pnl_usd": -0.098545,
     "latest_theoretical_roi": -0.019328,
     "latest_yes_no_cost": 1.019709,
@@ -6090,8 +6114,8 @@
       "ts": "2026-06-07T05:52:20.098730+00:00"
     },
     {
-      "price": 61695.435,
-      "ts": "2026-06-07T05:56:17.520012+00:00"
+      "price": 61725.015,
+      "ts": "2026-06-07T05:56:52.217278+00:00"
     },
     {
       "price": 61645.355,
@@ -6126,8 +6150,8 @@
       "ts": "2026-06-07T06:44:22.551128+00:00"
     },
     {
-      "price": 62098.235,
-      "ts": "2026-06-07T06:48:30.934603+00:00"
+      "price": 62100.76,
+      "ts": "2026-06-07T06:49:06.169611+00:00"
     },
     {
       "price": 62097.505,
@@ -6162,8 +6186,8 @@
       "ts": "2026-06-07T07:25:57.046406+00:00"
     },
     {
-      "price": 62201.085,
-      "ts": "2026-06-07T07:30:05.097316+00:00"
+      "price": 62189.345,
+      "ts": "2026-06-07T07:30:38.939810+00:00"
     },
     {
       "price": 62218.215,
@@ -6198,8 +6222,8 @@
       "ts": "2026-06-07T08:03:44.366123+00:00"
     },
     {
-      "price": 62285.515,
-      "ts": "2026-06-07T08:07:50.175305+00:00"
+      "price": 62282.115,
+      "ts": "2026-06-07T08:08:24.311098+00:00"
     },
     {
       "price": 62285.875,
@@ -6234,8 +6258,8 @@
       "ts": "2026-06-07T08:42:05.244579+00:00"
     },
     {
-      "price": 62571.825,
-      "ts": "2026-06-07T08:46:05.314679+00:00"
+      "price": 62596.88,
+      "ts": "2026-06-07T08:46:39.775860+00:00"
     },
     {
       "price": 62769.025,
@@ -6270,8 +6294,8 @@
       "ts": "2026-06-07T09:28:14.672294+00:00"
     },
     {
-      "price": 62553.06,
-      "ts": "2026-06-07T09:32:14.039767+00:00"
+      "price": 62595.915,
+      "ts": "2026-06-07T09:32:49.028612+00:00"
     },
     {
       "price": 62512.365,
@@ -6306,8 +6330,8 @@
       "ts": "2026-06-07T10:05:24.398685+00:00"
     },
     {
-      "price": 62377.775,
-      "ts": "2026-06-07T10:09:19.475459+00:00"
+      "price": 62354.995,
+      "ts": "2026-06-07T10:09:53.930573+00:00"
     },
     {
       "price": 62432.225,
@@ -6342,8 +6366,8 @@
       "ts": "2026-06-07T10:41:56.695508+00:00"
     },
     {
-      "price": 62327.175,
-      "ts": "2026-06-07T10:45:55.803592+00:00"
+      "price": 62324.975,
+      "ts": "2026-06-07T10:46:30.304346+00:00"
     },
     {
       "price": 62355.865,
@@ -6378,8 +6402,8 @@
       "ts": "2026-06-07T11:19:31.569967+00:00"
     },
     {
-      "price": 62493.045,
-      "ts": "2026-06-07T11:23:36.950243+00:00"
+      "price": 62499.835,
+      "ts": "2026-06-07T11:24:11.020584+00:00"
     },
     {
       "price": 62499.835,
@@ -6414,8 +6438,8 @@
       "ts": "2026-06-07T12:03:29.438054+00:00"
     },
     {
-      "price": 62606.255,
-      "ts": "2026-06-07T12:07:32.797906+00:00"
+      "price": 62552.055,
+      "ts": "2026-06-07T12:08:06.079628+00:00"
     },
     {
       "price": 62266.945,
@@ -6450,8 +6474,8 @@
       "ts": "2026-06-07T12:40:16.740412+00:00"
     },
     {
-      "price": 61589.015,
-      "ts": "2026-06-07T12:44:30.713379+00:00"
+      "price": 61611.995,
+      "ts": "2026-06-07T12:45:03.605202+00:00"
     },
     {
       "price": 61770.175,
@@ -6470,8 +6494,8 @@
       "ts": "2026-06-07T13:01:41.960710+00:00"
     },
     {
-      "price": 61751.115,
-      "ts": "2026-06-07T13:05:52.420396+00:00"
+      "price": 61741.065,
+      "ts": "2026-06-07T13:06:25.469812+00:00"
     },
     {
       "price": 61685.515,
@@ -6506,8 +6530,8 @@
       "ts": "2026-06-07T13:39:46.993581+00:00"
     },
     {
-      "price": 61698.565,
-      "ts": "2026-06-07T13:43:56.553529+00:00"
+      "price": 61719.265,
+      "ts": "2026-06-07T13:44:29.687236+00:00"
     },
     {
       "price": 61707.195,
@@ -6542,8 +6566,8 @@
       "ts": "2026-06-07T14:18:59.936730+00:00"
     },
     {
-      "price": 61957.055,
-      "ts": "2026-06-07T14:23:04.280595+00:00"
+      "price": 61975.25,
+      "ts": "2026-06-07T14:23:45.370624+00:00"
     },
     {
       "price": 62043.385,
@@ -6578,8 +6602,8 @@
       "ts": "2026-06-07T14:57:46.397975+00:00"
     },
     {
-      "price": 61808.105,
-      "ts": "2026-06-07T15:02:06.684481+00:00"
+      "price": 61783.945,
+      "ts": "2026-06-07T15:02:42.027620+00:00"
     },
     {
       "price": 61649.295,
@@ -6614,8 +6638,8 @@
       "ts": "2026-06-07T15:40:36.798664+00:00"
     },
     {
-      "price": 62092.925,
-      "ts": "2026-06-07T15:44:53.741108+00:00"
+      "price": 62052.245,
+      "ts": "2026-06-07T15:45:30.862268+00:00"
     },
     {
       "price": 62134.385,
@@ -6650,8 +6674,8 @@
       "ts": "2026-06-07T16:41:30.565433+00:00"
     },
     {
-      "price": 62141.375,
-      "ts": "2026-06-07T16:45:30.012713+00:00"
+      "price": 62146.35,
+      "ts": "2026-06-07T16:46:03.138816+00:00"
     },
     {
       "price": 62158.075,
@@ -6686,8 +6710,8 @@
       "ts": "2026-06-07T17:17:49.757774+00:00"
     },
     {
-      "price": 62218.145,
-      "ts": "2026-06-07T17:21:37.490897+00:00"
+      "price": 62234.655,
+      "ts": "2026-06-07T17:22:09.578843+00:00"
     },
     {
       "price": 62233.795,
@@ -6722,8 +6746,8 @@
       "ts": "2026-06-07T17:52:38.179529+00:00"
     },
     {
-      "price": 62159.33,
-      "ts": "2026-06-07T17:56:21.313693+00:00"
+      "price": 62156.505,
+      "ts": "2026-06-07T17:56:52.945222+00:00"
     },
     {
       "price": 62130.485,
@@ -6758,8 +6782,8 @@
       "ts": "2026-06-07T18:27:00.055626+00:00"
     },
     {
-      "price": 62198.105,
-      "ts": "2026-06-07T18:30:41.709493+00:00"
+      "price": 62179.935,
+      "ts": "2026-06-07T18:31:13.299562+00:00"
     },
     {
       "price": 62215.015,
@@ -6794,8 +6818,8 @@
       "ts": "2026-06-07T19:01:14.769980+00:00"
     },
     {
-      "price": 61834.21,
-      "ts": "2026-06-07T19:04:55.891004+00:00"
+      "price": 61779.815,
+      "ts": "2026-06-07T19:05:27.434843+00:00"
     },
     {
       "price": 61604.725,
@@ -6814,8 +6838,8 @@
       "ts": "2026-06-07T19:20:13.016435+00:00"
     },
     {
-      "price": 61472.015,
-      "ts": "2026-06-07T19:23:55.031910+00:00"
+      "price": 61468.51,
+      "ts": "2026-06-07T19:24:26.485844+00:00"
     },
     {
       "price": 61369.905,
@@ -6830,8 +6854,8 @@
       "ts": "2026-06-07T19:35:39.435461+00:00"
     },
     {
-      "price": 61291.755,
-      "ts": "2026-06-07T19:39:21.050129+00:00"
+      "price": 61261.995,
+      "ts": "2026-06-07T19:39:52.595313+00:00"
     },
     {
       "price": 61207.145,
@@ -6850,8 +6874,8 @@
       "ts": "2026-06-07T19:54:40.226757+00:00"
     },
     {
-      "price": 61255.995,
-      "ts": "2026-06-07T19:58:21.038551+00:00"
+      "price": 61250.965,
+      "ts": "2026-06-07T19:58:52.898272+00:00"
     },
     {
       "price": 61283.955,
@@ -6866,8 +6890,8 @@
       "ts": "2026-06-07T20:10:12.104130+00:00"
     },
     {
-      "price": 61534.785,
-      "ts": "2026-06-07T20:13:59.999696+00:00"
+      "price": 61548.315,
+      "ts": "2026-06-07T20:14:32.487366+00:00"
     },
     {
       "price": 61520.155,
@@ -6886,8 +6910,8 @@
       "ts": "2026-06-07T20:29:33.461086+00:00"
     },
     {
-      "price": 61770.545,
-      "ts": "2026-06-07T20:33:18.325824+00:00"
+      "price": 61780.035,
+      "ts": "2026-06-07T20:33:50.385935+00:00"
     },
     {
       "price": 61697.085,
@@ -6902,8 +6926,8 @@
       "ts": "2026-06-07T20:45:11.263956+00:00"
     },
     {
-      "price": 61776.805,
-      "ts": "2026-06-07T20:48:58.629468+00:00"
+      "price": 61765.645,
+      "ts": "2026-06-07T20:49:30.214475+00:00"
     },
     {
       "price": 61898.885,
@@ -6922,8 +6946,8 @@
       "ts": "2026-06-07T21:04:25.037712+00:00"
     },
     {
-      "price": 61739.165,
-      "ts": "2026-06-07T21:08:06.869622+00:00"
+      "price": 61728.455,
+      "ts": "2026-06-07T21:08:38.468904+00:00"
     },
     {
       "price": 61823.675,
@@ -6938,8 +6962,8 @@
       "ts": "2026-06-07T21:19:44.692119+00:00"
     },
     {
-      "price": 61761.995,
-      "ts": "2026-06-07T21:23:26.387450+00:00"
+      "price": 61768.605,
+      "ts": "2026-06-07T21:23:59.264864+00:00"
     },
     {
       "price": 61792.455,
@@ -6958,8 +6982,8 @@
       "ts": "2026-06-07T21:39:01.492813+00:00"
     },
     {
-      "price": 61692.795,
-      "ts": "2026-06-07T21:42:47.936097+00:00"
+      "price": 61684.885,
+      "ts": "2026-06-07T21:43:19.848203+00:00"
     },
     {
       "price": 61698.565,
@@ -6974,8 +6998,8 @@
       "ts": "2026-06-07T21:54:38.329810+00:00"
     },
     {
-      "price": 61719.18,
-      "ts": "2026-06-07T21:58:21.146536+00:00"
+      "price": 61730.135,
+      "ts": "2026-06-07T21:58:52.751041+00:00"
     },
     {
       "price": 61792.385,
@@ -6994,8 +7018,8 @@
       "ts": "2026-06-07T22:19:25.073100+00:00"
     },
     {
-      "price": 62986.555,
-      "ts": "2026-06-07T22:23:11.202874+00:00"
+      "price": 62974.895,
+      "ts": "2026-06-07T22:23:43.602054+00:00"
     },
     {
       "price": 63034.535,
@@ -7010,8 +7034,8 @@
       "ts": "2026-06-07T22:35:10.158807+00:00"
     },
     {
-      "price": 63221.69,
-      "ts": "2026-06-07T22:38:58.955874+00:00"
+      "price": 63195.005,
+      "ts": "2026-06-07T22:39:32.377345+00:00"
     },
     {
       "price": 63077.775,
@@ -7030,8 +7054,8 @@
       "ts": "2026-06-07T22:54:49.452305+00:00"
     },
     {
-      "price": 62888.525,
-      "ts": "2026-06-07T22:58:44.431326+00:00"
+      "price": 62890.37,
+      "ts": "2026-06-07T22:59:18.302808+00:00"
     },
     {
       "price": 62962.245,
@@ -7046,8 +7070,8 @@
       "ts": "2026-06-07T23:11:21.298338+00:00"
     },
     {
-      "price": 62988.995,
-      "ts": "2026-06-07T23:15:23.194878+00:00"
+      "price": 62920.6,
+      "ts": "2026-06-07T23:15:56.317697+00:00"
     },
     {
       "price": 62881.495,
@@ -7066,8 +7090,8 @@
       "ts": "2026-06-07T23:35:36.758999+00:00"
     },
     {
-      "price": 63187.035,
-      "ts": "2026-06-07T23:39:30.859403+00:00"
+      "price": 63155.87,
+      "ts": "2026-06-07T23:40:03.427810+00:00"
     },
     {
       "price": 63272.945,
@@ -7082,8 +7106,8 @@
       "ts": "2026-06-07T23:51:35.180617+00:00"
     },
     {
-      "price": 63144.74,
-      "ts": "2026-06-07T23:55:31.726644+00:00"
+      "price": 63181.625,
+      "ts": "2026-06-07T23:56:05.552030+00:00"
     },
     {
       "price": 63304.245,
@@ -7102,8 +7126,8 @@
       "ts": "2026-06-08T00:11:27.280312+00:00"
     },
     {
-      "price": 63191.875,
-      "ts": "2026-06-08T00:15:19.666423+00:00"
+      "price": 63146.595,
+      "ts": "2026-06-08T00:15:52.221849+00:00"
     },
     {
       "price": 63128.965,
@@ -7118,8 +7142,8 @@
       "ts": "2026-06-08T00:27:29.882066+00:00"
     },
     {
-      "price": 63571.34,
-      "ts": "2026-06-08T00:31:24.704487+00:00"
+      "price": 63576.195,
+      "ts": "2026-06-08T00:31:58.706253+00:00"
     },
     {
       "price": 63485.78,
@@ -7138,8 +7162,8 @@
       "ts": "2026-06-08T00:48:10.253668+00:00"
     },
     {
-      "price": 63703.05,
-      "ts": "2026-06-08T00:52:06.119400+00:00"
+      "price": 63754.5,
+      "ts": "2026-06-08T00:52:38.642012+00:00"
     },
     {
       "price": 63598.515,
@@ -7154,8 +7178,8 @@
       "ts": "2026-06-08T01:04:36.702302+00:00"
     },
     {
-      "price": 63291.995,
-      "ts": "2026-06-08T01:08:39.268263+00:00"
+      "price": 63298.575,
+      "ts": "2026-06-08T01:09:11.818210+00:00"
     },
     {
       "price": 63163.985,
@@ -7174,8 +7198,8 @@
       "ts": "2026-06-08T01:25:16.294970+00:00"
     },
     {
-      "price": 62746.015,
-      "ts": "2026-06-08T01:29:21.061543+00:00"
+      "price": 62770.55,
+      "ts": "2026-06-08T01:29:57.024571+00:00"
     },
     {
       "price": 62913.245,
@@ -7190,12 +7214,12 @@
       "ts": "2026-06-08T01:42:19.527102+00:00"
     },
     {
-      "price": 63099.975,
-      "ts": "2026-06-08T01:46:24.573794+00:00"
+      "price": 63092.175,
+      "ts": "2026-06-08T01:46:58.806274+00:00"
     },
     {
-      "price": 63060.475,
-      "ts": "2026-06-08T02:11:43.111756+00:00"
+      "price": 63028.815,
+      "ts": "2026-06-08T02:12:17.276641+00:00"
     },
     {
       "price": 62993.88,
@@ -7210,8 +7234,8 @@
       "ts": "2026-06-08T02:25:20.324170+00:00"
     },
     {
-      "price": 63087.985,
-      "ts": "2026-06-08T02:29:39.921546+00:00"
+      "price": 63094.065,
+      "ts": "2026-06-08T02:30:16.117462+00:00"
     },
     {
       "price": 62981.855,
@@ -7226,12 +7250,12 @@
       "ts": "2026-06-08T02:42:27.620801+00:00"
     },
     {
-      "price": 63026.235,
-      "ts": "2026-06-08T02:46:37.437691+00:00"
+      "price": 63026.795,
+      "ts": "2026-06-08T02:47:13.131523+00:00"
     },
     {
-      "price": 63057.315,
-      "ts": "2026-06-08T02:50:51.345475+00:00"
+      "price": 63084.925,
+      "ts": "2026-06-08T02:51:26.814673+00:00"
     },
     {
       "price": 63069.495,
@@ -7246,8 +7270,8 @@
       "ts": "2026-06-08T03:03:37.391630+00:00"
     },
     {
-      "price": 63078.885,
-      "ts": "2026-06-08T03:08:41.979712+00:00"
+      "price": 63107.77,
+      "ts": "2026-06-08T03:09:14.780363+00:00"
     },
     {
       "price": 63242.945,
@@ -7262,12 +7286,12 @@
       "ts": "2026-06-08T03:24:12.696366+00:00"
     },
     {
-      "price": 63166.295,
-      "ts": "2026-06-08T03:28:39.570211+00:00"
+      "price": 63149.145,
+      "ts": "2026-06-08T03:29:20.420224+00:00"
     },
     {
-      "price": 63155.975,
-      "ts": "2026-06-08T03:33:03.386929+00:00"
+      "price": 63144.395,
+      "ts": "2026-06-08T03:33:36.864433+00:00"
     },
     {
       "price": 63119.035,
@@ -7282,8 +7306,8 @@
       "ts": "2026-06-08T03:45:48.100069+00:00"
     },
     {
-      "price": 63070.5,
-      "ts": "2026-06-08T03:50:08.219170+00:00"
+      "price": 63058.445,
+      "ts": "2026-06-08T03:50:43.285220+00:00"
     },
     {
       "price": 63066.375,
@@ -7298,12 +7322,12 @@
       "ts": "2026-06-08T04:04:05.379444+00:00"
     },
     {
-      "price": 62892.015,
-      "ts": "2026-06-08T04:08:11.284544+00:00"
+      "price": 62926.915,
+      "ts": "2026-06-08T04:08:45.446737+00:00"
     },
     {
-      "price": 62922.005,
-      "ts": "2026-06-08T04:12:31.048438+00:00"
+      "price": 62886.025,
+      "ts": "2026-06-08T04:13:08.994366+00:00"
     },
     {
       "price": 62986.355,
@@ -7318,8 +7342,8 @@
       "ts": "2026-06-08T04:26:19.919053+00:00"
     },
     {
-      "price": 62910.705,
-      "ts": "2026-06-08T04:30:43.223216+00:00"
+      "price": 62847.275,
+      "ts": "2026-06-08T04:31:18.059698+00:00"
     },
     {
       "price": 62770.735,
@@ -7334,12 +7358,12 @@
       "ts": "2026-06-08T04:44:34.070863+00:00"
     },
     {
-      "price": 62784.665,
-      "ts": "2026-06-08T04:48:42.505370+00:00"
+      "price": 62781.525,
+      "ts": "2026-06-08T04:49:17.781821+00:00"
     },
     {
-      "price": 62800.165,
-      "ts": "2026-06-08T04:53:17.866172+00:00"
+      "price": 62792.825,
+      "ts": "2026-06-08T04:53:54.920306+00:00"
     },
     {
       "price": 62734.585,
@@ -7354,8 +7378,8 @@
       "ts": "2026-06-08T05:07:03.956477+00:00"
     },
     {
-      "price": 62653.215,
-      "ts": "2026-06-08T05:11:25.522174+00:00"
+      "price": 62611.515,
+      "ts": "2026-06-08T05:12:05.438159+00:00"
     },
     {
       "price": 62534.265,
@@ -7370,12 +7394,12 @@
       "ts": "2026-06-08T05:25:15.107704+00:00"
     },
     {
-      "price": 62665.985,
-      "ts": "2026-06-08T05:29:46.265384+00:00"
+      "price": 62662.605,
+      "ts": "2026-06-08T05:30:23.456027+00:00"
     },
     {
-      "price": 62657.4,
-      "ts": "2026-06-08T05:33:53.988159+00:00"
+      "price": 62586.585,
+      "ts": "2026-06-08T05:34:31.386442+00:00"
     },
     {
       "price": 62462.275,
@@ -7390,8 +7414,8 @@
       "ts": "2026-06-08T05:49:11.894711+00:00"
     },
     {
-      "price": 62587.765,
-      "ts": "2026-06-08T05:54:16.495577+00:00"
+      "price": 62645.845,
+      "ts": "2026-06-08T05:54:55.246044+00:00"
     },
     {
       "price": 62728.295,
@@ -7406,12 +7430,12 @@
       "ts": "2026-06-08T06:09:09.454467+00:00"
     },
     {
-      "price": 62884.835,
-      "ts": "2026-06-08T06:13:20.729198+00:00"
+      "price": 62897.345,
+      "ts": "2026-06-08T06:13:54.313883+00:00"
     },
     {
       "price": 62862.095,
-      "ts": "2026-06-08T06:17:25.770099+00:00"
+      "ts": "2026-06-08T06:18:03.149574+00:00"
     },
     {
       "price": 63029.08,
@@ -7426,8 +7450,8 @@
       "ts": "2026-06-08T06:32:10.612795+00:00"
     },
     {
-      "price": 63016.295,
-      "ts": "2026-06-08T06:36:20.245056+00:00"
+      "price": 62977.53,
+      "ts": "2026-06-08T06:36:56.158107+00:00"
     },
     {
       "price": 62942.035,
@@ -7442,12 +7466,12 @@
       "ts": "2026-06-08T06:49:29.928406+00:00"
     },
     {
-      "price": 62967.205,
-      "ts": "2026-06-08T06:54:28.836096+00:00"
+      "price": 62972.405,
+      "ts": "2026-06-08T06:55:12.995152+00:00"
     },
     {
-      "price": 62956.815,
-      "ts": "2026-06-08T06:59:15.818858+00:00"
+      "price": 62945.88,
+      "ts": "2026-06-08T06:59:50.512438+00:00"
     },
     {
       "price": 62853.535,
@@ -7462,8 +7486,8 @@
       "ts": "2026-06-08T07:13:33.964376+00:00"
     },
     {
-      "price": 63099.035,
-      "ts": "2026-06-08T07:17:43.225423+00:00"
+      "price": 63050.73,
+      "ts": "2026-06-08T07:18:16.721399+00:00"
     },
     {
       "price": 63116.985,
@@ -7478,12 +7502,12 @@
       "ts": "2026-06-08T07:31:27.051869+00:00"
     },
     {
-      "price": 63162.31,
-      "ts": "2026-06-08T07:36:19.342623+00:00"
+      "price": 63146.595,
+      "ts": "2026-06-08T07:36:57.323214+00:00"
     },
     {
-      "price": 63186.105,
-      "ts": "2026-06-08T07:41:01.833962+00:00"
+      "price": 63154.03,
+      "ts": "2026-06-08T07:41:42.980492+00:00"
     },
     {
       "price": 63123.495,
@@ -7498,8 +7522,8 @@
       "ts": "2026-06-08T07:55:50.921866+00:00"
     },
     {
-      "price": 63202.065,
-      "ts": "2026-06-08T08:00:25.240844+00:00"
+      "price": 63182.545,
+      "ts": "2026-06-08T08:01:07.955904+00:00"
     },
     {
       "price": 63144.005,
@@ -7514,12 +7538,12 @@
       "ts": "2026-06-08T08:14:50.069811+00:00"
     },
     {
-      "price": 62974.995,
-      "ts": "2026-06-08T08:21:53.915007+00:00"
+      "price": 62988.835,
+      "ts": "2026-06-08T08:22:33.406712+00:00"
     },
     {
-      "price": 63009.175,
-      "ts": "2026-06-08T08:28:13.512478+00:00"
+      "price": 63019.415,
+      "ts": "2026-06-08T08:28:50.044591+00:00"
     },
     {
       "price": 63075.755,
@@ -7534,8 +7558,8 @@
       "ts": "2026-06-08T08:43:00.579641+00:00"
     },
     {
-      "price": 63038.035,
-      "ts": "2026-06-08T08:47:41.005709+00:00"
+      "price": 63033.995,
+      "ts": "2026-06-08T08:48:24.467541+00:00"
     },
     {
       "price": 63024.895,
@@ -7550,12 +7574,12 @@
       "ts": "2026-06-08T09:03:11.946804+00:00"
     },
     {
-      "price": 63183.415,
-      "ts": "2026-06-08T09:07:45.511353+00:00"
+      "price": 63185.11,
+      "ts": "2026-06-08T09:08:23.815908+00:00"
     },
     {
-      "price": 63210.955,
-      "ts": "2026-06-08T09:12:22.197077+00:00"
+      "price": 63225.235,
+      "ts": "2026-06-08T09:13:01.810882+00:00"
     },
     {
       "price": 63453.39,
@@ -7570,12 +7594,12 @@
       "ts": "2026-06-08T09:26:52.991816+00:00"
     },
     {
-      "price": 63333.305,
-      "ts": "2026-06-08T09:31:18.515710+00:00"
+      "price": 63354.095,
+      "ts": "2026-06-08T09:31:55.051484+00:00"
     },
     {
-      "price": 63176.975,
-      "ts": "2026-06-08T09:35:38.067424+00:00"
+      "price": 63116.215,
+      "ts": "2026-06-08T09:36:14.493419+00:00"
     },
     {
       "price": 63226.635,
@@ -7586,12 +7610,12 @@
       "ts": "2026-06-08T09:45:11.183777+00:00"
     },
     {
-      "price": 63396.035,
-      "ts": "2026-06-08T09:49:38.305618+00:00"
+      "price": 63410.225,
+      "ts": "2026-06-08T09:50:17.422125+00:00"
     },
     {
-      "price": 63367.065,
-      "ts": "2026-06-08T09:54:10.037487+00:00"
+      "price": 63384.77,
+      "ts": "2026-06-08T09:54:50.007944+00:00"
     },
     {
       "price": 63422.075,
@@ -7606,12 +7630,12 @@
       "ts": "2026-06-08T10:08:25.495200+00:00"
     },
     {
-      "price": 63342.005,
-      "ts": "2026-06-08T10:12:39.852721+00:00"
+      "price": 63350.015,
+      "ts": "2026-06-08T10:13:13.924956+00:00"
     },
     {
-      "price": 63319.595,
-      "ts": "2026-06-08T10:16:43.321909+00:00"
+      "price": 63291.035,
+      "ts": "2026-06-08T10:17:17.920702+00:00"
     },
     {
       "price": 63232.005,
@@ -7622,12 +7646,12 @@
       "ts": "2026-06-08T11:21:59.349183+00:00"
     },
     {
-      "price": 63577.14,
-      "ts": "2026-06-08T11:27:06.403188+00:00"
+      "price": 63568.025,
+      "ts": "2026-06-08T11:27:46.655899+00:00"
     },
     {
-      "price": 63565.995,
-      "ts": "2026-06-08T11:31:35.359598+00:00"
+      "price": 63590.675,
+      "ts": "2026-06-08T11:32:12.974506+00:00"
     },
     {
       "price": 63690.115,
@@ -7642,12 +7666,12 @@
       "ts": "2026-06-08T11:45:05.519687+00:00"
     },
     {
-      "price": 63422.605,
-      "ts": "2026-06-08T11:49:26.520266+00:00"
+      "price": 63450.94,
+      "ts": "2026-06-08T11:50:07.438366+00:00"
     },
     {
-      "price": 63436.98,
-      "ts": "2026-06-08T11:54:18.458446+00:00"
+      "price": 63411.365,
+      "ts": "2026-06-08T11:55:02.835760+00:00"
     },
     {
       "price": 63453.415,
@@ -7658,12 +7682,12 @@
       "ts": "2026-06-08T12:04:55.339307+00:00"
     },
     {
-      "price": 63002.395,
-      "ts": "2026-06-08T12:09:31.610400+00:00"
+      "price": 62944.545,
+      "ts": "2026-06-08T12:10:08.964275+00:00"
     },
     {
-      "price": 62944.625,
-      "ts": "2026-06-08T12:13:45.950644+00:00"
+      "price": 62914.685,
+      "ts": "2026-06-08T12:14:21.498186+00:00"
     },
     {
       "price": 62847.69,
@@ -7678,12 +7702,12 @@
       "ts": "2026-06-08T12:28:10.278411+00:00"
     },
     {
-      "price": 63188.015,
-      "ts": "2026-06-08T12:33:47.818447+00:00"
+      "price": 63169.03,
+      "ts": "2026-06-08T12:34:24.015218+00:00"
     },
     {
-      "price": 63326.125,
-      "ts": "2026-06-08T12:39:23.854839+00:00"
+      "price": 63353.455,
+      "ts": "2026-06-08T12:40:20.490223+00:00"
     },
     {
       "price": 63585.12,
@@ -7698,8 +7722,8 @@
       "ts": "2026-06-08T12:55:35.453298+00:00"
     },
     {
-      "price": 63814.08,
-      "ts": "2026-06-08T13:00:34.961749+00:00"
+      "price": 63749.925,
+      "ts": "2026-06-08T13:01:19.270380+00:00"
     },
     {
       "price": 63702.745,
@@ -7714,12 +7738,12 @@
       "ts": "2026-06-08T13:15:10.288105+00:00"
     },
     {
-      "price": 63691.905,
-      "ts": "2026-06-08T13:19:52.049773+00:00"
+      "price": 63681.96,
+      "ts": "2026-06-08T13:20:32.612936+00:00"
     },
     {
-      "price": 63713.15,
-      "ts": "2026-06-08T13:24:41.799497+00:00"
+      "price": 63685.945,
+      "ts": "2026-06-08T13:25:21.018709+00:00"
     },
     {
       "price": 63542.385,
@@ -7734,8 +7758,8 @@
       "ts": "2026-06-08T13:38:42.971253+00:00"
     },
     {
-      "price": 63534.015,
-      "ts": "2026-06-08T13:43:13.992907+00:00"
+      "price": 63444.09,
+      "ts": "2026-06-08T13:43:52.749991+00:00"
     },
     {
       "price": 63451.41,
@@ -7750,12 +7774,12 @@
       "ts": "2026-06-08T13:57:52.757331+00:00"
     },
     {
-      "price": 63775.925,
-      "ts": "2026-06-08T14:02:15.353435+00:00"
+      "price": 63700.005,
+      "ts": "2026-06-08T14:02:52.296716+00:00"
     },
     {
-      "price": 63630.205,
-      "ts": "2026-06-08T14:06:25.386951+00:00"
+      "price": 63734.415,
+      "ts": "2026-06-08T14:07:00.746698+00:00"
     },
     {
       "price": 63752.815,
@@ -7770,8 +7794,8 @@
       "ts": "2026-06-08T14:19:56.658609+00:00"
     },
     {
-      "price": 63806.775,
-      "ts": "2026-06-08T14:24:05.019765+00:00"
+      "price": 63811.95,
+      "ts": "2026-06-08T14:24:40.243632+00:00"
     },
     {
       "price": 63791.405,
@@ -7786,12 +7810,12 @@
       "ts": "2026-06-08T14:37:22.287574+00:00"
     },
     {
-      "price": 63884.025,
-      "ts": "2026-06-08T14:41:38.367367+00:00"
+      "price": 63855.725,
+      "ts": "2026-06-08T14:42:14.168356+00:00"
     },
     {
-      "price": 63850.615,
-      "ts": "2026-06-08T14:45:46.536403+00:00"
+      "price": 63875.995,
+      "ts": "2026-06-08T14:46:21.455467+00:00"
     },
     {
       "price": 63845.915,
@@ -7806,8 +7830,8 @@
       "ts": "2026-06-08T14:58:57.535071+00:00"
     },
     {
-      "price": 63959.725,
-      "ts": "2026-06-08T15:04:05.567162+00:00"
+      "price": 63940.335,
+      "ts": "2026-06-08T15:04:47.486376+00:00"
     },
     {
       "price": 64045.195,
@@ -7822,12 +7846,12 @@
       "ts": "2026-06-08T15:18:18.257580+00:00"
     },
     {
-      "price": 64089.595,
-      "ts": "2026-06-08T15:22:27.472758+00:00"
+      "price": 64061.105,
+      "ts": "2026-06-08T15:23:02.603848+00:00"
     },
     {
-      "price": 64048.045,
-      "ts": "2026-06-08T15:26:44.478415+00:00"
+      "price": 64015.745,
+      "ts": "2026-06-08T15:27:23.193732+00:00"
     },
     {
       "price": 63882.975,
@@ -7842,8 +7866,8 @@
       "ts": "2026-06-08T15:40:31.601969+00:00"
     },
     {
-      "price": 63821.85,
-      "ts": "2026-06-08T15:45:01.597950+00:00"
+      "price": 63827.985,
+      "ts": "2026-06-08T15:45:37.192476+00:00"
     },
     {
       "price": 63784.005,
@@ -7858,12 +7882,12 @@
       "ts": "2026-06-08T15:57:55.334498+00:00"
     },
     {
-      "price": 63687.935,
-      "ts": "2026-06-08T16:01:59.361436+00:00"
+      "price": 63735.985,
+      "ts": "2026-06-08T16:02:34.289974+00:00"
     },
     {
-      "price": 63852.075,
-      "ts": "2026-06-08T16:06:03.477793+00:00"
+      "price": 63869.0,
+      "ts": "2026-06-08T16:06:38.424369+00:00"
     },
     {
       "price": 63752.645,
@@ -7878,8 +7902,8 @@
       "ts": "2026-06-08T16:18:48.936468+00:00"
     },
     {
-      "price": 63902.48,
-      "ts": "2026-06-08T16:22:52.648324+00:00"
+      "price": 63896.015,
+      "ts": "2026-06-08T16:23:27.643871+00:00"
     },
     {
       "price": 63910.735,
@@ -7894,12 +7918,12 @@
       "ts": "2026-06-08T16:35:46.661565+00:00"
     },
     {
-      "price": 63651.865,
-      "ts": "2026-06-08T16:40:09.676645+00:00"
+      "price": 63650.895,
+      "ts": "2026-06-08T16:40:48.426580+00:00"
     },
     {
-      "price": 63623.64,
-      "ts": "2026-06-08T16:44:43.981470+00:00"
+      "price": 63651.835,
+      "ts": "2026-06-08T16:45:18.542988+00:00"
     },
     {
       "price": 63573.095,
@@ -7914,12 +7938,12 @@
       "ts": "2026-06-08T16:58:17.001365+00:00"
     },
     {
-      "price": 63359.805,
-      "ts": "2026-06-08T17:02:26.347107+00:00"
+      "price": 63345.205,
+      "ts": "2026-06-08T17:03:01.129334+00:00"
     },
     {
-      "price": 63491.965,
-      "ts": "2026-06-08T17:06:30.115883+00:00"
+      "price": 63506.585,
+      "ts": "2026-06-08T17:07:04.874088+00:00"
     },
     {
       "price": 63411.735,
@@ -7930,12 +7954,12 @@
       "ts": "2026-06-08T17:15:13.183773+00:00"
     },
     {
-      "price": 63408.02,
-      "ts": "2026-06-08T17:19:34.828832+00:00"
+      "price": 63415.555,
+      "ts": "2026-06-08T17:20:09.529566+00:00"
     },
     {
-      "price": 63481.49,
-      "ts": "2026-06-08T17:23:47.891758+00:00"
+      "price": 63475.985,
+      "ts": "2026-06-08T17:24:24.462648+00:00"
     },
     {
       "price": 63592.225,
@@ -7950,12 +7974,12 @@
       "ts": "2026-06-08T17:36:43.207623+00:00"
     },
     {
-      "price": 63383.765,
-      "ts": "2026-06-08T17:40:47.488164+00:00"
+      "price": 63323.71,
+      "ts": "2026-06-08T17:41:22.365516+00:00"
     },
     {
-      "price": 63357.195,
-      "ts": "2026-06-08T17:44:51.633590+00:00"
+      "price": 63384.985,
+      "ts": "2026-06-08T17:45:26.673972+00:00"
     },
     {
       "price": 63426.195,
@@ -7966,12 +7990,12 @@
       "ts": "2026-06-08T17:53:34.506345+00:00"
     },
     {
-      "price": 63473.39,
-      "ts": "2026-06-08T17:57:55.726918+00:00"
+      "price": 63483.925,
+      "ts": "2026-06-08T17:58:32.949201+00:00"
     },
     {
-      "price": 63598.415,
-      "ts": "2026-06-08T18:02:09.087485+00:00"
+      "price": 63606.355,
+      "ts": "2026-06-08T18:02:44.567595+00:00"
     },
     {
       "price": 63602.165,
@@ -7986,12 +8010,12 @@
       "ts": "2026-06-08T18:15:03.146190+00:00"
     },
     {
-      "price": 63514.885,
-      "ts": "2026-06-08T18:19:07.250076+00:00"
+      "price": 63536.835,
+      "ts": "2026-06-08T18:19:42.112912+00:00"
     },
     {
-      "price": 63560.415,
-      "ts": "2026-06-08T18:23:11.851183+00:00"
+      "price": 63551.135,
+      "ts": "2026-06-08T18:23:46.722035+00:00"
     },
     {
       "price": 63556.025,
@@ -8002,12 +8026,12 @@
       "ts": "2026-06-08T18:31:55.573788+00:00"
     },
     {
-      "price": 63486.07,
-      "ts": "2026-06-08T18:36:04.129931+00:00"
+      "price": 63493.355,
+      "ts": "2026-06-08T18:36:43.096298+00:00"
     },
     {
-      "price": 63422.445,
-      "ts": "2026-06-08T18:40:28.652353+00:00"
+      "price": 63437.965,
+      "ts": "2026-06-08T18:41:04.237768+00:00"
     },
     {
       "price": 63483.965,
@@ -8022,12 +8046,12 @@
       "ts": "2026-06-08T18:53:57.894328+00:00"
     },
     {
-      "price": 63442.435,
-      "ts": "2026-06-08T18:58:06.808652+00:00"
+      "price": 63448.71,
+      "ts": "2026-06-08T18:58:41.683066+00:00"
     },
     {
-      "price": 63459.905,
-      "ts": "2026-06-08T19:02:11.470653+00:00"
+      "price": 63479.485,
+      "ts": "2026-06-08T19:02:46.503661+00:00"
     },
     {
       "price": 63507.405,
@@ -8038,12 +8062,12 @@
       "ts": "2026-06-08T19:10:56.126061+00:00"
     },
     {
-      "price": 63406.255,
-      "ts": "2026-06-08T19:15:04.715798+00:00"
+      "price": 63364.78,
+      "ts": "2026-06-08T19:15:39.941366+00:00"
     },
     {
-      "price": 63391.575,
-      "ts": "2026-06-08T19:19:09.479505+00:00"
+      "price": 63436.825,
+      "ts": "2026-06-08T19:19:48.453703+00:00"
     },
     {
       "price": 63435.235,
@@ -8058,12 +8082,12 @@
       "ts": "2026-06-08T19:32:37.284267+00:00"
     },
     {
-      "price": 63460.075,
-      "ts": "2026-06-08T19:36:41.838229+00:00"
+      "price": 63480.965,
+      "ts": "2026-06-08T19:37:16.811361+00:00"
     },
     {
-      "price": 63422.195,
-      "ts": "2026-06-08T19:40:46.462985+00:00"
+      "price": 63429.795,
+      "ts": "2026-06-08T19:41:21.380154+00:00"
     },
     {
       "price": 63463.965,
@@ -8074,12 +8098,12 @@
       "ts": "2026-06-08T19:49:30.532015+00:00"
     },
     {
-      "price": 63397.605,
-      "ts": "2026-06-08T19:53:35.126864+00:00"
+      "price": 63396.495,
+      "ts": "2026-06-08T19:54:10.227787+00:00"
     },
     {
-      "price": 63398.955,
-      "ts": "2026-06-08T19:57:39.916861+00:00"
+      "price": 63364.895,
+      "ts": "2026-06-08T19:58:14.819220+00:00"
     },
     {
       "price": 63336.805,
@@ -8094,12 +8118,12 @@
       "ts": "2026-06-08T20:10:28.520612+00:00"
     },
     {
-      "price": 63230.245,
-      "ts": "2026-06-08T20:14:33.441552+00:00"
+      "price": 63227.515,
+      "ts": "2026-06-08T20:15:08.447778+00:00"
     },
     {
-      "price": 63172.765,
-      "ts": "2026-06-08T20:18:38.284868+00:00"
+      "price": 63172.715,
+      "ts": "2026-06-08T20:19:13.244797+00:00"
     },
     {
       "price": 63275.63,
@@ -8110,12 +8134,12 @@
       "ts": "2026-06-08T20:27:25.297530+00:00"
     },
     {
-      "price": 63197.545,
-      "ts": "2026-06-08T20:31:30.409899+00:00"
+      "price": 63240.655,
+      "ts": "2026-06-08T20:32:05.566753+00:00"
     },
     {
-      "price": 63237.475,
-      "ts": "2026-06-08T20:35:35.116645+00:00"
+      "price": 63249.155,
+      "ts": "2026-06-08T20:36:10.063395+00:00"
     },
     {
       "price": 63333.765,
@@ -8130,12 +8154,12 @@
       "ts": "2026-06-08T20:49:29.931281+00:00"
     },
     {
-      "price": 63390.115,
-      "ts": "2026-06-08T20:53:34.709373+00:00"
+      "price": 63392.065,
+      "ts": "2026-06-08T20:54:09.633638+00:00"
     },
     {
-      "price": 63434.645,
-      "ts": "2026-06-08T20:57:56.738892+00:00"
+      "price": 63433.085,
+      "ts": "2026-06-08T20:58:34.025320+00:00"
     },
     {
       "price": 63552.295,
@@ -8146,12 +8170,12 @@
       "ts": "2026-06-08T21:06:55.578728+00:00"
     },
     {
-      "price": 63687.465,
-      "ts": "2026-06-08T21:11:01.485600+00:00"
+      "price": 63702.485,
+      "ts": "2026-06-08T21:11:36.490465+00:00"
     },
     {
-      "price": 63705.08,
-      "ts": "2026-06-08T21:15:06.352848+00:00"
+      "price": 63714.485,
+      "ts": "2026-06-08T21:15:41.488885+00:00"
     },
     {
       "price": 63599.755,
@@ -8166,12 +8190,12 @@
       "ts": "2026-06-08T21:29:30.808413+00:00"
     },
     {
-      "price": 63668.795,
-      "ts": "2026-06-08T21:33:44.616560+00:00"
+      "price": 63678.395,
+      "ts": "2026-06-08T21:34:21.034317+00:00"
     },
     {
-      "price": 63753.385,
-      "ts": "2026-06-08T21:37:52.136924+00:00"
+      "price": 63746.285,
+      "ts": "2026-06-08T21:38:27.079986+00:00"
     },
     {
       "price": 63764.595,
@@ -8182,12 +8206,12 @@
       "ts": "2026-06-08T21:46:36.053286+00:00"
     },
     {
-      "price": 63750.275,
-      "ts": "2026-06-08T21:50:40.191422+00:00"
+      "price": 63771.715,
+      "ts": "2026-06-08T21:51:14.973788+00:00"
     },
     {
-      "price": 63725.205,
-      "ts": "2026-06-08T21:54:44.619418+00:00"
+      "price": 63727.185,
+      "ts": "2026-06-08T21:55:19.590482+00:00"
     },
     {
       "price": 63769.405,
@@ -8202,12 +8226,12 @@
       "ts": "2026-06-08T22:07:32.784038+00:00"
     },
     {
-      "price": 63447.675,
-      "ts": "2026-06-08T22:11:48.822855+00:00"
+      "price": 63425.095,
+      "ts": "2026-06-08T22:12:25.987632+00:00"
     },
     {
-      "price": 63250.895,
-      "ts": "2026-06-08T22:16:03.946460+00:00"
+      "price": 63295.055,
+      "ts": "2026-06-08T22:16:40.225051+00:00"
     },
     {
       "price": 63285.38,
@@ -8218,12 +8242,12 @@
       "ts": "2026-06-08T22:24:56.373585+00:00"
     },
     {
-      "price": 63331.315,
-      "ts": "2026-06-08T22:29:01.186696+00:00"
+      "price": 63349.095,
+      "ts": "2026-06-08T22:29:36.100140+00:00"
     },
     {
-      "price": 63355.845,
-      "ts": "2026-06-08T22:33:05.493441+00:00"
+      "price": 63316.895,
+      "ts": "2026-06-08T22:33:40.436460+00:00"
     },
     {
       "price": 63316.28,
@@ -8238,12 +8262,12 @@
       "ts": "2026-06-08T22:45:55.019687+00:00"
     },
     {
-      "price": 63299.995,
-      "ts": "2026-06-08T22:50:00.039849+00:00"
+      "price": 63312.725,
+      "ts": "2026-06-08T22:50:35.042070+00:00"
     },
     {
-      "price": 63310.615,
-      "ts": "2026-06-08T22:54:05.216963+00:00"
+      "price": 63307.495,
+      "ts": "2026-06-08T22:54:39.801632+00:00"
     },
     {
       "price": 63390.365,
@@ -8254,12 +8278,12 @@
       "ts": "2026-06-08T23:03:10.044566+00:00"
     },
     {
-      "price": 63428.565,
-      "ts": "2026-06-08T23:07:23.941189+00:00"
+      "price": 63428.315,
+      "ts": "2026-06-08T23:08:00.369239+00:00"
     },
     {
-      "price": 63460.865,
-      "ts": "2026-06-08T23:11:38.736383+00:00"
+      "price": 63466.965,
+      "ts": "2026-06-08T23:12:15.205412+00:00"
     },
     {
       "price": 63467.135,
@@ -8274,12 +8298,12 @@
       "ts": "2026-06-08T23:24:57.980686+00:00"
     },
     {
-      "price": 63151.37,
-      "ts": "2026-06-08T23:29:29.559693+00:00"
+      "price": 63123.005,
+      "ts": "2026-06-08T23:30:08.416241+00:00"
     },
     {
-      "price": 63014.975,
-      "ts": "2026-06-08T23:34:07.886342+00:00"
+      "price": 63040.325,
+      "ts": "2026-06-08T23:34:50.186918+00:00"
     },
     {
       "price": 63138.045,
@@ -8290,16 +8314,16 @@
       "ts": "2026-06-08T23:43:50.446362+00:00"
     },
     {
-      "price": 62988.775,
-      "ts": "2026-06-08T23:48:28.559719+00:00"
+      "price": 62990.505,
+      "ts": "2026-06-08T23:49:08.799261+00:00"
     },
     {
-      "price": 63034.015,
-      "ts": "2026-06-08T23:53:12.283983+00:00"
+      "price": 63027.605,
+      "ts": "2026-06-08T23:53:50.397531+00:00"
     },
     {
-      "price": 63090.105,
-      "ts": "2026-06-08T23:57:43.934750+00:00"
+      "price": 63083.415,
+      "ts": "2026-06-08T23:58:23.319207+00:00"
     },
     {
       "price": 63070.525,
@@ -8310,12 +8334,12 @@
       "ts": "2026-06-09T00:07:32.530403+00:00"
     },
     {
-      "price": 63021.685,
-      "ts": "2026-06-09T00:12:08.346406+00:00"
+      "price": 63012.115,
+      "ts": "2026-06-09T00:12:47.109913+00:00"
     },
     {
-      "price": 63087.375,
-      "ts": "2026-06-09T00:16:39.199752+00:00"
+      "price": 63118.235,
+      "ts": "2026-06-09T00:17:19.665857+00:00"
     },
     {
       "price": 62954.615,
@@ -8326,16 +8350,16 @@
       "ts": "2026-06-09T00:26:24.906386+00:00"
     },
     {
-      "price": 62693.895,
-      "ts": "2026-06-09T00:31:02.738721+00:00"
+      "price": 62575.395,
+      "ts": "2026-06-09T00:31:43.150296+00:00"
     },
     {
-      "price": 62683.08,
-      "ts": "2026-06-09T00:35:35.132602+00:00"
+      "price": 62648.695,
+      "ts": "2026-06-09T00:36:13.014775+00:00"
     },
     {
-      "price": 62604.665,
-      "ts": "2026-06-09T00:39:59.266310+00:00"
+      "price": 62632.035,
+      "ts": "2026-06-09T00:40:35.984106+00:00"
     },
     {
       "price": 62705.835,
@@ -8346,12 +8370,12 @@
       "ts": "2026-06-09T00:49:19.307358+00:00"
     },
     {
-      "price": 62494.945,
-      "ts": "2026-06-09T00:53:30.445179+00:00"
+      "price": 62546.395,
+      "ts": "2026-06-09T00:54:06.645796+00:00"
     },
     {
-      "price": 62502.905,
-      "ts": "2026-06-09T00:57:43.292550+00:00"
+      "price": 62487.005,
+      "ts": "2026-06-09T00:58:18.853124+00:00"
     },
     {
       "price": 62645.635,
@@ -8362,16 +8386,16 @@
       "ts": "2026-06-09T01:06:33.551417+00:00"
     },
     {
-      "price": 62628.385,
-      "ts": "2026-06-09T01:11:01.029729+00:00"
+      "price": 62647.92,
+      "ts": "2026-06-09T01:11:37.716561+00:00"
     },
     {
-      "price": 62648.965,
-      "ts": "2026-06-09T01:15:38.268118+00:00"
+      "price": 62678.32,
+      "ts": "2026-06-09T01:16:18.073457+00:00"
     },
     {
-      "price": 62648.885,
-      "ts": "2026-06-09T01:20:09.979437+00:00"
+      "price": 62658.715,
+      "ts": "2026-06-09T01:20:49.523537+00:00"
     },
     {
       "price": 62775.005,
@@ -8382,12 +8406,12 @@
       "ts": "2026-06-09T01:29:40.133956+00:00"
     },
     {
-      "price": 62775.935,
-      "ts": "2026-06-09T01:33:54.872665+00:00"
+      "price": 62801.815,
+      "ts": "2026-06-09T01:34:30.184652+00:00"
     },
     {
-      "price": 62746.385,
-      "ts": "2026-06-09T01:38:02.145694+00:00"
+      "price": 62713.995,
+      "ts": "2026-06-09T01:38:37.464120+00:00"
     },
     {
       "price": 62721.755,
@@ -8398,16 +8422,16 @@
       "ts": "2026-06-09T01:47:26.556779+00:00"
     },
     {
-      "price": 62704.895,
-      "ts": "2026-06-09T01:51:45.334283+00:00"
+      "price": 62719.135,
+      "ts": "2026-06-09T01:52:22.109661+00:00"
     },
     {
-      "price": 62750.945,
-      "ts": "2026-06-09T01:55:56.848846+00:00"
+      "price": 62747.135,
+      "ts": "2026-06-09T01:56:32.259399+00:00"
     },
     {
-      "price": 62782.99,
-      "ts": "2026-06-09T02:00:04.081788+00:00"
+      "price": 62752.655,
+      "ts": "2026-06-09T02:00:39.423387+00:00"
     },
     {
       "price": 62809.065,
@@ -8418,12 +8442,12 @@
       "ts": "2026-06-09T02:09:29.685351+00:00"
     },
     {
-      "price": 62749.285,
-      "ts": "2026-06-09T02:13:40.772245+00:00"
+      "price": 62725.505,
+      "ts": "2026-06-09T02:14:16.815245+00:00"
     },
     {
-      "price": 62652.365,
-      "ts": "2026-06-09T02:17:52.452590+00:00"
+      "price": 62658.455,
+      "ts": "2026-06-09T02:18:27.841798+00:00"
     },
     {
       "price": 62634.89,
@@ -8434,16 +8458,16 @@
       "ts": "2026-06-09T11:32:30.736432+00:00"
     },
     {
-      "price": 62563.185,
-      "ts": "2026-06-09T11:36:50.666243+00:00"
+      "price": 62556.735,
+      "ts": "2026-06-09T11:37:28.304316+00:00"
     },
     {
-      "price": 62585.495,
-      "ts": "2026-06-09T11:41:11.334696+00:00"
+      "price": 62581.975,
+      "ts": "2026-06-09T11:41:47.672012+00:00"
     },
     {
-      "price": 62597.595,
-      "ts": "2026-06-09T11:45:24.321512+00:00"
+      "price": 62595.265,
+      "ts": "2026-06-09T11:46:00.189549+00:00"
     },
     {
       "price": 62556.495,
@@ -8454,12 +8478,12 @@
       "ts": "2026-06-09T11:54:41.342161+00:00"
     },
     {
-      "price": 62634.385,
-      "ts": "2026-06-09T11:58:53.703961+00:00"
+      "price": 62690.675,
+      "ts": "2026-06-09T11:59:29.882314+00:00"
     },
     {
-      "price": 62738.565,
-      "ts": "2026-06-09T12:03:21.195673+00:00"
+      "price": 62804.895,
+      "ts": "2026-06-09T12:03:59.048651+00:00"
     },
     {
       "price": 62829.885,
@@ -8470,16 +8494,16 @@
       "ts": "2026-06-09T12:12:45.149296+00:00"
     },
     {
-      "price": 62731.615,
-      "ts": "2026-06-09T12:17:08.515492+00:00"
+      "price": 62742.335,
+      "ts": "2026-06-09T12:17:44.786955+00:00"
     },
     {
-      "price": 62702.105,
-      "ts": "2026-06-09T12:21:56.591973+00:00"
+      "price": 62703.985,
+      "ts": "2026-06-09T12:22:42.493087+00:00"
     },
     {
-      "price": 62701.305,
-      "ts": "2026-06-09T12:26:42.835313+00:00"
+      "price": 62695.055,
+      "ts": "2026-06-09T12:27:21.573862+00:00"
     },
     {
       "price": 62578.215,
@@ -8490,12 +8514,12 @@
       "ts": "2026-06-09T12:36:05.062883+00:00"
     },
     {
-      "price": 62561.19,
-      "ts": "2026-06-09T12:40:20.085178+00:00"
+      "price": 62550.005,
+      "ts": "2026-06-09T12:41:02.283941+00:00"
     },
     {
-      "price": 62487.545,
-      "ts": "2026-06-09T12:44:54.232066+00:00"
+      "price": 62462.585,
+      "ts": "2026-06-09T12:45:29.652471+00:00"
     },
     {
       "price": 62528.995,
@@ -8506,16 +8530,16 @@
       "ts": "2026-06-09T12:53:57.019333+00:00"
     },
     {
-      "price": 62537.335,
-      "ts": "2026-06-09T12:58:20.952439+00:00"
+      "price": 62517.675,
+      "ts": "2026-06-09T12:59:11.377626+00:00"
     },
     {
-      "price": 62559.565,
-      "ts": "2026-06-09T13:03:34.073924+00:00"
+      "price": 62595.965,
+      "ts": "2026-06-09T13:04:12.704488+00:00"
     },
     {
-      "price": 62626.695,
-      "ts": "2026-06-09T13:08:29.885392+00:00"
+      "price": 62619.245,
+      "ts": "2026-06-09T13:09:20.579471+00:00"
     },
     {
       "price": 62517.995,
@@ -8526,12 +8550,12 @@
       "ts": "2026-06-09T13:18:57.265798+00:00"
     },
     {
-      "price": 62263.215,
-      "ts": "2026-06-09T13:23:34.220869+00:00"
+      "price": 62270.485,
+      "ts": "2026-06-09T13:24:20.116368+00:00"
     },
     {
-      "price": 62277.9,
-      "ts": "2026-06-09T13:28:22.484500+00:00"
+      "price": 62259.895,
+      "ts": "2026-06-09T13:29:00.384224+00:00"
     },
     {
       "price": 62373.065,
@@ -8542,16 +8566,16 @@
       "ts": "2026-06-09T13:37:38.285107+00:00"
     },
     {
-      "price": 62214.245,
-      "ts": "2026-06-09T13:41:48.801465+00:00"
+      "price": 62260.88,
+      "ts": "2026-06-09T13:42:24.449312+00:00"
     },
     {
-      "price": 62363.24,
-      "ts": "2026-06-09T13:45:57.261123+00:00"
+      "price": 62335.985,
+      "ts": "2026-06-09T13:46:32.863238+00:00"
     },
     {
-      "price": 62360.195,
-      "ts": "2026-06-09T13:50:21.194027+00:00"
+      "price": 62358.145,
+      "ts": "2026-06-09T13:51:00.290292+00:00"
     },
     {
       "price": 62299.295,
@@ -8562,12 +8586,12 @@
       "ts": "2026-06-09T14:00:28.743687+00:00"
     },
     {
-      "price": 62108.0,
-      "ts": "2026-06-09T14:05:08.107652+00:00"
+      "price": 62131.795,
+      "ts": "2026-06-09T14:05:49.218977+00:00"
     },
     {
-      "price": 62114.795,
-      "ts": "2026-06-09T14:09:45.826094+00:00"
+      "price": 62088.325,
+      "ts": "2026-06-09T14:10:22.946031+00:00"
     },
     {
       "price": 61994.275,
@@ -8578,16 +8602,16 @@
       "ts": "2026-06-09T14:19:24.436030+00:00"
     },
     {
-      "price": 61725.695,
-      "ts": "2026-06-09T14:23:38.173476+00:00"
+      "price": 61735.235,
+      "ts": "2026-06-09T14:24:14.952514+00:00"
     },
     {
-      "price": 61693.385,
-      "ts": "2026-06-09T14:27:53.125717+00:00"
+      "price": 61751.57,
+      "ts": "2026-06-09T14:28:30.662438+00:00"
     },
     {
-      "price": 61596.615,
-      "ts": "2026-06-09T14:32:50.714067+00:00"
+      "price": 61563.315,
+      "ts": "2026-06-09T14:33:36.609985+00:00"
     },
     {
       "price": 61439.725,
@@ -8598,12 +8622,12 @@
       "ts": "2026-06-09T14:42:27.919431+00:00"
     },
     {
-      "price": 61303.25,
-      "ts": "2026-06-09T14:46:44.529504+00:00"
+      "price": 61216.88,
+      "ts": "2026-06-09T14:47:21.081099+00:00"
     },
     {
-      "price": 61233.66,
-      "ts": "2026-06-09T14:51:14.381375+00:00"
+      "price": 61181.715,
+      "ts": "2026-06-09T14:51:52.608819+00:00"
     },
     {
       "price": 61343.015,
@@ -8614,16 +8638,16 @@
       "ts": "2026-06-09T15:01:15.506902+00:00"
     },
     {
-      "price": 61343.655,
-      "ts": "2026-06-09T15:05:48.871758+00:00"
+      "price": 61437.97,
+      "ts": "2026-06-09T15:06:30.272527+00:00"
     },
     {
-      "price": 61616.075,
-      "ts": "2026-06-09T15:10:34.312157+00:00"
+      "price": 61605.155,
+      "ts": "2026-06-09T15:11:15.628467+00:00"
     },
     {
-      "price": 61600.405,
-      "ts": "2026-06-09T15:15:10.082610+00:00"
+      "price": 61645.485,
+      "ts": "2026-06-09T15:15:52.317267+00:00"
     },
     {
       "price": 61554.32,
@@ -8634,12 +8658,12 @@
       "ts": "2026-06-09T15:25:15.654982+00:00"
     },
     {
-      "price": 61248.005,
-      "ts": "2026-06-09T15:29:52.865118+00:00"
+      "price": 61313.445,
+      "ts": "2026-06-09T15:30:31.931949+00:00"
     },
     {
-      "price": 61289.495,
-      "ts": "2026-06-09T15:34:29.880567+00:00"
+      "price": 61284.965,
+      "ts": "2026-06-09T15:35:10.542006+00:00"
     },
     {
       "price": 61261.995,
@@ -8650,16 +8674,16 @@
       "ts": "2026-06-09T15:44:26.556049+00:00"
     },
     {
-      "price": 61238.875,
-      "ts": "2026-06-09T15:49:08.277284+00:00"
+      "price": 61277.415,
+      "ts": "2026-06-09T15:49:51.416224+00:00"
     },
     {
-      "price": 61216.875,
-      "ts": "2026-06-09T15:53:39.829449+00:00"
+      "price": 61201.995,
+      "ts": "2026-06-09T15:54:17.808803+00:00"
     },
     {
-      "price": 60999.95,
-      "ts": "2026-06-09T15:57:57.015528+00:00"
+      "price": 61031.255,
+      "ts": "2026-06-09T15:58:33.777036+00:00"
     },
     {
       "price": 61050.47,
@@ -8670,32 +8694,32 @@
       "ts": "2026-06-09T16:07:27.720451+00:00"
     },
     {
-      "price": 61006.6,
-      "ts": "2026-06-09T16:12:00.010112+00:00"
+      "price": 61067.15,
+      "ts": "2026-06-09T16:12:39.570496+00:00"
     },
     {
-      "price": 60989.55,
-      "ts": "2026-06-09T16:16:52.439913+00:00"
+      "price": 60941.48,
+      "ts": "2026-06-09T16:17:36.237420+00:00"
     },
     {
-      "price": 60871.73,
-      "ts": "2026-06-09T16:21:49.516607+00:00"
+      "price": 60940.945,
+      "ts": "2026-06-09T16:22:28.740183+00:00"
     },
     {
       "price": 60887.28,
       "ts": "2026-06-09T16:27:24.199940+00:00"
     },
     {
-      "price": 61030.97,
-      "ts": "2026-06-09T16:31:48.761290+00:00"
+      "price": 61028.775,
+      "ts": "2026-06-09T16:32:26.481438+00:00"
     },
     {
-      "price": 61132.215,
-      "ts": "2026-06-09T16:36:03.272376+00:00"
+      "price": 61200.79,
+      "ts": "2026-06-09T16:36:38.157484+00:00"
     },
     {
-      "price": 60767.555,
-      "ts": "2026-06-09T16:40:15.350722+00:00"
+      "price": 60811.91,
+      "ts": "2026-06-09T16:40:50.951027+00:00"
     },
     {
       "price": 61139.595,
@@ -8706,32 +8730,32 @@
       "ts": "2026-06-09T16:49:07.497469+00:00"
     },
     {
-      "price": 61133.495,
-      "ts": "2026-06-09T16:53:11.259637+00:00"
+      "price": 61165.235,
+      "ts": "2026-06-09T16:53:46.115193+00:00"
     },
     {
-      "price": 61270.85,
-      "ts": "2026-06-09T16:57:15.108803+00:00"
+      "price": 61305.965,
+      "ts": "2026-06-09T16:57:49.751122+00:00"
     },
     {
-      "price": 61404.005,
-      "ts": "2026-06-09T17:01:57.495244+00:00"
+      "price": 61455.595,
+      "ts": "2026-06-09T17:02:43.417593+00:00"
     },
     {
       "price": 61474.305,
       "ts": "2026-06-09T17:06:48.562394+00:00"
     },
     {
-      "price": 61385.12,
-      "ts": "2026-06-09T17:11:09.952269+00:00"
+      "price": 61408.49,
+      "ts": "2026-06-09T17:11:49.139898+00:00"
     },
     {
-      "price": 61586.025,
-      "ts": "2026-06-09T17:15:43.021939+00:00"
+      "price": 61545.005,
+      "ts": "2026-06-09T17:16:24.187092+00:00"
     },
     {
-      "price": 61781.775,
-      "ts": "2026-06-09T17:20:20.180509+00:00"
+      "price": 61758.135,
+      "ts": "2026-06-09T17:20:55.773671+00:00"
     },
     {
       "price": 61721.505,
@@ -8742,32 +8766,32 @@
       "ts": "2026-06-09T17:29:12.043639+00:00"
     },
     {
-      "price": 61744.615,
-      "ts": "2026-06-09T17:33:34.096849+00:00"
+      "price": 61749.46,
+      "ts": "2026-06-09T17:34:11.370030+00:00"
     },
     {
-      "price": 61709.195,
-      "ts": "2026-06-09T17:38:04.407182+00:00"
+      "price": 61705.395,
+      "ts": "2026-06-09T17:38:42.505414+00:00"
     },
     {
-      "price": 61743.375,
-      "ts": "2026-06-09T17:42:21.940333+00:00"
+      "price": 61721.855,
+      "ts": "2026-06-09T17:42:58.385906+00:00"
     },
     {
       "price": 61585.075,
       "ts": "2026-06-09T17:48:27.989760+00:00"
     },
     {
-      "price": 61752.875,
-      "ts": "2026-06-09T17:52:43.199641+00:00"
+      "price": 61691.365,
+      "ts": "2026-06-09T17:53:19.050555+00:00"
     },
     {
-      "price": 61668.655,
-      "ts": "2026-06-09T17:56:53.364685+00:00"
+      "price": 61655.745,
+      "ts": "2026-06-09T17:57:28.307349+00:00"
     },
     {
-      "price": 61679.275,
-      "ts": "2026-06-09T18:01:05.618847+00:00"
+      "price": 61697.935,
+      "ts": "2026-06-09T18:01:42.147761+00:00"
     },
     {
       "price": 61654.67,
@@ -8778,32 +8802,32 @@
       "ts": "2026-06-09T18:10:12.566982+00:00"
     },
     {
-      "price": 61664.365,
-      "ts": "2026-06-09T18:14:17.335333+00:00"
+      "price": 61686.775,
+      "ts": "2026-06-09T18:14:56.094403+00:00"
     },
     {
-      "price": 61720.325,
-      "ts": "2026-06-09T18:18:45.204563+00:00"
+      "price": 61888.16,
+      "ts": "2026-06-09T18:19:22.529676+00:00"
     },
     {
-      "price": 61787.455,
-      "ts": "2026-06-09T18:22:58.649961+00:00"
+      "price": 61729.085,
+      "ts": "2026-06-09T18:23:35.132808+00:00"
     },
     {
       "price": 61672.805,
       "ts": "2026-06-09T18:27:45.383774+00:00"
     },
     {
-      "price": 61694.205,
-      "ts": "2026-06-09T18:32:13.998843+00:00"
+      "price": 61649.445,
+      "ts": "2026-06-09T18:32:52.261298+00:00"
     },
     {
-      "price": 61723.045,
-      "ts": "2026-06-09T18:36:48.805615+00:00"
+      "price": 61755.655,
+      "ts": "2026-06-09T18:37:28.551614+00:00"
     },
     {
-      "price": 61670.025,
-      "ts": "2026-06-09T18:41:19.638265+00:00"
+      "price": 61654.615,
+      "ts": "2026-06-09T18:41:58.891007+00:00"
     },
     {
       "price": 61602.81,
@@ -8814,32 +8838,32 @@
       "ts": "2026-06-09T18:51:04.493483+00:00"
     },
     {
-      "price": 61649.435,
-      "ts": "2026-06-09T18:55:44.604162+00:00"
+      "price": 61665.935,
+      "ts": "2026-06-09T18:56:24.140771+00:00"
     },
     {
-      "price": 61726.935,
-      "ts": "2026-06-09T19:00:19.553814+00:00"
+      "price": 61705.15,
+      "ts": "2026-06-09T19:00:59.285939+00:00"
     },
     {
-      "price": 61787.58,
-      "ts": "2026-06-09T19:04:55.724991+00:00"
+      "price": 61850.88,
+      "ts": "2026-06-09T19:05:36.246515+00:00"
     },
     {
       "price": 61765.075,
       "ts": "2026-06-09T19:10:19.695369+00:00"
     },
     {
-      "price": 61724.195,
-      "ts": "2026-06-09T19:14:57.347335+00:00"
+      "price": 61716.525,
+      "ts": "2026-06-09T19:15:36.611593+00:00"
     },
     {
-      "price": 61696.195,
-      "ts": "2026-06-09T19:19:35.641227+00:00"
+      "price": 61775.49,
+      "ts": "2026-06-09T19:20:20.912334+00:00"
     },
     {
-      "price": 61825.975,
-      "ts": "2026-06-09T19:24:41.516745+00:00"
+      "price": 61843.395,
+      "ts": "2026-06-09T19:25:22.322112+00:00"
     },
     {
       "price": 61819.415,
@@ -8850,32 +8874,32 @@
       "ts": "2026-06-09T19:34:42.650055+00:00"
     },
     {
-      "price": 61837.975,
-      "ts": "2026-06-09T19:39:13.897507+00:00"
+      "price": 61817.875,
+      "ts": "2026-06-09T19:39:53.994542+00:00"
     },
     {
-      "price": 61835.935,
-      "ts": "2026-06-09T19:43:58.524639+00:00"
+      "price": 61824.865,
+      "ts": "2026-06-09T19:44:48.244892+00:00"
     },
     {
-      "price": 61730.235,
-      "ts": "2026-06-09T19:48:39.392426+00:00"
+      "price": 61752.57,
+      "ts": "2026-06-09T19:49:17.872132+00:00"
     },
     {
       "price": 62000.12,
       "ts": "2026-06-09T19:53:55.523043+00:00"
     },
     {
-      "price": 62007.645,
-      "ts": "2026-06-09T19:58:37.033956+00:00"
+      "price": 62008.115,
+      "ts": "2026-06-09T19:59:15.626250+00:00"
     },
     {
-      "price": 61910.775,
-      "ts": "2026-06-09T20:03:12.616973+00:00"
+      "price": 61940.355,
+      "ts": "2026-06-09T20:03:51.686702+00:00"
     },
     {
-      "price": 61991.21,
-      "ts": "2026-06-09T20:07:51.860195+00:00"
+      "price": 62004.605,
+      "ts": "2026-06-09T20:08:31.134295+00:00"
     },
     {
       "price": 62074.665,
@@ -8886,16 +8910,16 @@
       "ts": "2026-06-09T20:17:44.334459+00:00"
     },
     {
-      "price": 61984.275,
-      "ts": "2026-06-09T20:22:31.407946+00:00"
+      "price": 61971.505,
+      "ts": "2026-06-09T20:23:12.252286+00:00"
     },
     {
-      "price": 61985.115,
-      "ts": "2026-06-09T20:27:09.229812+00:00"
+      "price": 61990.535,
+      "ts": "2026-06-09T20:27:47.815088+00:00"
     },
     {
-      "price": 61950.005,
-      "ts": "2026-06-09T20:31:48.048389+00:00"
+      "price": 61937.41,
+      "ts": "2026-06-09T20:32:27.428102+00:00"
     },
     {
       "price": 62006.045,
@@ -8906,12 +8930,12 @@
       "ts": "2026-06-09T20:41:57.111697+00:00"
     },
     {
-      "price": 62038.495,
-      "ts": "2026-06-09T20:46:39.739550+00:00"
+      "price": 62038.325,
+      "ts": "2026-06-09T20:47:17.912208+00:00"
     },
     {
-      "price": 62007.555,
-      "ts": "2026-06-09T20:51:12.747810+00:00"
+      "price": 62019.57,
+      "ts": "2026-06-09T20:51:52.686581+00:00"
     },
     {
       "price": 62028.16,
@@ -8922,16 +8946,16 @@
       "ts": "2026-06-09T21:01:14.636330+00:00"
     },
     {
-      "price": 62025.055,
-      "ts": "2026-06-09T21:05:57.998492+00:00"
+      "price": 62031.335,
+      "ts": "2026-06-09T21:06:37.487698+00:00"
     },
     {
-      "price": 62077.815,
-      "ts": "2026-06-09T21:10:29.068401+00:00"
+      "price": 62078.695,
+      "ts": "2026-06-09T21:11:10.126761+00:00"
     },
     {
-      "price": 62092.265,
-      "ts": "2026-06-09T21:15:10.773481+00:00"
+      "price": 62070.005,
+      "ts": "2026-06-09T21:15:52.433985+00:00"
     },
     {
       "price": 61891.895,
@@ -8942,12 +8966,12 @@
       "ts": "2026-06-09T21:25:11.308926+00:00"
     },
     {
-      "price": 61751.575,
-      "ts": "2026-06-09T21:29:56.765331+00:00"
+      "price": 61806.315,
+      "ts": "2026-06-09T21:30:36.282931+00:00"
     },
     {
-      "price": 61783.735,
-      "ts": "2026-06-09T21:34:28.570526+00:00"
+      "price": 61777.765,
+      "ts": "2026-06-09T21:35:06.572247+00:00"
     },
     {
       "price": 61862.445,
@@ -8958,16 +8982,16 @@
       "ts": "2026-06-09T21:44:24.583588+00:00"
     },
     {
-      "price": 61752.095,
-      "ts": "2026-06-09T21:48:57.875291+00:00"
+      "price": 61761.345,
+      "ts": "2026-06-09T21:49:40.449341+00:00"
     },
     {
-      "price": 61704.085,
-      "ts": "2026-06-09T21:53:37.916844+00:00"
+      "price": 61667.625,
+      "ts": "2026-06-09T21:54:17.425044+00:00"
     },
     {
-      "price": 61668.19,
-      "ts": "2026-06-09T21:58:22.789977+00:00"
+      "price": 61645.74,
+      "ts": "2026-06-09T21:59:01.183205+00:00"
     },
     {
       "price": 61639.505,
@@ -8978,12 +9002,12 @@
       "ts": "2026-06-09T22:08:20.057235+00:00"
     },
     {
-      "price": 61707.535,
-      "ts": "2026-06-09T22:13:03.678511+00:00"
+      "price": 61742.695,
+      "ts": "2026-06-09T22:13:43.723122+00:00"
     },
     {
-      "price": 61800.485,
-      "ts": "2026-06-09T22:17:45.381159+00:00"
+      "price": 61766.795,
+      "ts": "2026-06-09T22:18:24.867657+00:00"
     },
     {
       "price": 61828.085,
@@ -8994,16 +9018,16 @@
       "ts": "2026-06-09T22:27:35.147411+00:00"
     },
     {
-      "price": 61783.725,
-      "ts": "2026-06-09T22:32:05.110180+00:00"
+      "price": 61846.675,
+      "ts": "2026-06-09T22:32:48.206847+00:00"
     },
     {
-      "price": 61888.175,
-      "ts": "2026-06-09T22:36:43.190947+00:00"
+      "price": 61824.855,
+      "ts": "2026-06-09T22:37:21.426624+00:00"
     },
     {
-      "price": 61782.92,
-      "ts": "2026-06-09T22:41:12.051280+00:00"
+      "price": 61742.685,
+      "ts": "2026-06-09T22:41:52.194471+00:00"
     },
     {
       "price": 61821.925,
@@ -9014,32 +9038,32 @@
       "ts": "2026-06-09T22:50:56.663133+00:00"
     },
     {
-      "price": 61715.995,
-      "ts": "2026-06-09T22:55:37.928355+00:00"
+      "price": 61724.605,
+      "ts": "2026-06-09T22:56:18.670939+00:00"
     },
     {
-      "price": 61682.055,
-      "ts": "2026-06-09T23:00:14.451474+00:00"
+      "price": 61718.345,
+      "ts": "2026-06-09T23:00:53.679545+00:00"
     },
     {
-      "price": 61729.015,
-      "ts": "2026-06-09T23:04:51.183577+00:00"
+      "price": 61735.225,
+      "ts": "2026-06-09T23:05:30.112145+00:00"
     },
     {
       "price": 61711.965,
       "ts": "2026-06-09T23:09:58.601319+00:00"
     },
     {
-      "price": 61717.455,
-      "ts": "2026-06-09T23:14:27.238576+00:00"
+      "price": 61705.395,
+      "ts": "2026-06-09T23:15:05.786391+00:00"
     },
     {
-      "price": 61752.715,
-      "ts": "2026-06-09T23:19:07.264245+00:00"
+      "price": 61796.465,
+      "ts": "2026-06-09T23:19:49.325779+00:00"
     },
     {
-      "price": 61765.075,
-      "ts": "2026-06-09T23:23:41.313095+00:00"
+      "price": 61712.855,
+      "ts": "2026-06-09T23:24:19.211999+00:00"
     },
     {
       "price": 61705.395,
@@ -9050,32 +9074,32 @@
       "ts": "2026-06-09T23:32:46.469911+00:00"
     },
     {
-      "price": 61575.265,
-      "ts": "2026-06-09T23:36:51.874719+00:00"
+      "price": 61550.995,
+      "ts": "2026-06-09T23:37:26.770366+00:00"
     },
     {
-      "price": 61578.375,
-      "ts": "2026-06-09T23:40:56.340893+00:00"
+      "price": 61563.385,
+      "ts": "2026-06-09T23:41:31.231127+00:00"
     },
     {
-      "price": 61588.275,
-      "ts": "2026-06-09T23:45:03.123826+00:00"
+      "price": 61578.015,
+      "ts": "2026-06-09T23:45:43.769539+00:00"
     },
     {
       "price": 61564.845,
       "ts": "2026-06-09T23:50:14.536168+00:00"
     },
     {
-      "price": 61650.945,
-      "ts": "2026-06-09T23:54:24.252478+00:00"
+      "price": 61637.485,
+      "ts": "2026-06-09T23:54:59.315557+00:00"
     },
     {
-      "price": 61662.45,
-      "ts": "2026-06-09T23:58:30.035152+00:00"
+      "price": 61637.985,
+      "ts": "2026-06-09T23:59:05.238758+00:00"
     },
     {
-      "price": 61749.995,
-      "ts": "2026-06-10T00:02:53.119742+00:00"
+      "price": 61750.145,
+      "ts": "2026-06-10T00:03:32.172026+00:00"
     },
     {
       "price": 61819.345,
@@ -9086,32 +9110,32 @@
       "ts": "2026-06-10T00:12:42.149660+00:00"
     },
     {
-      "price": 61731.495,
-      "ts": "2026-06-10T00:17:17.905186+00:00"
+      "price": 61747.165,
+      "ts": "2026-06-10T00:17:58.139218+00:00"
     },
     {
-      "price": 61720.005,
-      "ts": "2026-06-10T00:22:02.749959+00:00"
+      "price": 61719.665,
+      "ts": "2026-06-10T00:22:42.763466+00:00"
     },
     {
-      "price": 61722.815,
-      "ts": "2026-06-10T00:27:00.071988+00:00"
+      "price": 61713.92,
+      "ts": "2026-06-10T00:27:40.556986+00:00"
     },
     {
       "price": 61749.425,
       "ts": "2026-06-10T00:32:33.645428+00:00"
     },
     {
-      "price": 61497.045,
-      "ts": "2026-06-10T00:37:23.689596+00:00"
+      "price": 61537.535,
+      "ts": "2026-06-10T00:38:05.478213+00:00"
     },
     {
-      "price": 61464.365,
-      "ts": "2026-06-10T00:43:40.857296+00:00"
+      "price": 61409.78,
+      "ts": "2026-06-10T00:44:22.116361+00:00"
     },
     {
-      "price": 61536.835,
-      "ts": "2026-06-10T00:48:31.861255+00:00"
+      "price": 61574.825,
+      "ts": "2026-06-10T00:49:11.558460+00:00"
     },
     {
       "price": 61666.625,
@@ -9122,32 +9146,32 @@
       "ts": "2026-06-10T00:59:18.845968+00:00"
     },
     {
-      "price": 61858.015,
-      "ts": "2026-06-10T01:04:09.350407+00:00"
+      "price": 61921.725,
+      "ts": "2026-06-10T01:04:56.527299+00:00"
     },
     {
-      "price": 61712.845,
-      "ts": "2026-06-10T01:11:18.078509+00:00"
+      "price": 61724.195,
+      "ts": "2026-06-10T01:12:20.823790+00:00"
     },
     {
-      "price": 61819.895,
-      "ts": "2026-06-10T01:17:13.765995+00:00"
+      "price": 61822.485,
+      "ts": "2026-06-10T01:17:58.204627+00:00"
     },
     {
       "price": 61733.555,
       "ts": "2026-06-10T01:23:14.494302+00:00"
     },
     {
-      "price": 61810.125,
-      "ts": "2026-06-10T01:28:12.906373+00:00"
+      "price": 61813.005,
+      "ts": "2026-06-10T01:28:55.797711+00:00"
     },
     {
-      "price": 61798.885,
-      "ts": "2026-06-10T01:33:26.804242+00:00"
+      "price": 61798.83,
+      "ts": "2026-06-10T01:34:09.348732+00:00"
     },
     {
-      "price": 60944.695,
-      "ts": "2026-06-10T11:45:52.964187+00:00"
+      "price": 60989.935,
+      "ts": "2026-06-10T11:46:38.850496+00:00"
     },
     {
       "price": 61045.295,
@@ -9158,32 +9182,32 @@
       "ts": "2026-06-10T11:56:39.218767+00:00"
     },
     {
-      "price": 60932.175,
-      "ts": "2026-06-10T12:01:55.531196+00:00"
+      "price": 60916.065,
+      "ts": "2026-06-10T12:02:39.670926+00:00"
     },
     {
-      "price": 61094.005,
-      "ts": "2026-06-10T12:06:59.855410+00:00"
+      "price": 61060.17,
+      "ts": "2026-06-10T12:07:40.230207+00:00"
     },
     {
-      "price": 61151.075,
-      "ts": "2026-06-10T12:12:22.391827+00:00"
+      "price": 61128.685,
+      "ts": "2026-06-10T12:13:08.802071+00:00"
     },
     {
       "price": 61085.515,
       "ts": "2026-06-10T12:17:54.434439+00:00"
     },
     {
-      "price": 61037.725,
-      "ts": "2026-06-10T12:22:29.931459+00:00"
+      "price": 60997.975,
+      "ts": "2026-06-10T12:23:06.998436+00:00"
     },
     {
-      "price": 61079.63,
-      "ts": "2026-06-10T12:27:06.610550+00:00"
+      "price": 61049.995,
+      "ts": "2026-06-10T12:27:45.767696+00:00"
     },
     {
-      "price": 61460.25,
-      "ts": "2026-06-10T12:32:09.848116+00:00"
+      "price": 61593.34,
+      "ts": "2026-06-10T12:32:55.298061+00:00"
     },
     {
       "price": 61664.595,
@@ -9194,32 +9218,32 @@
       "ts": "2026-06-10T12:42:54.048967+00:00"
     },
     {
-      "price": 61680.02,
-      "ts": "2026-06-10T12:48:11.411972+00:00"
+      "price": 61733.455,
+      "ts": "2026-06-10T12:48:59.123620+00:00"
     },
     {
-      "price": 61645.36,
-      "ts": "2026-06-10T12:53:49.116434+00:00"
+      "price": 61648.505,
+      "ts": "2026-06-10T12:54:39.183296+00:00"
     },
     {
-      "price": 61526.795,
-      "ts": "2026-06-10T12:59:45.243595+00:00"
+      "price": 61548.875,
+      "ts": "2026-06-10T13:01:19.194139+00:00"
     },
     {
       "price": 61524.565,
       "ts": "2026-06-10T13:06:41.930372+00:00"
     },
     {
-      "price": 61447.5,
-      "ts": "2026-06-10T13:11:24.749327+00:00"
+      "price": 61474.165,
+      "ts": "2026-06-10T13:12:04.744768+00:00"
     },
     {
-      "price": 61458.525,
-      "ts": "2026-06-10T13:16:25.767247+00:00"
+      "price": 61439.655,
+      "ts": "2026-06-10T13:17:21.089923+00:00"
     },
     {
-      "price": 61497.78,
-      "ts": "2026-06-10T13:22:11.313174+00:00"
+      "price": 61437.175,
+      "ts": "2026-06-10T13:22:59.366372+00:00"
     },
     {
       "price": 61479.865,
@@ -9230,32 +9254,32 @@
       "ts": "2026-06-10T13:33:37.444527+00:00"
     },
     {
-      "price": 62065.995,
-      "ts": "2026-06-10T13:38:36.631270+00:00"
+      "price": 62053.315,
+      "ts": "2026-06-10T13:39:15.422482+00:00"
     },
     {
-      "price": 62097.465,
-      "ts": "2026-06-10T13:43:16.346585+00:00"
+      "price": 62144.135,
+      "ts": "2026-06-10T13:43:54.762358+00:00"
     },
     {
-      "price": 62276.88,
-      "ts": "2026-06-10T13:48:00.545408+00:00"
+      "price": 62257.135,
+      "ts": "2026-06-10T13:48:39.245651+00:00"
     },
     {
       "price": 62169.995,
       "ts": "2026-06-10T13:53:26.697612+00:00"
     },
     {
-      "price": 62125.995,
-      "ts": "2026-06-10T13:58:15.427567+00:00"
+      "price": 62049.115,
+      "ts": "2026-06-10T13:58:55.705935+00:00"
     },
     {
-      "price": 62113.465,
-      "ts": "2026-06-10T14:03:45.966506+00:00"
+      "price": 62163.295,
+      "ts": "2026-06-10T14:04:28.456961+00:00"
     },
     {
-      "price": 62162.69,
-      "ts": "2026-06-10T14:08:45.165480+00:00"
+      "price": 62189.535,
+      "ts": "2026-06-10T14:09:26.835578+00:00"
     },
     {
       "price": 61948.015,
@@ -9266,32 +9290,32 @@
       "ts": "2026-06-10T14:24:22.366390+00:00"
     },
     {
-      "price": 62007.815,
-      "ts": "2026-06-10T14:30:10.143878+00:00"
+      "price": 61982.125,
+      "ts": "2026-06-10T14:31:08.507495+00:00"
     },
     {
-      "price": 61856.925,
-      "ts": "2026-06-10T14:36:20.164325+00:00"
+      "price": 61855.005,
+      "ts": "2026-06-10T14:37:05.333518+00:00"
     },
     {
-      "price": 62037.985,
-      "ts": "2026-06-10T14:42:08.568937+00:00"
+      "price": 62006.08,
+      "ts": "2026-06-10T14:42:56.756990+00:00"
     },
     {
       "price": 61929.355,
       "ts": "2026-06-10T14:48:59.352608+00:00"
     },
     {
-      "price": 61838.97,
-      "ts": "2026-06-10T14:54:25.217422+00:00"
+      "price": 61847.995,
+      "ts": "2026-06-10T14:55:12.743014+00:00"
     },
     {
-      "price": 62111.175,
-      "ts": "2026-06-10T15:00:01.046993+00:00"
+      "price": 62187.045,
+      "ts": "2026-06-10T15:00:53.546664+00:00"
     },
     {
-      "price": 62024.035,
-      "ts": "2026-06-10T15:05:42.251614+00:00"
+      "price": 61968.995,
+      "ts": "2026-06-10T15:06:27.403612+00:00"
     },
     {
       "price": 61837.11,
@@ -9302,32 +9326,32 @@
       "ts": "2026-06-10T15:17:59.518336+00:00"
     },
     {
-      "price": 62210.13,
-      "ts": "2026-06-10T15:23:42.653403+00:00"
+      "price": 62253.76,
+      "ts": "2026-06-10T15:24:29.721517+00:00"
     },
     {
-      "price": 62247.98,
-      "ts": "2026-06-10T15:28:29.809608+00:00"
+      "price": 62255.625,
+      "ts": "2026-06-10T15:29:10.301235+00:00"
     },
     {
-      "price": 62259.345,
-      "ts": "2026-06-10T15:33:20.010837+00:00"
+      "price": 62259.905,
+      "ts": "2026-06-10T15:34:00.377777+00:00"
     },
     {
       "price": 62198.695,
       "ts": "2026-06-10T15:38:40.396405+00:00"
     },
     {
-      "price": 62208.13,
-      "ts": "2026-06-10T15:43:12.742935+00:00"
+      "price": 62296.915,
+      "ts": "2026-06-10T15:43:51.493145+00:00"
     },
     {
-      "price": 62312.935,
-      "ts": "2026-06-10T15:48:06.187060+00:00"
+      "price": 62225.29,
+      "ts": "2026-06-10T15:48:48.890898+00:00"
     },
     {
-      "price": 62326.425,
-      "ts": "2026-06-10T15:53:03.161552+00:00"
+      "price": 62491.525,
+      "ts": "2026-06-10T15:53:43.151570+00:00"
     },
     {
       "price": 62662.91,
@@ -9338,32 +9362,32 @@
       "ts": "2026-06-10T16:03:23.733548+00:00"
     },
     {
-      "price": 62453.865,
-      "ts": "2026-06-10T16:08:14.342427+00:00"
+      "price": 62398.595,
+      "ts": "2026-06-10T16:08:54.217421+00:00"
     },
     {
-      "price": 62302.495,
-      "ts": "2026-06-10T16:13:27.816627+00:00"
+      "price": 62316.715,
+      "ts": "2026-06-10T16:14:09.976408+00:00"
     },
     {
-      "price": 62264.975,
-      "ts": "2026-06-10T16:18:39.381247+00:00"
+      "price": 62272.465,
+      "ts": "2026-06-10T16:19:31.533946+00:00"
     },
     {
       "price": 62178.4,
       "ts": "2026-06-10T16:25:18.016616+00:00"
     },
     {
-      "price": 62250.405,
-      "ts": "2026-06-10T16:30:31.725080+00:00"
+      "price": 62206.055,
+      "ts": "2026-06-10T16:31:16.154448+00:00"
     },
     {
-      "price": 62309.945,
-      "ts": "2026-06-10T16:35:36.132641+00:00"
+      "price": 62308.485,
+      "ts": "2026-06-10T16:36:14.094103+00:00"
     },
     {
-      "price": 62228.675,
-      "ts": "2026-06-10T16:40:00.256605+00:00"
+      "price": 62287.775,
+      "ts": "2026-06-10T16:40:37.678243+00:00"
     },
     {
       "price": 62185.815,
@@ -9374,1317 +9398,1323 @@
       "ts": "2026-06-10T16:50:17.358470+00:00"
     },
     {
-      "price": 62138.65,
-      "ts": "2026-06-10T16:54:57.118955+00:00"
+      "price": 62081.995,
+      "ts": "2026-06-10T16:55:35.791374+00:00"
     },
     {
-      "price": 62162.115,
-      "ts": "2026-06-10T16:59:32.227235+00:00"
+      "price": 62173.015,
+      "ts": "2026-06-10T17:00:18.951986+00:00"
     },
     {
-      "price": 62293.955,
-      "ts": "2026-06-10T17:04:31.966387+00:00"
+      "price": 62307.005,
+      "ts": "2026-06-10T17:05:08.846882+00:00"
     },
     {
       "price": 62146.345,
       "ts": "2026-06-10T17:09:26.269961+00:00"
     },
     {
-      "price": 62031.425,
-      "ts": "2026-06-10T17:14:23.871104+00:00"
+      "price": 62029.16,
+      "ts": "2026-06-10T17:15:05.222344+00:00"
     },
     {
-      "price": 62092.425,
-      "ts": "2026-06-10T17:19:07.721552+00:00"
+      "price": 62068.965,
+      "ts": "2026-06-10T17:19:51.217175+00:00"
     },
     {
-      "price": 62010.185,
-      "ts": "2026-06-10T17:23:53.628125+00:00"
+      "price": 62071.29,
+      "ts": "2026-06-10T17:24:33.710281+00:00"
     },
     {
-      "price": 61967.91,
-      "ts": "2026-06-10T17:28:22.618444+00:00"
+      "price": 61966.005,
+      "ts": "2026-06-10T17:28:59.643449+00:00"
     },
     {
       "price": 61727.77,
       "ts": "2026-06-10T17:33:35.563649+00:00"
     },
     {
-      "price": 61746.025,
-      "ts": "2026-06-10T17:37:45.847955+00:00"
+      "price": 61706.195,
+      "ts": "2026-06-10T17:38:21.599568+00:00"
     },
     {
-      "price": 61630.075,
-      "ts": "2026-06-10T17:41:56.002776+00:00"
+      "price": 61624.455,
+      "ts": "2026-06-10T17:42:31.433972+00:00"
     },
     {
-      "price": 61723.435,
-      "ts": "2026-06-10T17:46:03.701172+00:00"
+      "price": 61777.31,
+      "ts": "2026-06-10T17:46:38.858828+00:00"
     },
     {
       "price": 61819.91,
       "ts": "2026-06-10T17:50:47.756494+00:00"
     },
     {
-      "price": 61843.805,
-      "ts": "2026-06-10T17:54:54.270308+00:00"
+      "price": 61862.025,
+      "ts": "2026-06-10T17:55:29.424344+00:00"
     },
     {
-      "price": 61946.455,
-      "ts": "2026-06-10T17:58:59.522097+00:00"
+      "price": 61939.855,
+      "ts": "2026-06-10T17:59:38.520913+00:00"
     },
     {
-      "price": 61990.345,
-      "ts": "2026-06-10T18:03:29.443407+00:00"
+      "price": 62000.005,
+      "ts": "2026-06-10T18:04:06.640546+00:00"
     },
     {
-      "price": 61945.385,
-      "ts": "2026-06-10T18:07:45.232840+00:00"
+      "price": 61911.055,
+      "ts": "2026-06-10T18:08:21.223493+00:00"
     },
     {
       "price": 61923.525,
       "ts": "2026-06-10T18:12:36.091814+00:00"
     },
     {
-      "price": 61935.495,
-      "ts": "2026-06-10T18:16:55.178064+00:00"
+      "price": 61889.825,
+      "ts": "2026-06-10T18:17:32.510079+00:00"
     },
     {
-      "price": 61840.305,
-      "ts": "2026-06-10T18:22:01.819473+00:00"
+      "price": 61788.895,
+      "ts": "2026-06-10T18:22:38.160539+00:00"
     },
     {
-      "price": 61804.035,
-      "ts": "2026-06-10T18:26:16.937628+00:00"
+      "price": 61829.645,
+      "ts": "2026-06-10T18:26:53.164079+00:00"
     },
     {
       "price": 61923.005,
       "ts": "2026-06-10T18:31:00.249776+00:00"
     },
     {
-      "price": 61855.565,
-      "ts": "2026-06-10T18:35:08.641996+00:00"
+      "price": 61792.345,
+      "ts": "2026-06-10T18:35:46.268795+00:00"
     },
     {
-      "price": 61758.835,
-      "ts": "2026-06-10T18:39:46.649472+00:00"
+      "price": 61739.675,
+      "ts": "2026-06-10T18:40:24.201136+00:00"
     },
     {
-      "price": 61688.745,
-      "ts": "2026-06-10T18:44:12.590876+00:00"
+      "price": 61700.925,
+      "ts": "2026-06-10T18:44:47.730971+00:00"
     },
     {
-      "price": 61716.755,
-      "ts": "2026-06-10T18:48:41.679007+00:00"
+      "price": 61754.545,
+      "ts": "2026-06-10T18:49:31.239415+00:00"
     },
     {
       "price": 61703.075,
       "ts": "2026-06-10T18:53:50.769876+00:00"
     },
     {
-      "price": 61807.255,
-      "ts": "2026-06-10T18:58:18.828685+00:00"
+      "price": 61802.275,
+      "ts": "2026-06-10T18:58:57.404485+00:00"
     },
     {
-      "price": 61748.135,
-      "ts": "2026-06-10T19:02:34.718009+00:00"
+      "price": 61779.82,
+      "ts": "2026-06-10T19:03:10.900724+00:00"
     },
     {
-      "price": 61766.805,
-      "ts": "2026-06-10T19:07:07.015566+00:00"
+      "price": 61828.535,
+      "ts": "2026-06-10T19:07:57.885862+00:00"
     },
     {
       "price": 61677.345,
       "ts": "2026-06-10T19:12:51.088223+00:00"
     },
     {
-      "price": 61720.285,
-      "ts": "2026-06-10T19:17:27.482399+00:00"
+      "price": 61616.425,
+      "ts": "2026-06-10T19:18:06.187644+00:00"
     },
     {
-      "price": 61646.005,
-      "ts": "2026-06-10T19:22:10.670230+00:00"
+      "price": 61657.505,
+      "ts": "2026-06-10T19:22:50.631397+00:00"
     },
     {
-      "price": 61689.045,
-      "ts": "2026-06-10T19:26:47.312987+00:00"
+      "price": 61674.995,
+      "ts": "2026-06-10T19:27:25.893368+00:00"
     },
     {
-      "price": 61783.215,
-      "ts": "2026-06-10T19:31:12.523636+00:00"
+      "price": 61808.305,
+      "ts": "2026-06-10T19:31:49.333373+00:00"
     },
     {
       "price": 61935.05,
       "ts": "2026-06-10T19:38:59.458548+00:00"
     },
     {
-      "price": 61917.975,
-      "ts": "2026-06-10T19:43:12.876793+00:00"
+      "price": 61930.445,
+      "ts": "2026-06-10T19:43:47.792258+00:00"
     },
     {
-      "price": 61917.575,
-      "ts": "2026-06-10T19:47:30.187206+00:00"
+      "price": 61894.005,
+      "ts": "2026-06-10T19:48:07.503109+00:00"
     },
     {
-      "price": 61896.005,
-      "ts": "2026-06-10T19:52:08.605594+00:00"
+      "price": 61922.415,
+      "ts": "2026-06-10T19:52:47.990488+00:00"
     },
     {
       "price": 61945.995,
       "ts": "2026-06-10T19:57:27.023527+00:00"
     },
     {
-      "price": 61764.005,
-      "ts": "2026-06-10T20:02:01.657207+00:00"
+      "price": 61782.97,
+      "ts": "2026-06-10T20:02:41.158817+00:00"
     },
     {
-      "price": 61772.145,
-      "ts": "2026-06-10T20:06:35.463398+00:00"
+      "price": 61711.695,
+      "ts": "2026-06-10T20:07:15.457199+00:00"
     },
     {
-      "price": 61723.645,
-      "ts": "2026-06-10T20:11:01.534045+00:00"
+      "price": 61739.385,
+      "ts": "2026-06-10T20:11:37.036240+00:00"
     },
     {
-      "price": 61750.005,
-      "ts": "2026-06-10T20:15:14.875320+00:00"
+      "price": 61780.285,
+      "ts": "2026-06-10T20:15:54.277465+00:00"
     },
     {
       "price": 61736.975,
       "ts": "2026-06-10T20:20:20.587401+00:00"
     },
     {
-      "price": 61834.005,
-      "ts": "2026-06-10T20:24:34.819702+00:00"
+      "price": 61868.83,
+      "ts": "2026-06-10T20:25:09.708538+00:00"
     },
     {
-      "price": 61826.42,
-      "ts": "2026-06-10T20:28:39.580326+00:00"
+      "price": 61835.825,
+      "ts": "2026-06-10T20:29:14.301646+00:00"
     },
     {
-      "price": 61812.135,
-      "ts": "2026-06-10T20:32:43.209216+00:00"
+      "price": 61829.585,
+      "ts": "2026-06-10T20:33:18.284828+00:00"
     },
     {
       "price": 61818.885,
       "ts": "2026-06-10T20:37:22.212813+00:00"
     },
     {
-      "price": 61808.345,
-      "ts": "2026-06-10T20:41:26.269863+00:00"
+      "price": 61812.455,
+      "ts": "2026-06-10T20:42:01.677547+00:00"
     },
     {
-      "price": 61754.545,
-      "ts": "2026-06-10T20:45:30.901027+00:00"
+      "price": 61742.285,
+      "ts": "2026-06-10T20:46:05.963794+00:00"
     },
     {
-      "price": 61746.005,
-      "ts": "2026-06-10T20:49:41.877646+00:00"
+      "price": 61773.325,
+      "ts": "2026-06-10T20:50:16.765410+00:00"
     },
     {
-      "price": 61670.97,
-      "ts": "2026-06-10T20:53:45.981808+00:00"
+      "price": 61668.035,
+      "ts": "2026-06-10T20:54:20.939829+00:00"
     },
     {
       "price": 61707.365,
       "ts": "2026-06-10T20:58:38.096012+00:00"
     },
     {
-      "price": 61697.005,
-      "ts": "2026-06-10T21:03:03.544065+00:00"
+      "price": 61714.865,
+      "ts": "2026-06-10T21:03:40.896116+00:00"
     },
     {
-      "price": 61610.165,
-      "ts": "2026-06-10T21:07:33.146598+00:00"
+      "price": 61587.73,
+      "ts": "2026-06-10T21:08:13.257145+00:00"
     },
     {
-      "price": 61471.125,
-      "ts": "2026-06-10T21:12:00.853535+00:00"
+      "price": 61473.665,
+      "ts": "2026-06-10T21:12:37.224182+00:00"
     },
     {
       "price": 61572.855,
       "ts": "2026-06-10T21:16:46.714994+00:00"
     },
     {
-      "price": 61524.575,
-      "ts": "2026-06-10T21:20:56.980033+00:00"
+      "price": 61505.87,
+      "ts": "2026-06-10T21:21:34.537889+00:00"
     },
     {
-      "price": 61484.275,
-      "ts": "2026-06-10T21:25:19.368412+00:00"
+      "price": 61490.45,
+      "ts": "2026-06-10T21:25:56.096434+00:00"
     },
     {
-      "price": 61527.355,
-      "ts": "2026-06-10T21:29:37.095522+00:00"
+      "price": 61518.645,
+      "ts": "2026-06-10T21:30:12.241274+00:00"
     },
     {
-      "price": 61628.495,
-      "ts": "2026-06-10T21:33:43.450285+00:00"
+      "price": 61654.025,
+      "ts": "2026-06-10T21:34:18.643451+00:00"
     },
     {
       "price": 61577.645,
       "ts": "2026-06-10T21:38:25.235263+00:00"
     },
     {
-      "price": 61577.115,
-      "ts": "2026-06-10T21:42:31.248944+00:00"
+      "price": 61589.505,
+      "ts": "2026-06-10T21:43:09.330380+00:00"
     },
     {
-      "price": 61582.495,
-      "ts": "2026-06-10T21:46:40.605286+00:00"
+      "price": 61587.545,
+      "ts": "2026-06-10T21:47:15.819666+00:00"
     },
     {
-      "price": 61290.145,
-      "ts": "2026-06-10T21:50:46.661148+00:00"
+      "price": 61179.55,
+      "ts": "2026-06-10T21:51:21.788722+00:00"
     },
     {
       "price": 61204.405,
       "ts": "2026-06-10T21:55:27.921566+00:00"
     },
     {
-      "price": 61282.625,
-      "ts": "2026-06-10T21:59:52.607577+00:00"
+      "price": 61277.76,
+      "ts": "2026-06-10T22:00:31.863962+00:00"
     },
     {
-      "price": 61163.275,
-      "ts": "2026-06-10T22:04:26.706836+00:00"
+      "price": 61123.75,
+      "ts": "2026-06-10T22:05:05.809646+00:00"
     },
     {
-      "price": 61190.825,
-      "ts": "2026-06-10T22:09:00.949736+00:00"
+      "price": 61216.035,
+      "ts": "2026-06-10T22:09:44.168723+00:00"
     },
     {
-      "price": 61171.265,
-      "ts": "2026-06-10T22:13:42.950167+00:00"
+      "price": 61170.185,
+      "ts": "2026-06-10T22:14:21.940953+00:00"
     },
     {
       "price": 61088.33,
       "ts": "2026-06-10T22:19:36.220468+00:00"
     },
     {
-      "price": 61158.105,
-      "ts": "2026-06-10T22:23:49.636876+00:00"
+      "price": 61151.985,
+      "ts": "2026-06-10T22:24:25.526523+00:00"
     },
     {
-      "price": 61428.035,
-      "ts": "2026-06-10T23:21:45.854376+00:00"
+      "price": 61417.22,
+      "ts": "2026-06-10T23:22:26.419481+00:00"
     },
     {
-      "price": 61380.545,
-      "ts": "2026-06-10T23:26:14.882101+00:00"
+      "price": 61426.445,
+      "ts": "2026-06-10T23:26:51.528186+00:00"
     },
     {
       "price": 61516.715,
       "ts": "2026-06-10T23:31:08.001825+00:00"
     },
     {
-      "price": 61449.985,
-      "ts": "2026-06-10T23:35:23.969663+00:00"
+      "price": 61471.905,
+      "ts": "2026-06-10T23:35:59.843447+00:00"
     },
     {
-      "price": 61439.735,
-      "ts": "2026-06-10T23:39:34.864080+00:00"
+      "price": 61429.535,
+      "ts": "2026-06-10T23:40:10.754757+00:00"
     },
     {
-      "price": 61524.665,
-      "ts": "2026-06-10T23:43:46.801229+00:00"
+      "price": 61490.705,
+      "ts": "2026-06-10T23:44:22.788890+00:00"
     },
     {
-      "price": 61463.155,
-      "ts": "2026-06-10T23:48:02.741578+00:00"
+      "price": 61490.685,
+      "ts": "2026-06-10T23:48:40.108574+00:00"
     },
     {
       "price": 61492.025,
       "ts": "2026-06-10T23:52:53.390361+00:00"
     },
     {
-      "price": 61452.885,
-      "ts": "2026-06-10T23:57:21.050912+00:00"
+      "price": 61453.975,
+      "ts": "2026-06-10T23:57:59.481067+00:00"
     },
     {
-      "price": 61543.98,
-      "ts": "2026-06-11T00:01:55.395200+00:00"
+      "price": 61570.905,
+      "ts": "2026-06-11T00:02:35.201811+00:00"
     },
     {
-      "price": 61554.965,
-      "ts": "2026-06-11T00:06:25.363242+00:00"
+      "price": 61588.325,
+      "ts": "2026-06-11T00:07:02.865074+00:00"
     },
     {
       "price": 61551.715,
       "ts": "2026-06-11T00:11:24.317515+00:00"
     },
     {
-      "price": 61661.555,
-      "ts": "2026-06-11T00:15:36.187129+00:00"
+      "price": 61766.185,
+      "ts": "2026-06-11T00:16:12.278913+00:00"
     },
     {
-      "price": 61857.895,
-      "ts": "2026-06-11T00:19:48.840237+00:00"
+      "price": 61876.155,
+      "ts": "2026-06-11T00:20:24.901300+00:00"
     },
     {
-      "price": 61801.005,
-      "ts": "2026-06-11T00:24:02.090150+00:00"
+      "price": 61767.575,
+      "ts": "2026-06-11T00:24:38.251024+00:00"
     },
     {
-      "price": 61754.01,
-      "ts": "2026-06-11T00:28:14.666088+00:00"
+      "price": 61785.425,
+      "ts": "2026-06-11T00:28:50.849386+00:00"
     },
     {
       "price": 62834.055,
       "ts": "2026-06-11T10:09:24.478697+00:00"
     },
     {
-      "price": 62873.465,
-      "ts": "2026-06-11T10:13:57.242341+00:00"
+      "price": 62850.455,
+      "ts": "2026-06-11T10:14:43.004753+00:00"
     },
     {
-      "price": 62747.525,
-      "ts": "2026-06-11T10:19:54.694707+00:00"
+      "price": 62760.015,
+      "ts": "2026-06-11T10:21:02.450700+00:00"
     },
     {
-      "price": 62767.895,
-      "ts": "2026-06-11T10:25:34.345638+00:00"
+      "price": 62758.755,
+      "ts": "2026-06-11T10:26:36.593407+00:00"
     },
     {
       "price": 62818.845,
       "ts": "2026-06-11T10:32:27.621652+00:00"
     },
     {
-      "price": 62818.845,
-      "ts": "2026-06-11T10:39:44.392240+00:00"
+      "price": 62842.345,
+      "ts": "2026-06-11T10:40:52.998155+00:00"
     },
     {
-      "price": 62946.005,
-      "ts": "2026-06-11T10:53:53.171501+00:00"
+      "price": 63007.245,
+      "ts": "2026-06-11T10:54:59.007731+00:00"
     },
     {
-      "price": 63120.285,
-      "ts": "2026-06-11T11:04:44.609441+00:00"
+      "price": 63119.965,
+      "ts": "2026-06-11T11:05:24.659164+00:00"
     },
     {
-      "price": 63064.705,
-      "ts": "2026-06-11T11:09:26.064522+00:00"
+      "price": 63066.205,
+      "ts": "2026-06-11T11:10:07.004462+00:00"
     },
     {
       "price": 63117.145,
       "ts": "2026-06-11T11:14:53.723655+00:00"
     },
     {
-      "price": 63066.905,
-      "ts": "2026-06-11T11:19:29.432295+00:00"
+      "price": 63055.55,
+      "ts": "2026-06-11T11:20:07.790867+00:00"
     },
     {
-      "price": 63094.205,
-      "ts": "2026-06-11T11:24:12.024641+00:00"
+      "price": 63097.465,
+      "ts": "2026-06-11T11:24:53.361572+00:00"
     },
     {
-      "price": 63073.095,
-      "ts": "2026-06-11T11:28:47.734380+00:00"
+      "price": 63093.66,
+      "ts": "2026-06-11T11:29:26.665036+00:00"
     },
     {
-      "price": 63132.835,
-      "ts": "2026-06-11T11:33:34.034028+00:00"
+      "price": 63135.995,
+      "ts": "2026-06-11T11:34:13.678565+00:00"
     },
     {
-      "price": 63021.86,
-      "ts": "2026-06-11T11:38:52.229270+00:00"
+      "price": 63038.635,
+      "ts": "2026-06-11T11:39:31.272961+00:00"
     },
     {
-      "price": 63070.045,
-      "ts": "2026-06-11T11:44:42.235842+00:00"
+      "price": 63061.675,
+      "ts": "2026-06-11T11:45:22.037200+00:00"
     },
     {
-      "price": 63054.235,
-      "ts": "2026-06-11T11:49:24.597874+00:00"
+      "price": 63060.575,
+      "ts": "2026-06-11T11:50:00.587037+00:00"
     },
     {
-      "price": 63117.145,
-      "ts": "2026-06-11T11:53:41.852859+00:00"
+      "price": 63113.435,
+      "ts": "2026-06-11T11:54:18.301789+00:00"
     },
     {
       "price": 63047.995,
       "ts": "2026-06-11T11:58:44.332721+00:00"
     },
     {
-      "price": 62982.125,
-      "ts": "2026-06-11T12:03:25.029915+00:00"
+      "price": 62955.845,
+      "ts": "2026-06-11T12:04:04.404519+00:00"
     },
     {
-      "price": 62946.205,
-      "ts": "2026-06-11T12:07:49.923762+00:00"
+      "price": 62960.805,
+      "ts": "2026-06-11T12:08:26.909789+00:00"
     },
     {
-      "price": 63090.815,
-      "ts": "2026-06-11T12:12:17.157754+00:00"
+      "price": 63111.575,
+      "ts": "2026-06-11T12:12:55.764224+00:00"
     },
     {
       "price": 63085.425,
-      "ts": "2026-06-11T12:16:42.243049+00:00"
+      "ts": "2026-06-11T12:17:23.109409+00:00"
     },
     {
-      "price": 62840.405,
-      "ts": "2026-06-11T12:22:07.423849+00:00"
+      "price": 62730.965,
+      "ts": "2026-06-11T12:22:48.947625+00:00"
     },
     {
-      "price": 62720.255,
-      "ts": "2026-06-11T12:27:03.558701+00:00"
+      "price": 62673.5,
+      "ts": "2026-06-11T12:27:41.467827+00:00"
     },
     {
-      "price": 62551.125,
-      "ts": "2026-06-11T12:31:32.345021+00:00"
+      "price": 62549.11,
+      "ts": "2026-06-11T12:32:11.896827+00:00"
     },
     {
-      "price": 62696.385,
-      "ts": "2026-06-11T12:36:14.029970+00:00"
+      "price": 62754.995,
+      "ts": "2026-06-11T12:36:51.838016+00:00"
     },
     {
       "price": 62752.655,
       "ts": "2026-06-11T12:41:59.284483+00:00"
     },
     {
-      "price": 62856.515,
-      "ts": "2026-06-11T12:46:43.792548+00:00"
+      "price": 62903.235,
+      "ts": "2026-06-11T12:47:24.133733+00:00"
     },
     {
-      "price": 62831.405,
-      "ts": "2026-06-11T12:51:29.574206+00:00"
+      "price": 62919.195,
+      "ts": "2026-06-11T12:52:09.606582+00:00"
     },
     {
-      "price": 62949.4,
-      "ts": "2026-06-11T12:56:14.718665+00:00"
+      "price": 62947.585,
+      "ts": "2026-06-11T12:56:56.294364+00:00"
     },
     {
-      "price": 62883.905,
-      "ts": "2026-06-11T13:01:10.386786+00:00"
+      "price": 62903.285,
+      "ts": "2026-06-11T13:01:51.854080+00:00"
     },
     {
-      "price": 62853.005,
-      "ts": "2026-06-11T13:06:33.409108+00:00"
+      "price": 62845.085,
+      "ts": "2026-06-11T13:07:16.019467+00:00"
     },
     {
-      "price": 62865.87,
-      "ts": "2026-06-11T13:11:20.820278+00:00"
+      "price": 62803.135,
+      "ts": "2026-06-11T13:11:58.210054+00:00"
     },
     {
-      "price": 62859.005,
-      "ts": "2026-06-11T13:16:35.168007+00:00"
+      "price": 62884.775,
+      "ts": "2026-06-11T13:17:11.693339+00:00"
     },
     {
-      "price": 62940.56,
-      "ts": "2026-06-11T13:21:10.236426+00:00"
+      "price": 62941.925,
+      "ts": "2026-06-11T13:21:49.570796+00:00"
     },
     {
       "price": 62756.045,
       "ts": "2026-06-11T13:26:29.915609+00:00"
     },
     {
-      "price": 62736.85,
-      "ts": "2026-06-11T13:31:17.897740+00:00"
+      "price": 62652.325,
+      "ts": "2026-06-11T13:31:58.505904+00:00"
     },
     {
-      "price": 62770.165,
-      "ts": "2026-06-11T13:36:10.391407+00:00"
+      "price": 62846.075,
+      "ts": "2026-06-11T13:36:49.633297+00:00"
     },
     {
-      "price": 62719.065,
-      "ts": "2026-06-11T13:40:50.550752+00:00"
+      "price": 62723.86,
+      "ts": "2026-06-11T13:41:31.309129+00:00"
     },
     {
-      "price": 62890.025,
-      "ts": "2026-06-11T13:45:31.353160+00:00"
+      "price": 62996.94,
+      "ts": "2026-06-11T13:46:12.184708+00:00"
     },
     {
-      "price": 63038.67,
-      "ts": "2026-06-11T13:50:56.784553+00:00"
+      "price": 62999.005,
+      "ts": "2026-06-11T13:51:37.537939+00:00"
     },
     {
-      "price": 63059.415,
-      "ts": "2026-06-11T13:55:46.489748+00:00"
+      "price": 63035.545,
+      "ts": "2026-06-11T13:56:27.925878+00:00"
     },
     {
-      "price": 62986.865,
-      "ts": "2026-06-11T14:00:33.612343+00:00"
+      "price": 62970.085,
+      "ts": "2026-06-11T14:01:16.444180+00:00"
     },
     {
-      "price": 62933.555,
-      "ts": "2026-06-11T14:05:30.391540+00:00"
+      "price": 62858.425,
+      "ts": "2026-06-11T14:06:11.571219+00:00"
     },
     {
       "price": 62777.515,
       "ts": "2026-06-11T14:12:23.240015+00:00"
     },
     {
-      "price": 62711.615,
-      "ts": "2026-06-11T14:17:07.612414+00:00"
+      "price": 62715.67,
+      "ts": "2026-06-11T14:17:47.211675+00:00"
     },
     {
-      "price": 62784.295,
-      "ts": "2026-06-11T14:21:48.735329+00:00"
+      "price": 62779.255,
+      "ts": "2026-06-11T14:22:28.988251+00:00"
     },
     {
-      "price": 62860.165,
-      "ts": "2026-06-11T14:26:37.436660+00:00"
+      "price": 62831.7,
+      "ts": "2026-06-11T14:27:20.747113+00:00"
     },
     {
-      "price": 62825.135,
-      "ts": "2026-06-11T14:31:27.031736+00:00"
+      "price": 62873.375,
+      "ts": "2026-06-11T14:32:10.076211+00:00"
     },
     {
-      "price": 62957.335,
-      "ts": "2026-06-11T14:36:53.842229+00:00"
+      "price": 62951.805,
+      "ts": "2026-06-11T14:37:34.807916+00:00"
     },
     {
-      "price": 62885.585,
-      "ts": "2026-06-11T14:41:36.568843+00:00"
+      "price": 62841.245,
+      "ts": "2026-06-11T14:42:17.584677+00:00"
     },
     {
-      "price": 62858.085,
-      "ts": "2026-06-11T14:46:24.781085+00:00"
+      "price": 62793.725,
+      "ts": "2026-06-11T14:47:03.933984+00:00"
     },
     {
-      "price": 62871.495,
-      "ts": "2026-06-11T14:51:05.873353+00:00"
+      "price": 62881.635,
+      "ts": "2026-06-11T14:51:47.327510+00:00"
     },
     {
       "price": 62788.645,
       "ts": "2026-06-11T14:56:23.891138+00:00"
     },
     {
-      "price": 62674.665,
-      "ts": "2026-06-11T15:00:44.800362+00:00"
+      "price": 62592.065,
+      "ts": "2026-06-11T15:01:21.015658+00:00"
     },
     {
-      "price": 62639.185,
-      "ts": "2026-06-11T15:04:58.745806+00:00"
+      "price": 62607.115,
+      "ts": "2026-06-11T15:05:35.080555+00:00"
     },
     {
-      "price": 62729.825,
-      "ts": "2026-06-11T15:09:13.887568+00:00"
+      "price": 62742.295,
+      "ts": "2026-06-11T15:09:50.224131+00:00"
     },
     {
-      "price": 62742.445,
-      "ts": "2026-06-11T15:13:28.250384+00:00"
+      "price": 62709.135,
+      "ts": "2026-06-11T15:14:05.556965+00:00"
     },
     {
-      "price": 62622.58,
-      "ts": "2026-06-11T15:18:25.036153+00:00"
+      "price": 62566.005,
+      "ts": "2026-06-11T15:19:00.917858+00:00"
     },
     {
-      "price": 62675.975,
-      "ts": "2026-06-11T15:22:36.479321+00:00"
+      "price": 62674.9,
+      "ts": "2026-06-11T15:23:12.378595+00:00"
     },
     {
-      "price": 62674.405,
-      "ts": "2026-06-11T15:26:48.658787+00:00"
+      "price": 62696.315,
+      "ts": "2026-06-11T15:27:24.484258+00:00"
     },
     {
-      "price": 62588.305,
-      "ts": "2026-06-11T15:31:19.696293+00:00"
+      "price": 62602.185,
+      "ts": "2026-06-11T15:32:00.364298+00:00"
     },
     {
       "price": 62699.7,
       "ts": "2026-06-11T15:36:27.616695+00:00"
     },
     {
-      "price": 62792.695,
-      "ts": "2026-06-11T15:40:52.121822+00:00"
+      "price": 62743.485,
+      "ts": "2026-06-11T15:41:30.775991+00:00"
     },
     {
-      "price": 62601.91,
-      "ts": "2026-06-11T15:45:26.645083+00:00"
+      "price": 62568.795,
+      "ts": "2026-06-11T15:46:08.008094+00:00"
     },
     {
-      "price": 62557.805,
-      "ts": "2026-06-11T15:50:07.780242+00:00"
+      "price": 62548.805,
+      "ts": "2026-06-11T15:50:46.885442+00:00"
     },
     {
-      "price": 62543.985,
-      "ts": "2026-06-11T15:54:34.701709+00:00"
+      "price": 62558.225,
+      "ts": "2026-06-11T15:55:12.154522+00:00"
     },
     {
-      "price": 62652.055,
-      "ts": "2026-06-11T15:59:44.150751+00:00"
+      "price": 62693.255,
+      "ts": "2026-06-11T16:00:24.028147+00:00"
     },
     {
-      "price": 62616.895,
-      "ts": "2026-06-11T16:04:36.725289+00:00"
+      "price": 62613.545,
+      "ts": "2026-06-11T16:05:16.049558+00:00"
     },
     {
-      "price": 62727.785,
-      "ts": "2026-06-11T16:09:17.768218+00:00"
+      "price": 62677.475,
+      "ts": "2026-06-11T16:09:57.719158+00:00"
     },
     {
-      "price": 62703.03,
-      "ts": "2026-06-11T16:14:03.897692+00:00"
+      "price": 62754.005,
+      "ts": "2026-06-11T16:14:46.651469+00:00"
     },
     {
       "price": 62734.675,
       "ts": "2026-06-11T16:19:30.770934+00:00"
     },
     {
-      "price": 62567.975,
-      "ts": "2026-06-11T16:24:04.407578+00:00"
+      "price": 62558.215,
+      "ts": "2026-06-11T16:24:48.418303+00:00"
     },
     {
-      "price": 62576.705,
-      "ts": "2026-06-11T16:28:52.690870+00:00"
+      "price": 62558.025,
+      "ts": "2026-06-11T16:29:32.088853+00:00"
     },
     {
-      "price": 62647.175,
-      "ts": "2026-06-11T16:34:29.041590+00:00"
+      "price": 62621.595,
+      "ts": "2026-06-11T16:35:18.307729+00:00"
     },
     {
-      "price": 62651.385,
-      "ts": "2026-06-11T16:39:40.602660+00:00"
+      "price": 62655.025,
+      "ts": "2026-06-11T16:40:21.543096+00:00"
     },
     {
-      "price": 62605.965,
-      "ts": "2026-06-11T16:45:34.142934+00:00"
+      "price": 62551.585,
+      "ts": "2026-06-11T16:46:23.659652+00:00"
     },
     {
-      "price": 62517.655,
-      "ts": "2026-06-11T16:50:42.960235+00:00"
+      "price": 62560.455,
+      "ts": "2026-06-11T16:51:27.254738+00:00"
     },
     {
-      "price": 62513.395,
-      "ts": "2026-06-11T16:56:28.451773+00:00"
+      "price": 62517.775,
+      "ts": "2026-06-11T16:57:04.209152+00:00"
     },
     {
-      "price": 62503.02,
-      "ts": "2026-06-11T17:01:33.922592+00:00"
+      "price": 62503.965,
+      "ts": "2026-06-11T17:02:15.592227+00:00"
     },
     {
       "price": 62440.005,
       "ts": "2026-06-11T17:09:14.398367+00:00"
     },
     {
-      "price": 62382.95,
-      "ts": "2026-06-11T17:13:49.831986+00:00"
+      "price": 62392.895,
+      "ts": "2026-06-11T17:14:27.652022+00:00"
     },
     {
-      "price": 62402.575,
-      "ts": "2026-06-11T17:18:02.733229+00:00"
+      "price": 62372.965,
+      "ts": "2026-06-11T17:18:38.497961+00:00"
     },
     {
-      "price": 62292.99,
-      "ts": "2026-06-11T17:22:16.797722+00:00"
+      "price": 62304.0,
+      "ts": "2026-06-11T17:22:58.704586+00:00"
     },
     {
-      "price": 62262.735,
-      "ts": "2026-06-11T17:27:48.185428+00:00"
+      "price": 62294.685,
+      "ts": "2026-06-11T17:28:25.778761+00:00"
     },
     {
-      "price": 63193.42,
-      "ts": "2026-06-11T17:32:35.467317+00:00"
+      "price": 63384.025,
+      "ts": "2026-06-11T17:33:11.339201+00:00"
     },
     {
-      "price": 63084.925,
-      "ts": "2026-06-11T17:37:26.670759+00:00"
+      "price": 63131.675,
+      "ts": "2026-06-11T17:38:02.300484+00:00"
     },
     {
-      "price": 63294.215,
-      "ts": "2026-06-11T17:41:36.458057+00:00"
+      "price": 63295.39,
+      "ts": "2026-06-11T17:42:12.184155+00:00"
     },
     {
-      "price": 63277.405,
-      "ts": "2026-06-11T17:45:45.681617+00:00"
+      "price": 63321.835,
+      "ts": "2026-06-11T17:46:21.091958+00:00"
     },
     {
       "price": 63450.91,
       "ts": "2026-06-11T17:50:50.742243+00:00"
     },
     {
-      "price": 63398.015,
-      "ts": "2026-06-11T17:55:26.316628+00:00"
+      "price": 63365.995,
+      "ts": "2026-06-11T17:56:07.261055+00:00"
     },
     {
-      "price": 63551.32,
-      "ts": "2026-06-11T18:00:10.979200+00:00"
+      "price": 63614.525,
+      "ts": "2026-06-11T18:00:54.400944+00:00"
     },
     {
-      "price": 63425.285,
-      "ts": "2026-06-11T18:04:54.330544+00:00"
+      "price": 63431.985,
+      "ts": "2026-06-11T18:05:31.048404+00:00"
     },
     {
-      "price": 63285.995,
-      "ts": "2026-06-11T18:09:11.929671+00:00"
+      "price": 63270.775,
+      "ts": "2026-06-11T18:09:47.134073+00:00"
     },
     {
       "price": 63367.675,
       "ts": "2026-06-11T18:13:54.820570+00:00"
     },
     {
-      "price": 63503.425,
-      "ts": "2026-06-11T18:18:02.755952+00:00"
+      "price": 63473.26,
+      "ts": "2026-06-11T18:18:37.946593+00:00"
     },
     {
-      "price": 63355.945,
-      "ts": "2026-06-11T18:23:56.140091+00:00"
+      "price": 63288.975,
+      "ts": "2026-06-11T18:24:35.636998+00:00"
     },
     {
-      "price": 63362.195,
-      "ts": "2026-06-11T18:28:10.075565+00:00"
+      "price": 63292.485,
+      "ts": "2026-06-11T18:28:53.227689+00:00"
     },
     {
-      "price": 63341.785,
-      "ts": "2026-06-11T18:32:24.995762+00:00"
+      "price": 63312.945,
+      "ts": "2026-06-11T18:33:01.407249+00:00"
     },
     {
-      "price": 63448.535,
-      "ts": "2026-06-11T18:37:08.637730+00:00"
+      "price": 63427.845,
+      "ts": "2026-06-11T18:37:43.801523+00:00"
     },
     {
-      "price": 63432.62,
-      "ts": "2026-06-11T18:41:15.357715+00:00"
+      "price": 63429.585,
+      "ts": "2026-06-11T18:41:50.591866+00:00"
     },
     {
-      "price": 63465.125,
-      "ts": "2026-06-11T18:45:35.001171+00:00"
+      "price": 63456.815,
+      "ts": "2026-06-11T18:46:13.421529+00:00"
     },
     {
-      "price": 63439.905,
-      "ts": "2026-06-11T18:50:05.923979+00:00"
+      "price": 63460.995,
+      "ts": "2026-06-11T18:50:45.281819+00:00"
     },
     {
       "price": 63440.24,
       "ts": "2026-06-11T18:55:21.321886+00:00"
     },
     {
-      "price": 63382.965,
-      "ts": "2026-06-11T18:59:57.046148+00:00"
+      "price": 63363.135,
+      "ts": "2026-06-11T19:00:37.184970+00:00"
     },
     {
-      "price": 63441.885,
-      "ts": "2026-06-11T19:04:35.141200+00:00"
+      "price": 63425.03,
+      "ts": "2026-06-11T19:05:13.669562+00:00"
     },
     {
-      "price": 63352.235,
-      "ts": "2026-06-11T19:09:11.532958+00:00"
+      "price": 63358.885,
+      "ts": "2026-06-11T19:10:09.512936+00:00"
     },
     {
-      "price": 63478.305,
-      "ts": "2026-06-11T19:14:31.925551+00:00"
+      "price": 63461.805,
+      "ts": "2026-06-11T19:15:11.524845+00:00"
     },
     {
-      "price": 63552.165,
-      "ts": "2026-06-11T19:19:55.611490+00:00"
+      "price": 63594.585,
+      "ts": "2026-06-11T19:20:33.426721+00:00"
     },
     {
-      "price": 63601.69,
-      "ts": "2026-06-11T19:24:24.746587+00:00"
+      "price": 63610.62,
+      "ts": "2026-06-11T19:25:03.262193+00:00"
     },
     {
-      "price": 63557.04,
-      "ts": "2026-06-11T19:29:00.986782+00:00"
+      "price": 63564.67,
+      "ts": "2026-06-11T19:29:38.846175+00:00"
     },
     {
-      "price": 63821.95,
-      "ts": "2026-06-11T19:33:14.059583+00:00"
+      "price": 63787.155,
+      "ts": "2026-06-11T19:33:50.272715+00:00"
     },
     {
       "price": 63755.255,
       "ts": "2026-06-11T19:38:01.090676+00:00"
     },
     {
-      "price": 63725.185,
-      "ts": "2026-06-11T19:42:09.670410+00:00"
+      "price": 63727.54,
+      "ts": "2026-06-11T19:42:45.059400+00:00"
     },
     {
-      "price": 63610.37,
-      "ts": "2026-06-11T19:46:17.768286+00:00"
+      "price": 63624.485,
+      "ts": "2026-06-11T19:46:53.190886+00:00"
     },
     {
-      "price": 63628.905,
-      "ts": "2026-06-11T19:50:25.829696+00:00"
+      "price": 63580.105,
+      "ts": "2026-06-11T19:51:01.354579+00:00"
     },
     {
-      "price": 63592.155,
-      "ts": "2026-06-11T19:54:33.782568+00:00"
+      "price": 63633.255,
+      "ts": "2026-06-11T19:55:09.760890+00:00"
     },
     {
-      "price": 63574.045,
-      "ts": "2026-06-11T19:59:18.104125+00:00"
+      "price": 63550.825,
+      "ts": "2026-06-11T19:59:56.195981+00:00"
     },
     {
-      "price": 63549.205,
-      "ts": "2026-06-11T20:03:46.464851+00:00"
+      "price": 63564.305,
+      "ts": "2026-06-11T20:04:24.648548+00:00"
     },
     {
-      "price": 63504.965,
-      "ts": "2026-06-11T20:08:23.087282+00:00"
+      "price": 63491.675,
+      "ts": "2026-06-11T20:09:02.638460+00:00"
     },
     {
-      "price": 63470.135,
-      "ts": "2026-06-11T20:12:50.568635+00:00"
+      "price": 63465.965,
+      "ts": "2026-06-11T20:13:26.956895+00:00"
     },
     {
       "price": 63478.475,
       "ts": "2026-06-11T20:17:48.272545+00:00"
     },
     {
-      "price": 63438.045,
-      "ts": "2026-06-11T20:22:10.458110+00:00"
+      "price": 63414.505,
+      "ts": "2026-06-11T20:22:48.630330+00:00"
     },
     {
-      "price": 63398.765,
-      "ts": "2026-06-11T20:26:31.446462+00:00"
+      "price": 63387.415,
+      "ts": "2026-06-11T20:27:07.768408+00:00"
     },
     {
-      "price": 63282.525,
-      "ts": "2026-06-11T20:30:46.386669+00:00"
+      "price": 63306.015,
+      "ts": "2026-06-11T20:31:22.834649+00:00"
     },
     {
-      "price": 63329.145,
-      "ts": "2026-06-11T20:35:16.704244+00:00"
+      "price": 63287.965,
+      "ts": "2026-06-11T20:35:56.329051+00:00"
     },
     {
-      "price": 63306.245,
-      "ts": "2026-06-11T20:40:44.645345+00:00"
+      "price": 63298.91,
+      "ts": "2026-06-11T20:41:23.295289+00:00"
     },
     {
-      "price": 63211.405,
-      "ts": "2026-06-11T20:45:20.731219+00:00"
+      "price": 63232.005,
+      "ts": "2026-06-11T20:46:00.500618+00:00"
     },
     {
-      "price": 63218.025,
-      "ts": "2026-06-11T20:49:57.418851+00:00"
+      "price": 63224.055,
+      "ts": "2026-06-11T20:50:35.544655+00:00"
     },
     {
-      "price": 63332.065,
-      "ts": "2026-06-11T20:54:38.378990+00:00"
+      "price": 63329.005,
+      "ts": "2026-06-11T20:55:18.288812+00:00"
     },
     {
       "price": 63334.005,
       "ts": "2026-06-11T20:59:53.090510+00:00"
     },
     {
-      "price": 63370.175,
-      "ts": "2026-06-11T21:04:28.517268+00:00"
+      "price": 63398.715,
+      "ts": "2026-06-11T21:05:09.604853+00:00"
     },
     {
-      "price": 63422.925,
-      "ts": "2026-06-11T21:09:24.362433+00:00"
+      "price": 63410.175,
+      "ts": "2026-06-11T21:10:04.774948+00:00"
     },
     {
-      "price": 63534.015,
-      "ts": "2026-06-11T21:14:03.458219+00:00"
+      "price": 63516.025,
+      "ts": "2026-06-11T21:14:46.257870+00:00"
     },
     {
-      "price": 63463.975,
-      "ts": "2026-06-11T21:18:44.206758+00:00"
+      "price": 63459.215,
+      "ts": "2026-06-11T21:19:23.798264+00:00"
     },
     {
-      "price": 63491.685,
-      "ts": "2026-06-11T21:24:07.311754+00:00"
+      "price": 63451.845,
+      "ts": "2026-06-11T21:24:49.135154+00:00"
     },
     {
-      "price": 63382.915,
-      "ts": "2026-06-11T21:28:49.552927+00:00"
+      "price": 63404.905,
+      "ts": "2026-06-11T21:29:28.501026+00:00"
     },
     {
-      "price": 63456.475,
-      "ts": "2026-06-11T21:33:27.517689+00:00"
+      "price": 63450.025,
+      "ts": "2026-06-11T21:34:06.473748+00:00"
     },
     {
-      "price": 63423.005,
-      "ts": "2026-06-11T21:38:10.007193+00:00"
+      "price": 63448.015,
+      "ts": "2026-06-11T21:38:49.929050+00:00"
     },
     {
       "price": 63458.485,
       "ts": "2026-06-11T21:43:08.706690+00:00"
     },
     {
-      "price": 63471.765,
-      "ts": "2026-06-11T21:47:21.306196+00:00"
+      "price": 63504.43,
+      "ts": "2026-06-11T21:47:57.189157+00:00"
     },
     {
-      "price": 63462.085,
-      "ts": "2026-06-11T21:51:32.817806+00:00"
+      "price": 63486.57,
+      "ts": "2026-06-11T21:52:08.410311+00:00"
     },
     {
-      "price": 63418.445,
-      "ts": "2026-06-11T21:55:50.652089+00:00"
+      "price": 63397.035,
+      "ts": "2026-06-11T21:56:30.658775+00:00"
     },
     {
-      "price": 63464.015,
-      "ts": "2026-06-11T22:00:29.482282+00:00"
+      "price": 63494.695,
+      "ts": "2026-06-11T22:01:08.444179+00:00"
     },
     {
-      "price": 63398.715,
-      "ts": "2026-06-11T22:48:16.423152+00:00"
+      "price": 63413.985,
+      "ts": "2026-06-11T22:48:59.814362+00:00"
     },
     {
-      "price": 63455.175,
-      "ts": "2026-06-11T22:53:37.062279+00:00"
+      "price": 63461.085,
+      "ts": "2026-06-11T22:54:19.258979+00:00"
     },
     {
-      "price": 63472.015,
-      "ts": "2026-06-11T22:58:40.762300+00:00"
+      "price": 63461.805,
+      "ts": "2026-06-11T22:59:22.480719+00:00"
     },
     {
-      "price": 63304.955,
-      "ts": "2026-06-11T23:03:41.333618+00:00"
+      "price": 63339.995,
+      "ts": "2026-06-11T23:04:21.649491+00:00"
     },
     {
       "price": 63294.635,
       "ts": "2026-06-11T23:08:46.966236+00:00"
     },
     {
-      "price": 63322.365,
-      "ts": "2026-06-11T23:13:33.763255+00:00"
+      "price": 63330.495,
+      "ts": "2026-06-11T23:14:13.827669+00:00"
     },
     {
-      "price": 63338.965,
-      "ts": "2026-06-11T23:18:03.140405+00:00"
+      "price": 63319.205,
+      "ts": "2026-06-11T23:18:42.364674+00:00"
     },
     {
-      "price": 63338.06,
-      "ts": "2026-06-11T23:22:39.119153+00:00"
+      "price": 63349.905,
+      "ts": "2026-06-11T23:23:18.840844+00:00"
     },
     {
-      "price": 63355.02,
-      "ts": "2026-06-11T23:27:25.821148+00:00"
+      "price": 63315.055,
+      "ts": "2026-06-11T23:28:06.284305+00:00"
     },
     {
-      "price": 63415.325,
-      "ts": "2026-06-11T23:32:58.809189+00:00"
+      "price": 63426.93,
+      "ts": "2026-06-11T23:33:39.906713+00:00"
     },
     {
-      "price": 63447.435,
-      "ts": "2026-06-11T23:37:57.491096+00:00"
+      "price": 63415.845,
+      "ts": "2026-06-11T23:38:39.602437+00:00"
     },
     {
-      "price": 63567.085,
-      "ts": "2026-06-11T23:45:35.151363+00:00"
+      "price": 63573.465,
+      "ts": "2026-06-11T23:46:19.173760+00:00"
     },
     {
       "price": 63535.585,
-      "ts": "2026-06-11T23:50:17.478715+00:00"
+      "ts": "2026-06-11T23:50:57.636211+00:00"
     },
     {
       "price": 63559.165,
       "ts": "2026-06-11T23:55:38.293040+00:00"
     },
     {
-      "price": 63530.015,
-      "ts": "2026-06-12T00:00:24.150516+00:00"
+      "price": 63500.015,
+      "ts": "2026-06-12T00:01:05.094420+00:00"
     },
     {
-      "price": 63523.915,
-      "ts": "2026-06-12T00:05:08.722904+00:00"
+      "price": 63536.965,
+      "ts": "2026-06-12T00:05:47.975862+00:00"
     },
     {
-      "price": 63647.725,
-      "ts": "2026-06-12T00:09:40.996887+00:00"
+      "price": 63669.84,
+      "ts": "2026-06-12T00:10:19.283072+00:00"
     },
     {
-      "price": 63647.045,
-      "ts": "2026-06-12T00:14:12.722097+00:00"
+      "price": 63666.945,
+      "ts": "2026-06-12T00:14:49.534886+00:00"
     },
     {
-      "price": 63574.685,
-      "ts": "2026-06-12T00:19:10.481924+00:00"
+      "price": 63596.825,
+      "ts": "2026-06-12T00:19:47.599835+00:00"
     },
     {
-      "price": 63531.525,
-      "ts": "2026-06-12T00:23:34.722155+00:00"
+      "price": 63534.015,
+      "ts": "2026-06-12T00:24:11.125603+00:00"
     },
     {
-      "price": 63492.805,
-      "ts": "2026-06-12T00:27:57.408097+00:00"
+      "price": 63522.005,
+      "ts": "2026-06-12T00:28:34.456318+00:00"
     },
     {
-      "price": 63524.875,
-      "ts": "2026-06-12T00:32:21.235178+00:00"
+      "price": 63556.005,
+      "ts": "2026-06-12T00:32:57.657770+00:00"
     },
     {
       "price": 63612.975,
       "ts": "2026-06-12T00:37:32.425524+00:00"
     },
     {
-      "price": 63605.675,
-      "ts": "2026-06-12T00:42:14.479039+00:00"
+      "price": 63607.885,
+      "ts": "2026-06-12T00:42:58.500241+00:00"
     },
     {
-      "price": 63603.925,
-      "ts": "2026-06-12T00:46:54.666745+00:00"
+      "price": 63608.025,
+      "ts": "2026-06-12T00:47:36.047416+00:00"
     },
     {
-      "price": 63631.115,
-      "ts": "2026-06-12T00:51:35.548048+00:00"
+      "price": 63637.765,
+      "ts": "2026-06-12T00:52:13.664701+00:00"
     },
     {
-      "price": 63634.255,
-      "ts": "2026-06-12T00:56:07.593195+00:00"
+      "price": 63642.565,
+      "ts": "2026-06-12T00:56:47.917875+00:00"
     },
     {
-      "price": 63481.725,
-      "ts": "2026-06-12T01:01:39.850038+00:00"
+      "price": 63416.15,
+      "ts": "2026-06-12T01:02:24.475932+00:00"
     },
     {
-      "price": 63443.985,
-      "ts": "2026-06-12T01:06:51.580977+00:00"
+      "price": 63441.885,
+      "ts": "2026-06-12T01:07:35.210782+00:00"
     },
     {
-      "price": 63434.005,
-      "ts": "2026-06-12T01:11:47.081858+00:00"
+      "price": 63404.525,
+      "ts": "2026-06-12T01:12:37.411563+00:00"
     },
     {
-      "price": 63430.255,
-      "ts": "2026-06-12T01:16:42.364877+00:00"
+      "price": 63458.395,
+      "ts": "2026-06-12T01:17:20.426479+00:00"
     },
     {
       "price": 63391.47,
       "ts": "2026-06-12T02:02:35.372426+00:00"
     },
     {
-      "price": 63461.875,
-      "ts": "2026-06-12T02:08:14.200606+00:00"
+      "price": 63444.685,
+      "ts": "2026-06-12T02:09:00.858158+00:00"
     },
     {
-      "price": 63599.305,
-      "ts": "2026-06-12T02:13:08.876745+00:00"
+      "price": 63586.805,
+      "ts": "2026-06-12T02:13:52.478201+00:00"
     },
     {
-      "price": 63528.215,
-      "ts": "2026-06-12T02:18:04.805337+00:00"
+      "price": 63528.195,
+      "ts": "2026-06-12T02:18:42.393259+00:00"
     },
     {
-      "price": 63546.535,
-      "ts": "2026-06-12T02:23:36.371204+00:00"
+      "price": 63564.015,
+      "ts": "2026-06-12T02:24:17.648866+00:00"
     },
     {
-      "price": 63468.005,
-      "ts": "2026-06-12T02:29:09.367025+00:00"
+      "price": 63475.39,
+      "ts": "2026-06-12T02:30:00.795705+00:00"
     },
     {
-      "price": 63450.005,
-      "ts": "2026-06-12T02:34:33.329593+00:00"
+      "price": 63436.715,
+      "ts": "2026-06-12T02:35:24.315448+00:00"
     },
     {
-      "price": 63545.975,
-      "ts": "2026-06-12T02:40:56.015864+00:00"
+      "price": 63518.005,
+      "ts": "2026-06-12T02:41:38.419545+00:00"
     },
     {
-      "price": 63523.395,
-      "ts": "2026-06-12T02:45:44.922727+00:00"
+      "price": 63513.995,
+      "ts": "2026-06-12T02:46:24.690835+00:00"
     },
     {
       "price": 63513.415,
       "ts": "2026-06-12T02:51:08.100291+00:00"
     },
     {
-      "price": 63504.965,
-      "ts": "2026-06-12T02:56:10.112216+00:00"
+      "price": 63504.555,
+      "ts": "2026-06-12T02:56:56.776436+00:00"
     },
     {
-      "price": 63564.335,
-      "ts": "2026-06-12T03:01:31.250094+00:00"
+      "price": 63528.145,
+      "ts": "2026-06-12T03:02:19.205777+00:00"
     },
     {
-      "price": 63478.415,
-      "ts": "2026-06-12T03:08:51.596815+00:00"
+      "price": 63475.085,
+      "ts": "2026-06-12T03:09:30.084609+00:00"
     },
     {
-      "price": 63426.755,
-      "ts": "2026-06-12T03:13:30.101673+00:00"
+      "price": 63435.235,
+      "ts": "2026-06-12T03:14:12.865254+00:00"
     },
     {
-      "price": 63415.315,
-      "ts": "2026-06-12T03:19:13.905985+00:00"
+      "price": 63405.365,
+      "ts": "2026-06-12T03:19:57.199665+00:00"
     },
     {
-      "price": 63325.985,
-      "ts": "2026-06-12T03:24:10.805661+00:00"
+      "price": 63337.445,
+      "ts": "2026-06-12T03:24:51.557843+00:00"
     },
     {
-      "price": 63338.955,
-      "ts": "2026-06-12T03:28:50.645837+00:00"
+      "price": 63346.905,
+      "ts": "2026-06-12T03:29:31.873342+00:00"
     },
     {
-      "price": 63384.805,
-      "ts": "2026-06-12T03:34:05.024356+00:00"
+      "price": 63405.355,
+      "ts": "2026-06-12T03:34:50.000975+00:00"
     },
     {
-      "price": 63390.715,
-      "ts": "2026-06-12T03:39:11.562927+00:00"
+      "price": 63382.125,
+      "ts": "2026-06-12T03:39:56.223546+00:00"
     },
     {
-      "price": 63386.045,
-      "ts": "2026-06-12T03:45:27.668663+00:00"
+      "price": 63367.695,
+      "ts": "2026-06-12T03:46:18.892453+00:00"
     },
     {
-      "price": 63411.005,
-      "ts": "2026-06-12T03:51:34.843539+00:00"
+      "price": 63412.65,
+      "ts": "2026-06-12T03:52:19.665091+00:00"
     },
     {
-      "price": 63437.775,
-      "ts": "2026-06-12T03:57:37.236608+00:00"
+      "price": 63423.445,
+      "ts": "2026-06-12T03:58:41.537032+00:00"
+    },
+    {
+      "price": 63430.005,
+      "ts": "2026-06-12T04:05:14.213091+00:00"
+    },
+    {
+      "price": 63444.065,
+      "ts": "2026-06-12T04:11:41.637498+00:00"
+    },
+    {
+      "price": 63593.995,
+      "ts": "2026-06-12T04:17:07.204637+00:00"
+    },
+    {
+      "price": 63680.09,
+      "ts": "2026-06-12T04:23:57.526718+00:00"
+    },
+    {
+      "price": 63679.325,
+      "ts": "2026-06-12T04:33:04.037726+00:00"
+    },
+    {
+      "price": 63634.445,
+      "ts": "2026-06-12T04:40:19.464350+00:00"
+    },
+    {
+      "price": 63618.595,
+      "ts": "2026-06-12T04:47:49.828285+00:00"
+    },
+    {
+      "price": 63621.165,
+      "ts": "2026-06-12T04:54:43.391484+00:00"
+    },
+    {
+      "price": 63555.005,
+      "ts": "2026-06-12T05:01:45.336727+00:00"
+    },
+    {
+      "price": 63504.995,
+      "ts": "2026-06-12T05:08:52.440399+00:00"
+    },
+    {
+      "price": 63411.985,
+      "ts": "2026-06-12T05:17:10.015025+00:00"
+    },
+    {
+      "price": 63410.905,
+      "ts": "2026-06-12T05:23:45.716895+00:00"
+    },
+    {
+      "price": 63375.485,
+      "ts": "2026-06-12T05:33:05.542949+00:00"
+    },
+    {
+      "price": 63277.855,
+      "ts": "2026-06-12T05:39:27.557188+00:00"
+    },
+    {
+      "price": 63307.135,
+      "ts": "2026-06-12T05:45:02.571010+00:00"
+    },
+    {
+      "price": 63230.635,
+      "ts": "2026-06-12T05:51:26.228382+00:00"
+    },
+    {
+      "price": 63305.765,
+      "ts": "2026-06-12T05:58:48.893320+00:00"
+    },
+    {
+      "price": 63300.025,
+      "ts": "2026-06-12T06:04:52.360897+00:00"
+    },
+    {
+      "price": 63249.705,
+      "ts": "2026-06-12T06:11:15.998534+00:00"
+    },
+    {
+      "price": 63113.995,
+      "ts": "2026-06-12T06:19:05.046243+00:00"
+    },
+    {
+      "price": 63111.515,
+      "ts": "2026-06-12T06:25:32.693202+00:00"
+    },
+    {
+      "price": 62967.665,
+      "ts": "2026-06-12T06:32:39.334631+00:00"
+    },
+    {
+      "price": 62859.995,
+      "ts": "2026-06-12T06:39:46.571953+00:00"
+    },
+    {
+      "price": 62877.475,
+      "ts": "2026-06-12T06:46:02.974355+00:00"
+    },
+    {
+      "price": 62890.755,
+      "ts": "2026-06-12T06:54:29.159100+00:00"
+    },
+    {
+      "price": 62972.355,
+      "ts": "2026-06-12T07:00:57.350629+00:00"
+    },
+    {
+      "price": 62996.015,
+      "ts": "2026-06-12T07:08:26.244704+00:00"
+    },
+    {
+      "price": 62900.705,
+      "ts": "2026-06-12T07:15:17.466817+00:00"
+    },
+    {
+      "price": 62934.955,
+      "ts": "2026-06-12T07:24:07.553706+00:00"
+    },
+    {
+      "price": 62954.525,
+      "ts": "2026-06-12T07:30:57.537099+00:00"
+    },
+    {
+      "price": 62904.015,
+      "ts": "2026-06-12T07:38:09.979130+00:00"
+    },
+    {
+      "price": 62972.485,
+      "ts": "2026-06-12T07:45:39.028554+00:00"
+    },
+    {
+      "price": 62933.425,
+      "ts": "2026-06-12T07:52:23.305845+00:00"
+    },
+    {
+      "price": 63023.515,
+      "ts": "2026-06-12T07:59:26.052066+00:00"
+    },
+    {
+      "price": 63092.96,
+      "ts": "2026-06-12T08:05:52.457971+00:00"
+    },
+    {
+      "price": 63222.755,
+      "ts": "2026-06-12T08:12:16.575313+00:00"
+    },
+    {
+      "price": 63385.645,
+      "ts": "2026-06-12T08:21:17.466645+00:00"
+    },
+    {
+      "price": 63418.645,
+      "ts": "2026-06-12T08:28:39.727871+00:00"
     },
     {
       "price": 63408.685,
-      "ts": "2026-06-12T04:04:24.373273+00:00"
+      "ts": "2026-06-12T08:34:53.730282+00:00"
     },
     {
-      "price": 63394.595,
-      "ts": "2026-06-12T04:10:54.987041+00:00"
-    },
-    {
-      "price": 63480.91,
-      "ts": "2026-06-12T04:16:23.399546+00:00"
-    },
-    {
-      "price": 63578.015,
-      "ts": "2026-06-12T04:22:44.906529+00:00"
-    },
-    {
-      "price": 63694.205,
-      "ts": "2026-06-12T04:30:30.992348+00:00"
-    },
-    {
-      "price": 63626.785,
-      "ts": "2026-06-12T04:39:11.755835+00:00"
-    },
-    {
-      "price": 63646.775,
-      "ts": "2026-06-12T04:46:53.333823+00:00"
-    },
-    {
-      "price": 63625.855,
-      "ts": "2026-06-12T04:53:39.754895+00:00"
-    },
-    {
-      "price": 63601.245,
-      "ts": "2026-06-12T05:00:54.088529+00:00"
-    },
-    {
-      "price": 63534.845,
-      "ts": "2026-06-12T05:08:00.982224+00:00"
-    },
-    {
-      "price": 63392.085,
-      "ts": "2026-06-12T05:16:14.753243+00:00"
-    },
-    {
-      "price": 63416.505,
-      "ts": "2026-06-12T05:22:56.318199+00:00"
-    },
-    {
-      "price": 63409.995,
-      "ts": "2026-06-12T05:32:13.634242+00:00"
-    },
-    {
-      "price": 63316.325,
-      "ts": "2026-06-12T05:38:36.970580+00:00"
-    },
-    {
-      "price": 63315.695,
-      "ts": "2026-06-12T05:43:47.699411+00:00"
-    },
-    {
-      "price": 63309.075,
-      "ts": "2026-06-12T05:50:30.337280+00:00"
-    },
-    {
-      "price": 63296.81,
-      "ts": "2026-06-12T05:57:18.328438+00:00"
-    },
-    {
-      "price": 63283.275,
-      "ts": "2026-06-12T06:03:51.947258+00:00"
-    },
-    {
-      "price": 63219.445,
-      "ts": "2026-06-12T06:10:22.544248+00:00"
-    },
-    {
-      "price": 63079.475,
-      "ts": "2026-06-12T06:18:04.908682+00:00"
-    },
-    {
-      "price": 63096.445,
-      "ts": "2026-06-12T06:24:32.702993+00:00"
-    },
-    {
-      "price": 63012.79,
-      "ts": "2026-06-12T06:31:27.989618+00:00"
-    },
-    {
-      "price": 62791.155,
-      "ts": "2026-06-12T06:38:43.793681+00:00"
-    },
-    {
-      "price": 62856.575,
-      "ts": "2026-06-12T06:45:08.868350+00:00"
-    },
-    {
-      "price": 62892.865,
-      "ts": "2026-06-12T06:53:29.082434+00:00"
-    },
-    {
-      "price": 62894.085,
-      "ts": "2026-06-12T06:59:59.428469+00:00"
-    },
-    {
-      "price": 63006.965,
-      "ts": "2026-06-12T07:07:24.477499+00:00"
-    },
-    {
-      "price": 62938.925,
-      "ts": "2026-06-12T07:14:22.269655+00:00"
-    },
-    {
-      "price": 62901.93,
-      "ts": "2026-06-12T07:23:05.691497+00:00"
-    },
-    {
-      "price": 62937.235,
-      "ts": "2026-06-12T07:29:51.025362+00:00"
-    },
-    {
-      "price": 62929.695,
-      "ts": "2026-06-12T07:37:12.622622+00:00"
-    },
-    {
-      "price": 62985.965,
-      "ts": "2026-06-12T07:44:31.039251+00:00"
-    },
-    {
-      "price": 62940.015,
-      "ts": "2026-06-12T07:51:34.349881+00:00"
-    },
-    {
-      "price": 63022.275,
-      "ts": "2026-06-12T07:58:39.655051+00:00"
-    },
-    {
-      "price": 63044.855,
-      "ts": "2026-06-12T08:05:01.213022+00:00"
-    },
-    {
-      "price": 63189.535,
-      "ts": "2026-06-12T08:11:30.954294+00:00"
-    },
-    {
-      "price": 63378.775,
-      "ts": "2026-06-12T08:20:23.273370+00:00"
-    },
-    {
-      "price": 63428.965,
-      "ts": "2026-06-12T08:27:42.769055+00:00"
-    },
-    {
-      "price": 63415.325,
-      "ts": "2026-06-12T08:33:57.280240+00:00"
-    },
-    {
-      "price": 63422.355,
-      "ts": "2026-06-12T08:40:14.890189+00:00"
+      "price": 63361.58,
+      "ts": "2026-06-12T08:41:02.899999+00:00"
     }
   ],
   "dashboard_version": "2026-06-12-log-stale-v1",
-  "error_count": 5242,
+  "error_count": 5243,
   "errors": [
+    {
+      "errors": "",
+      "execution_errors": "2504181:below_min_order_size",
+      "execution_reason": "below_min_order_size",
+      "ts": "2026-06-12T08:41:02.899999+00:00"
+    },
     {
       "errors": "",
       "execution_errors": "2504177:below_min_order_size",
@@ -10858,12 +10888,6 @@
       "execution_errors": "2504070:below_min_order_size",
       "execution_reason": "below_min_order_size",
       "ts": "2026-06-12T08:01:12.388571+00:00"
-    },
-    {
-      "errors": "",
-      "execution_errors": "2504070:below_min_order_size",
-      "execution_reason": "below_min_order_size",
-      "ts": "2026-06-12T08:00:23.294773+00:00"
     }
   ],
   "event_segments": [
@@ -10917,8 +10941,8 @@
     }
   ],
   "fees": 40.519049,
-  "last_btc": 63422.355,
-  "latest_scan": "2026-06-12T08:40:14.890189+00:00",
+  "last_btc": 63361.58,
+  "latest_scan": "2026-06-12T08:41:02.899999+00:00",
   "market_environment": {
     "trend": [
       {
@@ -12523,7 +12547,6 @@
   ],
   "publisher": {
     "log_tail": [
-      "{\"ts\": \"2026-06-12T08:30:13.884079+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 387, \"open\": 2, \"pnl\": -26.7206, \"roi\": -0.026271, \"latest_scan\": \"2026-06-12T08:29:39.995286+00:00\", \"commit_output\": \"[main 68d7955] Update dashboard data\\n 1 file changed, 2032 insertions(+), 2012 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T08:31:16.863505+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 387, \"open\": 2, \"pnl\": -26.7206, \"roi\": -0.026271, \"latest_scan\": \"2026-06-12T08:30:26.282798+00:00\", \"commit_output\": \"[main 56e7bc5] Update dashboard data\\n 1 file changed, 1409 insertions(+), 1385 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T08:32:20.407100+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 387, \"open\": 2, \"pnl\": -26.7206, \"roi\": -0.026271, \"latest_scan\": \"2026-06-12T08:31:15.794766+00:00\", \"commit_output\": \"[main ba3bd8b] Update dashboard data\\n 1 file changed, 1424 insertions(+), 1400 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T08:33:23.184570+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 387, \"open\": 2, \"pnl\": -26.7206, \"roi\": -0.026271, \"latest_scan\": \"2026-06-12T08:32:14.941488+00:00\", \"commit_output\": \"[main 5331ae3] Update dashboard data\\n 1 file changed, 1392 insertions(+), 1368 deletions(-)\"}",
@@ -12532,13 +12555,14 @@
       "{\"ts\": \"2026-06-12T08:36:32.246712+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 387, \"open\": 2, \"pnl\": -26.7206, \"roi\": -0.026271, \"latest_scan\": \"2026-06-12T08:35:39.363148+00:00\", \"commit_output\": \"[main 52326ac] Update dashboard data\\n 1 file changed, 1435 insertions(+), 1419 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T08:37:35.056317+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 388, \"open\": 1, \"pnl\": -23.2225, \"roi\": -0.022776, \"latest_scan\": \"2026-06-12T08:36:38.503973+00:00\", \"commit_output\": \"[main bdeb9fc] Update dashboard data\\n 1 file changed, 1458 insertions(+), 1452 deletions(-)\"}",
       "{\"ts\": \"2026-06-12T08:38:39.476166+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 388, \"open\": 1, \"pnl\": -23.2225, \"roi\": -0.022776, \"latest_scan\": \"2026-06-12T08:37:29.579190+00:00\", \"commit_output\": \"[main 409e794] Update dashboard data\\n 1 file changed, 1422 insertions(+), 1402 deletions(-)\"}",
-      "{\"ts\": \"2026-06-12T08:39:42.222160+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 388, \"open\": 1, \"pnl\": -23.2225, \"roi\": -0.022776, \"latest_scan\": \"2026-06-12T08:38:25.867512+00:00\", \"commit_output\": \"[main 3ea816e] Update dashboard data\\n 1 file changed, 1380 insertions(+), 1356 deletions(-)\"}"
+      "{\"ts\": \"2026-06-12T08:39:42.222160+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 388, \"open\": 1, \"pnl\": -23.2225, \"roi\": -0.022776, \"latest_scan\": \"2026-06-12T08:38:25.867512+00:00\", \"commit_output\": \"[main 3ea816e] Update dashboard data\\n 1 file changed, 1380 insertions(+), 1356 deletions(-)\"}",
+      "{\"ts\": \"2026-06-12T08:40:47.104735+00:00\", \"status\": \"published\", \"pages_dir\": \"/Users/rover/CODEX/polylog\", \"pushed\": true, \"total_trades\": 389, \"settled\": 389, \"open\": 0, \"pnl\": -25.7225, \"roi\": -0.025166, \"latest_scan\": \"2026-06-12T08:40:14.890189+00:00\", \"commit_output\": \"[main 6ed2309] Update dashboard data\\n 1 file changed, 2050 insertions(+), 2037 deletions(-)\"}"
     ],
     "running": true
   },
   "recent_trades": [
     {
-      "age_min": 12.0,
+      "age_min": 13.1,
       "cost": 2.5,
       "fee": 0.092682,
       "market_end": "2026-06-12T08:35:00+00:00",
@@ -12547,12 +12571,12 @@
       "model_prob": 0.6523,
       "opened_at": "2026-06-12T08:28:39.727871+00:00",
       "outcome": "Up",
-      "past_end_min": 5.7,
+      "past_end_min": 6.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 16.7,
+      "age_min": 17.7,
       "cost": 2.5,
       "fee": 0.100768,
       "market_end": "2026-06-12T08:30:00+00:00",
@@ -12561,12 +12585,12 @@
       "model_prob": 0.9561,
       "opened_at": "2026-06-12T08:24:02.101757+00:00",
       "outcome": "Up",
-      "past_end_min": 10.7,
+      "past_end_min": 11.8,
       "pnl_usd": 3.4981,
       "status": "WON"
     },
     {
-      "age_min": 21.3,
+      "age_min": 22.4,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-12T08:25:00+00:00",
@@ -12575,12 +12599,12 @@
       "model_prob": 0.9442,
       "opened_at": "2026-06-12T08:19:22.491706+00:00",
       "outcome": "Up",
-      "past_end_min": 15.7,
+      "past_end_min": 16.8,
       "pnl_usd": 2.6289,
       "status": "WON"
     },
     {
-      "age_min": 26.7,
+      "age_min": 27.7,
       "cost": 2.5,
       "fee": 0.092682,
       "market_end": "2026-06-12T08:20:00+00:00",
@@ -12589,12 +12613,12 @@
       "model_prob": 0.8968,
       "opened_at": "2026-06-12T08:14:02.275442+00:00",
       "outcome": "Up",
-      "past_end_min": 20.7,
+      "past_end_min": 21.8,
       "pnl_usd": 2.8496,
       "status": "WON"
     },
     {
-      "age_min": 31.2,
+      "age_min": 32.3,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T08:15:00+00:00",
@@ -12603,12 +12627,12 @@
       "model_prob": 0.924,
       "opened_at": "2026-06-12T08:09:30.068208+00:00",
       "outcome": "Up",
-      "past_end_min": 25.7,
+      "past_end_min": 26.8,
       "pnl_usd": 2.7368,
       "status": "WON"
     },
     {
-      "age_min": 36.6,
+      "age_min": 37.7,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-12T08:10:00+00:00",
@@ -12617,12 +12641,12 @@
       "model_prob": 0.8573,
       "opened_at": "2026-06-12T08:04:07.175824+00:00",
       "outcome": "Up",
-      "past_end_min": 30.7,
+      "past_end_min": 31.8,
       "pnl_usd": 2.5254,
       "status": "WON"
     },
     {
-      "age_min": 53.1,
+      "age_min": 54.2,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-12T07:50:00+00:00",
@@ -12631,12 +12655,12 @@
       "model_prob": 0.6854,
       "opened_at": "2026-06-12T07:47:35.828732+00:00",
       "outcome": "Up",
-      "past_end_min": 50.7,
+      "past_end_min": 51.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 57.3,
+      "age_min": 58.4,
       "cost": 2.5,
       "fee": 0.100768,
       "market_end": "2026-06-12T07:45:00+00:00",
@@ -12645,12 +12669,12 @@
       "model_prob": 0.7033,
       "opened_at": "2026-06-12T07:43:24.740788+00:00",
       "outcome": "Up",
-      "past_end_min": 55.7,
+      "past_end_min": 56.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 75.6,
+      "age_min": 76.7,
       "cost": 2.5,
       "fee": 0.111997,
       "market_end": "2026-06-12T07:30:00+00:00",
@@ -12659,12 +12683,12 @@
       "model_prob": 0.7349,
       "opened_at": "2026-06-12T07:25:07.421172+00:00",
       "outcome": "Up",
-      "past_end_min": 70.7,
+      "past_end_min": 71.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 85.4,
+      "age_min": 86.5,
       "cost": 2.5,
       "fee": 0.1104,
       "market_end": "2026-06-12T07:20:00+00:00",
@@ -12673,12 +12697,12 @@
       "model_prob": 0.8719,
       "opened_at": "2026-06-12T07:15:17.466817+00:00",
       "outcome": "Down",
-      "past_end_min": 80.7,
+      "past_end_min": 81.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 93.3,
+      "age_min": 94.4,
       "cost": 2.5,
       "fee": 0.14351,
       "market_end": "2026-06-12T07:10:00+00:00",
@@ -12687,12 +12711,12 @@
       "model_prob": 0.8256,
       "opened_at": "2026-06-12T07:07:24.477499+00:00",
       "outcome": "Up",
-      "past_end_min": 90.7,
+      "past_end_min": 91.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 107.2,
+      "age_min": 108.3,
       "cost": 2.5,
       "fee": 0.115186,
       "market_end": "2026-06-12T06:55:00+00:00",
@@ -12701,12 +12725,12 @@
       "model_prob": 0.6827,
       "opened_at": "2026-06-12T06:53:29.082434+00:00",
       "outcome": "Up",
-      "past_end_min": 105.7,
+      "past_end_min": 106.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 122.0,
+      "age_min": 123.1,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T06:45:00+00:00",
@@ -12715,12 +12739,12 @@
       "model_prob": 0.9882,
       "opened_at": "2026-06-12T06:38:43.793681+00:00",
       "outcome": "Down",
-      "past_end_min": 115.7,
+      "past_end_min": 116.8,
       "pnl_usd": 2.7368,
       "status": "WON"
     },
     {
-      "age_min": 127.0,
+      "age_min": 128.1,
       "cost": 2.5,
       "fee": 0.09754,
       "market_end": "2026-06-12T06:40:00+00:00",
@@ -12729,12 +12753,12 @@
       "model_prob": 0.9139,
       "opened_at": "2026-06-12T06:33:41.990783+00:00",
       "outcome": "Down",
-      "past_end_min": 120.7,
+      "past_end_min": 121.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 130.5,
+      "age_min": 131.6,
       "cost": 2.5,
       "fee": 0.129433,
       "market_end": "2026-06-12T06:35:00+00:00",
@@ -12743,12 +12767,12 @@
       "model_prob": 0.6817,
       "opened_at": "2026-06-12T06:30:10.885045+00:00",
       "outcome": "Up",
-      "past_end_min": 125.7,
+      "past_end_min": 126.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 141.6,
+      "age_min": 142.7,
       "cost": 2.5,
       "fee": 0.089432,
       "market_end": "2026-06-12T06:25:00+00:00",
@@ -12757,12 +12781,12 @@
       "model_prob": 0.8413,
       "opened_at": "2026-06-12T06:19:05.046243+00:00",
       "outcome": "Down",
-      "past_end_min": 135.7,
+      "past_end_min": 136.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 200.6,
+      "age_min": 201.7,
       "cost": 2.5,
       "fee": 0.087804,
       "market_end": "2026-06-12T05:25:00+00:00",
@@ -12771,12 +12795,12 @@
       "model_prob": 0.6535,
       "opened_at": "2026-06-12T05:20:06.908398+00:00",
       "outcome": "Down",
-      "past_end_min": 195.7,
+      "past_end_min": 196.8,
       "pnl_usd": 2.5254,
       "status": "WON"
     },
     {
-      "age_min": 205.8,
+      "age_min": 206.9,
       "cost": 2.5,
       "fee": 0.09754,
       "market_end": "2026-06-12T05:20:00+00:00",
@@ -12785,12 +12809,12 @@
       "model_prob": 0.9454,
       "opened_at": "2026-06-12T05:14:53.441020+00:00",
       "outcome": "Down",
-      "past_end_min": 200.7,
+      "past_end_min": 201.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 246.5,
+      "age_min": 247.6,
       "cost": 2.5,
       "fee": 0.091058,
       "market_end": "2026-06-12T04:40:00+00:00",
@@ -12799,12 +12823,12 @@
       "model_prob": 0.8071,
       "opened_at": "2026-06-12T04:34:10.601871+00:00",
       "outcome": "Up",
-      "past_end_min": 240.7,
+      "past_end_min": 241.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     },
     {
-      "age_min": 251.2,
+      "age_min": 252.3,
       "cost": 2.5,
       "fee": 0.094303,
       "market_end": "2026-06-12T04:35:00+00:00",
@@ -12813,7 +12837,7 @@
       "model_prob": 0.8704,
       "opened_at": "2026-06-12T04:29:30.975253+00:00",
       "outcome": "Up",
-      "past_end_min": 245.7,
+      "past_end_min": 246.8,
       "pnl_usd": -2.5,
       "status": "LOST"
     }
@@ -12895,11 +12919,9 @@
   "roi": -0.025166,
   "runner": {
     "expected_interval_sec": 30,
-    "latest_scan": "2026-06-12T08:40:14.890189+00:00",
-    "latest_scan_age_sec": 27,
+    "latest_scan": "2026-06-12T08:41:02.899999+00:00",
+    "latest_scan_age_sec": 44,
     "log_tail": [
-      "2026-06-12T08:36:38+00:00 cycle=7938 tick=63382.00 markets=39 eligible=1 signals=0 placed=0 settled=1 skipped_exec=0",
-      "sleeping 30s before next scan",
       "2026-06-12T08:37:29+00:00 cycle=7939 tick=63370.85 markets=39 eligible=1 signals=1 placed=0 settled=0 skipped_exec=1",
       "sleeping 30s before next scan",
       "2026-06-12T08:38:25+00:00 cycle=7940 tick=63360.00 markets=39 eligible=1 signals=1 placed=0 settled=0 skipped_exec=1",
@@ -12907,6 +12929,8 @@
       "2026-06-12T08:39:24+00:00 cycle=7941 tick=63393.07 markets=40 eligible=1 signals=0 placed=0 settled=0 skipped_exec=0",
       "sleeping 30s before next scan",
       "2026-06-12T08:40:14+00:00 cycle=7942 tick=63422.36 markets=39 eligible=1 signals=0 placed=0 settled=1 skipped_exec=0",
+      "sleeping 30s before next scan",
+      "2026-06-12T08:41:02+00:00 cycle=7943 tick=63361.58 markets=39 eligible=1 signals=1 placed=0 settled=0 skipped_exec=1",
       "sleeping 30s before next scan"
     ],
     "running": true,
@@ -12922,7 +12946,7 @@
   "settled": 389,
   "skip_reasons": [
     {
-      "count": 1224,
+      "count": 1225,
       "reason": "below_min_order_size"
     },
     {
@@ -12938,7 +12962,7 @@
       "reason": "orderbook_fetch_failed"
     }
   ],
-  "skipped_executions": 2387,
+  "skipped_executions": 2388,
   "slippage": 0.155011,
   "strategy_stats": [
     {
@@ -12978,7 +13002,7 @@
       "worst_trade": -2.5
     }
   ],
-  "total_scans": 11482,
+  "total_scans": 11483,
   "total_trades": 389,
   "trade_quality": {
     "cost": [
