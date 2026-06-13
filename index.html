@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-13-decision-overview-v1">
+<html lang="en" data-dashboard-version="2026-06-13-codex-analysis-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,6 +78,13 @@
     .decision-row { display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-top:1px solid var(--soft-line); }
     .decision-row:first-of-type { border-top:0; }
     .decision-row b { font-variant-numeric:tabular-nums; }
+    .analysis-list { display:grid; gap:10px; }
+    .analysis-item { display:grid; gap:6px; grid-template-columns: 120px 1fr; align-items:start; padding:11px 12px; border:1px solid var(--soft-line); border-left:4px solid var(--accent); border-radius:8px; background:#fff; }
+    .analysis-item.warn { border-left-color:var(--warn); }
+    .analysis-item.bad { border-left-color:var(--bad); }
+    .analysis-item.good { border-left-color:var(--good); }
+    .analysis-item b { font-size:13px; }
+    .analysis-item span { color:var(--text); font-size:13px; line-height:1.45; }
     table { width:100%; border-collapse:separate; border-spacing:0; font-size:12px; }
     th, td { padding:8px 9px; border-bottom:1px solid var(--soft-line); text-align:left; vertical-align:top; white-space:nowrap; }
     th { color:var(--muted); font-weight:680; background:var(--panel-soft); position:sticky; top:0; }
@@ -138,6 +145,7 @@
     </div>
     <div class="tab-panel active" id="tab-overview">
       <div class="grid" id="overview-core"></div>
+      <section><h2>Codex Analysis</h2><div id="overview-analysis"></div></section>
       <div class="decision">
         <div class="decision-card" id="overview-focus"></div>
         <section style="margin-top:0"><h2>No Trade Reasons</h2><div id="overview-no-trade"></div></section>
@@ -424,6 +432,15 @@
         rows.map(([k, v]) => `<div class="decision-row"><span class="muted">${k}</span><b>${v}</b></div>`).join('')
       );
     }
+    function renderCodexAnalysis(items) {
+      if (!items || !items.length) {
+        setHtml('overview-analysis', '<div class="muted">No analysis yet</div>');
+        return;
+      }
+      setHtml('overview-analysis', `<div class="analysis-list">${items.map(item =>
+        `<div class="analysis-item ${item.level || ''}"><b>${item.title || ''}</b><span>${item.detail || ''}</span></div>`
+      ).join('')}</div>`);
+    }
     function renderSampleStatus(sample) {
       const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
       const next = sample.next_threshold ? `next: ${sample.next_threshold} trades` : 'top tier reached';
@@ -441,6 +458,7 @@
       }
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
       renderOverviewCore(data);
+      renderCodexAnalysis(data.codex_analysis);
       renderOverviewFocus(data);
       renderDirectionCompare(data);
       renderArbOverview(data);
