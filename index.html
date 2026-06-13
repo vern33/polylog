@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-13-codex-analysis-v1">
+<html lang="en" data-dashboard-version="2026-06-13-highprob-diagnostics-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -180,6 +180,7 @@
     </div>
     <div class="tab-panel" id="tab-highprob">
       <div class="grid" id="highprob-summary"></div>
+      <section><h2>High-Prob No-Trade Diagnosis</h2><div id="highprob-diagnosis"></div></section>
       <div class="runner" id="highprob-runner"></div>
       <div class="trade-cols">
         <section><h2>Recent 20 Trades</h2><div id="highprob-trades"></div></section>
@@ -485,6 +486,7 @@
       ];
       const highProbHtml = highProbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
       setHtml('highprob-summary', highProbHtml);
+      setHtml('highprob-diagnosis', table(data.high_prob.no_trade_diagnosis, [['Window','window'],['Max Prob','max_prob', pct],['Signals','signals'],['Placed','placed'],['Exec Skips','execution_skips'],['Top Reason','top_reason'],['Read','read']]));
       setHtml('highprob-trades', table(data.high_prob.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]));
       setHtml('highprob-open', table(data.high_prob.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
       setHtml('highprob-funnel', table(data.high_prob.scan_funnel, [['Stage','stage'],['Count','count']]));
