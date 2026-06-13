@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-13-optimizer-v1">
+<html lang="en" data-dashboard-version="2026-06-13-no-trade-reasons-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -145,6 +145,7 @@
     </div>
     <div class="tab-panel" id="tab-direction">
       <div class="grid" id="direction-summary"></div>
+      <section><h2>No Trade Reasons</h2><div class="muted">Recent windows ending at the latest scan. This explains why scans did not become placed trades.</div><div id="no-trade-reasons"></div></section>
       <div class="runner" id="runner"></div>
       <section><h2>Direction PnL Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span></div><canvas id="direction-detail-curve" width="1200" height="260"></canvas></div></section>
       <div class="trade-cols">
@@ -407,6 +408,7 @@
       ];
       setHtml('metrics', metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
       setHtml('direction-summary', metrics.filter((_, i) => [1,2,3,4,5,6].includes(i)).map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('no-trade-reasons', table(data.no_trade_reasons, [['Window','window'],['Scans','scans'],['Placed','placed'],['Eligible Scans','eligible_scans'],['Signals','signals'],['TTL Filtered','ttl_filtered'],['No Signal','no_signal'],['Exec Skips','execution_skips'],['Top Reason','top_reason']]));
       const highProbMetrics = [
         ['Scans', data.high_prob.total_scans], ['Eligible', data.high_prob.eligible_markets], ['Candidates', data.high_prob.total_opportunities], ['Signals', data.high_prob.signals],
         ['Max Prob', pct(data.high_prob.max_model_prob)], ['Gap to 90%', pct(data.high_prob.gap_to_min_prob)], ['Trades', data.high_prob.total_trades], ['OPEN', data.high_prob.open_count],
