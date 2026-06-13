@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-dashboard-version="2026-06-12-highprob-diagnostics-v1">
+<html lang="en" data-dashboard-version="2026-06-13-highprob-trades-v1">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -166,6 +166,10 @@
     <div class="tab-panel" id="tab-highprob">
       <div class="grid" id="highprob-summary"></div>
       <div class="runner" id="highprob-runner"></div>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="highprob-trades"></div></section>
+        <section><h2>OPEN Positions</h2><div id="highprob-open"></div></section>
+      </div>
       <section><h2>High-Prob Probability Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>Max Prob</span></div><canvas id="highprob-prob-curve" width="1200" height="260"></canvas></div></section>
       <div class="cols">
         <section><h2>Scan Funnel</h2><div id="highprob-funnel"></div></section>
@@ -409,6 +413,8 @@
       ];
       const highProbHtml = highProbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
       setHtml('highprob-summary', highProbHtml);
+      setHtml('highprob-trades', table(data.high_prob.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]));
+      setHtml('highprob-open', table(data.high_prob.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
       setHtml('highprob-funnel', table(data.high_prob.scan_funnel, [['Stage','stage'],['Count','count']]));
       setHtml('highprob-buckets', table(data.high_prob.probability_buckets, [['Bucket','bucket'],['Candidates','candidates'],['Fillable','fillable'],['Resolved','resolved'],['Win Rate','win_rate', pct],['Max Prob','max_prob', pct]]));
       setHtml('highprob-recent', table(data.high_prob.recent_opportunities, [['Time','ts', shortTime],['Market','market_id', market],['Side','outcome'],['Prob','model_prob', pct],['Price','market_price'],['Edge','edge'],['Momentum','momentum'],['Fillable','fillable'],['Reason','fill_reason'],['Resolved','resolved_outcome'],['Won','outcome_won']]));
