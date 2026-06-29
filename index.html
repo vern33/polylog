@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="en" data-dashboard-version="2026-06-28-public-status-v1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Polymarket Strategy Lab</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --line:#d9e0ea;
+      --soft-line:#edf1f6;
+      --text:#172033;
+      --muted:#667085;
+      --bg:#f4f6f8;
+      --panel:#ffffff;
+      --panel-soft:#f9fafb;
+      --accent:#2563eb;
+      --bad:#b42318;
+      --good:#047857;
+      --warn:#b7791f;
+      --shadow:0 10px 30px rgba(16,24,40,.07);
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
+    header { padding:18px 24px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); display:flex; justify-content:space-between; gap:16px; align-items:flex-end; position:sticky; top:0; z-index:5; backdrop-filter:saturate(160%) blur(10px); }
+    h1 { margin:0; font-size:21px; line-height:1.2; font-weight:760; }
+    .refresh { text-align:right; line-height:1.5; }
+    main { padding:18px 24px 36px; max-width:1480px; margin:0 auto; }
+    .muted { color:var(--muted); font-size:12px; }
+    .tabs { margin-bottom:14px; display:flex; gap:8px; flex-wrap:wrap; }
+    .tab { border:1px solid var(--line); background:var(--panel); color:var(--muted); padding:9px 13px; border-radius:8px; font-weight:720; cursor:pointer; box-shadow:0 4px 14px rgba(16,24,40,.04); }
+    .tab.active { color:#fff; background:var(--accent); border-color:var(--accent); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    .grid { display:grid; gap:12px; grid-template-columns: repeat(6, minmax(132px, 1fr)); }
+    .metric, section, .runner { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); }
+    .metric { padding:13px 14px; min-height:82px; border-left:3px solid transparent; }
+    .metric b { display:block; font-size:23px; margin-top:7px; line-height:1.05; font-variant-numeric:tabular-nums; }
+    .metric:nth-child(5) { border-left-color:var(--good); }
+    .metric:nth-child(6), .metric:nth-child(7) { border-left-color:var(--accent); }
+    .metric:nth-child(10), .metric:nth-child(11) { border-left-color:var(--warn); }
+    .runner { margin-bottom:14px; padding:16px; display:grid; gap:16px; grid-template-columns: 176px 1fr; align-items:start; }
+    .runner > div { min-width:0; }
+    .overview-section { display:grid; gap:14px; }
+    .overview-separator { margin:18px 0 4px; border-top:1px solid var(--line); }
+    .section-label { color:var(--muted); font-size:12px; font-weight:760; text-transform:uppercase; letter-spacing:.02em; }
+    .runner.compact { grid-template-columns: 180px 1fr; margin-bottom:0; }
+    .runner-state { display:inline-flex; align-items:center; gap:8px; font-weight:780; font-size:19px; }
+    .dot { width:12px; height:12px; border-radius:50%; background:var(--bad); display:inline-block; }
+    .dot.good { background:var(--good); box-shadow:0 0 0 4px rgba(4,120,87,.12); }
+    .dot.warn { background:var(--warn); box-shadow:0 0 0 4px rgba(183,121,31,.14); }
+    .runner-details { display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); }
+    .runner-details b { display:block; margin-top:3px; font-size:15px; line-height:1.15; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    .runner-log { margin-top:12px; padding:12px; border:1px solid var(--soft-line); border-radius:8px; background:#0f172a; color:#dbeafe; font:12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space:pre-wrap; overflow-wrap:anywhere; max-width:100%; max-height:168px; overflow:auto; box-shadow:inset 0 0 0 1px rgba(255,255,255,.03); }
+    .runner-board { margin-bottom:14px; }
+    .runner-table { table-layout:fixed; min-width:1180px; }
+    .runner-table th, .runner-table td { white-space:normal; line-height:1.35; overflow-wrap:anywhere; }
+    .runner-table th:nth-child(1), .runner-table td:nth-child(1) { width:185px; }
+    .runner-table th:nth-child(2), .runner-table td:nth-child(2) { width:96px; }
+    .runner-table th:nth-child(3), .runner-table td:nth-child(3) { width:90px; }
+    .runner-table th:nth-child(4), .runner-table td:nth-child(4) { width:90px; }
+    .runner-table th:nth-child(5), .runner-table td:nth-child(5) { width:86px; }
+    .runner-table th:nth-child(6), .runner-table td:nth-child(6) { width:92px; }
+    .runner-table th:nth-child(7), .runner-table td:nth-child(7) { width:88px; }
+    .runner-table th:nth-child(8), .runner-table td:nth-child(8) { width:88px; }
+    .runner-table th:nth-child(9), .runner-table td:nth-child(9) { width:auto; }
+    .runner-name { display:flex; align-items:center; gap:8px; font-weight:760; }
+    .runner-sub { color:var(--muted); font-size:11px; margin-top:3px; }
+    .era-grid { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; }
+    .era-card { border:1px solid var(--soft-line); border-radius:8px; padding:14px; background:var(--panel-soft); }
+    .era-card.current { border-left:3px solid var(--good); background:#fbfffd; }
+    .era-card.archive { border-left:3px solid var(--warn); }
+    .era-head { display:flex; justify-content:space-between; gap:10px; align-items:start; margin-bottom:10px; }
+    .era-title { font-weight:780; font-size:16px; }
+    .era-read { color:var(--muted); font-size:12px; line-height:1.45; }
+    .era-stats { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:8px; margin-top:12px; }
+    .era-stat { padding:9px 10px; border:1px solid var(--soft-line); border-radius:7px; background:#fff; min-height:58px; }
+    .era-stat span { display:block; color:var(--muted); font-size:11px; }
+    .era-stat b { display:block; margin-top:5px; font-size:18px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    .lab-table { table-layout:fixed; min-width:1380px; }
+    .lab-table th, .lab-table td { white-space:normal; line-height:1.35; overflow-wrap:anywhere; }
+    .lab-table th:nth-child(1), .lab-table td:nth-child(1) { width:190px; }
+    .lab-table th:nth-child(2), .lab-table td:nth-child(2) { width:132px; }
+    .lab-table th:nth-child(3), .lab-table td:nth-child(3) { width:118px; }
+    .lab-table th:nth-child(4), .lab-table td:nth-child(4) { width:72px; }
+    .lab-table th:nth-child(5), .lab-table td:nth-child(5) { width:82px; }
+    .lab-table th:nth-child(6), .lab-table td:nth-child(6) { width:86px; }
+    .lab-table th:nth-child(7), .lab-table td:nth-child(7) { width:78px; }
+    .lab-table th:nth-child(8), .lab-table td:nth-child(8) { width:82px; }
+    .lab-table th:nth-child(9), .lab-table td:nth-child(9) { width:250px; }
+    .lab-table th:nth-child(10), .lab-table td:nth-child(10) { width:auto; }
+    .verdict { display:inline-flex; align-items:center; justify-content:center; min-width:82px; padding:3px 7px; border-radius:999px; font-weight:760; font-size:11px; }
+    .verdict.candidate { color:#065f46; background:#dff7ea; }
+    .verdict.observe { color:#92400e; background:#fef0c7; }
+    .verdict.more-data { color:#1d4ed8; background:#dbeafe; }
+    .verdict.reject { color:#991b1b; background:#fee4e2; }
+    .fold-detail { font:11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:var(--text); }
+    .breakdown-table { table-layout:fixed; min-width:1320px; }
+    .breakdown-table th, .breakdown-table td { white-space:normal; line-height:1.35; overflow-wrap:anywhere; }
+    .breakdown-table th:nth-child(1), .breakdown-table td:nth-child(1) { width:190px; }
+    .breakdown-table th:nth-child(2), .breakdown-table td:nth-child(2) { width:52px; }
+    .breakdown-table th:nth-child(3), .breakdown-table td:nth-child(3) { width:80px; }
+    .breakdown-table th:nth-child(4), .breakdown-table td:nth-child(4) { width:78px; }
+    .breakdown-table th:nth-child(5), .breakdown-table td:nth-child(5) { width:120px; }
+    .breakdown-table th:nth-child(6), .breakdown-table td:nth-child(6) { width:120px; }
+    .breakdown-table th:nth-child(7), .breakdown-table td:nth-child(7) { width:125px; }
+    .breakdown-table th:nth-child(8), .breakdown-table td:nth-child(8) { width:125px; }
+    .breakdown-table th:nth-child(9), .breakdown-table td:nth-child(9) { width:120px; }
+    .breakdown-table th:nth-child(10), .breakdown-table td:nth-child(10) { width:auto; }
+    .overview-block { margin-top:14px; }
+    .compare { display:grid; gap:12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .compare-card { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:15px; }
+    .compare-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px; }
+    .compare-title { font-weight:780; font-size:16px; }
+    .compare-sub { color:var(--muted); font-size:12px; margin-top:2px; }
+    .compare-stats { display:grid; gap:10px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .compare-stat span { color:var(--muted); font-size:12px; display:block; }
+    .compare-stat b { display:block; margin-top:3px; font-size:18px; line-height:1.1; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    section { margin-top:14px; padding:15px; overflow:auto; }
+    h2 { font-size:15px; margin:0 0 12px; display:flex; align-items:center; gap:8px; }
+    h2::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--accent); display:inline-block; }
+    .sample { margin-top:14px; padding:15px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); display:grid; gap:14px; grid-template-columns: 260px 1fr; align-items:center; }
+    .sample-stage { font-size:18px; font-weight:780; }
+    .sample-track { height:10px; border-radius:999px; background:#e5e7eb; overflow:hidden; }
+    .sample-fill { height:100%; width:0; background:linear-gradient(90deg,#2563eb,#047857); border-radius:inherit; }
+    .sample-scale { margin-top:7px; display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:11px; }
+    .decision { display:grid; gap:14px; grid-template-columns: 1fr 1fr; align-items:start; }
+    .decision-card { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); padding:15px; }
+    .decision-title { font-size:15px; font-weight:780; margin-bottom:8px; }
+    .decision-main { font-size:22px; line-height:1.15; font-weight:780; margin-bottom:6px; overflow-wrap:anywhere; }
+    .decision-row { display:flex; justify-content:space-between; gap:12px; padding:7px 0; border-top:1px solid var(--soft-line); }
+    .decision-row:first-of-type { border-top:0; }
+    .decision-row b { font-variant-numeric:tabular-nums; }
+    .command-center { display:grid; grid-template-columns: 1.35fr .65fr; gap:14px; align-items:stretch; }
+    .command-main { border:1px solid var(--line); border-left:5px solid var(--warn); border-radius:8px; background:#fff; box-shadow:var(--shadow); padding:18px; }
+    .command-main.good { border-left-color:var(--good); }
+    .command-main.bad { border-left-color:var(--bad); }
+    .command-kicker { color:var(--muted); font-size:12px; font-weight:760; text-transform:uppercase; letter-spacing:.02em; }
+    .command-title { font-size:26px; line-height:1.12; font-weight:820; margin:8px 0 10px; }
+    .command-detail { color:var(--text); line-height:1.45; }
+    .command-actions { display:grid; gap:8px; margin-top:14px; }
+    .command-action { border:1px solid var(--soft-line); border-radius:8px; padding:10px 12px; background:var(--panel-soft); }
+    .command-action b { display:block; margin-bottom:3px; }
+    .command-side { display:grid; gap:10px; }
+    .watch-card { border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:var(--shadow); padding:14px; }
+    .watch-card span { display:block; color:var(--muted); font-size:12px; }
+    .watch-card b { display:block; margin-top:5px; font-size:24px; font-variant-numeric:tabular-nums; }
+    .live-board { display:grid; gap:14px; }
+    .live-hero { display:grid; gap:14px; grid-template-columns: 1.15fr .85fr; align-items:stretch; }
+    .live-verdict { border:1px solid var(--line); border-left:6px solid var(--bad); border-radius:8px; background:#fff; box-shadow:var(--shadow); padding:18px; }
+    .live-verdict.good { border-left-color:var(--good); }
+    .live-verdict.warn { border-left-color:var(--warn); }
+    .live-label { color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; }
+    .live-title { font-size:30px; line-height:1.05; font-weight:840; margin:8px 0 10px; }
+    .live-detail { line-height:1.45; font-size:14px; }
+    .live-reasons { display:grid; gap:8px; margin-top:14px; }
+    .live-reason { border:1px solid var(--soft-line); border-radius:8px; padding:10px 12px; background:var(--panel-soft); display:grid; grid-template-columns:120px 1fr; gap:10px; }
+    .live-reason b { font-size:12px; }
+    .live-reason span { font-size:13px; line-height:1.35; }
+    .live-metrics { display:grid; gap:10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .live-metric { border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:var(--shadow); padding:14px; min-height:82px; }
+    .live-metric span { display:block; color:var(--muted); font-size:12px; }
+    .live-metric b { display:block; margin-top:6px; font-size:25px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    .research-loop { margin-top:14px; border:1px solid var(--line); border-left:5px solid var(--warn); border-radius:8px; background:#fff; box-shadow:var(--shadow); padding:14px; display:grid; gap:12px; grid-template-columns: 1.25fr 2fr; align-items:center; }
+    .research-loop.good { border-left-color:var(--good); }
+    .research-loop.bad { border-left-color:var(--bad); }
+    .research-loop-title { font-size:18px; font-weight:820; display:flex; align-items:center; gap:8px; }
+    .research-loop-title .dot { flex:0 0 auto; }
+    .research-loop-sub { margin-top:3px; color:var(--muted); font-size:12px; line-height:1.35; }
+    .research-loop-grid { display:grid; gap:8px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .research-loop-grid div { border:1px solid var(--soft-line); border-radius:8px; background:var(--panel-soft); padding:9px 10px; min-height:55px; }
+    .research-loop-grid span { display:block; color:var(--muted); font-size:11px; }
+    .research-loop-grid b { display:block; margin-top:4px; font-size:15px; line-height:1.15; overflow-wrap:anywhere; }
+    .next-panel { border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:var(--shadow); padding:15px; }
+    .next-panel h2 { margin-bottom:10px; }
+    .next-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+    .next-list li { border:1px solid var(--soft-line); border-radius:8px; padding:10px 12px; background:var(--panel-soft); line-height:1.4; }
+    .analysis-list { display:grid; gap:10px; }
+    .analysis-item { display:grid; gap:6px; grid-template-columns: 120px 1fr; align-items:start; padding:11px 12px; border:1px solid var(--soft-line); border-left:4px solid var(--accent); border-radius:8px; background:#fff; }
+    .analysis-item.warn { border-left-color:var(--warn); }
+    .analysis-item.bad { border-left-color:var(--bad); }
+    .analysis-item.good { border-left-color:var(--good); }
+    .analysis-item b { font-size:13px; }
+    .analysis-item span { color:var(--text); font-size:13px; line-height:1.45; }
+    .read-panel { display:grid; gap:12px; grid-template-columns: 1.1fr .9fr; align-items:start; }
+    .read-main { padding:14px; border:1px solid var(--soft-line); border-left:4px solid var(--good); border-radius:8px; background:#fff; }
+    .read-main.warn { border-left-color:var(--warn); }
+    .read-main.bad { border-left-color:var(--bad); }
+    .read-main b { display:block; font-size:18px; margin-bottom:6px; }
+    .read-main div { color:var(--text); line-height:1.45; }
+    .read-list { display:grid; gap:8px; }
+    .read-row { display:flex; justify-content:space-between; gap:12px; padding:9px 10px; border:1px solid var(--soft-line); border-radius:8px; background:#fff; }
+    .read-row b { font-variant-numeric:tabular-nums; }
+    .decision-table { table-layout:fixed; min-width:1120px; }
+    .decision-table th, .decision-table td { white-space:normal; line-height:1.35; overflow-wrap:anywhere; }
+    .decision-table th:nth-child(1), .decision-table td:nth-child(1) { width:150px; }
+    .decision-table th:nth-child(2), .decision-table td:nth-child(2) { width:130px; }
+    .decision-table th:nth-child(3), .decision-table td:nth-child(3) { width:130px; }
+    .decision-table th:nth-child(4), .decision-table td:nth-child(4) { width:130px; }
+    .decision-table th:nth-child(5), .decision-table td:nth-child(5) { width:120px; }
+    .decision-table th:nth-child(6), .decision-table td:nth-child(6) { width:auto; }
+    .decision-main-text { font-weight:650; color:var(--text); }
+    .decision-next-text { margin-top:5px; color:var(--muted); }
+    .decision-next-text b { color:var(--text); font-weight:650; }
+    table { width:100%; border-collapse:separate; border-spacing:0; font-size:12px; }
+    th, td { padding:8px 9px; border-bottom:1px solid var(--soft-line); text-align:left; vertical-align:top; white-space:nowrap; }
+    th { color:var(--muted); font-weight:680; background:var(--panel-soft); position:sticky; top:0; }
+    tbody tr:hover { background:#f8fafc; }
+    .coverage-note { margin:0 0 10px; color:var(--muted); font-size:12px; }
+    .coverage-table td:nth-child(1) { font-weight:720; }
+    .coverage-table td:nth-child(2) { color:var(--muted); }
+    .coverage-table .empty-row td { color:var(--muted); }
+    .cols { display:grid; gap:14px; grid-template-columns: 1.2fr .8fr; }
+    .trade-cols { display:grid; gap:14px; grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr); align-items:start; }
+    #recent table, #open table, #highprob-trades table, #highprob-open table, #near-expiry-trades table, #near-expiry-open table { table-layout:fixed; }
+    #recent th:nth-child(1), #recent td:nth-child(1), #highprob-trades th:nth-child(1), #highprob-trades td:nth-child(1), #near-expiry-trades th:nth-child(1), #near-expiry-trades td:nth-child(1) { width:128px; }
+    #recent th:nth-child(2), #recent td:nth-child(2), #highprob-trades th:nth-child(2), #highprob-trades td:nth-child(2), #near-expiry-trades th:nth-child(2), #near-expiry-trades td:nth-child(2) { width:72px; }
+    #recent th:nth-child(3), #recent td:nth-child(3), #highprob-trades th:nth-child(3), #highprob-trades td:nth-child(3), #near-expiry-trades th:nth-child(3), #near-expiry-trades td:nth-child(3) { width:62px; }
+    #recent th:nth-child(4), #recent td:nth-child(4), #highprob-trades th:nth-child(4), #highprob-trades td:nth-child(4), #near-expiry-trades th:nth-child(4), #near-expiry-trades td:nth-child(4) { width:70px; }
+    #recent th:nth-child(5), #recent td:nth-child(5), #highprob-trades th:nth-child(5), #highprob-trades td:nth-child(5), #near-expiry-trades th:nth-child(5), #near-expiry-trades td:nth-child(5) { width:84px; }
+    #recent th:nth-child(6), #recent td:nth-child(6), #highprob-trades th:nth-child(6), #highprob-trades td:nth-child(6), #near-expiry-trades th:nth-child(6), #near-expiry-trades td:nth-child(6) { width:64px; }
+    #recent th:nth-child(7), #recent td:nth-child(7), #highprob-trades th:nth-child(7), #highprob-trades td:nth-child(7), #near-expiry-trades th:nth-child(7), #near-expiry-trades td:nth-child(7) { width:74px; }
+    #recent th:nth-child(8), #recent td:nth-child(8), #highprob-trades th:nth-child(8), #highprob-trades td:nth-child(8), #near-expiry-trades th:nth-child(8), #near-expiry-trades td:nth-child(8) { width:84px; }
+    #open th:nth-child(1), #open td:nth-child(1), #highprob-open th:nth-child(1), #highprob-open td:nth-child(1), #near-expiry-open th:nth-child(1), #near-expiry-open td:nth-child(1) { width:142px; }
+    #open th:nth-child(2), #open td:nth-child(2), #highprob-open th:nth-child(2), #highprob-open td:nth-child(2), #near-expiry-open th:nth-child(2), #near-expiry-open td:nth-child(2) { width:74px; }
+    #open th:nth-child(3), #open td:nth-child(3), #highprob-open th:nth-child(3), #highprob-open td:nth-child(3), #near-expiry-open th:nth-child(3), #near-expiry-open td:nth-child(3) { width:82px; }
+    #open th:nth-child(4), #open td:nth-child(4), #highprob-open th:nth-child(4), #highprob-open td:nth-child(4), #near-expiry-open th:nth-child(4), #near-expiry-open td:nth-child(4) { width:92px; }
+    #open th:nth-child(5), #open td:nth-child(5), #highprob-open th:nth-child(5), #highprob-open td:nth-child(5), #near-expiry-open th:nth-child(5), #near-expiry-open td:nth-child(5) { width:64px; }
+    #open th:nth-child(6), #open td:nth-child(6), #highprob-open th:nth-child(6), #highprob-open td:nth-child(6), #near-expiry-open th:nth-child(6), #near-expiry-open td:nth-child(6) { width:60px; }
+    #open th:nth-child(7), #open td:nth-child(7), #highprob-open th:nth-child(7), #highprob-open td:nth-child(7), #near-expiry-open th:nth-child(7), #near-expiry-open td:nth-child(7) { width:84px; }
+    #recent td, #open td, #highprob-trades td, #highprob-open td, #near-expiry-trades td, #near-expiry-open td { overflow:hidden; text-overflow:ellipsis; }
+    .good { color:var(--good); } .bad { color:var(--bad); }
+    .status { display:inline-flex; align-items:center; min-width:54px; justify-content:center; padding:3px 7px; border-radius:999px; font-weight:700; font-size:11px; }
+    .status.win { color:#065f46; background:#dff7ea; }
+    .status.loss { color:#991b1b; background:#fee4e2; }
+    .status.open { color:#92400e; background:#fef0c7; }
+    .market-link { color:#1d4ed8; font-weight:680; text-decoration:none; }
+    .market-link:hover { text-decoration:underline; }
+    .chart-wrap { position:relative; }
+    .legend { position:absolute; top:10px; right:14px; display:flex; gap:14px; color:var(--muted); font-size:12px; background:rgba(255,255,255,.86); padding:5px 7px; border:1px solid var(--soft-line); border-radius:999px; }
+    .legend span { display:inline-flex; align-items:center; gap:6px; }
+    .swatch { width:18px; height:3px; border-radius:2px; display:inline-block; }
+    .swatch.pnl { background:var(--accent); }
+    .swatch.yesno { background:#b7791f; }
+    details.diagnostics { margin-top:14px; background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow); overflow:hidden; }
+    details.diagnostics summary { cursor:pointer; padding:15px; font-weight:760; list-style:none; display:flex; align-items:center; gap:8px; }
+    details.diagnostics summary::-webkit-details-marker { display:none; }
+    details.diagnostics summary::before { content:""; width:7px; height:18px; border-radius:4px; background:var(--warn); display:inline-block; }
+    details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
+    .hidden-data { display:none; }
+    canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
+    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip, .compare, .decision, .read-panel, .era-grid, .command-center, .live-hero, .research-loop { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } .era-stats, .live-metrics, .research-loop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>Polymarket Strategy Lab</h1><div class="muted">public paper trading, arbitrage research, and live-readiness monitor</div></div>
+    <div class="muted refresh"><div>auto-refresh: 10s</div><div id="updated"></div></div>
+  </header>
+  <main>
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Status</button>
+      <button class="tab" data-tab="arb-execution">Execution</button>
+      <button class="tab" data-tab="archive">Archive</button>
+    </div>
+    <div class="tab-panel active" id="tab-overview">
+      <div id="live-decision"></div>
+      <div id="research-loop"></div>
+      <section class="runner-board"><h2>Runner Status</h2><div class="muted" style="margin-bottom:10px">Remote health page: check this first. Stale/stopped rows mean the VPS runner or publisher needs attention.</div><div id="overview-runner-board"></div></section>
+      <section class="overview-block"><h2>Current Data Window</h2><div class="muted" style="margin-bottom:10px">Current VPS-era data is the operating sample. Historical local data is kept only for research context.</div><div id="current-era"></div></section>
+      <section><h2>OPEN Positions</h2><div id="overview-open"></div></section>
+      <div class="hidden-data">
+        <div id="overview-no-trade"></div>
+        <div id="strategy-decisions"></div>
+        <div id="overview-focus"></div>
+        <div id="overview-direction-compare"></div>
+        <div id="overview-arb-read"></div>
+        <div id="overview-arb-metrics"></div>
+        <canvas id="curve" width="1200" height="260"></canvas>
+        <canvas id="arb-curve" width="1200" height="260"></canvas>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-arb-execution">
+      <section><h2>Execution Readiness</h2><div id="arb-execution-readiness"></div></section>
+      <section><h2>Arb Execution Summary</h2><div class="muted" style="margin-bottom:10px">Only the currently useful arbitrage execution path is shown here: discovery, strict paper candidate, and live-like execution lab.</div><div id="arb-execution-board"></div></section>
+      <section><h2>Universe Coverage</h2><div class="coverage-note">Shows what each arb runner is actually scanning. This separates BTC/ETH/SOL short crypto markets from generic BINARY_TOP markets.</div><div id="arb-universe-coverage"></div></section>
+      <details class="diagnostics"><summary>Execution Failure Reasons</summary><div class="content"><section><div id="arb-execution-reasons"></div></section></div></details>
+      <details class="diagnostics"><summary>Recent Arb Attempts</summary><div class="content"><section><div id="arb-execution-attempts"></div></section></div></details>
+    </div>
+    <div class="tab-panel" id="tab-archive">
+      <section><h2>Strategy Decision Board</h2><div class="muted" style="margin-bottom:10px">Historical decisions and rejected ideas live here. The Status tab is the current operating view.</div><div id="archive-strategy-decisions"></div></section>
+      <section><h2>Archived Direction Runners</h2><div class="muted" style="margin-bottom:10px">Direction-family runners are retained as research history, not current live candidates.</div><div id="archive-direction-board"></div></section>
+      <section><h2>Research Snapshot</h2><div id="archive-research"></div></section>
+      <details class="diagnostics"><summary>Detailed Historical Research</summary><div class="content">
+        <section class="overview-block"><h2>Strategy Validation Matrix</h2><div class="muted" style="margin-bottom:10px">Walk-forward validation over historical opportunities. This is research context, not a live instruction.</div><div id="strategy-validation"></div></section>
+        <section class="overview-block"><h2>Deterioration-Aware Candidates</h2><div class="muted" style="margin-bottom:10px">Offline filters generated from recent fold losses.</div><div id="deterioration-candidates"></div></section>
+        <section class="overview-block"><h2>Fold Breakdown</h2><div class="muted" style="margin-bottom:10px">Loss concentration by side, price band, BTC regime, volatility bucket, and expiry bucket.</div><div id="fold-breakdown"></div></section>
+        <section><h2>Auto Analysis Notes</h2><div class="muted" style="margin-bottom:10px">Generated status notes. The Decision Board above is the primary follow-up tracker.</div><div id="overview-analysis"></div></section>
+      </div></details>
+      <details class="diagnostics"><summary>Diagnostics</summary><div class="content">
+      <section><h2>Runner Status</h2><div id="diagnostics-runner-board"></div></section>
+      <section><h2>Runner Logs</h2><div id="diagnostics-logs"></div></section>
+      <section><h2>API / Execution Errors</h2><div id="diagnostics-errors"></div></section>
+      </div></details>
+    </div>
+    <div class="tab-panel" id="tab-direction">
+      <div class="grid" id="direction-summary"></div>
+      <section><h2>Direction No-Trade Diagnosis</h2><div class="muted">Recent windows ending at the latest scan. This explains why scans did not become placed trades.</div><div id="no-trade-reasons"></div></section>
+      <div class="runner" id="runner"></div>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="recent"></div></section>
+        <section><h2>OPEN Positions</h2><div id="open"></div></section>
+      </div>
+      <section><h2>Direction PnL Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>PnL</span></div><canvas id="direction-detail-curve" width="1200" height="260"></canvas></div></section>
+      <div class="overview-separator"></div>
+      <div class="section-label">Analysis</div>
+      <div class="sample" id="sample-status"></div>
+      <section><h2>Offline Optimizer</h2><div class="muted">Grid search over historical opportunities with a time split. Validation metrics are the part after the split, so this is a guard against pure in-sample curve fitting.</div><div id="optimizer-stats"></div></section>
+      <details class="diagnostics"><summary>Detailed Direction Analysis</summary><div class="content">
+        <section><h2>Strategy Stats</h2><div id="strategy-stats"></div></section>
+        <section><h2>Strategy Replay</h2><div id="replay-stats"></div></section>
+        <section><h2>Trade Quality</h2><div class="cols"><div id="quality-prob"></div><div id="quality-other"></div></div></section>
+        <section><h2>Market Environment</h2><div class="cols"><div id="environment-trend"></div><div id="environment-volatility"></div></div></section>
+        <div class="cols">
+          <section><h2>Event Segments</h2><div id="segments"></div></section>
+          <section><h2>signals=1 placed=0 Reasons</h2><div id="reasons"></div></section>
+        </div>
+      </div></details>
+    </div>
+    <div class="tab-panel" id="tab-highprob">
+      <div class="grid" id="highprob-summary"></div>
+      <section><h2>High-Prob No-Trade Diagnosis</h2><div id="highprob-diagnosis"></div></section>
+      <div class="runner" id="highprob-runner"></div>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="highprob-trades"></div></section>
+        <section><h2>OPEN Positions</h2><div id="highprob-open"></div></section>
+      </div>
+      <section><h2>High-Prob Probability Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>Max Prob</span></div><canvas id="highprob-prob-curve" width="1200" height="260"></canvas></div></section>
+      <div class="overview-separator"></div>
+      <div class="section-label">Analysis</div>
+      <div class="cols">
+        <section><h2>Scan Funnel</h2><div id="highprob-funnel"></div></section>
+        <section><h2>Probability Buckets</h2><div id="highprob-buckets"></div></section>
+      </div>
+      <section><h2>Recent Candidate Opportunities</h2><div id="highprob-recent"></div></section>
+      <section><h2>High-Prob Notes</h2><div class="muted">Independent direction dry-run using MIN_PROB=0.90 and data_highprob. It only trades when the momentum-derived model probability reaches 90% or higher.</div></section>
+    </div>
+    <div class="tab-panel" id="tab-nochop">
+      <div class="grid" id="nochop-summary"></div>
+      <section><h2>No-Chop No-Trade Diagnosis</h2><div id="nochop-diagnosis"></div></section>
+      <div class="runner" id="nochop-runner"></div>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="nochop-trades"></div></section>
+        <section><h2>OPEN Positions</h2><div id="nochop-open"></div></section>
+      </div>
+      <section><h2>No-Chop Probability Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>Max Prob</span></div><canvas id="nochop-prob-curve" width="1200" height="260"></canvas></div></section>
+      <div class="overview-separator"></div>
+      <div class="section-label">Analysis</div>
+      <div class="cols">
+        <section><h2>Scan Funnel</h2><div id="nochop-funnel"></div></section>
+        <section><h2>Probability Buckets</h2><div id="nochop-buckets"></div></section>
+      </div>
+      <section><h2>Recent Candidate Opportunities</h2><div id="nochop-recent"></div></section>
+      <section><h2>No-Chop Notes</h2><div class="muted">Independent dry-run using MIN_PROB=0.90, EXCLUDE_BTC_CHOP=true, BTC_CHOP_THRESHOLD=0.0005, and data_nochop_highprob. It scans every 15 seconds by default.</div></section>
+    </div>
+    <div class="tab-panel" id="tab-midvol">
+      <div class="grid" id="midvol-summary"></div>
+      <section><h2>Mid-Vol No-Trade Diagnosis</h2><div id="midvol-diagnosis"></div></section>
+      <div class="runner" id="midvol-runner"></div>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="midvol-trades"></div></section>
+        <section><h2>OPEN Positions</h2><div id="midvol-open"></div></section>
+      </div>
+      <section><h2>Mid-Vol Probability Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>Max Prob</span></div><canvas id="midvol-prob-curve" width="1200" height="260"></canvas></div></section>
+      <div class="overview-separator"></div>
+      <div class="section-label">Analysis</div>
+      <div class="cols">
+        <section><h2>Scan Funnel</h2><div id="midvol-funnel"></div></section>
+        <section><h2>Probability Buckets</h2><div id="midvol-buckets"></div></section>
+      </div>
+      <section><h2>Recent Candidate Opportunities</h2><div id="midvol-recent"></div></section>
+      <section><h2>Mid-Vol Notes</h2><div class="muted">Independent direction dry-run using MIN_PROB=0.90, VOL_BUCKET_FILTER=mid, and data_midvol_highprob. It only opens new positions during mid realized-volatility windows.</div></section>
+    </div>
+    <div class="tab-panel" id="tab-near-expiry">
+      <div class="grid" id="near-expiry-summary"></div>
+      <section><h2>Near-Expiry No-Trade Diagnosis</h2><div id="near-expiry-diagnosis"></div></section>
+      <div class="runner" id="near-expiry-runner"></div>
+      <div class="trade-cols">
+        <section><h2>Recent 20 Trades</h2><div id="near-expiry-trades"></div></section>
+        <section><h2>OPEN Positions</h2><div id="near-expiry-open"></div></section>
+      </div>
+      <section><h2>Near-Expiry Probability Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch pnl"></i>Max Prob</span></div><canvas id="near-expiry-prob-curve" width="1200" height="260"></canvas></div></section>
+      <div class="overview-separator"></div>
+      <div class="section-label">Analysis</div>
+      <div class="cols">
+        <section><h2>Scan Funnel</h2><div id="near-expiry-funnel"></div></section>
+        <section><h2>Probability Buckets</h2><div id="near-expiry-buckets"></div></section>
+      </div>
+      <section><h2>Recent Candidate Opportunities</h2><div id="near-expiry-recent"></div></section>
+      <section><h2>Near-Expiry Notes</h2><div class="muted">Independent dry-run using a near-expiry distance model. It only considers markets close to settlement and estimates win probability from BTC distance to the market start price, remaining time, and recent volatility.</div></section>
+    </div>
+    <div class="tab-panel" id="tab-arbitrage">
+      <div class="grid" id="arb-main-summary"></div>
+      <section><h2>Arb Scanner Read</h2><div id="arb-main-read"></div></section>
+      <div class="runner" id="arb-exec-runner"></div>
+      <section><h2>Arb Scanner Universes</h2><div class="muted" style="margin-bottom:10px">Grouped scanner output for BTC/ETH/SOL 5m and 15m Up/Down markets plus BINARY_TOP high-volume two-outcome markets. Legacy rows without universe are counted as BTC_5M.</div><div id="arb-universes"></div></section>
+      <section><h2>Arb Scanner YES+NO Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch yesno"></i>YES+NO</span></div><canvas id="arb-main-curve" width="1200" height="260"></canvas></div></section>
+      <section><h2>Scanner Metrics</h2><div class="grid" id="arb-main-metrics"></div><div id="arb-main-reasons"></div></section>
+      <div class="trade-cols">
+        <section><h2>OPEN Scanner Paper Positions</h2><div id="arb-main-open"></div></section>
+        <section><h2>Recent Scanner Paper Trades</h2><div id="arb-main-recent"></div></section>
+      </div>
+      <section><h2>Recent Scanner Attempts</h2><div id="arb-main-attempts"></div></section>
+      <details class="diagnostics"><summary>Legacy Scanner / Micro Diagnostics</summary><div class="content">
+        <div class="runner" id="arb-runner"></div>
+        <div class="runner" id="arb-micro-runner"></div>
+        <section><h2>Micro-Live Dry-Run</h2><div class="grid" id="arb-micro-metrics"></div><div id="arb-micro-reasons"></div></section>
+        <section><h2>Arbitrage Replay</h2><div id="arb-replay"></div></section>
+        <section><h2>Recent Arbitrage Opportunities</h2><div id="arb-recent"></div></section>
+        <section><h2>Recent Micro Attempts</h2><div id="arb-micro-recent"></div></section>
+      </div></details>
+    </div>
+    <div class="tab-panel" id="tab-arb-conservative">
+      <div class="grid" id="arb-conservative-summary"></div>
+      <section><h2>Arb Paper Exec Read</h2><div id="arb-conservative-read"></div></section>
+      <div class="runner" id="arb-conservative-runner"></div>
+      <section><h2>Arb Paper Exec YES+NO Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch yesno"></i>YES+NO</span></div><canvas id="arb-conservative-curve" width="1200" height="260"></canvas></div></section>
+      <section><h2>Paper Execution Metrics</h2><div class="grid" id="arb-conservative-metrics"></div><div id="arb-conservative-reasons"></div></section>
+      <div class="trade-cols">
+        <section><h2>OPEN Paper Exec Positions</h2><div id="arb-conservative-open"></div></section>
+        <section><h2>Recent Paper Exec Trades</h2><div id="arb-conservative-recent"></div></section>
+      </div>
+      <section><h2>Recent Paper Exec Attempts</h2><div id="arb-conservative-attempts"></div></section>
+    </div>
+    <div class="tab-panel" id="tab-arb-lab">
+      <div class="grid" id="arb-lab-summary"></div>
+      <section><h2>Live Readiness</h2><div id="arb-lab-readiness"></div></section>
+      <section><h2>Execution Risk Read</h2><div id="arb-lab-read"></div></section>
+      <div class="runner" id="arb-lab-runner"></div>
+      <section><h2>Lab YES+NO Curve</h2><div class="chart-wrap"><div class="legend"><span><i class="swatch yesno"></i>YES+NO</span></div><canvas id="arb-lab-curve" width="1200" height="260"></canvas></div></section>
+      <section><h2>Live-Like Risk Metrics</h2><div class="grid" id="arb-lab-metrics"></div><div id="arb-lab-reasons"></div></section>
+      <div class="trade-cols">
+        <section><h2>OPEN Lab Paper Positions</h2><div id="arb-lab-open"></div></section>
+        <section><h2>Recent Lab Paper Trades</h2><div id="arb-lab-recent"></div></section>
+      </div>
+      <section><h2>Recent Lab Attempts</h2><div id="arb-lab-attempts"></div></section>
+    </div>
+    <div class="tab-panel" id="tab-logs">
+      <section><h2>Direction Runner Log</h2><div class="runner-log" id="direction-log"></div></section>
+      <section><h2>Arb Scanner Log</h2><div class="runner-log" id="arb-exec-log"></div></section>
+      <section><h2>Arb Paper Exec Log</h2><div class="runner-log" id="arb-conservative-log"></div></section>
+      <section><h2>Arb Execution Lab Log</h2><div class="runner-log" id="arb-lab-log"></div></section>
+      <section><h2>Legacy Arbitrage Scanner Log</h2><div class="runner-log" id="arb-log"></div></section>
+      <section><h2>Pages Publisher Log</h2><div class="runner-log" id="publisher-log"></div></section>
+      <details class="diagnostics"><summary>Diagnostics: API / Execution Errors</summary><div class="content" id="errors"></div></details>
+    </div>
+  </main>
+  <script>
+    const fmt = (v, digits=2) => typeof v === 'number' ? v.toFixed(digits) : (v ?? '');
+    const pct = v => `${fmt((v || 0) * 100, 2)}%`;
+    const money = v => `$${fmt(v || 0, 2)}`;
+    const pnl = v => `<span class="${(v || 0) >= 0 ? 'good' : 'bad'}">${money(v)}</span>`;
+    const status = v => `<span class="status ${v === 'WON' ? 'win' : (v === 'LOST' ? 'loss' : 'open')}">${v || ''}</span>`;
+    const time = v => v ? new Date(v).toLocaleString() : 'n/a';
+    const shortTime = v => v ? new Date(v).toLocaleString([], { month: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : 'n/a';
+    const ageFromTs = v => {
+      const t = v ? Date.parse(v) : NaN;
+      if (!Number.isFinite(t)) return 'n/a';
+      return `${Math.max(0, Math.round((Date.now() - t) / 1000))}s`;
+    };
+    const market = (v, row) => row.market_url ? `<a class="market-link" href="${row.market_url}" target="_blank" rel="noopener noreferrer">${v}</a>` : (v || '');
+    const reason = v => {
+      const descriptions = {
+        duplicate_open_market: 'Same market already has an OPEN position',
+        no_token_id: 'No CLOB token id for this side',
+        orderbook_fetch_failed: 'Could not fetch CLOB order book',
+        no_asks: 'No sell-side liquidity available',
+        below_min_order_size: 'Budget cannot meet Polymarket minimum order size',
+        budget_too_small: 'Budget too small to buy any shares',
+        fee_makes_edge_negative: 'Fee-adjusted price removes the model edge',
+        spread_or_price_unacceptable: 'Ask/spread was not acceptable',
+        unknown_execution_skip: 'Skipped for an uncategorized execution reason'
+      };
+      const key = (v || '').split(':').pop();
+      return key ? `<b>${key}</b><div class="muted">${descriptions[key] || ''}</div>` : '';
+    };
+    function table(rows, cols) {
+      if (!rows.length) return '<div class="muted">No rows</div>';
+      return `<table><thead><tr>${cols.map(c => `<th>${c[0]}</th>`).join('')}</tr></thead><tbody>` +
+        rows.map(r => `<tr>${cols.map(c => `<td>${c[2] ? c[2](r[c[1]], r) : (r[c[1]] ?? '')}</td>`).join('')}</tr>`).join('') +
+        '</tbody></table>';
+    }
+    function setHtml(elementId, html) {
+      const el = document.getElementById(elementId);
+      if (el) el.innerHTML = html;
+    }
+    function drawSeries(canvasId, points, valueKey, options = {}) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.strokeStyle = '#edf1f6'; ctx.lineWidth = 1;
+      for (let i = 0; i < 5; i++) {
+        const y = 25 + i * 48;
+        ctx.beginPath(); ctx.moveTo(64,y); ctx.lineTo(1148,y); ctx.stroke();
+      }
+      ctx.strokeStyle = '#d9e0ea'; ctx.beginPath(); ctx.moveTo(64,20); ctx.lineTo(64,225); ctx.lineTo(1148,225); ctx.lineTo(1148,20); ctx.stroke();
+      if (!points.length) return;
+      const allTimes = points.map(p => Date.parse(p.ts)).filter(Number.isFinite);
+      const minTime = Math.min(...allTimes), maxTime = Math.max(...allTimes);
+      const xFor = ts => {
+        const t = Date.parse(ts);
+        if (!Number.isFinite(t) || maxTime === minTime) return 64;
+        return 64 + ((t - minTime) / (maxTime - minTime)) * 1084;
+      };
+      const vals = points.map(p => p[valueKey]).filter(v => typeof v === 'number');
+      if (!vals.length) return;
+      const minBase = options.zeroBase === false ? Math.min(...vals) : Math.min(0, ...vals);
+      const maxBase = options.zeroBase === false ? Math.max(...vals) : Math.max(0, ...vals);
+      const padding = options.zeroBase === false ? Math.max(0.000001, (maxBase - minBase) * 0.08) : 0;
+      const min = minBase - padding, max = maxBase + padding;
+      const span = Math.max(options.minSpan || 1, max - min);
+      const coords = points.map((p, i) => ({
+        x: xFor(p.ts),
+        y: 225 - ((p[valueKey] - min) / span) * 200
+      }));
+      ctx.fillStyle = '#667085'; ctx.font = '11px system-ui';
+      for (let i = 0; i < 5; i++) {
+        const y = 225 - i * 50;
+        const value = min + (span * i / 4);
+        ctx.fillText(options.format ? options.format(value) : fmt(value, 2), 8, y + 4);
+      }
+      for (let i = 0; i < 5; i++) {
+        const x = 64 + i * (1084 / 4);
+        const t = new Date(minTime + (maxTime - minTime) * i / 4);
+        ctx.fillText(t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), x - 18, 246);
+        ctx.strokeStyle = '#edf1f6'; ctx.beginPath(); ctx.moveTo(x,225); ctx.lineTo(x,20); ctx.stroke();
+      }
+      if (coords.length) {
+        ctx.beginPath();
+        coords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.lineTo(coords[coords.length - 1].x, 225); ctx.lineTo(coords[0].x, 225); ctx.closePath();
+        const fill = ctx.createLinearGradient(0, 20, 0, 225);
+        fill.addColorStop(0, options.fill || 'rgba(37,99,235,.18)');
+        fill.addColorStop(1, 'rgba(37,99,235,0)');
+        ctx.fillStyle = fill; ctx.fill();
+        ctx.strokeStyle = options.color || '#2563eb'; ctx.lineWidth = 2.5; ctx.beginPath();
+        coords.forEach((p, i) => i === 0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
+        ctx.stroke();
+        const last = coords[coords.length - 1];
+        ctx.fillStyle = options.color || '#2563eb'; ctx.beginPath(); ctx.arc(last.x,last.y,4,0,Math.PI*2); ctx.fill();
+      }
+      ctx.fillStyle = '#172033'; ctx.font = '12px system-ui';
+      ctx.fillText(options.label || '', 8, 16);
+    }
+    function bindTabs() {
+      document.querySelectorAll('.tab').forEach(button => {
+        button.addEventListener('click', () => {
+          const tab = button.dataset.tab;
+          document.querySelectorAll('.tab').forEach(item => item.classList.toggle('active', item === button));
+          document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel.id === `tab-${tab}`));
+          setTimeout(scrollLogsToBottom, 0);
+        });
+      });
+    }
+    function scrollLogsToBottom() {
+      document.querySelectorAll('.runner-log').forEach(log => {
+        log.scrollTop = log.scrollHeight;
+      });
+    }
+    function renderRunner(elementId, runner, subtitle, options = {}) {
+      const stale = runner.stale;
+      const ok = runner.running && !stale;
+      const label = runner.running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
+      const dot = ok ? 'good' : (runner.running ? 'warn' : '');
+      const details = [
+        runner.pid ? ['PID', runner.pid, ''] : null,
+        ['Latest Scan', time(runner.latest_scan), runner.latest_scan || ''],
+        ['Age', runner.latest_scan_age_sec == null ? 'n/a' : `${runner.latest_scan_age_sec}s`],
+        runner.expected_interval_sec ? ['Interval', `${runner.expected_interval_sec}s`, ''] : null,
+        runner.log_file ? ['Log', runner.log_file, ''] : null
+      ].filter(Boolean);
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const logHtml = options.showLog === false ? '' : `<div class="runner-log" id="${elementId}-log">${(runner.log_tail || []).join('\n')}</div>`;
+      el.innerHTML =
+        `<div><div class="runner-state"><span class="dot ${dot}"></span>${label}</div><div class="muted">${subtitle}</div></div>` +
+        `<div><div class="runner-details">${details.map(d => `<div><div class="muted">${d[0]}</div><b title="${d[2] || ''}">${d[1]}</b></div>`).join('')}</div>` +
+        `${logHtml}</div>`;
+      const log = document.getElementById(`${elementId}-log`);
+      if (log) log.scrollTop = log.scrollHeight;
+    }
+    function renderLog(elementId, lines) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.textContent = (lines || []).join('\n');
+      el.scrollTop = el.scrollHeight;
+    }
+    function renderArbPaperRead(elementId, exec) {
+      const settled = exec.paper_settled || 0;
+      const pnlValue = exec.paper_pnl_usd || 0;
+      const roiValue = exec.paper_roi || 0;
+      const fullHedge = exec.full_hedge_possible || 0;
+      const attempts = exec.total_attempts || 0;
+      const legRisk = exec.leg_risk || 0;
+      const fullRate = attempts ? fullHedge / attempts : 0;
+      let cls = 'warn';
+      let headline = 'Positive but still too small for live';
+      let detail = 'Arbitrage paper is the only currently positive stream, but it still needs more settled full-hedge trades before sizing or live execution.';
+      if (settled >= 50 && pnlValue > 0 && legRisk <= fullHedge) {
+        cls = 'good';
+        headline = 'Primary candidate: positive paper arb sample';
+        detail = 'Settled paper full-hedge trades are positive and the sample is large enough for a deeper execution-risk review.';
+      } else if (pnlValue <= 0) {
+        cls = 'bad';
+        headline = 'Not positive on settled paper trades';
+        detail = 'Do not promote this until settled paper PnL turns positive and the full-hedge sample grows.';
+      }
+      const rows = [
+        ['Settled paper trades', settled],
+        ['Paper PnL / ROI', `${money(pnlValue)} / ${pct(roiValue)}`],
+        ['Paper win rate', pct(exec.paper_win_rate || 0)],
+        ['Avg / worst trade', `${money(exec.paper_avg_pnl_usd || 0)} / ${money(exec.paper_worst_pnl_usd || 0)}`],
+        ['Full hedge rate', `${fullHedge}/${attempts} (${pct(fullRate)})`],
+        ['Leg-risk attempts', legRisk],
+      ];
+      setHtml(elementId, `<div class="read-panel">
+        <div class="read-main ${cls}"><b>${headline}</b><div>${detail}</div></div>
+        <div class="read-list">${rows.map(([k, v]) => `<div class="read-row"><span class="muted">${k}</span><b>${v}</b></div>`).join('')}</div>
+      </div>`);
+    }
+    function renderArbOverview(data) {
+      const exec = data.arb_conservative_runner || {};
+      const items = [
+        ['Paper Exec PnL', money(exec.paper_pnl_usd || 0)],
+        ['Paper Exec ROI', pct(exec.paper_roi || 0)],
+        ['Paper Settled', exec.paper_settled || 0],
+        ['Paper OPEN', exec.paper_open || 0],
+        ['Full Hedge', exec.full_hedge_possible || 0],
+        ['Leg Risk', exec.leg_risk || 0],
+      ];
+      renderArbPaperRead('overview-arb-read', exec);
+      setHtml('overview-arb-metrics', items.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+    }
+    function renderArbCandidate(prefix, runner, curve) {
+      const candidate = runner.live_candidate || {};
+      const execMetrics = [
+        ['Paper Arb PnL', money(runner.paper_pnl_usd)], ['Paper Arb ROI', pct(runner.paper_roi)], ['Paper Trades', runner.paper_total_trades],
+        ['Paper Settled', runner.paper_settled], ['Paper OPEN', runner.paper_open], ['Attempts', runner.total_attempts],
+        ['Full Hedge', runner.full_hedge_possible], ['Full Hedge Rate', pct(runner.full_hedge_rate)],
+        ['Leg Risk', runner.leg_risk], ['Paper Win Rate', pct(runner.paper_win_rate)], ['Avg Paper PnL', money(runner.paper_avg_pnl_usd)],
+        ['Worst Paper PnL', money(runner.paper_worst_pnl_usd)], ['Best YES+NO', fmt(runner.best_quote_yes_no_cost, 6)], ['Best Theo Full PnL', money(runner.best_full_net_pnl_usd)],
+        ['Theo Full PnL', money(runner.total_full_net_pnl_usd)], ['Total Unwind Loss', money(runner.total_unwind_loss_usd)],
+        ['Risk-Adjusted PnL', money(runner.risk_adjusted_pnl_usd)], ['Leg Risk / Hedge', fmt(runner.leg_risk_to_full_hedge, 3)],
+        ['P95 Latency', `${runner.latency_p95_ms || 0}ms`], ['Max Latency', `${runner.latency_max_ms || 0}ms`],
+        ['API Error Rate', pct(runner.api_error_rate || 0)], ['Missing Quotes', runner.missing_quote_count || 0]
+      ];
+      const candidateMetrics = prefix === 'arb-lab' ? [
+        ['Candidate Attempts', candidate.attempts || 0],
+        ['Candidate Full Hedge', candidate.full_hedge_possible || 0],
+        ['Candidate Leg Risk', candidate.leg_risk || 0],
+        ['Candidate Risk PnL', money(candidate.risk_adjusted_pnl_usd || 0)],
+        ['Candidate Leg / Hedge', fmt(candidate.leg_risk_to_full_hedge || 0, 3)],
+        ['Candidate P95 Latency', `${candidate.latency_p95_ms || 0}ms`],
+        ['Max YES+NO', fmt(candidate.max_yes_no_cost || 0, 2)],
+        ['Max Quote Latency', `${candidate.max_quote_latency_ms || 0}ms`],
+      ] : execMetrics.slice(0, 8);
+      setHtml(`${prefix}-summary`, candidateMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      if (prefix === 'arb-lab') renderLiveReadiness(`${prefix}-readiness`, runner.live_readiness);
+      renderArbPaperRead(`${prefix}-read`, runner);
+      setHtml(`${prefix}-metrics`, execMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml(`${prefix}-reasons`, `<div class="muted" style="margin:12px 0 6px">Why the two-leg execution simulator skipped or saw leg risk</div>` + table(runner.skip_reasons, [['Reason','reason'],['Count','count']]));
+      setHtml(`${prefix}-open`, table(runner.paper_open_positions, [['Opened','opened_at', shortTime],['Status','status'],['Cost','total_cost_usd', money],['Final YES+NO','final_yes_no_cost'],['Order','execution_order'],['Market','market_id', market]]));
+      setHtml(`${prefix}-recent`, table(runner.paper_recent, [['Opened','opened_at', shortTime],['Status','status'],['Cost','total_cost_usd', money],['Payout','payout_usd', money],['PnL','pnl_usd', pnl],['ROI','roi', pct],['Resolved','resolved_outcome'],['Market','market_id', market]]));
+      setHtml(`${prefix}-attempts`, table(runner.recent, [['Time','ts', shortTime],['Market','market_id', market],['Quote YES+NO','quote_yes_no_cost'],['Order','execution_order'],['Full Hedge','full_hedge_possible'],['Leg Risk','partial_fill'],['Full PnL','net_pnl_if_full_usd', pnl],['Unwind Loss','unwind_loss_usd', money],['Skip','skip_reason']]));
+      drawSeries(`${prefix}-curve`, curve, 'quote_yes_no_cost', { label: 'YES+NO', format: v => fmt(v, 4), color: '#b7791f', fill: 'rgba(183,121,31,.14)', zeroBase: false, minSpan: 0.0001 });
+    }
+    function renderLiveReadiness(elementId, readiness) {
+      if (!readiness) {
+        setHtml(elementId, '<div class="muted">No readiness data yet</div>');
+        return;
+      }
+      const ready = readiness.ready;
+      const gates = readiness.gates || [];
+      const rows = gates.map(gate => `<tr>
+        <td><span class="status ${gate.passed ? 'win' : 'loss'}">${gate.passed ? 'PASS' : 'FAIL'}</span></td>
+        <td>${gate.name || ''}</td>
+        <td><b>${gate.value ?? ''}</b></td>
+        <td>${gate.threshold || ''}</td>
+      </tr>`).join('');
+      setHtml(elementId, `<div class="read-panel">
+        <div class="read-main ${ready ? 'good' : 'bad'}"><b>${readiness.status || 'UNKNOWN'}</b><div>${readiness.summary || ''}</div></div>
+        <table><thead><tr><th>Status</th><th>Gate</th><th>Current</th><th>Required</th></tr></thead><tbody>${rows}</tbody></table>
+      </div>`);
+    }
+    function compactRunnerStatus(runner) {
+      const stale = runner && runner.stale;
+      const running = runner && runner.running;
+      const cls = running && !stale ? 'good' : stale ? 'warn' : '';
+      const label = running ? (stale ? 'STALE' : 'RUNNING') : 'STOPPED';
+      return `<span class="${cls}">${label}</span>`;
+    }
+    function runnerAge(runner) {
+      return runner && runner.latest_scan_age_sec != null ? `${runner.latest_scan_age_sec}s` : 'n/a';
+    }
+    function renderRunnerComparison(rows) {
+      const body = (rows || []).map(row => {
+        const dot = row.running && !row.stale ? 'good' : (row.running ? 'warn' : '');
+        const stateClass = row.running && !row.stale ? 'good' : (row.running ? '' : 'bad');
+        return `<tr>
+          <td><div class="runner-name"><span class="dot ${dot}"></span>${row.name || ''}</div><div class="runner-sub">${row.subtitle || ''}</div></td>
+          <td><b class="${stateClass}">${row.status || ''}</b></td>
+          <td><b>${pnl(row.pnl || 0)}</b></td>
+          <td>${pct(row.roi || 0)}</td>
+          <td>${row.trades || 0}</td>
+          <td>${row.open || 0}</td>
+          <td>${row.age || 'n/a'}</td>
+          <td>${row.pid || 'n/a'}</td>
+          <td>${row.read || ''}</td>
+        </tr>`;
+      }).join('');
+      setHtml('overview-runner-board', body
+        ? `<table class="runner-table"><thead><tr><th>Runner</th><th>Status</th><th>PnL</th><th>ROI</th><th>Sample</th><th>OPEN / Risk</th><th>Latest</th><th>PID</th><th>Read</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No runner rows yet</div>'
+      );
+    }
+    function runnerTableHtml(rows) {
+      const body = (rows || []).map(row => {
+        const dot = row.running && !row.stale ? 'good' : (row.running ? 'warn' : '');
+        const stateClass = row.running && !row.stale ? 'good' : (row.running ? '' : 'bad');
+        return `<tr>
+          <td><div class="runner-name"><span class="dot ${dot}"></span>${row.name || ''}</div><div class="runner-sub">${row.subtitle || ''}</div></td>
+          <td><b class="${stateClass}">${row.status || ''}</b></td>
+          <td><b>${pnl(row.pnl || 0)}</b></td>
+          <td>${pct(row.roi || 0)}</td>
+          <td>${row.trades || 0}</td>
+          <td>${row.open || 0}</td>
+          <td>${row.age || 'n/a'}</td>
+          <td>${row.read || ''}</td>
+        </tr>`;
+      }).join('');
+      return body
+        ? `<table class="runner-table"><thead><tr><th>Runner</th><th>Status</th><th>PnL</th><th>ROI</th><th>Sample</th><th>OPEN / Risk</th><th>Latest</th><th>Read</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No runner rows yet</div>';
+    }
+    function renderArbExecutionTab(data) {
+      const rows = (data.runner_comparison || []).filter(row => (row.name || '').startsWith('Arb'));
+      setHtml('arb-execution-board', runnerTableHtml(rows));
+      renderUniverseCoverage(data.arb_universe_coverage || []);
+      renderLiveReadiness('arb-execution-readiness', data.micro_live_readiness);
+      const exec = data.arb_execution_lab_runner || {};
+      const paper = data.arb_conservative_runner || {};
+      const reasons = [
+        ['Lab skip reasons', exec.skip_reasons || []],
+        ['Paper skip reasons', paper.skip_reasons || []]
+      ].map(([title, rows]) => {
+        const body = (rows || []).slice(0, 8).map(row => `<tr><td>${row.reason || ''}</td><td>${row.count || 0}</td></tr>`).join('');
+        return `<div><h2>${title}</h2>${body ? `<table><thead><tr><th>Reason</th><th>Count</th></tr></thead><tbody>${body}</tbody></table>` : '<div class="muted">No rows</div>'}</div>`;
+      }).join('');
+      setHtml('arb-execution-reasons', `<div class="cols">${reasons}</div>`);
+      const attempts = (exec.recent || []).slice(0, 12);
+      setHtml('arb-execution-attempts', table(attempts, [
+        ['Time','ts', shortTime],
+        ['Universe','universe'],
+        ['YES+NO','quote_yes_no_cost'],
+        ['Full Hedge','full_hedge_possible'],
+        ['Reason','skip_reason'],
+        ['Market','market_id', market]
+      ]));
+    }
+    function renderUniverseCoverage(rows) {
+      if (!rows || !rows.length) {
+        setHtml('arb-universe-coverage', '<div class="muted">No universe coverage data yet</div>');
+        return;
+      }
+      const body = rows.map(row => {
+        const empty = !row.attempts;
+        return `<tr class="${empty ? 'empty-row' : ''}">
+          <td>${row.runner || ''}</td>
+          <td>${row.universe || ''}</td>
+          <td>${row.attempts || 0}</td>
+          <td>${row.full_hedge || 0}</td>
+          <td>${row.leg_risk || 0}</td>
+          <td>${row.full_hedge_rate != null ? pct(row.full_hedge_rate) : '0.00%'}</td>
+          <td>${row.best_yes_no_cost ? fmt(row.best_yes_no_cost, 6) : 'n/a'}</td>
+          <td>${row.latest_yes_no_cost ? fmt(row.latest_yes_no_cost, 6) : 'n/a'}</td>
+          <td>${row.top_skip_reason || ''}</td>
+          <td>${row.latest ? shortTime(row.latest) : 'n/a'}</td>
+        </tr>`;
+      }).join('');
+      setHtml('arb-universe-coverage', `<table class="coverage-table"><thead><tr><th>Runner</th><th>Universe</th><th>Attempts</th><th>Full Hedge</th><th>Leg Risk</th><th>Full Hedge Rate</th><th>Best YES+NO</th><th>Latest YES+NO</th><th>Top Skip</th><th>Latest</th></tr></thead><tbody>${body}</tbody></table>`);
+    }
+    function renderDiagnosticsTab(data) {
+      setHtml('diagnostics-runner-board', runnerTableHtml(data.runner_comparison || []));
+      const logs = [
+        ['Arb Scanner', data.arb_exec_runner && data.arb_exec_runner.log_tail],
+        ['Arb Paper Exec', data.arb_conservative_runner && data.arb_conservative_runner.log_tail],
+        ['Arb Execution Lab', data.arb_execution_lab_runner && data.arb_execution_lab_runner.log_tail],
+        ['Pages Publisher', data.publisher && data.publisher.log_tail]
+      ].map(([title, lines]) => `<section><h2>${title}</h2><div class="runner-log">${(lines || []).join('\n')}</div></section>`).join('');
+      setHtml('diagnostics-logs', logs);
+      setHtml('diagnostics-errors', table(data.errors || [], [['Time','ts', shortTime],['Errors','errors'],['Execution','execution_errors']]));
+    }
+    function renderArchiveTab(data) {
+      const directionRows = (data.runner_comparison || []).filter(row => !(row.name || '').startsWith('Arb'));
+      setHtml('archive-direction-board', runnerTableHtml(directionRows));
+      setHtml('archive-strategy-decisions', decisionTableHtml(data.strategy_decisions || []));
+      const validation = (data.strategy_validation || []).slice(0, 6);
+      const body = validation.map(row => `<tr>
+        <td><b>${row.name || ''}</b><div class="muted">${row.description || ''}</div></td>
+        <td>${row.verdict || ''}</td>
+        <td>${row.trades || 0}</td>
+        <td>${row.positive_folds || 0}/${row.folds || 0}</td>
+        <td>${pnl(row.pnl || 0)}</td>
+        <td>${row.warning || ''}</td>
+      </tr>`).join('');
+      setHtml('archive-research', body
+        ? `<table><thead><tr><th>Strategy</th><th>Verdict</th><th>Trades</th><th>Good Folds</th><th>PnL</th><th>Warning</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No research rows yet</div>');
+    }
+    function overviewRunnerRow(row) {
+      const dot = row.running && !row.stale ? 'good' : (row.running ? 'warn' : '');
+      const statusLabel = row.running ? (row.stale ? 'STALE' : 'RUNNING') : 'STOPPED';
+      return `<div class="runner-row">
+        <div class="runner-row-main">
+          <div class="runner-row-title"><span class="dot ${dot}"></span>${row.title}</div>
+          <div class="runner-row-sub">${row.subtitle}</div>
+        </div>
+        <div class="runner-cell primary"><span>Status</span><b class="${row.running && !row.stale ? 'good' : row.stale ? '' : 'bad'}">${statusLabel}</b></div>
+        <div class="runner-cell primary"><span>PnL</span><b>${row.pnl}</b></div>
+        <div class="runner-cell"><span>ROI</span><b>${row.roi}</b></div>
+        <div class="runner-cell"><span>${row.activityLabel}</span><b>${row.activity}</b></div>
+        <div class="runner-cell"><span>OPEN / Risk</span><b>${row.open}</b></div>
+        <div class="runner-cell"><span>Latest</span><b>${row.age}</b></div>
+        <div class="runner-cell note"><span>Read</span><b>${row.note}</b></div>
+      </div>`;
+    }
+    function renderDirectionCompare(data) {
+      const rows = [
+        ['Base', 'MIN_PROB 0.65', data, data.runner],
+        ['High-Prob', 'MIN_PROB 0.90', data.high_prob, data.high_prob.runner],
+        ['Mid-Vol High-Prob', 'MIN_PROB 0.90 + mid vol', data.midvol_highprob, data.midvol_highprob.runner],
+        ['Near-Expiry', '30-90s mispricing', data.near_expiry, data.near_expiry.runner]
+      ];
+      const html = rows.map(([title, sub, stats, runner]) => {
+        const items = [
+          ['Status', compactRunnerStatus(runner)],
+          ['Trades', stats.total_trades || 0],
+          ['OPEN', stats.open_count || 0],
+          ['PnL', money(stats.pnl || 0)],
+          ['ROI', pct(stats.roi || 0)],
+          ['Win Rate', pct(stats.win_rate || 0)],
+          ['Scans', stats.total_scans || 0],
+          ['Age', runner && runner.latest_scan_age_sec != null ? `${runner.latest_scan_age_sec}s` : 'n/a']
+        ];
+        return `<div class="compare-card"><div class="compare-head"><div><div class="compare-title">${title}</div><div class="compare-sub">${sub}</div></div><div class="muted">${runner && runner.pid ? `PID ${runner.pid}` : 'PID n/a'}</div></div><div class="compare-stats">${items.map(([k,v]) => `<div class="compare-stat"><span>${k}</span><b>${v}</b></div>`).join('')}</div></div>`;
+      }).join('');
+      setHtml('overview-direction-compare', html);
+    }
+    function renderOverviewCore(data) {
+      renderLiveDecision(data.live_decision || {}, data);
+      renderResearchLoop(data.research_orchestrator || {});
+      renderRunnerComparison(data.runner_comparison || []);
+      renderCurrentEra(data.current_era || {});
+    }
+    function renderLiveDecision(decision, data) {
+      const readiness = data.micro_live_readiness || {};
+      const status = decision.status || readiness.status || 'NOT_READY';
+      const tone = decision.tone || (status === 'READY_FOR_MICRO_LIVE' ? 'good' : status === 'WATCH' ? 'warn' : 'bad');
+      const metrics = decision.metrics || [
+        ['Full Hedge', readiness.execution_lab ? readiness.execution_lab.full_hedge || 0 : 0],
+        ['Paper PnL', readiness.paper_runner ? pnl(readiness.paper_runner.pnl || 0) : '$0.00'],
+        ['Leg Risk', readiness.execution_lab ? readiness.execution_lab.leg_risk || 0 : 0],
+        ['Unwind Loss', readiness.execution_lab ? money(readiness.execution_lab.unwind_loss || 0) : '$0.00']
+      ];
+      const reasons = decision.reasons || [{label:'Blocked', text: readiness.summary || 'No readiness data yet.'}];
+      const actions = decision.next_actions || ['Keep collecting paper execution data; do not enable real-money orders.'];
+      setHtml('live-decision', `
+        <div class="live-board">
+          <div class="live-hero">
+            <div class="live-verdict ${tone}">
+              <div class="live-label">Live Decision</div>
+              <div class="live-title">${decision.title || status}</div>
+              <div class="live-detail">${decision.detail || readiness.summary || ''}</div>
+              <div class="live-reasons">
+                ${reasons.map(item => `<div class="live-reason"><b>${item.label || ''}</b><span>${item.text || ''}</span></div>`).join('')}
+              </div>
+            </div>
+            <div class="live-metrics">
+              ${metrics.map(item => `<div class="live-metric"><span>${item[0]}</span><b>${item[1]}</b></div>`).join('')}
+            </div>
+          </div>
+          <div class="next-panel">
+            <h2>Next 24h Decision</h2>
+            <ul class="next-list">${actions.map(item => `<li>${item}</li>`).join('')}</ul>
+          </div>
+        </div>
+      `);
+    }
+    function renderResearchLoop(loop) {
+      if (!loop || !loop.generated_at) {
+        setHtml('research-loop', '');
+        return;
+      }
+      const decision = loop.decision || {};
+      const status = decision.status || 'UNKNOWN';
+      const positive = loop.positive_counts || {};
+      const candidates = loop.candidates || [];
+      const watchlist = loop.watchlist || [];
+      const nearMiss = loop.near_miss || [];
+      const runnerAllowed = decision.runner_control_allowed === true;
+      const cls = runnerAllowed ? 'good' : (candidates.length ? 'warn' : 'bad');
+      const dot = runnerAllowed ? 'good' : (candidates.length || watchlist.length || nearMiss.length ? 'warn' : '');
+      const nearText = nearMiss.length ? nearMiss.slice(0, 3).join(', ') + (nearMiss.length > 3 ? ` +${nearMiss.length - 3}` : '') : 'none';
+      setHtml('research-loop', `
+        <div class="research-loop ${cls}">
+          <div>
+            <div class="research-loop-title"><span class="dot ${dot}"></span>Research Loop: ${status}</div>
+            <div class="research-loop-sub">Last run ${time(loop.generated_at)} · ${decision.summary || ''}</div>
+          </div>
+          <div class="research-loop-grid">
+            <div><span>Positive</span><b>3w ${positive.three_way || 0} / nested ${positive.nested || 0} / basket ${positive.basket || 0}</b></div>
+            <div><span>Candidate</span><b>${candidates.length ? candidates.join(', ') : 'none'}</b></div>
+            <div><span>Watch / Near-miss</span><b>${watchlist.length ? watchlist.join(', ') : 'none'} / ${nearText}</b></div>
+            <div><span>Runner / Live</span><b>${runnerAllowed ? 'allowed' : 'blocked'} / ${decision.live_allowed ? 'allowed' : 'blocked'}</b></div>
+          </div>
+        </div>
+      `);
+    }
+    function renderOverviewCommand(data) {
+      const era = (data.current_era || {}).current || {};
+      const readiness = data.micro_live_readiness || {};
+      const paper = readiness.paper_runner || {};
+      const lab = readiness.execution_lab || {};
+      const runners = data.runner_comparison || [];
+      const running = runners.filter(r => r.status === 'RUNNING').length;
+      const stale = runners.filter(r => r.status === 'STALE').length;
+      const open = data.open_count || 0;
+      const eraTrades = era.trades || 0;
+      const statusText = readiness.status || 'NOT_READY';
+      const title = statusText === 'READY_FOR_MICRO_LIVE'
+        ? 'Ready for micro-live review'
+        : statusText === 'WATCH'
+          ? 'Watch candidate, not live yet'
+          : 'Not ready for live trading';
+      const detail = readiness.summary || 'No micro-live readiness data yet.';
+      const tone = statusText === 'READY_FOR_MICRO_LIVE' ? 'good' : statusText === 'WATCH' ? 'warn' : 'bad';
+      const actions = [
+        ['Decision', statusText],
+        ['Blocking gates', readiness.blocked_count == null ? 'n/a' : `${readiness.blocked_count} failed`],
+        ['Paper candidate', `${paper.settled || 0} settled, ${money(paper.pnl || 0)}, last100 ${money(paper.last_100_pnl || 0)}`],
+        ['Execution lab', `${lab.full_hedge || 0} full hedge, ${lab.leg_risk || 0} leg risk, unwind ${money(lab.unwind_loss || 0)}`]
+      ];
+      setHtml('overview-command', `
+        <div class="command-center">
+          <div class="command-main ${tone}">
+            <div class="command-kicker">Read this first</div>
+            <div class="command-title">${title}</div>
+            <div class="command-detail">${detail}</div>
+            <div class="command-actions">
+              ${actions.map(([k, v]) => `<div class="command-action"><b>${k}</b><span>${v}</span></div>`).join('')}
+            </div>
+          </div>
+          <div class="command-side">
+            <div class="watch-card"><span>Micro-live</span><b>${statusText}</b></div>
+            <div class="watch-card"><span>Paper PnL</span><b>${pnl(paper.pnl || 0)}</b></div>
+            <div class="watch-card"><span>VPS-era trades</span><b>${eraTrades}</b></div>
+            <div class="watch-card"><span>Runners</span><b>${running} running / ${stale} stale</b></div>
+            <div class="watch-card"><span>OPEN</span><b>${open}</b></div>
+          </div>
+        </div>
+      `);
+    }
+    function renderCurrentEra(era) {
+      const current = era.current || {};
+      const archive = era.archive || {};
+      const metric = (label, value, formatter = v => v) => `<div class="era-stat"><span>${label}</span><b>${formatter(value)}</b></div>`;
+      const card = (kind, title, row, read) => `
+        <div class="era-card ${kind}">
+          <div class="era-head">
+            <div><div class="era-title">${title}</div><div class="muted">from ${time(row.start_ts)}${row.end_ts ? ` to ${time(row.end_ts)}` : ''}</div></div>
+            <div class="era-read">${read}</div>
+          </div>
+          <div class="era-stats">
+            ${metric('Trades', row.trades || 0)}
+            ${metric('Settled', row.settled || 0)}
+            ${metric('OPEN', row.open || 0)}
+            ${metric('PnL', row.pnl || 0, v => pnl(v))}
+            ${metric('ROI', row.roi || 0, v => pct(v))}
+            ${metric('Win Rate', row.win_rate || 0, v => pct(v))}
+            ${metric('Scans', row.scans || 0)}
+            ${metric('Latest', ageFromTs(row.latest_scan))}
+          </div>
+        </div>`;
+      setHtml(
+        'current-era',
+        `<div class="era-grid">` +
+        card('current', 'Current VPS Era', current, 'Use this first for live-readiness and runner health.') +
+        card('archive', 'Historical Archive', archive, 'Use this for replay/research; it can bias current judgments if mixed blindly.') +
+        `</div>`
+      );
+    }
+    function renderOverviewFocus(data) {
+      const best = (data.optimizer_stats || [])[0] || {};
+      const noTrade = (data.no_trade_reasons || [])[0] || {};
+      const baseNegative = (data.pnl || 0) < 0;
+      const highProbTrades = data.high_prob.total_trades || 0;
+      const message = baseNegative
+        ? 'Base direction is useful as a data collector, not as a live strategy candidate.'
+        : 'Base direction is still under observation; use validation results before changing sizing.';
+      const rows = [
+        ['Current read', message],
+        ['No-trade reason', noTrade.top_reason || 'n/a'],
+        ['Optimizer top', best.strategy ? `${best.strategy}, MIN_PROB=${best.min_prob}, MIN_EDGE=${best.min_edge}` : 'n/a'],
+        ['Validation sample', best.validation_trades == null ? 'n/a' : `${best.validation_trades} trades, ${money(best.validation_pnl || 0)}`],
+        ['High-prob sample', `${highProbTrades} trades`]
+      ];
+      setHtml(
+        'overview-focus',
+        `<div class="decision-title">Current Focus</div><div class="decision-main">${message}</div>` +
+        rows.map(([k, v]) => `<div class="decision-row"><span class="muted">${k}</span><b>${v}</b></div>`).join('')
+      );
+    }
+    function renderCodexAnalysis(items) {
+      if (!items || !items.length) {
+        setHtml('overview-analysis', '<div class="muted">No analysis yet</div>');
+        return;
+      }
+      setHtml('overview-analysis', `<div class="analysis-list">${items.map(item =>
+        `<div class="analysis-item ${item.level || ''}"><b>${item.title || ''}</b><span>${item.detail || ''}</span></div>`
+      ).join('')}</div>`);
+    }
+    function decisionTableHtml(rows) {
+      const body = (rows || []).map(row => `
+        <tr>
+          <td><b>${row.item || ''}</b></td>
+          <td>${row.type || ''}</td>
+          <td>${row.stage || ''}</td>
+          <td>${row.sample || ''}</td>
+          <td><b>${row.pnl || ''}</b></td>
+          <td>
+            <div class="decision-main-text">${row.verdict || ''}</div>
+            <div class="decision-next-text"><b>Next:</b> ${row.next_action || ''}</div>
+          </td>
+        </tr>
+      `).join('');
+      return body
+        ? `<table class="decision-table"><thead><tr><th>Item</th><th>Type</th><th>Stage</th><th>Sample</th><th>PnL</th><th>Decision</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No decision rows yet</div>';
+    }
+    function renderStrategyDecisions(rows) {
+      setHtml('strategy-decisions', decisionTableHtml(rows));
+    }
+    function renderStrategyValidation(rows) {
+      const body = (rows || []).map(row => `
+        <tr>
+          <td><b>${row.name || ''}</b><div class="muted">${row.description || ''}</div></td>
+          <td>${row.family || ''}</td>
+          <td><span class="verdict ${(row.verdict || '').toLowerCase().replaceAll(' ', '-')}">${row.verdict || ''}</span><div class="muted">${row.verdict_reason || ''}</div></td>
+          <td>${row.trades || 0}</td>
+          <td>${row.positive_folds || 0}/${row.folds || 0}</td>
+          <td>${pnl(row.pnl || 0)}</td>
+          <td>${pct(row.roi || 0)}</td>
+          <td>${pnl(row.worst_fold_pnl || 0)}</td>
+          <td><div class="fold-detail">${row.fold_detail || ''}</div></td>
+          <td>${row.warning || ''}</td>
+        </tr>
+      `).join('');
+      setHtml('strategy-validation', body
+        ? `<table class="lab-table"><thead><tr><th>Strategy</th><th>Family</th><th>Verdict</th><th>Trades</th><th>Good Folds</th><th>PnL</th><th>ROI</th><th>Worst Fold</th><th>Fold Detail</th><th>Warning</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No validation rows yet</div>'
+      );
+    }
+    function renderDeteriorationCandidates(rows) {
+      const body = (rows || []).map(row => `
+        <tr>
+          <td><b>${row.name || ''}</b><div class="muted">${row.description || ''}</div></td>
+          <td><span class="verdict ${(row.verdict || '').toLowerCase().replaceAll(' ', '-')}">${row.verdict || ''}</span><div class="muted">${row.verdict_reason || ''}</div></td>
+          <td>${row.trades || 0}</td>
+          <td>${row.positive_folds || 0}/${row.folds || 0}</td>
+          <td>${pnl(row.pnl || 0)}</td>
+          <td>${pct(row.roi || 0)}</td>
+          <td>${pnl(row.worst_fold_pnl || 0)}</td>
+          <td><div class="fold-detail">${row.fold_detail || ''}</div></td>
+        </tr>
+      `).join('');
+      setHtml('deterioration-candidates', body
+        ? `<table class="lab-table"><thead><tr><th>Filter</th><th>Verdict</th><th>Trades</th><th>Good Folds</th><th>PnL</th><th>ROI</th><th>Worst Fold</th><th>Fold Detail</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No deterioration-aware candidates yet</div>'
+      );
+    }
+    function worstGroupText(value) {
+      if (!value || !value.group) return 'n/a';
+      return `${value.group}<div class="muted">${value.trades || 0} trades / ${money(value.pnl || 0)}</div>`;
+    }
+    function renderFoldBreakdown(items) {
+      const rows = [];
+      (items || []).forEach(item => {
+        (item.folds || []).forEach(fold => {
+          rows.push({ item, fold });
+        });
+      });
+      const body = rows.map(({ item, fold }) => `
+        <tr>
+          <td><b>${item.name || ''}</b><div class="muted">${item.family || ''}</div></td>
+          <td>F${fold.fold || ''}</td>
+          <td>${fold.trades || 0}</td>
+          <td>${pnl(fold.pnl || 0)}</td>
+          <td>${worstGroupText(fold.worst_side)}</td>
+          <td>${worstGroupText(fold.worst_price)}</td>
+          <td>${worstGroupText(fold.worst_btc_regime)}</td>
+          <td>${worstGroupText(fold.worst_volatility)}</td>
+          <td>${worstGroupText(fold.worst_expiry)}</td>
+          <td>${fold.fold === (item.folds || []).length ? (item.read || '') : ''}</td>
+        </tr>
+      `).join('');
+      setHtml('fold-breakdown', body
+        ? `<table class="breakdown-table"><thead><tr><th>Strategy</th><th>Fold</th><th>Trades</th><th>PnL</th><th>Worst Side</th><th>Worst Price</th><th>Worst BTC Regime</th><th>Worst Vol</th><th>Worst Expiry</th><th>Read</th></tr></thead><tbody>${body}</tbody></table>`
+        : '<div class="muted">No fold breakdown yet</div>'
+      );
+    }
+    function renderSampleStatus(sample) {
+      const pctWidth = Math.max(0, Math.min(100, sample.progress_to_next || 0));
+      const next = sample.next_threshold ? `next: ${sample.next_threshold} trades` : 'top tier reached';
+      document.getElementById('sample-status').innerHTML =
+        `<div><div class="muted">Sample-size status</div><div class="sample-stage">${sample.stage}</div><div class="muted">${sample.description}</div></div>` +
+        `<div><div class="sample-track"><div class="sample-fill" style="width:${pctWidth}%"></div></div>` +
+        `<div class="sample-scale"><span>${sample.trades} settled trades</span><span>${next}</span><span>${fmt(pctWidth, 1)}%</span></div></div>`;
+    }
+    function refresh() {
+      fetch('summary.json', { cache: 'no-store' }).then(r => r.json()).then(data => {
+      const loadedVersion = document.documentElement.dataset.dashboardVersion || '';
+      if (data.dashboard_version && loadedVersion && data.dashboard_version !== loadedVersion) {
+        window.location.reload();
+        return;
+      }
+      document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
+      renderOverviewCore(data);
+      renderArbExecutionTab(data);
+      renderDiagnosticsTab(data);
+      renderArchiveTab(data);
+      renderStrategyDecisions(data.strategy_decisions);
+      renderStrategyValidation(data.strategy_validation);
+      renderDeteriorationCandidates(data.deterioration_candidates);
+      renderFoldBreakdown(data.strategy_breakdowns);
+      renderCodexAnalysis(data.codex_analysis);
+      renderOverviewFocus(data);
+      renderDirectionCompare(data);
+      renderArbOverview(data);
+      renderRunner('runner', data.runner, 'direction strict dry-run');
+      renderRunner('highprob-runner', data.high_prob.runner, 'high-prob direction dry-run');
+      renderRunner('nochop-runner', data.nochop_highprob.runner, 'no-chop high-prob direction dry-run');
+      renderRunner('midvol-runner', data.midvol_highprob.runner, 'mid-vol high-prob direction dry-run');
+      renderRunner('near-expiry-runner', data.near_expiry.runner, 'near-expiry mispricing dry-run');
+      renderRunner('arb-exec-runner', data.arb_exec_runner, 'broad two-leg arb scanner');
+      renderRunner('arb-conservative-runner', data.arb_conservative_runner, 'strict paper execution candidate');
+      renderRunner('arb-lab-runner', data.arb_execution_lab_runner, 'live-like execution risk lab');
+      renderRunner('arb-runner', data.arb_runner, 'arbitrage scanner');
+      renderRunner('arb-micro-runner', data.arb_micro_runner, 'micro-live dry-run');
+      renderSampleStatus(data.sample_status);
+      const metrics = [
+        ['PnL', money(data.pnl)], ['ROI', pct(data.roi)], ['OPEN', data.open_count], ['Trades', data.total_trades],
+        ['Settled', data.settled], ['Win Rate', pct(data.win_rate)], ['Scans', data.total_scans], ['Fees', money(data.fees)],
+        ['Slippage', money(data.slippage)], ['Skipped Exec', data.skipped_executions], ['API Errors', data.error_count], ['Last BTC', fmt(data.last_btc, 2)]
+      ];
+      setHtml('metrics', metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('direction-summary', metrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('no-trade-reasons', table(data.no_trade_reasons, [['Window','window'],['Scans','scans'],['Placed','placed'],['Eligible Scans','eligible_scans'],['Signals','signals'],['TTL Filtered','ttl_filtered'],['No Signal','no_signal'],['Exec Skips','execution_skips'],['Top Reason','top_reason']]));
+      setHtml('overview-no-trade', table(data.no_trade_reasons, [['Window','window'],['Placed','placed'],['Signals','signals'],['Exec Skips','execution_skips'],['Top Reason','top_reason']]));
+      setHtml('overview-open', table(data.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
+      const highProbMetrics = [
+        ['PnL', money(data.high_prob.pnl)], ['ROI', pct(data.high_prob.roi)], ['OPEN', data.high_prob.open_count], ['Trades', data.high_prob.total_trades],
+        ['Settled', data.high_prob.settled], ['Win Rate', pct(data.high_prob.win_rate)], ['Scans', data.high_prob.total_scans], ['Last BTC', fmt(data.high_prob.last_btc, 2)],
+        ['Eligible', data.high_prob.eligible_markets], ['Candidates', data.high_prob.total_opportunities], ['Max Prob', pct(data.high_prob.max_model_prob)], ['Gap to 90%', pct(data.high_prob.gap_to_min_prob)]
+      ];
+      const highProbHtml = highProbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join('');
+      setHtml('highprob-summary', highProbHtml);
+      setHtml('highprob-diagnosis', table(data.high_prob.no_trade_diagnosis, [['Window','window'],['Max Prob','max_prob', pct],['Signals','signals'],['Placed','placed'],['Exec Skips','execution_skips'],['Top Reason','top_reason'],['Read','read']]));
+      setHtml('highprob-trades', table(data.high_prob.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]));
+      setHtml('highprob-open', table(data.high_prob.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
+      setHtml('highprob-funnel', table(data.high_prob.scan_funnel, [['Stage','stage'],['Count','count']]));
+      setHtml('highprob-buckets', table(data.high_prob.probability_buckets, [['Bucket','bucket'],['Candidates','candidates'],['Fillable','fillable'],['Resolved','resolved'],['Win Rate','win_rate', pct],['Max Prob','max_prob', pct]]));
+      setHtml('highprob-recent', table(data.high_prob.recent_opportunities, [['Time','ts', shortTime],['Market','market_id', market],['Side','outcome'],['Prob','model_prob', pct],['Price','market_price'],['Edge','edge'],['Momentum','momentum'],['Fillable','fillable'],['Reason','fill_reason'],['Resolved','resolved_outcome'],['Won','outcome_won']]));
+      drawSeries('highprob-prob-curve', data.high_prob.prob_curve, 'max_prob', { label: 'Max Prob', format: v => pct(v), color: '#2563eb', fill: 'rgba(37,99,235,.16)', zeroBase: false, minSpan: 0.01 });
+      const noChopMetrics = [
+        ['PnL', money(data.nochop_highprob.pnl)], ['ROI', pct(data.nochop_highprob.roi)], ['OPEN', data.nochop_highprob.open_count], ['Trades', data.nochop_highprob.total_trades],
+        ['Settled', data.nochop_highprob.settled], ['Win Rate', pct(data.nochop_highprob.win_rate)], ['Scans', data.nochop_highprob.total_scans], ['Last BTC', fmt(data.nochop_highprob.last_btc, 2)],
+        ['Eligible', data.nochop_highprob.eligible_markets], ['Candidates', data.nochop_highprob.total_opportunities], ['Max Prob', pct(data.nochop_highprob.max_model_prob)], ['Gap to 90%', pct(data.nochop_highprob.gap_to_min_prob)]
+      ];
+      setHtml('nochop-summary', noChopMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('nochop-diagnosis', table(data.nochop_highprob.no_trade_diagnosis, [['Window','window'],['Max Prob','max_prob', pct],['Signals','signals'],['Placed','placed'],['Exec Skips','execution_skips'],['Top Reason','top_reason'],['Read','read']]));
+      setHtml('nochop-trades', table(data.nochop_highprob.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]));
+      setHtml('nochop-open', table(data.nochop_highprob.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
+      setHtml('nochop-funnel', table(data.nochop_highprob.scan_funnel, [['Stage','stage'],['Count','count']]));
+      setHtml('nochop-buckets', table(data.nochop_highprob.probability_buckets, [['Bucket','bucket'],['Candidates','candidates'],['Fillable','fillable'],['Resolved','resolved'],['Win Rate','win_rate', pct],['Max Prob','max_prob', pct]]));
+      setHtml('nochop-recent', table(data.nochop_highprob.recent_opportunities, [['Time','ts', shortTime],['Market','market_id', market],['Side','outcome'],['Prob','model_prob', pct],['Price','market_price'],['Edge','edge'],['Momentum','momentum'],['Fillable','fillable'],['Reason','fill_reason'],['Resolved','resolved_outcome'],['Won','outcome_won']]));
+      drawSeries('nochop-prob-curve', data.nochop_highprob.prob_curve, 'max_prob', { label: 'Max Prob', format: v => pct(v), color: '#0f766e', fill: 'rgba(15,118,110,.16)', zeroBase: false, minSpan: 0.01 });
+      const midVolMetrics = [
+        ['PnL', money(data.midvol_highprob.pnl)], ['ROI', pct(data.midvol_highprob.roi)], ['OPEN', data.midvol_highprob.open_count], ['Trades', data.midvol_highprob.total_trades],
+        ['Settled', data.midvol_highprob.settled], ['Win Rate', pct(data.midvol_highprob.win_rate)], ['Scans', data.midvol_highprob.total_scans], ['Last BTC', fmt(data.midvol_highprob.last_btc, 2)],
+        ['Eligible', data.midvol_highprob.eligible_markets], ['Candidates', data.midvol_highprob.total_opportunities], ['Max Prob', pct(data.midvol_highprob.max_model_prob)], ['Vol Bucket', data.midvol_highprob.latest_volatility_bucket || 'n/a']
+      ];
+      setHtml('midvol-summary', midVolMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('midvol-diagnosis', table(data.midvol_highprob.no_trade_diagnosis, [['Window','window'],['Max Prob','max_prob', pct],['Signals','signals'],['Placed','placed'],['Exec Skips','execution_skips'],['Top Reason','top_reason'],['Read','read']]));
+      setHtml('midvol-trades', table(data.midvol_highprob.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]));
+      setHtml('midvol-open', table(data.midvol_highprob.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
+      setHtml('midvol-funnel', table(data.midvol_highprob.scan_funnel, [['Stage','stage'],['Count','count']]));
+      setHtml('midvol-buckets', table(data.midvol_highprob.probability_buckets, [['Bucket','bucket'],['Candidates','candidates'],['Fillable','fillable'],['Resolved','resolved'],['Win Rate','win_rate', pct],['Max Prob','max_prob', pct]]));
+      setHtml('midvol-recent', table(data.midvol_highprob.recent_opportunities, [['Time','ts', shortTime],['Market','market_id', market],['Side','outcome'],['Prob','model_prob', pct],['Price','market_price'],['Edge','edge'],['Momentum','momentum'],['Fillable','fillable'],['Reason','fill_reason'],['Resolved','resolved_outcome'],['Won','outcome_won']]));
+      drawSeries('midvol-prob-curve', data.midvol_highprob.prob_curve, 'max_prob', { label: 'Max Prob', format: v => pct(v), color: '#7c3aed', fill: 'rgba(124,58,237,.14)', zeroBase: false, minSpan: 0.01 });
+      const nearExpiryMetrics = [
+        ['PnL', money(data.near_expiry.pnl)], ['ROI', pct(data.near_expiry.roi)], ['OPEN', data.near_expiry.open_count], ['Trades', data.near_expiry.total_trades],
+        ['Settled', data.near_expiry.settled], ['Win Rate', pct(data.near_expiry.win_rate)], ['Scans', data.near_expiry.total_scans], ['Last BTC', fmt(data.near_expiry.last_btc, 2)],
+        ['Eligible', data.near_expiry.eligible_markets], ['Candidates', data.near_expiry.total_opportunities], ['Max Prob', pct(data.near_expiry.max_model_prob)], ['Gap to Min', pct(data.near_expiry.gap_to_min_prob)]
+      ];
+      setHtml('near-expiry-summary', nearExpiryMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('near-expiry-diagnosis', table(data.near_expiry.no_trade_diagnosis, [['Window','window'],['Max Prob','max_prob', pct],['Signals','signals'],['Placed','placed'],['Exec Skips','execution_skips'],['Top Reason','top_reason'],['Read','read']]));
+      setHtml('near-expiry-trades', table(data.near_expiry.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]));
+      setHtml('near-expiry-open', table(data.near_expiry.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]));
+      setHtml('near-expiry-funnel', table(data.near_expiry.scan_funnel, [['Stage','stage'],['Count','count']]));
+      setHtml('near-expiry-buckets', table(data.near_expiry.probability_buckets, [['Bucket','bucket'],['Candidates','candidates'],['Fillable','fillable'],['Resolved','resolved'],['Win Rate','win_rate', pct],['Max Prob','max_prob', pct]]));
+      setHtml('near-expiry-recent', table(data.near_expiry.recent_opportunities, [['Time','ts', shortTime],['Market','market_id', market],['Side','outcome'],['Prob','model_prob', pct],['Price','market_price'],['Edge','edge'],['Momentum','momentum'],['Fillable','fillable'],['Reason','fill_reason'],['Resolved','resolved_outcome'],['Won','outcome_won']]));
+      drawSeries('near-expiry-prob-curve', data.near_expiry.prob_curve, 'max_prob', { label: 'Max Prob', format: v => pct(v), color: '#0f766e', fill: 'rgba(15,118,110,.16)', zeroBase: false, minSpan: 0.01 });
+      const arbMetrics = [
+        ['Arb Opps', data.arb_runner.total_opportunities], ['Fillable', data.arb_runner.fillable], ['Profitable', data.arb_runner.profitable],
+        ['Best YES+NO', fmt(data.arb_runner.best_yes_no_cost, 6)], ['Best Theo PnL', money(data.arb_runner.best_theoretical_pnl_usd)], ['Best Theo ROI', pct(data.arb_runner.best_theoretical_roi)],
+        ['Latest YES+NO', fmt(data.arb_runner.latest_yes_no_cost, 6)], ['Latest Theo PnL', money(data.arb_runner.latest_theoretical_pnl_usd)], ['Latest Theo ROI', pct(data.arb_runner.latest_theoretical_roi)],
+        ['Arb Errors', data.arb_runner.error_count]
+      ];
+      setHtml('arb-main-metrics', arbMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('arb-universes', table(data.arb_runner.universes || [], [['Universe','universe'],['Latest Markets','latest_markets'],['Latest Eval','latest_evaluated'],['Attempts','attempts'],['Fillable','fillable'],['Profitable','profitable'],['Best YES+NO','best_yes_no_cost'],['Latest YES+NO','latest_yes_no_cost'],['Best PnL','best_theoretical_pnl_usd', money],['Latest PnL','latest_theoretical_pnl_usd', money],['Top Skip','top_skip_reason']]));
+      renderArbCandidate('arb-main', data.arb_exec_runner, data.arb_exec_curve);
+      renderArbCandidate('arb-conservative', data.arb_conservative_runner, data.arb_conservative_curve);
+      renderArbCandidate('arb-lab', data.arb_execution_lab_runner, data.arb_execution_lab_curve);
+      const microMetrics = [
+        ['Attempts', data.arb_micro_runner.total_attempts], ['Would Execute', data.arb_micro_runner.would_execute], ['Execute Rate', pct(data.arb_micro_runner.execute_rate)],
+        ['Best Confirm YES+NO', fmt(data.arb_micro_runner.best_confirm_yes_no_cost, 6)], ['Latest Confirm YES+NO', fmt(data.arb_micro_runner.latest_confirm_yes_no_cost, 6)]
+      ];
+      setHtml('arb-micro-metrics', microMetrics.map(m => `<div class="metric"><span class="muted">${m[0]}</span><b>${m[1]}</b></div>`).join(''));
+      setHtml('arb-micro-reasons', `<div class="muted" style="margin:12px 0 6px">Why a real two-leg execution would be skipped</div>` + table(data.arb_micro_runner.skip_reasons, [['Reason','reason'],['Count','count']]));
+      drawSeries('curve', data.pnl_curve, 'cumulative_pnl', { label: 'PnL', format: money, color: '#2563eb', fill: 'rgba(37,99,235,.18)' });
+      drawSeries('direction-detail-curve', data.pnl_curve, 'cumulative_pnl', { label: 'PnL', format: money, color: '#2563eb', fill: 'rgba(37,99,235,.18)' });
+      drawSeries('arb-curve', data.arb_exec_curve, 'quote_yes_no_cost', { label: 'YES+NO', format: v => fmt(v, 4), color: '#b7791f', fill: 'rgba(183,121,31,.14)', zeroBase: false, minSpan: 0.0001 });
+      document.getElementById('strategy-stats').innerHTML = table(data.strategy_stats, [['Window','window'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct],['Max DD','max_drawdown', money],['Loss Streak','max_loss_streak'],['Best','best_trade', money],['Worst','worst_trade', money],['Top 3 PnL Share','top3_pnl_share', pct]]);
+      document.getElementById('optimizer-stats').innerHTML = table(data.optimizer_stats, [['Strategy','strategy'],['Min Prob','min_prob'],['Min Edge','min_edge'],['Train Trades','train_trades'],['Train PnL','train_pnl', pnl],['Train ROI','train_roi', pct],['Val Trades','validation_trades'],['Val PnL','validation_pnl', pnl],['Val ROI','validation_roi', pct],['Val DD','validation_max_drawdown', money],['Warning','warning']]);
+      document.getElementById('replay-stats').innerHTML = `<div class="muted">Offline replay from opportunities.csv. Candidates and pending include unresolved markets; PnL/ROI use resolved fillable candidates only.</div>` + table(data.replay_stats, [['Strategy','strategy'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable','fillable'],['Up','up_candidates'],['Down','down_candidates'],['Avg Prob','avg_prob'],['Avg Edge','avg_edge'],['Avg Eff Price','avg_effective_price'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('arb-replay').innerHTML = `<div class="muted">Two-sided Up+Down replay from arb_opportunities.csv. Threshold is max fee/depth-adjusted YES+NO cost per payout share.</div>` + table(data.arb_replay, [['Threshold','threshold'],['Candidates','candidates'],['Pending','pending'],['Resolved','resolved'],['Fillable Seen','fillable'],['Profitable','profitable_candidates'],['Avg Cost','avg_yes_no_cost'],['Best','best_yes_no_cost'],['Worst','worst_yes_no_cost'],['Trades','trades'],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('arb-recent').innerHTML = table(data.arb_recent, [['Time','ts', shortTime],['Market','market_id', market],['YES+NO','yes_no_cost'],['PnL','theoretical_pnl_usd', pnl],['ROI','theoretical_roi', pct],['Up Ask','up_best_ask'],['Down Ask','down_best_ask'],['Fillable','fillable'],['Skip','skip_reason']]);
+      document.getElementById('arb-micro-recent').innerHTML = table(data.arb_micro_runner.recent, [['Time','ts', shortTime],['Market','market_id', market],['Initial','initial_yes_no_cost'],['Confirm','confirm_yes_no_cost'],['Would Execute','would_execute'],['PnL','confirm_theoretical_pnl_usd', pnl],['ROI','confirm_theoretical_roi', pct],['Latency ms','quote_latency_ms'],['Skip','skip_reason']]);
+      document.getElementById('quality-prob').innerHTML = `<div class="muted">By Model Prob</div>` + table(data.trade_quality.probability, [['Bucket','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('quality-other').innerHTML = `<div class="muted">By Outcome / Cost</div>` + table([...data.trade_quality.outcome, ...data.trade_quality.cost], [['Group','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('environment-trend').innerHTML = `<div class="muted">BTC Trend: start to close, chop &lt; 0.05%</div>` + table(data.market_environment.trend, [['Regime','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('environment-volatility').innerHTML = `<div class="muted">BTC Volatility: split by median absolute move</div>` + table(data.market_environment.volatility, [['Regime','group'],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', pnl],['ROI','roi', pct]]);
+      document.getElementById('recent').innerHTML = table(data.recent_trades, [['Opened','opened_at', shortTime],['Status','status', status],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['PnL','pnl_usd', pnl],['Market','market_id', market]]);
+      document.getElementById('open').innerHTML = table(data.open_positions, [['Opened','opened_at', shortTime],['Side','outcome'],['Prob','model_prob'],['Cost','cost', money],['Fee','fee', money],['Age','age_min'],['Market','market_id', market]]);
+      document.getElementById('segments').innerHTML = table(data.event_segments, [['Event','event_type'],['Start','ts', time],['Trades','trades'],['Win Rate','win_rate', pct],['PnL','pnl', money],['ROI','roi', pct]]);
+      document.getElementById('reasons').innerHTML = table(data.skip_reasons, [['Reason','reason'],['Count','count']]);
+      document.getElementById('errors').innerHTML = table(data.errors, [['Time','ts', time],['API Error','errors'],['Execution','execution_errors'],['Meaning','execution_reason', reason]]);
+      renderLog('direction-log', data.runner.log_tail);
+      renderLog('arb-exec-log', data.arb_exec_runner.log_tail);
+      renderLog('arb-conservative-log', data.arb_conservative_runner.log_tail);
+      renderLog('arb-lab-log', data.arb_execution_lab_runner.log_tail);
+      renderLog('arb-log', data.arb_runner.log_tail);
+      renderLog('publisher-log', data.publisher.log_tail);
+      scrollLogsToBottom();
+      }).catch(error => {
+        document.getElementById('updated').textContent = `refresh failed: ${error}`;
+      });
+    }
+    bindTabs();
+    refresh();
+    setInterval(refresh, 10000);
+  </script>
+</body>
+</html>

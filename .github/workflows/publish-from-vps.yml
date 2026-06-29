@@ -1,0 +1,42 @@
+name: Publish Dashboard Data
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polylog-publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pull latest summary from VPS
+        env:
+          SUMMARY_URL: ${{ vars.SUMMARY_URL }}
+        run: |
+          test -n "$SUMMARY_URL"
+          curl --fail --silent --show-error --max-time 20 "$SUMMARY_URL" > summary.json
+          python -m json.tool summary.json > /tmp/summary.json
+          mv /tmp/summary.json summary.json
+
+      - name: Commit dashboard data
+        run: |
+          git config user.name "vern33"
+          git config user.email "55816489+vern33@users.noreply.github.com"
+          git add summary.json
+          if git diff --cached --quiet; then
+            echo "No dashboard data changes"
+            exit 0
+          fi
+          git commit -m "Update dashboard data"
+          git push
