@@ -22,8 +22,9 @@ jobs:
 
       - name: Pull latest summary from VPS
         env:
-          SUMMARY_URL: ${{ vars.SUMMARY_URL }}
+          SUMMARY_URL: ${{ secrets.SUMMARY_URL }}
         run: |
+          echo "::add-mask::$SUMMARY_URL"
           test -n "$SUMMARY_URL"
           curl --fail --silent --show-error --max-time 20 "$SUMMARY_URL" > summary.json
           python -m json.tool summary.json > /tmp/summary.json
