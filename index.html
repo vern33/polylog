@@ -270,6 +270,7 @@
       <div id="live-decision"></div>
       <div id="research-loop"></div>
       <section class="runner-board"><h2>Runner Status</h2><div class="muted" style="margin-bottom:10px">Remote health page: check this first. Stale/stopped rows mean the VPS runner or publisher needs attention.</div><div id="overview-runner-board"></div></section>
+      <section class="overview-block"><h2>Scan Schedule</h2><div class="muted" style="margin-bottom:10px">Default VPS scan cadence. Execution runners are intentionally faster; research runners are intentionally slower to limit API and CPU load.</div><div id="scan-schedule"></div></section>
       <section class="overview-block"><h2>Current Data Window</h2><div class="muted" style="margin-bottom:10px">Current VPS-era data is the operating sample. Historical local data is kept only for research context.</div><div id="current-era"></div></section>
       <section><h2>OPEN Positions</h2><div id="overview-open"></div></section>
       <div class="hidden-data">
@@ -746,6 +747,14 @@
         ? `<table class="runner-table"><thead><tr><th>Runner</th><th>Status</th><th>PnL</th><th>ROI</th><th>Sample</th><th>OPEN / Risk</th><th>Latest</th><th>Read</th></tr></thead><tbody>${body}</tbody></table>`
         : '<div class="muted">No runner rows yet</div>';
     }
+    function renderScanSchedule(rows) {
+      setHtml('scan-schedule', table(rows || [], [
+        ['Runner','runner'],
+        ['Purpose','purpose'],
+        ['Interval','interval_label'],
+        ['Notes','notes']
+      ]));
+    }
     function renderArbExecutionTab(data) {
       const rows = (data.runner_comparison || []).filter(row => (row.name || '').startsWith('Arb'));
       setHtml('arb-execution-board', runnerTableHtml(rows));
@@ -1139,6 +1148,7 @@
       }
       document.getElementById('updated').textContent = `latest scan: ${data.latest_scan || 'n/a'} · refreshed: ${new Date().toLocaleTimeString()}`;
       renderOverviewCore(data);
+      renderScanSchedule(data.scan_schedule || []);
       renderArbExecutionTab(data);
       renderDiagnosticsTab(data);
       renderArchiveTab(data);
