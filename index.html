@@ -312,8 +312,9 @@
     </div>
     <div class="tab-panel" id="tab-automation">
       <section><h2>Automation Flow</h2><div class="muted" style="margin-bottom:10px">Quasi-realtime view from public summary.json. This shows what the automated research loop is doing and where live promotion is blocked.</div><div id="automation-flow"></div></section>
+      <section><h2>Schedule / Execution</h2><div id="automation-schedule"></div></section>
       <div class="automation-grid">
-        <section><h2>Action Queue</h2><div id="automation-queue"></div></section>
+        <section><h2>Rolling Action Queue</h2><div id="automation-queue"></div></section>
         <section><h2>Decision Gates</h2><div id="automation-decision"></div></section>
       </div>
       <section><h2>Recent Executor Actions</h2><div id="automation-executor"></div></section>
@@ -988,9 +989,29 @@
         </div>
       `);
       const queueRows = auto.queue || [];
+      const schedule = auto.schedule || {};
+      const scheduleRows = [
+        ['Executor', schedule.executor || 'GitHub Actions research workflow'],
+        ['Cadence', schedule.cadence || 'Every 2 hours'],
+        ['Next planned run', schedule.next_run_beijing || schedule.next_run_utc || 'n/a'],
+        ['Last executor run', auto.executor_latest_ts ? `${time(auto.executor_latest_ts)} (${ageFromTs(auto.executor_latest_ts)} ago)` : 'n/a'],
+        ['Max actions per run', schedule.max_actions_per_run || '2'],
+        ['Queue behavior', schedule.queue_behavior || 'Rolling backlog; a run consumes safe actions, then refreshes discovery and may create new actions.']
+      ];
+      setHtml('automation-schedule', `
+        <div class="read-panel">
+          <div class="read-main ${queueRows.length ? 'warn' : 'good'}">
+            <b>${queueRows.length ? 'Queue is active' : 'Queue is empty'}</b>
+            <div>${schedule.explanation || 'The queue is not an immediate manual to-do list. It is the safe research backlog consumed by scheduled automation.'}</div>
+          </div>
+          <div class="read-list">
+            ${scheduleRows.map(([k, v]) => `<div class="read-row"><span class="muted">${k}</span><b>${v}</b></div>`).join('')}
+          </div>
+        </div>
+      `);
       setHtml(
         'automation-queue',
-        `<div class="muted" style="margin-bottom:8px">${auto.queue_summary || 'No queued safe research actions.'}</div>` +
+        `<div class="muted" style="margin-bottom:8px">${auto.queue_summary || 'No queued safe research actions.'} It is normal for this list to stay non-empty because the executor refreshes the research plan after each run.</div>` +
         `<div class="table-wrap">${table(queueRows, [['Priority','priority'],['Type','type'],['Title','title'],['Safe','safe_to_execute'],['Reason','reason']])}</div>`
       );
       const decision = auto.decision || {};
