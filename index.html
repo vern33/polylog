@@ -98,6 +98,24 @@
     .verdict.more-data { color:#1d4ed8; background:#dbeafe; }
     .verdict.reject { color:#991b1b; background:#fee4e2; }
     .fold-detail { font:11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:var(--text); }
+    .automation-flow { display:grid; grid-template-columns: repeat(7, minmax(112px, 1fr)); gap:10px; }
+    .automation-step { border:1px solid var(--soft-line); border-radius:8px; background:#fff; padding:12px; min-height:118px; position:relative; }
+    .automation-step::after { content:""; position:absolute; right:-8px; top:50%; width:8px; height:1px; background:var(--line); }
+    .automation-step:last-child::after { display:none; }
+    .automation-step .step-label { font-weight:780; margin:6px 0 4px; }
+    .automation-step .step-status { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:760; text-transform:uppercase; color:var(--muted); }
+    .automation-step.good { border-left:3px solid var(--good); }
+    .automation-step.warn { border-left:3px solid var(--warn); }
+    .automation-step.bad { border-left:3px solid var(--bad); }
+    .automation-step.idle { border-left:3px solid var(--accent); }
+    .automation-step .step-metric { color:var(--text); font-size:13px; line-height:1.35; overflow-wrap:anywhere; }
+    .automation-grid { display:grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap:14px; align-items:start; }
+    .automation-decision { border:1px solid var(--soft-line); border-radius:8px; padding:14px; background:var(--panel-soft); }
+    .automation-decision b { display:block; font-size:18px; margin:4px 0 8px; }
+    .automation-decision .gate { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:8px; margin-top:10px; }
+    .automation-decision .gate div { border:1px solid var(--soft-line); border-radius:7px; background:#fff; padding:10px; }
+    .automation-table { table-layout:fixed; min-width:900px; }
+    .automation-table th, .automation-table td { white-space:normal; line-height:1.35; overflow-wrap:anywhere; }
     .breakdown-table { table-layout:fixed; min-width:1320px; }
     .breakdown-table th, .breakdown-table td { white-space:normal; line-height:1.35; overflow-wrap:anywhere; }
     .breakdown-table th:nth-child(1), .breakdown-table td:nth-child(1) { width:190px; }
@@ -252,7 +270,7 @@
     details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
     .hidden-data { display:none; }
     canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
-    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip, .compare, .decision, .read-panel, .era-grid, .command-center, .live-hero, .research-loop { grid-template-columns: 1fr; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } .era-stats, .live-metrics, .research-loop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip, .compare, .decision, .read-panel, .era-grid, .command-center, .live-hero, .research-loop, .automation-grid, .automation-flow { grid-template-columns: 1fr; } .automation-step::after { display:none; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } .era-stats, .live-metrics, .research-loop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   </style>
 </head>
 <body>
@@ -264,6 +282,7 @@
     <div class="tabs">
       <button class="tab active" data-tab="overview">Status</button>
       <button class="tab" data-tab="arb-execution">Execution</button>
+      <button class="tab" data-tab="automation">Automation</button>
       <button class="tab" data-tab="archive">Archive</button>
     </div>
     <div class="tab-panel active" id="tab-overview">
@@ -290,6 +309,14 @@
       <section><h2>Universe Coverage</h2><div class="coverage-note">Shows what each arb runner is actually scanning. This separates BTC/ETH/SOL short crypto markets from generic BINARY_TOP markets.</div><div id="arb-universe-coverage"></div></section>
       <details class="diagnostics"><summary>Execution Failure Reasons</summary><div class="content"><section><div id="arb-execution-reasons"></div></section></div></details>
       <details class="diagnostics"><summary>Recent Arb Attempts</summary><div class="content"><section><div id="arb-execution-attempts"></div></section></div></details>
+    </div>
+    <div class="tab-panel" id="tab-automation">
+      <section><h2>Automation Flow</h2><div class="muted" style="margin-bottom:10px">Quasi-realtime view from public summary.json. This shows what the automated research loop is doing and where live promotion is blocked.</div><div id="automation-flow"></div></section>
+      <div class="automation-grid">
+        <section><h2>Action Queue</h2><div id="automation-queue"></div></section>
+        <section><h2>Decision Gates</h2><div id="automation-decision"></div></section>
+      </div>
+      <section><h2>Recent Executor Actions</h2><div id="automation-executor"></div></section>
     </div>
     <div class="tab-panel" id="tab-archive">
       <section><h2>Strategy Decision Board</h2><div class="muted" style="margin-bottom:10px">Historical decisions and rejected ideas live here. The Status tab is the current operating view.</div><div id="archive-strategy-decisions"></div></section>
@@ -455,7 +482,6 @@
       <section><h2>Arb Paper Exec Log</h2><div class="runner-log" id="arb-conservative-log"></div></section>
       <section><h2>Arb Execution Lab Log</h2><div class="runner-log" id="arb-lab-log"></div></section>
       <section><h2>Legacy Arbitrage Scanner Log</h2><div class="runner-log" id="arb-log"></div></section>
-      <section><h2>Pages Publisher Log</h2><div class="runner-log" id="publisher-log"></div></section>
       <details class="diagnostics"><summary>Diagnostics: API / Execution Errors</summary><div class="content" id="errors"></div></details>
     </div>
   </main>
@@ -807,8 +833,7 @@
       const logs = [
         ['Arb Scanner', data.arb_exec_runner && data.arb_exec_runner.log_tail],
         ['Arb Paper Exec', data.arb_conservative_runner && data.arb_conservative_runner.log_tail],
-        ['Arb Execution Lab', data.arb_execution_lab_runner && data.arb_execution_lab_runner.log_tail],
-        ['Pages Publisher', data.publisher && data.publisher.log_tail]
+        ['Arb Execution Lab', data.arb_execution_lab_runner && data.arb_execution_lab_runner.log_tail]
       ].map(([title, lines]) => `<section><h2>${title}</h2><div class="runner-log">${(lines || []).join('\n')}</div></section>`).join('');
       setHtml('diagnostics-logs', logs);
       setHtml('diagnostics-errors', table(data.errors || [], [['Time','ts', shortTime],['Errors','errors'],['Execution','execution_errors']]));
@@ -938,6 +963,56 @@
           </div>
         </div>
       `);
+    }
+    function renderAutomation(data) {
+      const auto = data.automation || {};
+      const flow = auto.pipeline || [];
+      const toneFor = status => {
+        const normalized = String(status || '').toUpperCase();
+        if (['OK', 'RUNNING', 'READY'].includes(normalized)) return 'good';
+        if (['WATCH', 'WAITING', 'QUEUED', 'OBSERVE'].includes(normalized)) return 'warn';
+        if (['BLOCKED', 'STOPPED', 'ERROR'].includes(normalized)) return 'bad';
+        return 'idle';
+      };
+      setHtml('automation-flow', `
+        <div class="automation-flow">
+          ${flow.map(step => {
+            const tone = toneFor(step.status);
+            return `<div class="automation-step ${tone}">
+              <div class="step-status"><span class="dot ${tone === 'good' ? 'good' : tone === 'warn' ? 'warn' : ''}"></span>${step.status || 'unknown'}</div>
+              <div class="step-label">${step.label || step.id || ''}</div>
+              <div class="step-metric">${step.metric || ''}</div>
+              <div class="muted" style="margin-top:8px">${step.detail || ''}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      `);
+      const queueRows = auto.queue || [];
+      setHtml(
+        'automation-queue',
+        `<div class="muted" style="margin-bottom:8px">${auto.queue_summary || 'No queued safe research actions.'}</div>` +
+        `<div class="table-wrap">${table(queueRows, [['Priority','priority'],['Type','type'],['Title','title'],['Safe','safe_to_execute'],['Reason','reason']])}</div>`
+      );
+      const decision = auto.decision || {};
+      setHtml('automation-decision', `
+        <div class="automation-decision">
+          <div class="muted">Current decision</div>
+          <b>${decision.status || 'UNKNOWN'}</b>
+          <div>${decision.summary || 'No orchestrator decision yet.'}</div>
+          <div class="gate">
+            <div><span class="muted">Runner control</span><b>${decision.runner_control_allowed ? 'allowed' : 'blocked'}</b></div>
+            <div><span class="muted">Live trading</span><b>${decision.live_allowed ? 'allowed' : 'blocked'}</b></div>
+          </div>
+          <div class="muted" style="margin-top:10px">Next action</div>
+          <div>${decision.next_action || 'Continue safe offline research.'}</div>
+        </div>
+      `);
+      const actionRows = auto.executor_actions || [];
+      setHtml(
+        'automation-executor',
+        `<div class="muted" style="margin-bottom:8px">Last executor run: ${time(auto.executor_latest_ts)} · ${auto.executor_summary || 'No executor run yet.'}</div>` +
+        `<div class="table-wrap">${table(actionRows, [['Time','ts', shortTime],['Action','title'],['Type','type'],['Status','status'],['Output','output']])}</div>`
+      );
     }
     function renderOverviewCommand(data) {
       const era = (data.current_era || {}).current || {};
@@ -1150,6 +1225,7 @@
       renderOverviewCore(data);
       renderScanSchedule(data.scan_schedule || []);
       renderArbExecutionTab(data);
+      renderAutomation(data);
       renderDiagnosticsTab(data);
       renderArchiveTab(data);
       renderStrategyDecisions(data.strategy_decisions);
@@ -1274,7 +1350,6 @@
       renderLog('arb-conservative-log', data.arb_conservative_runner.log_tail);
       renderLog('arb-lab-log', data.arb_execution_lab_runner.log_tail);
       renderLog('arb-log', data.arb_runner.log_tail);
-      renderLog('publisher-log', data.publisher.log_tail);
       scrollLogsToBottom();
       }).catch(error => {
         document.getElementById('updated').textContent = `refresh failed: ${error}`;

@@ -26,7 +26,11 @@ jobs:
         run: |
           echo "::add-mask::$SUMMARY_URL"
           test -n "$SUMMARY_URL"
+          INDEX_URL="${SUMMARY_URL%/summary.json}/index.html"
+          echo "::add-mask::$INDEX_URL"
+          curl --fail --silent --show-error --max-time 20 "$INDEX_URL" > index.html
           curl --fail --silent --show-error --max-time 20 "$SUMMARY_URL" > summary.json
+          grep -q "<html" index.html
           python -m json.tool summary.json > /tmp/summary.json
           mv /tmp/summary.json summary.json
 
@@ -34,7 +38,7 @@ jobs:
         run: |
           git config user.name "vern33"
           git config user.email "55816489+vern33@users.noreply.github.com"
-          git add summary.json
+          git add index.html summary.json
           if git diff --cached --quiet; then
             echo "No dashboard data changes"
             exit 0
