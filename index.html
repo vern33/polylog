@@ -121,17 +121,18 @@
     .queue-meta b { display:block; margin-top:4px; font-size:14px; line-height:1.2; overflow-wrap:anywhere; }
     .queue-lane { border:1px solid var(--soft-line); border-radius:8px; background:#fff; overflow:hidden; }
     .queue-lane-title { padding:10px 12px; background:var(--panel-soft); border-bottom:1px solid var(--soft-line); font-weight:780; display:flex; justify-content:space-between; gap:10px; }
+    .queue-section-title { padding:9px 12px; border-bottom:1px solid var(--soft-line); background:#fff; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; display:flex; justify-content:space-between; gap:10px; }
     .queue-items { display:grid; }
     .queue-item { display:grid; grid-template-columns: 150px 130px 1fr 115px; gap:12px; padding:11px 12px; border-bottom:1px solid var(--soft-line); align-items:start; }
     .queue-item:last-child { border-bottom:0; }
     .queue-item.history { border-left:3px solid var(--good); }
-    .queue-item.pending { border-left:3px solid var(--warn); }
+    .queue-item.pending { border-left:3px solid var(--accent); }
     .queue-item .queue-time { font-variant-numeric:tabular-nums; font-weight:650; }
     .queue-item .queue-title { font-weight:720; }
     .queue-item .queue-detail { margin-top:3px; color:var(--muted); font-size:12px; line-height:1.35; overflow-wrap:anywhere; }
     .queue-status { display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:3px 8px; font-size:11px; font-weight:780; background:#e5e7eb; color:var(--text); }
     .queue-status.done { background:#dff7ea; color:#065f46; }
-    .queue-status.pending { background:#fef0c7; color:#92400e; }
+    .queue-status.pending { background:#dbeafe; color:#1d4ed8; }
     details.queue-older { border-top:1px solid var(--soft-line); }
     details.queue-older summary { cursor:pointer; padding:10px 12px; color:var(--muted); font-weight:720; background:#fff; }
     .automation-decision { border:1px solid var(--soft-line); border-radius:8px; padding:14px; background:var(--panel-soft); }
@@ -1011,8 +1012,10 @@
       const queueRows = auto.queue || [];
       const schedule = auto.schedule || {};
       const actionRows = auto.executor_actions || [];
-      const recentHistory = actionRows.slice(0, 10);
-      const olderHistory = actionRows.slice(10);
+      const pendingRows = [...queueRows].sort((a, b) => Number(a.priority ?? 999) - Number(b.priority ?? 999));
+      const historyRows = [...actionRows].sort((a, b) => Date.parse(b.ts || 0) - Date.parse(a.ts || 0));
+      const recentHistory = historyRows.slice(0, 10);
+      const olderHistory = historyRows.slice(10);
       const historyItem = row => `
         <div class="queue-item history">
           <div><div class="muted">Executed</div><div class="queue-time">${time(row.ts)}</div><div class="muted">${ageFromTs(row.ts)} ago</div></div>
@@ -1045,14 +1048,13 @@
               <div><span>Pending</span><b>${auto.queue_summary || 'No queued safe research actions.'}</b></div>
             </div>
           </div>
-          <div class="queue-lane">
-            <div class="queue-lane-title"><span>History</span><span class="muted">latest 10 executed actions</span></div>
+          <div class="queue-lane queue-timeline">
+            <div class="queue-lane-title"><span>Research Queue</span><span class="muted">pending first, then executed history</span></div>
+            <div class="queue-section-title"><span>Pending</span><span>${pendingRows.length} future safe actions</span></div>
+            <div class="queue-items">${pendingRows.length ? pendingRows.map(pendingItem).join('') : '<div class="queue-item"><div class="muted">No pending actions</div></div>'}</div>
+            <div class="queue-section-title"><span>History</span><span>latest 10 executed actions</span></div>
             <div class="queue-items">${recentHistory.length ? recentHistory.map(historyItem).join('') : '<div class="queue-item"><div class="muted">No executor history yet</div></div>'}</div>
             ${olderHistory.length ? `<details class="queue-older"><summary>Older executed actions (${olderHistory.length})</summary><div class="queue-items">${olderHistory.map(historyItem).join('')}</div></details>` : ''}
-          </div>
-          <div class="queue-lane">
-            <div class="queue-lane-title"><span>Pending</span><span class="muted">future safe research actions</span></div>
-            <div class="queue-items">${queueRows.length ? queueRows.map(pendingItem).join('') : '<div class="queue-item"><div class="muted">No pending actions</div></div>'}</div>
           </div>
         </div>`
       );
