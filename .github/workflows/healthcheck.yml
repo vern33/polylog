@@ -6,7 +6,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: polylog-healthcheck
+  cancel-in-progress: false
 
 jobs:
   healthcheck:
@@ -16,45 +20,84 @@ jobs:
       PAGE_BASE_URL: https://vern33.github.io/polylog
       MAX_SCAN_AGE_SECONDS: "1800"
     steps:
-      - name: Check public dashboard
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check public dashboard and repair if stale
+        env:
+          SUMMARY_URL: ${{ secrets.SUMMARY_URL }}
         run: |
+          echo "::add-mask::$SUMMARY_URL"
           python - <<'PY'
           import json
           import os
           import urllib.request
           from datetime import UTC, datetime
+          from pathlib import Path
 
-          base = os.environ["PAGE_BASE_URL"].rstrip("/")
+          public_base = os.environ["PAGE_BASE_URL"].rstrip("/")
+          summary_url = os.environ.get("SUMMARY_URL", "").strip()
           max_age = int(os.environ["MAX_SCAN_AGE_SECONDS"])
 
-          def fetch(path: str) -> bytes:
-              url = f"{base}/{path}"
+          def fetch(url: str) -> bytes:
               req = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
               with urllib.request.urlopen(req, timeout=25) as resp:
                   if resp.status >= 400:
                       raise RuntimeError(f"{url} returned HTTP {resp.status}")
                   return resp.read()
 
-          index = fetch("index.html").decode("utf-8", errors="replace")
-          if "<html" not in index or "Polymarket Strategy Lab" not in index:
-              raise RuntimeError("index.html does not look like the expected dashboard")
+          def validate_summary(raw: bytes) -> tuple[dict, int]:
+              summary = json.loads(raw.decode("utf-8"))
+              latest = summary.get("latest_scan")
+              if not latest:
+                  raise RuntimeError("summary.json is missing latest_scan")
+              latest_dt = datetime.fromisoformat(str(latest).replace("Z", "+00:00"))
+              age = int((datetime.now(UTC) - latest_dt).total_seconds())
+              automation = summary.get("automation")
+              if not isinstance(automation, dict) or len(automation.get("pipeline", [])) < 7:
+                  raise RuntimeError("summary.json is missing the automation pipeline")
+              return summary, age
 
-          summary = json.loads(fetch("summary.json").decode("utf-8"))
-          latest = summary.get("latest_scan")
+          def validate_html(raw: bytes) -> str:
+              html = raw.decode("utf-8", errors="replace")
+              if "<html" not in html or "Polymarket Strategy Lab" not in html:
+                  raise RuntimeError("index.html does not look like the expected dashboard")
+              return html
+
+          validate_html(fetch(f"{public_base}/index.html"))
+          public_summary, public_age = validate_summary(fetch(f"{public_base}/summary.json"))
+          if public_age <= max_age:
+              print(json.dumps({"ok": True, "source": "public", "latest_scan_age_sec": public_age}, ensure_ascii=False))
+              raise SystemExit(0)
+
+          if not summary_url:
+              raise RuntimeError(f"public dashboard stale and SUMMARY_URL is not configured: age={public_age}s")
+
+          source_base = summary_url.rsplit("/", 1)[0]
+          source_index = validate_html(fetch(f"{source_base}/index.html"))
+          source_summary, source_age = validate_summary(fetch(summary_url))
+          latest = source_summary.get("latest_scan")
           if not latest:
-              raise RuntimeError("summary.json is missing latest_scan")
+              raise RuntimeError("source summary is missing latest_scan")
+          if source_age > max_age:
+              raise RuntimeError(f"public and source dashboards are stale: public_age={public_age}s source_age={source_age}s latest_scan={latest}")
 
-          latest_dt = datetime.fromisoformat(str(latest).replace("Z", "+00:00"))
-          age = int((datetime.now(UTC) - latest_dt).total_seconds())
-          if age > max_age:
-              raise RuntimeError(f"latest_scan is stale: age={age}s latest_scan={latest}")
-
-          automation = summary.get("automation")
-          if not isinstance(automation, dict) or len(automation.get("pipeline", [])) < 7:
-              raise RuntimeError("summary.json is missing the automation pipeline")
-
-          print(json.dumps({"ok": True, "latest_scan_age_sec": age}, ensure_ascii=False))
+          Path("index.html").write_text(source_index, encoding="utf-8")
+          Path("summary.json").write_text(json.dumps(source_summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          print(json.dumps({"ok": True, "source": "repair", "public_age_sec": public_age, "source_age_sec": source_age}, ensure_ascii=False))
           PY
+
+      - name: Commit repaired dashboard data
+        run: |
+          git config user.name "vern33"
+          git config user.email "55816489+vern33@users.noreply.github.com"
+          git add index.html summary.json
+          if git diff --cached --quiet; then
+            echo "No dashboard repair changes"
+            exit 0
+          fi
+          git commit -m "Repair dashboard data from healthcheck"
+          git push
 
       - name: Notify Telegram on failure
         if: failure()
