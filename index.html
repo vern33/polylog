@@ -110,6 +110,30 @@
     .automation-step.idle { border-left:3px solid var(--accent); }
     .automation-step .step-metric { color:var(--text); font-size:13px; line-height:1.35; overflow-wrap:anywhere; }
     .automation-grid { display:grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap:14px; align-items:start; }
+    .queue-shell { display:grid; gap:14px; }
+    .queue-summary { display:grid; gap:10px; grid-template-columns: 1.15fr 1.85fr; align-items:stretch; }
+    .queue-summary-main { border:1px solid var(--soft-line); border-left:4px solid var(--warn); border-radius:8px; padding:13px; background:var(--panel-soft); }
+    .queue-summary-main.good { border-left-color:var(--good); }
+    .queue-summary-main b { display:block; font-size:17px; margin-bottom:6px; }
+    .queue-meta { display:grid; gap:8px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .queue-meta div { border:1px solid var(--soft-line); border-radius:8px; padding:10px; background:#fff; min-height:58px; }
+    .queue-meta span { display:block; color:var(--muted); font-size:11px; }
+    .queue-meta b { display:block; margin-top:4px; font-size:14px; line-height:1.2; overflow-wrap:anywhere; }
+    .queue-lane { border:1px solid var(--soft-line); border-radius:8px; background:#fff; overflow:hidden; }
+    .queue-lane-title { padding:10px 12px; background:var(--panel-soft); border-bottom:1px solid var(--soft-line); font-weight:780; display:flex; justify-content:space-between; gap:10px; }
+    .queue-items { display:grid; }
+    .queue-item { display:grid; grid-template-columns: 150px 130px 1fr 115px; gap:12px; padding:11px 12px; border-bottom:1px solid var(--soft-line); align-items:start; }
+    .queue-item:last-child { border-bottom:0; }
+    .queue-item.history { border-left:3px solid var(--good); }
+    .queue-item.pending { border-left:3px solid var(--warn); }
+    .queue-item .queue-time { font-variant-numeric:tabular-nums; font-weight:650; }
+    .queue-item .queue-title { font-weight:720; }
+    .queue-item .queue-detail { margin-top:3px; color:var(--muted); font-size:12px; line-height:1.35; overflow-wrap:anywhere; }
+    .queue-status { display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:3px 8px; font-size:11px; font-weight:780; background:#e5e7eb; color:var(--text); }
+    .queue-status.done { background:#dff7ea; color:#065f46; }
+    .queue-status.pending { background:#fef0c7; color:#92400e; }
+    details.queue-older { border-top:1px solid var(--soft-line); }
+    details.queue-older summary { cursor:pointer; padding:10px 12px; color:var(--muted); font-weight:720; background:#fff; }
     .automation-decision { border:1px solid var(--soft-line); border-radius:8px; padding:14px; background:var(--panel-soft); }
     .automation-decision b { display:block; font-size:18px; margin:4px 0 8px; }
     .automation-decision .gate { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:8px; margin-top:10px; }
@@ -270,7 +294,7 @@
     details.diagnostics .content { padding:0 15px 15px; overflow:auto; }
     .hidden-data { display:none; }
     canvas { width:100%; height:260px; border:1px solid var(--soft-line); border-radius:8px; background:linear-gradient(#fff,#fbfcfe); }
-    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip, .compare, .decision, .read-panel, .era-grid, .command-center, .live-hero, .research-loop, .automation-grid, .automation-flow { grid-template-columns: 1fr; } .automation-step::after { display:none; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } .era-stats, .live-metrics, .research-loop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 980px) { .grid, .status-metrics { grid-template-columns: repeat(2, 1fr); } .cols, .trade-cols, .runner, .runner.compact, .sample, .status-strip, .compare, .decision, .read-panel, .era-grid, .command-center, .live-hero, .research-loop, .automation-grid, .automation-flow, .queue-summary, .queue-meta, .queue-item { grid-template-columns: 1fr; } .automation-step::after { display:none; } .runner-details { grid-template-columns: repeat(2, 1fr); } header { display:block; } .era-stats, .live-metrics, .research-loop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   </style>
 </head>
 <body>
@@ -312,12 +336,8 @@
     </div>
     <div class="tab-panel" id="tab-automation">
       <section><h2>Automation Flow</h2><div class="muted" style="margin-bottom:10px">Quasi-realtime view from public summary.json. This shows what the automated research loop is doing and where live promotion is blocked.</div><div id="automation-flow"></div></section>
-      <section><h2>Schedule / Execution</h2><div id="automation-schedule"></div></section>
-      <div class="automation-grid">
-        <section><h2>Rolling Action Queue</h2><div id="automation-queue"></div></section>
-        <section><h2>Decision Gates</h2><div id="automation-decision"></div></section>
-      </div>
-      <section><h2>Recent Executor Actions</h2><div id="automation-executor"></div></section>
+      <section><h2>Research Queue</h2><div id="automation-queue"></div></section>
+      <section><h2>Decision Gates</h2><div id="automation-decision"></div></section>
     </div>
     <div class="tab-panel" id="tab-archive">
       <section><h2>Strategy Decision Board</h2><div class="muted" style="margin-bottom:10px">Historical decisions and rejected ideas live here. The Status tab is the current operating view.</div><div id="archive-strategy-decisions"></div></section>
@@ -990,29 +1010,51 @@
       `);
       const queueRows = auto.queue || [];
       const schedule = auto.schedule || {};
-      const scheduleRows = [
-        ['Executor', schedule.executor || 'GitHub Actions research workflow'],
-        ['Cadence', schedule.cadence || 'Every 2 hours'],
-        ['Next planned run', schedule.next_run_beijing || schedule.next_run_utc || 'n/a'],
-        ['Last executor run', auto.executor_latest_ts ? `${time(auto.executor_latest_ts)} (${ageFromTs(auto.executor_latest_ts)} ago)` : 'n/a'],
-        ['Max actions per run', schedule.max_actions_per_run || '2'],
-        ['Queue behavior', schedule.queue_behavior || 'Rolling backlog; a run consumes safe actions, then refreshes discovery and may create new actions.']
-      ];
-      setHtml('automation-schedule', `
-        <div class="read-panel">
-          <div class="read-main ${queueRows.length ? 'warn' : 'good'}">
-            <b>${queueRows.length ? 'Queue is active' : 'Queue is empty'}</b>
-            <div>${schedule.explanation || 'The queue is not an immediate manual to-do list. It is the safe research backlog consumed by scheduled automation.'}</div>
-          </div>
-          <div class="read-list">
-            ${scheduleRows.map(([k, v]) => `<div class="read-row"><span class="muted">${k}</span><b>${v}</b></div>`).join('')}
-          </div>
-        </div>
-      `);
+      const actionRows = auto.executor_actions || [];
+      const recentHistory = actionRows.slice(0, 10);
+      const olderHistory = actionRows.slice(10);
+      const historyItem = row => `
+        <div class="queue-item history">
+          <div><div class="muted">Executed</div><div class="queue-time">${time(row.ts)}</div><div class="muted">${ageFromTs(row.ts)} ago</div></div>
+          <div><span class="queue-status done">${row.status || 'done'}</span><div class="queue-detail">${row.type || ''}</div></div>
+          <div><div class="queue-title">${row.title || ''}</div><div class="queue-detail">${row.output || ''}</div></div>
+          <div class="muted">history</div>
+        </div>`;
+      const pendingItem = row => `
+        <div class="queue-item pending">
+          <div><div class="muted">Pending</div><div class="queue-time">priority ${row.priority ?? ''}</div></div>
+          <div><span class="queue-status pending">${row.safe_to_execute === 'yes' ? 'safe' : 'blocked'}</span><div class="queue-detail">${row.type || ''}</div></div>
+          <div><div class="queue-title">${row.title || ''}</div><div class="queue-detail">${row.reason || ''}</div></div>
+          <div class="muted">queued</div>
+        </div>`;
       setHtml(
         'automation-queue',
-        `<div class="muted" style="margin-bottom:8px">${auto.queue_summary || 'No queued safe research actions.'} It is normal for this list to stay non-empty because the executor refreshes the research plan after each run.</div>` +
-        `<div class="table-wrap">${table(queueRows, [['Priority','priority'],['Type','type'],['Title','title'],['Safe','safe_to_execute'],['Reason','reason']])}</div>`
+        `<div class="queue-shell">
+          <div class="queue-summary">
+            <div class="queue-summary-main ${queueRows.length ? '' : 'good'}">
+              <b>${queueRows.length ? 'Queue is active' : 'Queue is empty'}</b>
+              <div>${schedule.explanation || 'The queue is a safe research backlog consumed by scheduled automation.'}</div>
+              <div class="muted" style="margin-top:8px">${schedule.queue_behavior || 'Rolling backlog; each run handles a bounded batch and then refreshes discovery.'}</div>
+            </div>
+            <div class="queue-meta">
+              <div><span>Executor</span><b>${schedule.executor || 'GitHub Actions research workflow'}</b></div>
+              <div><span>Cadence</span><b>${schedule.cadence || 'Every 2 hours'}</b></div>
+              <div><span>Next planned run</span><b>${schedule.next_run_beijing || schedule.next_run_utc || 'n/a'}</b></div>
+              <div><span>Last executor run</span><b>${auto.executor_latest_ts ? `${time(auto.executor_latest_ts)} (${ageFromTs(auto.executor_latest_ts)} ago)` : 'n/a'}</b></div>
+              <div><span>Max actions / run</span><b>${schedule.max_actions_per_run || '2'}</b></div>
+              <div><span>Pending</span><b>${auto.queue_summary || 'No queued safe research actions.'}</b></div>
+            </div>
+          </div>
+          <div class="queue-lane">
+            <div class="queue-lane-title"><span>History</span><span class="muted">latest 10 executed actions</span></div>
+            <div class="queue-items">${recentHistory.length ? recentHistory.map(historyItem).join('') : '<div class="queue-item"><div class="muted">No executor history yet</div></div>'}</div>
+            ${olderHistory.length ? `<details class="queue-older"><summary>Older executed actions (${olderHistory.length})</summary><div class="queue-items">${olderHistory.map(historyItem).join('')}</div></details>` : ''}
+          </div>
+          <div class="queue-lane">
+            <div class="queue-lane-title"><span>Pending</span><span class="muted">future safe research actions</span></div>
+            <div class="queue-items">${queueRows.length ? queueRows.map(pendingItem).join('') : '<div class="queue-item"><div class="muted">No pending actions</div></div>'}</div>
+          </div>
+        </div>`
       );
       const decision = auto.decision || {};
       setHtml('automation-decision', `
@@ -1028,12 +1070,6 @@
           <div>${decision.next_action || 'Continue safe offline research.'}</div>
         </div>
       `);
-      const actionRows = auto.executor_actions || [];
-      setHtml(
-        'automation-executor',
-        `<div class="muted" style="margin-bottom:8px">Last executor run: ${time(auto.executor_latest_ts)} · ${auto.executor_summary || 'No executor run yet.'}</div>` +
-        `<div class="table-wrap">${table(actionRows, [['Time','ts', shortTime],['Action','title'],['Type','type'],['Status','status'],['Output','output']])}</div>`
-      );
     }
     function renderOverviewCommand(data) {
       const era = (data.current_era || {}).current || {};
