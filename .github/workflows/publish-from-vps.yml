@@ -26,15 +26,9 @@ jobs:
         run: |
           echo "::add-mask::$SUMMARY_URL"
           test -n "$SUMMARY_URL"
-          INDEX_URL="${SUMMARY_URL%/summary.json}/index.html"
-          echo "::add-mask::$INDEX_URL"
-          if ! curl --fail --silent --show-error --max-time 20 "$INDEX_URL" > /tmp/index.html; then
-            echo "index.html was not available at SUMMARY_URL base; keeping checked-in index.html"
-          elif grep -q "<html" /tmp/index.html; then
-            mv /tmp/index.html index.html
-          else
-            echo "Fetched index.html did not look like HTML; keeping checked-in index.html"
-          fi
+          # The VPS intentionally exposes only summary.json. Keep the checked-in
+          # static UI and refresh data only, so the public endpoint does not need
+          # to serve index.html.
           curl --fail --silent --show-error --max-time 20 "$SUMMARY_URL" > summary.json
           grep -q "<html" index.html
           python -m json.tool summary.json > /tmp/summary.json

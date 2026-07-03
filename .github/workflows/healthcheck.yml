@@ -73,8 +73,6 @@ jobs:
           if not summary_url:
               raise RuntimeError(f"public dashboard stale and SUMMARY_URL is not configured: age={public_age}s")
 
-          source_base = summary_url.rsplit("/", 1)[0]
-          source_index = validate_html(fetch(f"{source_base}/index.html"))
           source_summary, source_age = validate_summary(fetch(summary_url))
           latest = source_summary.get("latest_scan")
           if not latest:
@@ -82,7 +80,8 @@ jobs:
           if source_age > max_age:
               raise RuntimeError(f"public and source dashboards are stale: public_age={public_age}s source_age={source_age}s latest_scan={latest}")
 
-          Path("index.html").write_text(source_index, encoding="utf-8")
+          # The private VPS endpoint exposes summary.json only. Repair data from
+          # that endpoint while keeping the checked-in static UI.
           Path("summary.json").write_text(json.dumps(source_summary, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
           print(json.dumps({"ok": True, "source": "repair", "public_age_sec": public_age, "source_age_sec": source_age}, ensure_ascii=False))
           PY
