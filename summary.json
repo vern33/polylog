@@ -4815,7 +4815,7 @@
         "latency_p50_ms": 191,
         "latency_p95_ms": 230,
         "latest_scan": "2026-07-16T23:05:47.347829+00:00",
-        "latest_scan_age_sec": 3326770,
+        "latest_scan_age_sec": 3328349,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -10707,7 +10707,7 @@
         "latency_p50_ms": 178,
         "latency_p95_ms": 220,
         "latest_scan": "2026-07-03T05:19:55.774856+00:00",
-        "latest_scan_age_sec": 4513921,
+        "latest_scan_age_sec": 4515500,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -16448,7 +16448,7 @@
         "latency_p50_ms": 206,
         "latency_p95_ms": 267,
         "latest_scan": "2026-08-22T19:09:45.685748+00:00",
-        "latest_scan_age_sec": 144133,
+        "latest_scan_age_sec": 145712,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -18196,7 +18196,7 @@
         "expected_interval_sec": 30,
         "fillable": 4552,
         "latest_scan": "2026-07-08T05:08:06.131453+00:00",
-        "latest_scan_age_sec": 4082632,
+        "latest_scan_age_sec": 4084212,
         "latest_theoretical_pnl_usd": -0.013032,
         "latest_theoretical_roi": -0.0026,
         "latest_yes_no_cost": 1.002606,
@@ -18817,7 +18817,7 @@
             "cron": "17 */2 * * *",
             "executor": "GitHub Actions: Polybot Research",
             "explanation": "Scheduled automation processes safe research tasks only. It does not start live trading, use private keys, or control real-money runners.",
-            "latest_executor_age_sec": 3308,
+            "latest_executor_age_sec": 4887,
             "max_actions_per_run": 2,
             "next_run_beijing": "2026-08-24 20:17 CST",
             "next_run_utc": "2026-08-24T12:17:00+00:00",
@@ -18864,17 +18864,17 @@
         "expected_interval_sec": 600,
         "high_confidence": 0,
         "last_reason": "missing_kalshi_input",
-        "latest_scan": "2026-08-24T11:07:24.521618+00:00",
-        "latest_scan_age_sec": 274,
+        "latest_scan": "2026-08-24T11:37:24.733125+00:00",
+        "latest_scan_age_sec": 53,
         "log_tail": [
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T09:57:23.985743+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T10:07:24.049095+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T10:17:24.117116+00:00\"}",
             "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T10:27:24.180006+00:00\"}",
             "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T10:37:24.254137+00:00\"}",
             "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T10:47:24.380764+00:00\"}",
             "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T10:57:24.440956+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T11:07:24.521618+00:00\"}"
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T11:07:24.521618+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T11:17:24.589643+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T11:27:24.661348+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-08-24T11:37:24.733125+00:00\"}"
         ],
         "pairs": 0,
         "running": true,
@@ -19126,30 +19126,30 @@
     ],
     "fees": 0,
     "high_favorite_runner": {
-        "latest_scan": "2026-08-24T11:11:38.758645+00:00",
-        "latest_scan_age_sec": 17,
+        "latest_scan": "2026-08-24T11:38:07.908322+00:00",
+        "latest_scan_age_sec": 8,
         "log_tail": [
-            "{\"ts\": \"2026-08-24T11:07:00.552506+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802053:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=76781952044600757511245701203435622541977638517519014335999901087948808452360 failed: HTTP Error 403: Forbidden; 3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:07:00.552506+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:07:31.472065+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802053:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=76781952044600757511245701203435622541977638517519014335999901087948808452360 failed: HTTP Error 403: Forbidden; 3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:07:31.472065+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:08:02.400603+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802053:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=76781952044600757511245701203435622541977638517519014335999901087948808452360 failed: HTTP Error 403: Forbidden; 3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:08:02.400603+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:08:33.305632+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802053:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=76781952044600757511245701203435622541977638517519014335999901087948808452360 failed: HTTP Error 403: Forbidden; 3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:08:33.305632+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:09:04.206576+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802053:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=76781952044600757511245701203435622541977638517519014335999901087948808452360 failed: HTTP Error 403: Forbidden; 3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:09:04.206576+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:09:35.115576+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802053:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=76781952044600757511245701203435622541977638517519014335999901087948808452360 failed: HTTP Error 403: Forbidden; 3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:09:35.115576+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:10:05.986603+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden; 3802553:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=101854458893811205497608418176592828004139381739872034665309633242975258046509 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:10:05.986603+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:10:36.926604+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden; 3802553:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=101854458893811205497608418176592828004139381739872034665309633242975258046509 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:10:36.926604+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:11:07.794541+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"3802386:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=6775023549612270944267815646381683828432107457829748128342893191157136377882 failed: HTTP Error 403: Forbidden; 3802553:orderbook_fetch_failed:GET https://clob.polymarket.com/book?token_id=101854458893811205497608418176592828004139381739872034665309633242975258046509 failed: HTTP Error 403: Forbidden\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:11:07.794541+00:00\", \"latest_scan_age_sec\": 0, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-08-24T11:11:38.758645+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4451, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.820000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 4451, \"open\": 0, \"wins\": 4349, \"win_rate\": 0.9770838013929454, \"pnl\": -201.657222, \"roi\": -0.004532, \"latest_scan\": \"2026-08-24T11:11:38.758645+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}"
+            "{\"ts\": \"2026-08-24T11:33:27.404367+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4452, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.490000\", \"errors\": \"3802763:no_asks\", \"running\": true, \"pid\": 77887, \"trades\": 4453, \"open\": 1, \"wins\": 4350, \"win_rate\": 0.977088948787062, \"pnl\": -201.563278, \"roi\": -0.004529, \"latest_scan\": \"2026-08-24T11:33:27.404367+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:33:58.504400+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4452, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.490000\", \"errors\": \"3802763:no_asks\", \"running\": true, \"pid\": 77887, \"trades\": 4453, \"open\": 1, \"wins\": 4350, \"win_rate\": 0.977088948787062, \"pnl\": -201.563278, \"roi\": -0.004529, \"latest_scan\": \"2026-08-24T11:33:58.504400+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:34:29.690229+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4452, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.480000\", \"errors\": \"3802763:no_asks\", \"running\": true, \"pid\": 77887, \"trades\": 4453, \"open\": 1, \"wins\": 4350, \"win_rate\": 0.977088948787062, \"pnl\": -201.563278, \"roi\": -0.004529, \"latest_scan\": \"2026-08-24T11:34:29.690229+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:35:00.883134+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4452, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.710000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 4453, \"open\": 1, \"wins\": 4350, \"win_rate\": 0.977088948787062, \"pnl\": -201.563278, \"roi\": -0.004529, \"latest_scan\": \"2026-08-24T11:35:00.883134+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:35:32.029106+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4453, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.910000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 4453, \"open\": 0, \"wins\": 4351, \"win_rate\": 0.9770940938693016, \"pnl\": -201.275604, \"roi\": -0.004522, \"latest_scan\": \"2026-08-24T11:35:32.029106+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:36:03.227666+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4453, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.930000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 4453, \"open\": 0, \"wins\": 4351, \"win_rate\": 0.9770940938693016, \"pnl\": -201.275604, \"roi\": -0.004522, \"latest_scan\": \"2026-08-24T11:36:03.227666+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:36:34.384844+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 1, \"placed\": 1, \"settled\": 4453, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.970000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 4454, \"open\": 1, \"wins\": 4351, \"win_rate\": 0.9770940938693016, \"pnl\": -201.275604, \"roi\": -0.004522, \"latest_scan\": \"2026-08-24T11:36:34.384844+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:37:05.565612+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 1, \"placed\": 0, \"settled\": 4453, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.990000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 4454, \"open\": 1, \"wins\": 4351, \"win_rate\": 0.9770940938693016, \"pnl\": -201.275604, \"roi\": -0.004522, \"latest_scan\": \"2026-08-24T11:37:05.565612+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:37:36.726684+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4453, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.470000\", \"errors\": \"3802807:no_asks\", \"running\": true, \"pid\": 77887, \"trades\": 4454, \"open\": 1, \"wins\": 4351, \"win_rate\": 0.9770940938693016, \"pnl\": -201.275604, \"roi\": -0.004522, \"latest_scan\": \"2026-08-24T11:37:36.726684+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-08-24T11:38:07.908322+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 4453, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.500000\", \"errors\": \"3802807:no_asks\", \"running\": true, \"pid\": 77887, \"trades\": 4454, \"open\": 1, \"wins\": 4351, \"win_rate\": 0.9770940938693016, \"pnl\": -201.275604, \"roi\": -0.004522, \"latest_scan\": \"2026-08-24T11:38:07.908322+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}"
         ],
-        "open": 0,
+        "open": 1,
         "pid": 77887,
-        "pnl": -201.657222,
-        "roi": -0.004532,
+        "pnl": -201.275604,
+        "roi": -0.004522,
         "running": true,
-        "settled": 4451,
+        "settled": 4453,
         "stale": false,
-        "trades": 4451,
-        "win_rate": 0.9770838013929454,
-        "wins": 4349
+        "trades": 4454,
+        "win_rate": 0.9770940938693016,
+        "wins": 4351
     },
     "high_prob": {
         "eligible_markets": 0,
@@ -19256,7 +19256,7 @@
         "win_rate": 0.0
     },
     "last_btc": 0.0,
-    "latest_scan": "2026-08-24T11:11:38.758645+00:00",
+    "latest_scan": "2026-08-24T11:38:07.908322+00:00",
     "live_decision": {
         "detail": "Current data does not show repeatable executable arbitrage. Keep this as diagnostics, not a trading system.",
         "metrics": [
@@ -19290,7 +19290,7 @@
             ],
             [
                 "Latest Age",
-                "3326770s"
+                "3328349s"
             ]
         ],
         "next_actions": [
@@ -20105,20 +20105,20 @@
             "trades": 0
         },
         {
-            "age": "17s",
+            "age": "8s",
             "name": "High-Favorite Current",
-            "open": 0,
-            "pnl": -201.657222,
+            "open": 1,
+            "pnl": -201.275604,
             "read": "Current live-like paper evidence; not a live candidate until settled sample is large.",
-            "roi": -0.004532,
+            "roi": -0.004522,
             "running": true,
             "stale": false,
             "status": "RUNNING",
             "subtitle": "BTC 5m UP ask >= 0.97 paper collector",
-            "trades": 4451
+            "trades": 4453
         },
         {
-            "age": "4513921s",
+            "age": "4515500s",
             "name": "Arb Scanner",
             "open": 0,
             "pnl": 0.0,
@@ -20131,7 +20131,7 @@
             "trades": 0
         },
         {
-            "age": "3326770s",
+            "age": "3328349s",
             "name": "Arb Paper Exec",
             "open": 0,
             "pnl": 0.3272,
@@ -20144,7 +20144,7 @@
             "trades": 1
         },
         {
-            "age": "144133s",
+            "age": "145712s",
             "name": "Arb Execution Lab",
             "open": 4,
             "pnl": 2.658957,
@@ -20157,7 +20157,7 @@
             "trades": 6
         },
         {
-            "age": "64s",
+            "age": "143s",
             "name": "Sports Relation Lab",
             "open": 0,
             "pnl": 0.0,
@@ -20170,7 +20170,7 @@
             "trades": 0
         },
         {
-            "age": "274s",
+            "age": "53s",
             "name": "Kalshi Mapping Lab",
             "open": 0,
             "pnl": 0.0,
@@ -20270,17 +20270,17 @@
         "best_roi": 0.0,
         "error_count": 2,
         "expected_interval_sec": 300,
-        "latest_scan": "2026-08-24T11:10:54.520064+00:00",
-        "latest_scan_age_sec": 64,
+        "latest_scan": "2026-08-24T11:35:55.421173+00:00",
+        "latest_scan_age_sec": 143,
         "log_tail": [
-            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T10:35:53.240964+00:00\"}",
-            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T10:40:53.428187+00:00\"}",
-            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T10:45:53.591320+00:00\"}",
-            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T10:50:53.803714+00:00\"}",
-            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T10:55:53.980192+00:00\"}",
             "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:00:54.150438+00:00\"}",
             "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:05:54.351002+00:00\"}",
-            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:10:54.520064+00:00\"}"
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:10:54.520064+00:00\"}",
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:15:54.680141+00:00\"}",
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:20:54.860391+00:00\"}",
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:25:55.044215+00:00\"}",
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:30:55.225276+00:00\"}",
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 0, \"status\": \"ok\", \"ts\": \"2026-08-24T11:35:55.421173+00:00\"}"
         ],
         "positive": 0,
         "priced": 0,
@@ -20657,18 +20657,18 @@
             "runner:Arb Scanner"
         ],
         "log_tail": [
-            "{\"ts\": \"2026-08-24T10:13:32.054811+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-08-24T10:18:32.065033+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-08-24T10:23:32.841678+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-08-24T10:28:32.849568+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-08-24T10:33:33.925832+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
             "{\"ts\": \"2026-08-24T10:38:33.933635+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
             "{\"ts\": \"2026-08-24T10:43:33.941633+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
             "{\"ts\": \"2026-08-24T10:48:33.950638+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
             "{\"ts\": \"2026-08-24T10:53:34.713085+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
             "{\"ts\": \"2026-08-24T10:58:34.720871+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
             "{\"ts\": \"2026-08-24T11:03:35.110803+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-08-24T11:08:35.118529+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}"
+            "{\"ts\": \"2026-08-24T11:08:35.118529+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-08-24T11:13:35.126438+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-08-24T11:18:35.134262+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-08-24T11:23:35.911888+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-08-24T11:28:35.920066+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-08-24T11:33:36.315642+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}"
         ],
         "running": true,
         "seen_research_count": 0,
