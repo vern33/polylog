@@ -4815,7 +4815,7 @@
         "latency_p50_ms": 191,
         "latency_p95_ms": 230,
         "latest_scan": "2026-07-16T23:05:47.347829+00:00",
-        "latest_scan_age_sec": 5032256,
+        "latest_scan_age_sec": 5050582,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -10707,7 +10707,7 @@
         "latency_p50_ms": 178,
         "latency_p95_ms": 220,
         "latest_scan": "2026-07-03T05:19:55.774856+00:00",
-        "latest_scan_age_sec": 6219407,
+        "latest_scan_age_sec": 6237733,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -16448,7 +16448,7 @@
         "latency_p50_ms": 206,
         "latency_p95_ms": 267,
         "latest_scan": "2026-08-22T19:09:45.685748+00:00",
-        "latest_scan_age_sec": 1849619,
+        "latest_scan_age_sec": 1867945,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -18196,7 +18196,7 @@
         "expected_interval_sec": 30,
         "fillable": 4552,
         "latest_scan": "2026-07-08T05:08:06.131453+00:00",
-        "latest_scan_age_sec": 5788119,
+        "latest_scan_age_sec": 5806444,
         "latest_theoretical_pnl_usd": -0.013032,
         "latest_theoretical_roi": -0.0026,
         "latest_yes_no_cost": 1.002606,
@@ -18577,6 +18577,48 @@
                 "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
                 "status": "completed",
                 "title": "Refresh research orchestrator after executor actions",
+                "ts": "2026-09-13T08:17:01.187718+00:00",
+                "type": "orchestrator_refresh"
+            },
+            {
+                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
+                "ts": "2026-09-13T08:17:01.187718+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
+                "ts": "2026-09-13T08:17:01.187718+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
+                "status": "completed",
+                "title": "Refresh research orchestrator after executor actions",
+                "ts": "2026-09-13T06:17:01.597864+00:00",
+                "type": "orchestrator_refresh"
+            },
+            {
+                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
+                "ts": "2026-09-13T06:17:01.597864+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
+                "ts": "2026-09-13T06:17:01.597864+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
+                "status": "completed",
+                "title": "Refresh research orchestrator after executor actions",
                 "ts": "2026-09-13T04:17:02.042894+00:00",
                 "type": "orchestrator_refresh"
             },
@@ -18669,59 +18711,17 @@
                 "status": "completed",
                 "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
                 "ts": "2026-09-12T20:17:01.749905+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
-                "ts": "2026-09-12T20:17:01.749905+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
-                "status": "completed",
-                "title": "Refresh research orchestrator after executor actions",
-                "ts": "2026-09-12T18:17:02.153827+00:00",
-                "type": "orchestrator_refresh"
-            },
-            {
-                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
-                "ts": "2026-09-12T18:17:02.153827+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
-                "ts": "2026-09-12T18:17:02.153827+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
-                "status": "completed",
-                "title": "Refresh research orchestrator after executor actions",
-                "ts": "2026-09-12T16:17:01.578802+00:00",
-                "type": "orchestrator_refresh"
-            },
-            {
-                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
-                "ts": "2026-09-12T16:17:01.578802+00:00",
                 "type": "data_requirement"
             }
         ],
-        "executor_latest_ts": "2026-09-13T04:17:02.042894+00:00",
+        "executor_latest_ts": "2026-09-13T08:17:01.187718+00:00",
         "executor_summary": "3 actions executed from 6 seen.",
         "pipeline": [
             {
                 "detail": "Public strategy discovery and deterministic validators.",
                 "id": "discover",
                 "label": "Discover",
-                "metric": "last run 2026-09-13T04:17:02.045640+00:00",
+                "metric": "last run 2026-09-13T08:17:01.190133+00:00",
                 "status": "OK"
             },
             {
@@ -18817,10 +18817,10 @@
             "cron": "17 */2 * * *",
             "executor": "GitHub Actions: Polybot Research",
             "explanation": "Scheduled automation processes safe research tasks only. It does not start live trading, use private keys, or control real-money runners.",
-            "latest_executor_age_sec": 2393,
+            "latest_executor_age_sec": 6319,
             "max_actions_per_run": 2,
-            "next_run_beijing": "2026-09-13 14:17 CST",
-            "next_run_utc": "2026-09-13T06:17:00+00:00",
+            "next_run_beijing": "2026-09-13 18:17 CST",
+            "next_run_utc": "2026-09-13T10:17:00+00:00",
             "queue_behavior": "Rolling backlog; each run handles a bounded batch and then refreshes discovery, so pending items can remain.",
             "workflow": ".github/workflows/research.yml"
         }
@@ -18864,17 +18864,17 @@
         "expected_interval_sec": 600,
         "high_confidence": 0,
         "last_reason": "missing_kalshi_input",
-        "latest_scan": "2026-09-13T04:51:11.009374+00:00",
-        "latest_scan_age_sec": 334,
+        "latest_scan": "2026-09-13T10:01:13.156827+00:00",
+        "latest_scan_age_sec": 57,
         "log_tail": [
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T03:41:10.572600+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T03:51:10.631589+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T04:01:10.692653+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T04:11:10.761035+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T04:21:10.818410+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T04:31:10.883820+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T04:41:10.952346+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T04:51:11.009374+00:00\"}"
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T08:51:12.657143+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T09:01:12.737446+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T09:11:12.797641+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T09:21:12.872213+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T09:31:12.931812+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T09:41:13.007473+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T09:51:13.079167+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-13T10:01:13.156827+00:00\"}"
         ],
         "pairs": 0,
         "running": true,
@@ -19126,30 +19126,30 @@
     ],
     "fees": 0,
     "high_favorite_runner": {
-        "latest_scan": "2026-09-13T04:56:21.251126+00:00",
-        "latest_scan_age_sec": 21,
+        "latest_scan": "2026-09-13T10:01:57.736932+00:00",
+        "latest_scan_age_sec": 10,
         "log_tail": [
-            "{\"ts\": \"2026-09-13T04:51:38.664885+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.650000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6032, \"open\": 1, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:51:38.664885+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:52:10.042589+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.710000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6032, \"open\": 1, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:52:10.042589+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:52:41.346478+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.730000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6032, \"open\": 1, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:52:41.346478+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:53:12.693311+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.780000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6032, \"open\": 1, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:53:12.693311+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:53:44.059091+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.880000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6032, \"open\": 1, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:53:44.059091+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:54:15.462393+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 1, \"placed\": 1, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.980000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6033, \"open\": 2, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:54:15.462393+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:54:46.790857+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 1, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.990000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6033, \"open\": 2, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:54:46.790857+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:55:18.208978+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6031, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.530000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6033, \"open\": 2, \"wins\": 5901, \"win_rate\": 0.9784447023710827, \"pnl\": -188.9446, \"roi\": -0.003134, \"latest_scan\": \"2026-09-13T04:55:18.208978+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:55:49.784427+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6033, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.570000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6033, \"open\": 0, \"wins\": 5903, \"win_rate\": 0.9784518481684071, \"pnl\": -188.537097, \"roi\": -0.003126, \"latest_scan\": \"2026-09-13T04:55:49.784427+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-13T04:56:21.251126+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6033, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.750000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6033, \"open\": 0, \"wins\": 5903, \"win_rate\": 0.9784518481684071, \"pnl\": -188.537097, \"roi\": -0.003126, \"latest_scan\": \"2026-09-13T04:56:21.251126+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}"
+            "{\"ts\": \"2026-09-13T09:57:14.623197+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.510000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T09:57:14.623197+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T09:57:46.143976+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.490000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T09:57:46.143976+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T09:58:17.567290+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.510000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T09:58:17.567290+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T09:58:48.995660+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.510000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T09:58:48.995660+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T09:59:20.474385+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.520000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T09:59:20.474385+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T09:59:51.922518+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.690000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T09:59:51.922518+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T10:00:23.364875+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.550000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T10:00:23.364875+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T10:00:54.789646+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.750000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T10:00:54.789646+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T10:01:26.205691+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.770000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T10:01:26.205691+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-13T10:01:57.736932+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6057, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.830000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6057, \"open\": 0, \"wins\": 5927, \"win_rate\": 0.9785372296516427, \"pnl\": -184.289933, \"roi\": -0.003043, \"latest_scan\": \"2026-09-13T10:01:57.736932+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}"
         ],
         "open": 0,
         "pid": 77887,
-        "pnl": -188.537097,
-        "roi": -0.003126,
+        "pnl": -184.289933,
+        "roi": -0.003043,
         "running": true,
-        "settled": 6033,
+        "settled": 6057,
         "stale": false,
-        "trades": 6033,
-        "win_rate": 0.9784518481684071,
-        "wins": 5903
+        "trades": 6057,
+        "win_rate": 0.9785372296516427,
+        "wins": 5927
     },
     "high_prob": {
         "eligible_markets": 0,
@@ -19256,7 +19256,7 @@
         "win_rate": 0.0
     },
     "last_btc": 0.0,
-    "latest_scan": "2026-09-13T04:56:21.251126+00:00",
+    "latest_scan": "2026-09-13T10:01:57.736932+00:00",
     "live_decision": {
         "detail": "Current data does not show repeatable executable arbitrage. Keep this as diagnostics, not a trading system.",
         "metrics": [
@@ -19290,7 +19290,7 @@
             ],
             [
                 "Latest Age",
-                "5032256s"
+                "5050582s"
             ]
         ],
         "next_actions": [
@@ -20020,7 +20020,7 @@
             "status": "NO_EDGE_FOUND",
             "summary": "No positive or near-miss class in latest scan; positives=0."
         },
-        "generated_at": "2026-09-13T04:17:02.045640+00:00",
+        "generated_at": "2026-09-13T08:17:01.190133+00:00",
         "near_miss": [],
         "positive_counts": {
             "basket": 0,
@@ -20105,20 +20105,20 @@
             "trades": 0
         },
         {
-            "age": "21s",
+            "age": "10s",
             "name": "High-Favorite Current",
             "open": 0,
-            "pnl": -188.537097,
+            "pnl": -184.289933,
             "read": "Current live-like paper evidence; not a live candidate until settled sample is large.",
-            "roi": -0.003126,
+            "roi": -0.003043,
             "running": true,
             "stale": false,
             "status": "RUNNING",
             "subtitle": "BTC 5m UP ask >= 0.97 paper collector",
-            "trades": 6033
+            "trades": 6057
         },
         {
-            "age": "6219407s",
+            "age": "6237733s",
             "name": "Arb Scanner",
             "open": 0,
             "pnl": 0.0,
@@ -20131,7 +20131,7 @@
             "trades": 0
         },
         {
-            "age": "5032256s",
+            "age": "5050582s",
             "name": "Arb Paper Exec",
             "open": 0,
             "pnl": 0.3272,
@@ -20144,7 +20144,7 @@
             "trades": 1
         },
         {
-            "age": "1849619s",
+            "age": "1867945s",
             "name": "Arb Execution Lab",
             "open": 4,
             "pnl": 2.658957,
@@ -20157,7 +20157,7 @@
             "trades": 6
         },
         {
-            "age": "71s",
+            "age": "78s",
             "name": "Sports Relation Lab",
             "open": 0,
             "pnl": 0.0,
@@ -20170,7 +20170,7 @@
             "trades": 1
         },
         {
-            "age": "334s",
+            "age": "57s",
             "name": "Kalshi Mapping Lab",
             "open": 0,
             "pnl": 0.0,
@@ -20270,17 +20270,17 @@
         "best_roi": 0.0,
         "error_count": 0,
         "expected_interval_sec": 300,
-        "latest_scan": "2026-09-13T04:55:33.936317+00:00",
-        "latest_scan_age_sec": 71,
+        "latest_scan": "2026-09-13T10:00:52.130700+00:00",
+        "latest_scan_age_sec": 78,
         "log_tail": [
-            "{\"best_pnl_usd\": -1.311805, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:20:31.970462+00:00\"}",
-            "{\"best_pnl_usd\": -1.311805, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:25:32.224703+00:00\"}",
-            "{\"best_pnl_usd\": -1.311805, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:30:32.484269+00:00\"}",
-            "{\"best_pnl_usd\": -1.2631, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:35:32.787391+00:00\"}",
-            "{\"best_pnl_usd\": -1.2631, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:40:33.077225+00:00\"}",
-            "{\"best_pnl_usd\": -1.2631, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:45:33.394415+00:00\"}",
-            "{\"best_pnl_usd\": -1.2631, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:50:33.667692+00:00\"}",
-            "{\"best_pnl_usd\": -1.2631, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T04:55:33.936317+00:00\"}"
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:25:49.947529+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:30:50.250431+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:35:50.544479+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:40:50.860306+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:45:51.181250+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:50:51.467989+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T09:55:51.801597+00:00\"}",
+            "{\"best_pnl_usd\": -1.314325, \"positive\": 0, \"priced\": 1, \"status\": \"ok\", \"ts\": \"2026-09-13T10:00:52.130700+00:00\"}"
         ],
         "positive": 0,
         "priced": 1,
@@ -20657,18 +20657,18 @@
             "runner:Arb Scanner"
         ],
         "log_tail": [
-            "{\"ts\": \"2026-09-13T03:57:05.446479+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:02:05.455009+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:07:05.467148+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:12:05.476330+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:17:05.484920+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:22:06.351392+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:27:06.360001+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:32:06.368514+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:37:06.379200+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:42:06.387682+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:47:06.396601+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-13T04:52:07.260178+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}"
+            "{\"ts\": \"2026-09-13T09:02:29.823997+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:07:29.833378+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:12:29.841533+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:17:29.850245+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:22:30.717226+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:27:30.726102+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:32:30.734348+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:37:30.742807+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:42:30.753686+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:47:30.765129+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:52:31.721452+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-13T09:57:31.730553+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}"
         ],
         "running": true,
         "seen_research_count": 0,
