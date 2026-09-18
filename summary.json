@@ -4815,7 +4815,7 @@
         "latency_p50_ms": 191,
         "latency_p95_ms": 230,
         "latest_scan": "2026-07-16T23:05:47.347829+00:00",
-        "latest_scan_age_sec": 5451460,
+        "latest_scan_age_sec": 5468616,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -10707,7 +10707,7 @@
         "latency_p50_ms": 178,
         "latency_p95_ms": 220,
         "latest_scan": "2026-07-03T05:19:55.774856+00:00",
-        "latest_scan_age_sec": 6638611,
+        "latest_scan_age_sec": 6655767,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -16448,7 +16448,7 @@
         "latency_p50_ms": 206,
         "latency_p95_ms": 267,
         "latest_scan": "2026-08-22T19:09:45.685748+00:00",
-        "latest_scan_age_sec": 2268823,
+        "latest_scan_age_sec": 2285979,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -18196,7 +18196,7 @@
         "expected_interval_sec": 30,
         "fillable": 4552,
         "latest_scan": "2026-07-08T05:08:06.131453+00:00",
-        "latest_scan_age_sec": 6207323,
+        "latest_scan_age_sec": 6224479,
         "latest_theoretical_pnl_usd": -0.013032,
         "latest_theoretical_roi": -0.0026,
         "latest_yes_no_cost": 1.002606,
@@ -18577,6 +18577,48 @@
                 "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
                 "status": "completed",
                 "title": "Refresh research orchestrator after executor actions",
+                "ts": "2026-09-18T04:17:01.276563+00:00",
+                "type": "orchestrator_refresh"
+            },
+            {
+                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
+                "ts": "2026-09-18T04:17:01.276563+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
+                "ts": "2026-09-18T04:17:01.276563+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
+                "status": "completed",
+                "title": "Refresh research orchestrator after executor actions",
+                "ts": "2026-09-18T02:17:02.016681+00:00",
+                "type": "orchestrator_refresh"
+            },
+            {
+                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
+                "ts": "2026-09-18T02:17:02.016681+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
+                "ts": "2026-09-18T02:17:02.016681+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
+                "status": "completed",
+                "title": "Refresh research orchestrator after executor actions",
                 "ts": "2026-09-18T00:17:01.427093+00:00",
                 "type": "orchestrator_refresh"
             },
@@ -18669,59 +18711,17 @@
                 "status": "completed",
                 "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
                 "ts": "2026-09-17T16:17:01.469343+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
-                "ts": "2026-09-17T16:17:01.469343+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
-                "status": "completed",
-                "title": "Refresh research orchestrator after executor actions",
-                "ts": "2026-09-17T14:17:01.701356+00:00",
-                "type": "orchestrator_refresh"
-            },
-            {
-                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
-                "ts": "2026-09-17T14:17:01.701356+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
-                "ts": "2026-09-17T14:17:01.701356+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
-                "status": "completed",
-                "title": "Refresh research orchestrator after executor actions",
-                "ts": "2026-09-17T12:17:01.982888+00:00",
-                "type": "orchestrator_refresh"
-            },
-            {
-                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
-                "ts": "2026-09-17T12:17:01.982888+00:00",
                 "type": "data_requirement"
             }
         ],
-        "executor_latest_ts": "2026-09-18T00:17:01.427093+00:00",
+        "executor_latest_ts": "2026-09-18T04:17:01.276563+00:00",
         "executor_summary": "3 actions executed from 6 seen.",
         "pipeline": [
             {
                 "detail": "Public strategy discovery and deterministic validators.",
                 "id": "discover",
                 "label": "Discover",
-                "metric": "last run 2026-09-18T00:17:01.429296+00:00",
+                "metric": "last run 2026-09-18T04:17:01.278930+00:00",
                 "status": "OK"
             },
             {
@@ -18817,10 +18817,10 @@
             "cron": "17 */2 * * *",
             "executor": "GitHub Actions: Polybot Research",
             "explanation": "Scheduled automation processes safe research tasks only. It does not start live trading, use private keys, or control real-money runners.",
-            "latest_executor_age_sec": 3998,
+            "latest_executor_age_sec": 6754,
             "max_actions_per_run": 2,
-            "next_run_beijing": "2026-09-18 10:17 CST",
-            "next_run_utc": "2026-09-18T02:17:00+00:00",
+            "next_run_beijing": "2026-09-18 14:17 CST",
+            "next_run_utc": "2026-09-18T06:17:00+00:00",
             "queue_behavior": "Rolling backlog; each run handles a bounded batch and then refreshes discovery, so pending items can remain.",
             "workflow": ".github/workflows/research.yml"
         }
@@ -18860,24 +18860,24 @@
     ],
     "cross_market_runner": {
         "best_spread_cents": 0.0,
-        "error_count": 0,
+        "error_count": 3,
         "expected_interval_sec": 600,
         "high_confidence": 0,
-        "last_reason": "missing_kalshi_input",
-        "latest_scan": "2026-09-18T01:22:00.512681+00:00",
-        "latest_scan_age_sec": 89,
+        "last_reason": "GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=500&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>",
+        "latest_scan": "2026-09-18T03:22:48.355192+00:00",
+        "latest_scan_age_sec": 9997,
         "log_tail": [
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T00:12:00.093455+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T00:22:00.151860+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T00:32:00.219576+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T00:42:00.282700+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T00:52:00.339917+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T01:02:00.394290+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T01:12:00.454302+00:00\"}",
-            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T01:22:00.512681+00:00\"}"
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:12:00.825432+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:22:00.882371+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:32:00.940958+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:42:01.002973+00:00\"}",
+            "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:52:01.064366+00:00\"}",
+            "{\"ts\": \"2026-09-18T03:02:13.271396+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=500&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:12:31.175099+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=500&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:22:48.355192+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=500&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}"
         ],
         "pairs": 0,
-        "running": true,
+        "running": false,
         "stale": false
     },
     "current_era": {
@@ -19126,30 +19126,30 @@
     ],
     "fees": 0,
     "high_favorite_runner": {
-        "latest_scan": "2026-09-18T01:23:14.505062+00:00",
-        "latest_scan_age_sec": 12,
+        "latest_scan": "2026-09-18T03:31:40.347477+00:00",
+        "latest_scan_age_sec": 9462,
         "log_tail": [
-            "{\"ts\": \"2026-09-18T01:18:31.644344+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.520000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:18:31.644344+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:19:03.049950+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.520000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:19:03.049950+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:19:34.512505+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.540000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:19:34.512505+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:20:05.902354+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.660000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:20:05.902354+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:20:37.377902+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.870000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:20:37.377902+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:21:08.758549+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.940000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:21:08.758549+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:21:40.178703+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.880000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:21:40.178703+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:22:11.574089+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.820000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:22:11.574089+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:22:43.137154+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.760000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:22:43.137154+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}",
-            "{\"ts\": \"2026-09-18T01:23:14.505062+00:00\", \"markets\": 2, \"eligible\": 2, \"candidates\": 0, \"placed\": 0, \"settled\": 6472, \"threshold\": \"0.970000\", \"best_up_ask\": \"0.910000\", \"errors\": \"\", \"running\": true, \"pid\": 77887, \"trades\": 6472, \"open\": 0, \"wins\": 6335, \"win_rate\": 0.978831891223733, \"pnl\": -175.51973, \"roi\": -0.002713, \"latest_scan\": \"2026-09-18T01:23:14.505062+00:00\", \"latest_scan_age_sec\": 1, \"stale\": false, \"status\": \"ok\"}"
+            "{\"ts\": \"2026-09-18T03:21:00.414349+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701300 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:21:00.414349+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:22:11.521034+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701300 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:22:11.521034+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:23:22.648699+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701300 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:23:22.648699+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:24:33.702305+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701300 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:24:33.702305+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:25:44.787228+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701600 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:25:44.787228+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:26:55.897759+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701600 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:26:55.897759+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:28:06.973433+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701600 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:28:06.973433+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:29:18.058165+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701600 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:29:18.058165+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:30:29.263524+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701900 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:30:29.263524+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
+            "{\"ts\": \"2026-09-18T03:31:40.347477+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701900 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:31:40.347477+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}"
         ],
-        "open": 0,
+        "open": 1,
         "pid": 77887,
-        "pnl": -175.51973,
-        "roi": -0.002713,
-        "running": true,
-        "settled": 6472,
-        "stale": false,
-        "trades": 6472,
-        "win_rate": 0.978831891223733,
-        "wins": 6335
+        "pnl": -183.987416,
+        "roi": -0.00284,
+        "running": false,
+        "settled": 6479,
+        "stale": true,
+        "trades": 6480,
+        "win_rate": 0.978700416730977,
+        "wins": 6341
     },
     "high_prob": {
         "eligible_markets": 0,
@@ -19256,7 +19256,7 @@
         "win_rate": 0.0
     },
     "last_btc": 0.0,
-    "latest_scan": "2026-09-18T01:23:14.505062+00:00",
+    "latest_scan": "2026-09-18T03:31:40.347477+00:00",
     "live_decision": {
         "detail": "Current data does not show repeatable executable arbitrage. Keep this as diagnostics, not a trading system.",
         "metrics": [
@@ -19290,7 +19290,7 @@
             ],
             [
                 "Latest Age",
-                "5451460s"
+                "5468616s"
             ]
         ],
         "next_actions": [
@@ -20020,7 +20020,7 @@
             "status": "NO_EDGE_FOUND",
             "summary": "No positive or near-miss class in latest scan; positives=0."
         },
-        "generated_at": "2026-09-18T00:17:01.429296+00:00",
+        "generated_at": "2026-09-18T04:17:01.278930+00:00",
         "near_miss": [],
         "positive_counts": {
             "basket": 0,
@@ -20105,20 +20105,20 @@
             "trades": 0
         },
         {
-            "age": "12s",
+            "age": "9462s",
             "name": "High-Favorite Current",
-            "open": 0,
-            "pnl": -175.51973,
+            "open": 1,
+            "pnl": -183.987416,
             "read": "Current live-like paper evidence; not a live candidate until settled sample is large.",
-            "roi": -0.002713,
-            "running": true,
-            "stale": false,
-            "status": "RUNNING",
+            "roi": -0.00284,
+            "running": false,
+            "stale": true,
+            "status": "STOPPED",
             "subtitle": "BTC 5m UP ask >= 0.97 paper collector",
-            "trades": 6472
+            "trades": 6479
         },
         {
-            "age": "6638611s",
+            "age": "6655767s",
             "name": "Arb Scanner",
             "open": 0,
             "pnl": 0.0,
@@ -20131,7 +20131,7 @@
             "trades": 0
         },
         {
-            "age": "5451460s",
+            "age": "5468616s",
             "name": "Arb Paper Exec",
             "open": 0,
             "pnl": 0.3272,
@@ -20144,7 +20144,7 @@
             "trades": 1
         },
         {
-            "age": "2268823s",
+            "age": "2285979s",
             "name": "Arb Execution Lab",
             "open": 4,
             "pnl": 2.658957,
@@ -20157,28 +20157,28 @@
             "trades": 6
         },
         {
-            "age": "83s",
+            "age": "9564s",
             "name": "Sports Relation Lab",
             "open": 0,
             "pnl": 0.0,
-            "read": "Positive 0; priced 12",
+            "read": "Positive 0; priced 35",
             "roi": 0.0,
-            "running": true,
+            "running": false,
             "stale": false,
-            "status": "RUNNING",
+            "status": "STOPPED",
             "subtitle": "sports ladder / 3-way payoff-floor validator",
-            "trades": 12
+            "trades": 35
         },
         {
-            "age": "89s",
+            "age": "9997s",
             "name": "Kalshi Mapping Lab",
             "open": 0,
             "pnl": 0.0,
-            "read": "High mappings 0; missing_kalshi_input",
+            "read": "High mappings 0; GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=500&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>",
             "roi": 0.0,
-            "running": true,
+            "running": false,
             "stale": false,
-            "status": "RUNNING",
+            "status": "STOPPED",
             "subtitle": "Kalshi / Polymarket pair mapper",
             "trades": 0
         },
@@ -20189,9 +20189,9 @@
             "pnl": 0.0,
             "read": "Configured",
             "roi": 0.0,
-            "running": true,
+            "running": false,
             "stale": false,
-            "status": "RUNNING",
+            "status": "STOPPED",
             "subtitle": "5m alert monitor with 30m cooldown",
             "trades": 0
         }
@@ -20268,23 +20268,23 @@
     "sports_relation_runner": {
         "best_pnl_usd": 0.0,
         "best_roi": 0.0,
-        "error_count": 0,
+        "error_count": 7,
         "expected_interval_sec": 300,
-        "latest_scan": "2026-09-18T01:22:06.260764+00:00",
-        "latest_scan_age_sec": 83,
+        "latest_scan": "2026-09-18T03:30:00.843129+00:00",
+        "latest_scan_age_sec": 9564,
         "log_tail": [
-            "{\"best_pnl_usd\": -0.20766, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T00:46:54.859788+00:00\"}",
-            "{\"best_pnl_usd\": -0.1791, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T00:51:56.474404+00:00\"}",
-            "{\"best_pnl_usd\": -0.16293, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T00:56:58.251846+00:00\"}",
-            "{\"best_pnl_usd\": -0.16293, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T01:01:59.882201+00:00\"}",
-            "{\"best_pnl_usd\": -0.236625, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T01:07:01.588888+00:00\"}",
-            "{\"best_pnl_usd\": -0.215625, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T01:12:03.191838+00:00\"}",
-            "{\"best_pnl_usd\": -0.241525, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T01:17:04.647269+00:00\"}",
-            "{\"best_pnl_usd\": -0.215625, \"positive\": 0, \"priced\": 12, \"status\": \"ok\", \"ts\": \"2026-09-18T01:22:06.260764+00:00\"}"
+            "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 35, \"status\": \"ok\", \"ts\": \"2026-09-18T02:52:51.697707+00:00\"}",
+            "{\"ts\": \"2026-09-18T02:58:08.868014+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:03:28.750866+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:08:45.330312+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:14:05.341744+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:19:22.646387+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:24:42.007999+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:30:00.843129+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}"
         ],
         "positive": 0,
-        "priced": 12,
-        "running": true,
+        "priced": 35,
+        "running": false,
         "stale": false,
         "summary_rows": 5
     },
@@ -20657,20 +20657,20 @@
             "runner:Arb Scanner"
         ],
         "log_tail": [
-            "{\"ts\": \"2026-09-18T00:26:17.139610+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T00:31:17.149262+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T00:36:17.158672+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T00:41:17.173356+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T00:46:18.054339+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T00:51:18.064290+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T00:56:18.077072+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T01:01:18.087825+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T01:06:18.103211+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T01:11:18.111700+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T01:16:19.029258+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
-            "{\"ts\": \"2026-09-18T01:21:19.040255+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}"
+            "{\"ts\": \"2026-09-18T02:31:20.946894+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T02:36:20.955626+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T02:41:20.965133+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [\"runner:Arb Scanner\", \"runner:Arb Paper Exec\", \"runner:Arb Execution Lab\"], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T02:46:36.939764+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T02:51:36.948073+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T02:56:36.957552+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T03:01:36.966375+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T03:06:36.978220+00:00\", \"status\": \"ok\", \"alerts\": [{\"key\": \"runner:Arb Scanner\", \"severity\": \"critical\", \"title\": \"Arb Scanner not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Paper Exec\", \"severity\": \"critical\", \"title\": \"Arb Paper Exec not running\", \"detail\": \"status=STOPPED\"}, {\"key\": \"runner:Arb Execution Lab\", \"severity\": \"critical\", \"title\": \"Arb Execution Lab not running\", \"detail\": \"status=STOPPED\"}], \"sent\": [], \"telegram_configured\": true, \"dry_run\": false, \"seen_research_count\": 0}",
+            "{\"ts\": \"2026-09-18T03:11:57.006834+00:00\", \"status\": \"error\", \"error\": \"<urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:17:12.031045+00:00\", \"status\": \"error\", \"error\": \"<urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:22:28.553145+00:00\", \"status\": \"error\", \"error\": \"<urlopen error [Errno -3] Temporary failure in name resolution>\"}",
+            "{\"ts\": \"2026-09-18T03:27:45.922669+00:00\", \"status\": \"error\", \"error\": \"<urlopen error [Errno -3] Temporary failure in name resolution>\"}"
         ],
-        "running": true,
+        "running": false,
         "seen_research_count": 0,
         "telegram_configured": true
     },
