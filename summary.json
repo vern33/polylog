@@ -4815,7 +4815,7 @@
         "latency_p50_ms": 191,
         "latency_p95_ms": 230,
         "latest_scan": "2026-07-16T23:05:47.347829+00:00",
-        "latest_scan_age_sec": 5608212,
+        "latest_scan_age_sec": 5614216,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -10707,7 +10707,7 @@
         "latency_p50_ms": 178,
         "latency_p95_ms": 220,
         "latest_scan": "2026-07-03T05:19:55.774856+00:00",
-        "latest_scan_age_sec": 6795363,
+        "latest_scan_age_sec": 6801367,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -16448,7 +16448,7 @@
         "latency_p50_ms": 206,
         "latency_p95_ms": 267,
         "latest_scan": "2026-08-22T19:09:45.685748+00:00",
-        "latest_scan_age_sec": 2425575,
+        "latest_scan_age_sec": 2431579,
         "leg_risk": 0,
         "leg_risk_to_full_hedge": 0.0,
         "live_candidate": {
@@ -18196,7 +18196,7 @@
         "expected_interval_sec": 30,
         "fillable": 4552,
         "latest_scan": "2026-07-08T05:08:06.131453+00:00",
-        "latest_scan_age_sec": 6364075,
+        "latest_scan_age_sec": 6370079,
         "latest_theoretical_pnl_usd": -0.013032,
         "latest_theoretical_roi": -0.0026,
         "latest_yes_no_cost": 1.002606,
@@ -18577,6 +18577,27 @@
                 "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
                 "status": "completed",
                 "title": "Refresh research orchestrator after executor actions",
+                "ts": "2026-09-19T22:17:01.203030+00:00",
+                "type": "orchestrator_refresh"
+            },
+            {
+                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
+                "ts": "2026-09-19T22:17:01.203030+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
+                "status": "completed",
+                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
+                "ts": "2026-09-19T22:17:01.203030+00:00",
+                "type": "data_requirement"
+            },
+            {
+                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
+                "status": "completed",
+                "title": "Refresh research orchestrator after executor actions",
                 "ts": "2026-09-19T20:17:01.593583+00:00",
                 "type": "orchestrator_refresh"
             },
@@ -18690,38 +18711,17 @@
                 "status": "completed",
                 "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
                 "ts": "2026-09-19T10:17:01.622632+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Settlement manipulation validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect settlement-window spot-flow snapshots before manipulation validation",
-                "ts": "2026-09-19T10:17:01.622632+00:00",
-                "type": "data_requirement"
-            },
-            {
-                "output": "Refreshed discovery, core validators, decision report, and action queue with bounded executor budget.",
-                "status": "completed",
-                "title": "Refresh research orchestrator after executor actions",
-                "ts": "2026-09-19T08:17:02.105928+00:00",
-                "type": "orchestrator_refresh"
-            },
-            {
-                "output": "Sportsbook signal validation refreshed: input_status=missing_input, positive=0. Input schema/example refreshed.",
-                "status": "completed",
-                "title": "Collect sportsbook comparison snapshots for external-odds signal validation",
-                "ts": "2026-09-19T08:17:02.105928+00:00",
                 "type": "data_requirement"
             }
         ],
-        "executor_latest_ts": "2026-09-19T20:17:01.593583+00:00",
+        "executor_latest_ts": "2026-09-19T22:17:01.203030+00:00",
         "executor_summary": "3 actions executed from 6 seen.",
         "pipeline": [
             {
                 "detail": "Public strategy discovery and deterministic validators.",
                 "id": "discover",
                 "label": "Discover",
-                "metric": "last run 2026-09-19T20:17:01.595845+00:00",
+                "metric": "last run 2026-09-19T22:17:01.205163+00:00",
                 "status": "OK"
             },
             {
@@ -18817,10 +18817,10 @@
             "cron": "17 */2 * * *",
             "executor": "GitHub Actions: Polybot Research",
             "explanation": "Scheduled automation processes safe research tasks only. It does not start live trading, use private keys, or control real-money runners.",
-            "latest_executor_age_sec": 2350,
+            "latest_executor_age_sec": 1154,
             "max_actions_per_run": 2,
-            "next_run_beijing": "2026-09-20 06:17 CST",
-            "next_run_utc": "2026-09-19T22:17:00+00:00",
+            "next_run_beijing": "2026-09-20 08:17 CST",
+            "next_run_utc": "2026-09-20T00:17:00+00:00",
             "queue_behavior": "Rolling backlog; each run handles a bounded batch and then refreshes discovery, so pending items can remain.",
             "workflow": ".github/workflows/research.yml"
         }
@@ -18865,7 +18865,7 @@
         "high_confidence": 0,
         "last_reason": "GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=500&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>",
         "latest_scan": "2026-09-18T03:22:48.355192+00:00",
-        "latest_scan_age_sec": 149592,
+        "latest_scan_age_sec": 155597,
         "log_tail": [
             "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:12:00.825432+00:00\"}",
             "{\"best_spread_cents\": 0.0, \"high_confidence\": 0, \"pairs\": 0, \"reason\": \"missing_kalshi_input\", \"status\": \"ok\", \"ts\": \"2026-09-18T02:22:00.882371+00:00\"}",
@@ -19127,7 +19127,7 @@
     "fees": 0,
     "high_favorite_runner": {
         "latest_scan": "2026-09-18T03:31:40.347477+00:00",
-        "latest_scan_age_sec": 149058,
+        "latest_scan_age_sec": 155062,
         "log_tail": [
             "{\"ts\": \"2026-09-18T03:21:00.414349+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701300 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:21:00.414349+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
             "{\"ts\": \"2026-09-18T03:22:11.521034+00:00\", \"markets\": 0, \"eligible\": 0, \"candidates\": 0, \"placed\": 0, \"settled\": 6479, \"threshold\": \"0.970000\", \"best_up_ask\": \"\", \"errors\": \"markets_fetch_failed:GET https://gamma-api.polymarket.com/events?slug=btc-updown-5m-1789701300 failed: <urlopen error [Errno -3] Temporary failure in name resolution>\", \"running\": true, \"pid\": 77887, \"trades\": 6480, \"open\": 1, \"wins\": 6341, \"win_rate\": 0.978700416730977, \"pnl\": -183.987416, \"roi\": -0.00284, \"latest_scan\": \"2026-09-18T03:22:11.521034+00:00\", \"latest_scan_age_sec\": 41, \"stale\": false, \"status\": \"ok\"}",
@@ -19290,7 +19290,7 @@
             ],
             [
                 "Latest Age",
-                "5608212s"
+                "5614216s"
             ]
         ],
         "next_actions": [
@@ -20020,7 +20020,7 @@
             "status": "NO_EDGE_FOUND",
             "summary": "No positive or near-miss class in latest scan; positives=0."
         },
-        "generated_at": "2026-09-19T20:17:01.595845+00:00",
+        "generated_at": "2026-09-19T22:17:01.205163+00:00",
         "near_miss": [],
         "positive_counts": {
             "basket": 0,
@@ -20105,7 +20105,7 @@
             "trades": 0
         },
         {
-            "age": "149058s",
+            "age": "155062s",
             "name": "High-Favorite Current",
             "open": 1,
             "pnl": -183.987416,
@@ -20118,7 +20118,7 @@
             "trades": 6479
         },
         {
-            "age": "6795363s",
+            "age": "6801367s",
             "name": "Arb Scanner",
             "open": 0,
             "pnl": 0.0,
@@ -20131,7 +20131,7 @@
             "trades": 0
         },
         {
-            "age": "5608212s",
+            "age": "5614216s",
             "name": "Arb Paper Exec",
             "open": 0,
             "pnl": 0.3272,
@@ -20144,7 +20144,7 @@
             "trades": 1
         },
         {
-            "age": "2425575s",
+            "age": "2431579s",
             "name": "Arb Execution Lab",
             "open": 4,
             "pnl": 2.658957,
@@ -20157,7 +20157,7 @@
             "trades": 6
         },
         {
-            "age": "149160s",
+            "age": "155164s",
             "name": "Sports Relation Lab",
             "open": 0,
             "pnl": 0.0,
@@ -20170,7 +20170,7 @@
             "trades": 35
         },
         {
-            "age": "149592s",
+            "age": "155597s",
             "name": "Kalshi Mapping Lab",
             "open": 0,
             "pnl": 0.0,
@@ -20271,7 +20271,7 @@
         "error_count": 7,
         "expected_interval_sec": 300,
         "latest_scan": "2026-09-18T03:30:00.843129+00:00",
-        "latest_scan_age_sec": 149160,
+        "latest_scan_age_sec": 155164,
         "log_tail": [
             "{\"best_pnl_usd\": 0.0, \"positive\": 0, \"priced\": 35, \"status\": \"ok\", \"ts\": \"2026-09-18T02:52:51.697707+00:00\"}",
             "{\"ts\": \"2026-09-18T02:58:08.868014+00:00\", \"status\": \"error\", \"error\": \"GET https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1000&order=volume24hr&ascending=false failed: <urlopen error [Errno -3] Temporary failure in name resolution>\"}",
